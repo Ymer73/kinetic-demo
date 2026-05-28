@@ -10,7 +10,8 @@
   "rewrites": [
     { "source": "/sport/:slug([^.]+)", "destination": "/sport.html?s=:slug" },
     { "source": "/federation/:slug([^.]+)", "destination": "/federation.html?f=:slug" },
-    { "source": "/club/:dep([0-9A-Za-z]+)/:id([a-zA-Z0-9_-]+)", "destination": "/club?id=:id&dep=:dep" }
+    { "source": "/club/:dep([0-9A-Za-z]+)/:id([a-zA-Z0-9_-]+)", "destination": "/club?id=:id&dep=:dep" },
+    { "source": "/tiles/:z/:x/:y", "destination": "https://tile.openstreetmap.org/:z/:x/:y.png" }
   ],
   "headers": [
     {

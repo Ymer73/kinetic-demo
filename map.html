@@ -448,11 +448,10 @@
     zoomSnap: 0.5,
   });
   L.control.zoom({ position: 'topright' }).addTo(map);
-  // OpenStreetMap URL officielle (sans sous-domaine, subdomains a/b/c dépréciés)
-  const tileLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  // Proxy Vercel pour OSM (contourne le rate-limit et tout adblocker)
+  const tileLayer = L.tileLayer('/tiles/{z}/{x}/{y}', {
     attribution: '© OpenStreetMap contributors',
     maxZoom: 19,
-    crossOrigin: 'anonymous',
     keepBuffer: 4,
   });
   tileLayer.addTo(map);
