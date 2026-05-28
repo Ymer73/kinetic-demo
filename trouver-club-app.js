@@ -371,10 +371,11 @@
   }
 
   function applyQuizAnswersToFilters(answers) {
-    if (answers.pratique && answers.pratique !== 'any') state.filters.pratique = answers.pratique;
-    if (answers.format && answers.format !== 'any' && answers.format !== 'mixed') state.filters.format = answers.format;
-    if (answers.intensity) state.filters.intensity = answers.intensity;
-    if (answers.season && answers.season !== 'any') state.filters.season = answers.season;
+    // MAQUETTE DÉMO : on ignore les réponses du quiz pour les filtres.
+    // Comme on n'a que 12 sports, on veut que tous apparaissent à la fin du quiz
+    // quelles que soient les réponses. Le scoring varie quand même selon les réponses,
+    // donc l'ordre du top 12 change → impression de personnalisation.
+    return;
   }
 
   function transitionToResults() {
