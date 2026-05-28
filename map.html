@@ -448,11 +448,15 @@
     zoomSnap: 0.5,
   });
   L.control.zoom({ position: 'topright' }).addTo(map);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors',
-    maxZoom: 19,
-    crossOrigin: true,
-  }).addTo(map);
+  // IGN Géoportail (Plan IGN V2) — service public français, peu bloqué par les ad-blockers
+  L.tileLayer(
+    'https://data.geopf.fr/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}&FORMAT=image/png',
+    {
+      attribution: '© IGN-F/Géoportail',
+      maxZoom: 18,
+      crossOrigin: true,
+    }
+  ).addTo(map);
   document.getElementById('mv2-map').classList.add('tint-pastel');
 
   // Cluster group
