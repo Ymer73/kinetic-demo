@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boulingrin / Boules gazon — Fiche sport Individuel | Kinetic</title>
+<meta id="meta-desc" name="description" content="Découvrez Boulingrin / Boules gazon : Boules sur herbe Individuel sur Kinetic.">
+<link id="meta-canonical" rel="canonical" href="https://kinetic.app/sport/boulingrin-boules-gazon">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kinetic">
+<meta property="og:locale" content="fr_FR">
+<meta id="og-title" property="og:title" content="Boulingrin / Boules gazon — Fiche sport Individuel | Kinetic">
+<meta id="og-desc" property="og:description" content="Découvrez Boulingrin / Boules gazon : Boules sur herbe Individuel sur Kinetic.">
+<meta id="og-url" property="og:url" content="https://kinetic.app/sport/boulingrin-boules-gazon">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta id="tw-title" name="twitter:title" content="Boulingrin / Boules gazon — Fiche sport Individuel | Kinetic">
+<meta id="tw-desc" name="twitter:description" content="Découvrez Boulingrin / Boules gazon : Boules sur herbe Individuel sur Kinetic.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="enhance-2026.css">
+<link rel="stylesheet" href="/sport.css">
+<!-- Apple PWA -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kinetic">
+<meta name="mobile-web-app-capable" content="yes">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Sport","name":"Boulingrin / Boules gazon","url":"https://kinetic.app/sport/boulingrin-boules-gazon","description":"Découvrez Boulingrin / Boules gazon : Boules sur herbe Individuel sur Kinetic.","sport":"Individuel","memberOf":{"@type":"SportsOrganization","name":"Fédération Française de Boules","url":"https://www.ffpjp.fr"}}</script>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="../demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<div class="sp-blobs" aria-hidden="true">
+  <div class="blob blob-orange b1"></div>
+  <div class="blob blob-violet b2"></div>
+</div>
+
+<main id="main-content" class="sp-wrap">
+  <div class="sp-inner" id="sport-content"></div>
+</main>
+
+<script src="components/footer.js" defer></script>
+<script src="components/cookie-banner.js" defer></script>
+
+<script src="data.js?v=2"></script>
+<script src="sport-photos.js?v=2"></script>
+<script src="fed-photos.js"></script>
+<script src="icons.js"></script>
+<script src="disciplines.js"></script>
+<script src="utils.js"></script>
+<script src="dept-geo.js"></script>
+<script src="sport-content.js?v=1"></script>
+<!-- breadcrumb désactivé -->
+<script>
+const params = new URLSearchParams(window.location.search);
+let rawId = params.get('id') || params.get('s') || params.get('disc');
+// Friendly URL (audit 2026-05-28) : /sport/{slug} (rewrite Vercel transparent)
+if (!rawId) {
+  const m = window.location.pathname.match(/^\/sport\/([^\/?#]+)/);
+  if (m) rawId = decodeURIComponent(m[1]);
+}
+
+// Résolution flexible : on accepte un ID numérique OU un slug de discipline.
+// Si c'est un slug, on retrouve le premier sport DATA correspondant via DISCIPLINES.sport_ids
+let foundSport = null;
+if (rawId) {
+  const asInt = parseInt(rawId, 10);
+  if (!isNaN(asInt) && asInt > 0) {
+    foundSport = getSportById(asInt);
+  }
+  if (!foundSport && typeof DISCIPLINES !== 'undefined') {
+    // Slug : remonter à un sport_id via DISCIPLINES (slug → sport_ids[0])
+    const disc = DISCIPLINES[rawId];
+    if (disc && Array.isArray(disc.sport_ids) && disc.sport_ids.length) {
+      foundSport = getSportById(disc.sport_ids[0]);
+    }
+    // Fallback : chercher dans SPORTS un sport dont le nom matche le slug
+    if (!foundSport && typeof SPORTS !== 'undefined') {
+      const normalized = rawId.toLowerCase().replace(/[^a-z0-9]/g, '');
+      foundSport = SPORTS.find(s =>
+        (s.nom || '').toLowerCase().replace(/[^a-z0-9]/g, '') === normalized
+      );
+    }
+  }
+}
+
+// Si l'ID est invalide ou absent, rediriger vers une page d'erreur lisible plutôt que tomber silencieusement sur Football
+if (!foundSport) {
+  document.documentElement.innerHTML = `<head><meta charset="UTF-8"><title>Sport introuvable | Kinetic</title><link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="enhance-2026.css"><!-- Apple PWA -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kinetic">
+<meta name="mobile-web-app-capable" content="yes">
+</head><body><script src="components/nav.js"><\/script><main style="max-width:600px;margin:80px auto;padding:40px;text-align:center"><h1 style="font-family:'Bebas Neue',sans-serif;font-size:48px;margin-bottom:16px">Sport introuvable</h1><p style="color:var(--gray);margin-bottom:24px">Cet ID de sport n'existe pas dans notre base.</p><a href="explorer.html" class="btn btn-primary">Explorer les sports</a> <a href="trouver-club.html" class="btn btn-glass" style="margin-left:8px">Trouver mon sport</a></main><script src="enhance-2026.js" defer><\/script>
+</body>`;
+  throw new Error('Sport ID invalide: ' + rawId);
+}
+const sport = foundSport;
+
+// Update dynamic SEO meta tags
+(function() {
+  const name = sport.nom;
+  const cat = sport.cat;
+  const pageDesc = `Découvrez ${name} : disciplines, clubs en France, fédération et conseils pratiques. ${cat} — Kinetic vous recommande le sport qui vous correspond.`;
+  const pageTitle = `${name} — Fiche sport ${cat} | Kinetic`;
+  // Friendly URL (audit 2026-05-28) : /sport/{slug-fr} via rewrite Vercel
+  // Slug genere depuis le nom pour avoir des mots-cles dans l'URL (SEO).
+  const _sportSlug = (sport.slug || sport.nom || String(sport.id))
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  const pageUrl = `https://kinetic.app/sport/${encodeURIComponent(_sportSlug)}`;
+  document.title = pageTitle;
+  document.getElementById('meta-desc')?.setAttribute('content', pageDesc);
+  document.getElementById('meta-canonical')?.setAttribute('href', pageUrl);
+  document.getElementById('og-title')?.setAttribute('content', pageTitle);
+  document.getElementById('og-desc')?.setAttribute('content', pageDesc);
+  document.getElementById('og-url')?.setAttribute('content', pageUrl);
+  document.getElementById('tw-title')?.setAttribute('content', pageTitle);
+  document.getElementById('tw-desc')?.setAttribute('content', pageDesc);
+
+  // JSON-LD
+  const ld = document.createElement('script');
+  ld.type = 'application/ld+json';
+  ld.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'SportsOrganization',
+    'name': name,
+    'description': pageDesc,
+    'url': pageUrl,
+    'sport': name,
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Kinetic', 'item': 'https://kinetic.app/' },
+        { '@type': 'ListItem', 'position': 2, 'name': cat, 'item': `https://kinetic.app/?cat=${encodeURIComponent(cat)}` },
+        { '@type': 'ListItem', 'position': 3, 'name': name }
+      ]
+    }
+  });
+  document.head.appendChild(ld);
+})();
+
+let userCompat = null;
+try {
+  const data = JSON.parse(sessionStorage.getItem('kinetic_results'));
+  if (data && data.answers) {
+    const scorer = scoreV2;
+    const ranked = scorer(data.answers, data.seedSport);
+    const found = ranked.find(s => s.id === sport.id);
+    if (found) userCompat = found.compat;
+  }
+} catch(e){}
+
+const meta = sport.meta || {};
+function fmtNum(n) {
+  if (n === undefined || n === null || n === '' || isNaN(+n)) return '—';
+  const v = +n;
+  if (v >= 1000000) return (v/1000000).toFixed(1).replace(/\.0$/,'') + 'M';
+  if (v >= 10000)   return Math.round(v/1000) + 'k';
+  if (v >= 1000)    return (v/1000).toFixed(1).replace(/\.0$/,'') + 'k';
+  return String(v);
+}
+function fmtUrl(u) {
+  if (!u) return null;
+  return u.startsWith('http') ? u : ('https://' + u);
+}
+
+const dims = [
+  { idx: 0, label: 'Contact' }, { idx: 1, label: 'Outdoor' },
+  { idx: 2, label: 'Intensité' }, { idx: 5, label: 'Compétition' },
+  { idx: 10, label: 'Endurance' }, { idx: 7, label: 'Force' },
+  { idx: 4, label: 'Collectif' }, { idx: 25, label: 'Technique' }
+];
+
+const licencies = [
+  { label: 'Licenciés 2023', val: meta.licencies2023 ? fmtNum(meta.licencies2023) : '—' },
+  { label: 'Clubs en France', val: meta.clubs ? fmtNum(meta.clubs) : '—' },
+  { label: 'Prix licence', val: meta.licenceMoyenne ? '~' + meta.licenceMoyenne + '€' : '—' },
+  { label: 'Âge minimum', val: meta.ageMin ? meta.ageMin + ' ans' : 'Tous niveaux' }
+];
+
+// Renomme depuis DISCIPLINES pour eviter conflit avec disciplines.js (Fix 7 audit 2026-05-03)
+const sportIconName = (SPORT_ICON[sport.nom] || CAT_ICON[sport.cat] || 'spark');
+
+// Fallback générique si pas de formats trouvés via federations-data
+const FALLBACK_DISCIPLINES = [
+  {icon: sportIconName, name: 'Initiation', tag: 'DÉBUTANT'},
+  {icon: 'trophy', name: 'Compétition', tag: 'NIVEAU'},
+  {icon: 'flame', name: 'Perfect.', tag: 'TECHNIQUE'},
+  {icon: 'spark', name: 'Loisir', tag: 'LIBRE'}
+];
+let disciplines = FALLBACK_DISCIPLINES;
+
+// Charge les vrais formats depuis federations-data.json
+async function loadRealFormats() {
+  try {
+    const res = await fetch('federations-data.json');
+    const feds = await res.json();
+    const formats = [];
+    const seen = new Set();
+    feds.forEach(f => {
+      (f.sports_officiel || []).forEach(o => {
+        if (o.sport_id === sport.id) {
+          const label = (o.label || '').trim();
+          if (!label || seen.has(label)) return;
+          seen.add(label);
+          formats.push({ label, fed: f.acronyme, fedSlug: f.slug });
+        }
+      });
+    });
+
+    if (formats.length < 2) return; // pas assez de variantes, on garde le fallback
+
+    // Mapper en cards avec icônes/tags selon le contenu du label
+    const labeled = formats.map(f => {
+      const lower = f.label.toLowerCase();
+      let icon = sportIconName, tag = '';
+      if (lower.includes('féminin') || lower.includes('feminin')) { icon = 'spark'; tag = 'FÉMININ'; }
+      else if (lower.includes('jeunes') || lower.includes('école') || lower.includes('mini')) { icon = 'spark'; tag = 'JEUNES'; }
+      else if (lower.includes('loisir') || lower.includes('détente') || lower.includes('santé')) { icon = 'spark'; tag = 'LOISIR'; }
+      else if (lower.includes('compét') || lower.includes('compet')) { icon = 'trophy'; tag = 'COMPÉT'; }
+      else if (lower.includes('handi') || lower.includes('adapté')) { icon = 'spark'; tag = 'HANDI'; }
+      else if (lower.includes('beach') || lower.includes('plage')) { icon = 'spark'; tag = 'PLAGE'; }
+      else if (lower.match(/à\s*\d+/)) { icon = sportIconName; tag = f.label.match(/à\s*\d+/)[0].toUpperCase(); }
+      else { icon = sportIconName; tag = f.fed; }
+      return { icon, name: f.label, tag, fed: f.fed };
+    });
+
+    // Récupérer le dept de l'utilisateur si dispo
+    let userDept = null;
+    try {
+      const v2 = JSON.parse(sessionStorage.getItem('kinetic_v2_results'));
+      if (v2 && v2.dept) userDept = v2.dept;
+    } catch(e){}
+
+    // Si on a un dept, compter par pratique pour FFF, ou par disc pour les autres
+    let deptCount = null;
+    if (userDept) {
+      try {
+        const dres = await fetch(`clubs/dept-${userDept}.json`);
+        if (dres.ok) {
+          const dd = await dres.json();
+          const clubs = Array.isArray(dd) ? dd : (dd.clubs || []);
+          deptCount = {};
+          for (const c of clubs) {
+            if (!c.sport_ids?.includes(sport.id)) continue;
+            // Pour FFF on a c.pratiques avec libellés
+            if (Array.isArray(c.pratiques) && c.pratiques.length) {
+              c.pratiques.forEach(p => {
+                const key = (p.label || p.nom || p).toString().trim();
+                if (key) deptCount[key] = (deptCount[key] || 0) + 1;
+              });
+            } else {
+              // Sinon on incrémente le compte général "Pratique standard"
+              deptCount['_total'] = (deptCount['_total'] || 0) + 1;
+            }
+          }
+        }
+      } catch(e){}
+    }
+
+    // Renderer le bloc
+    const grid = document.querySelector('.disc-grid');
+    if (!grid) return;
+    grid.innerHTML = labeled.map(d => {
+      let countStr = '';
+      if (deptCount) {
+        // Match approximatif sur le label
+        let match = 0;
+        Object.entries(deptCount).forEach(([k, v]) => {
+          if (k === '_total') return;
+          if (k.toLowerCase().includes(d.name.toLowerCase()) || d.name.toLowerCase().includes(k.toLowerCase())) {
+            match += v;
+          }
+        });
+        countStr = match > 0 ? `<div class="disc-local">📍 ${match} club${match>1?'s':''} dans le ${userDept}</div>` : '';
+      }
+      return `
+        <div class="disc-card">
+          <div class="disc-icon">${icon(d.icon, 22)}</div>
+          <div class="disc-name">${d.name}</div>
+          <span class="disc-tag">${d.tag}</span>
+          ${countStr}
+        </div>
+      `;
+    }).join('');
+
+    // Update le counter "X variantes"
+    const pillEl = document.querySelector('.sec-h .pill');
+    if (pillEl) pillEl.textContent = `${labeled.length} format${labeled.length>1?'s':''}`;
+
+    // Update le titre pour préciser
+    const secH = document.querySelector('.sec-h h2');
+    if (secH) secH.innerHTML = `Formats <span class="accent">disponibles</span>${userDept ? ` dans le ${userDept}` : ''}`;
+  } catch(e) {
+    console.warn('[sport.html] formats load failed:', e);
+  }
+}
+// Section "Disciplines phares" supprimée — loadRealFormats désactivé.
+// setTimeout(loadRealFormats, 50);
+
+const related = SPORTS.filter(s => s.cat === sport.cat && s.id !== sport.id).slice(0, 4);
+
+// Pourquoi X ? + Règles du sport — récupérés depuis sport-content.js
+const sportContent = (typeof getSportContent === 'function')
+  ? getSportContent(sport)
+  : { why: `${sport.nom} est une discipline de la catégorie ${sport.cat}.`, rules: [] };
+const desc = sportContent.why;
+const sportRules = sportContent.rules || [];
+
+function dimDots(val) {
+  let s = '';
+  for (let i = 0; i < 5; i++) s += `<div class="dim-dot ${i < Math.round(val/2) ? 'on' : ''}"></div>`;
+  return s;
+}
+
+function renderMetaSections() {
+  const hasFede = meta.federation || meta.licencies2023 || meta.clubs || meta.site;
+  const hasProfil = meta.pariteH || meta.ageMoyen || meta.trancheAge;
+  const hasHN = meta.shnTotal || meta.joAthletes || meta.medaillesTotal || meta.espoirs;
+  if (!hasFede && !hasProfil && !hasHN) return '';
+
+  const url = fmtUrl(meta.site || meta.siteOfficiel);
+
+  const fede = hasFede ? `
+    <div class="meta-card">
+      <div class="meta-eye">— FÉDÉRATION</div>
+      <h3 class="meta-h">${meta.federation
+        ? (meta.fedSlug
+            ? `<a href="federation.html?f=${encodeURIComponent(meta.fedSlug)}" style="color:inherit;text-decoration:none;" aria-label="Voir la fédération ${meta.federation}">${meta.federation}</a>`
+            : meta.federation)
+        : sport.nom}</h3>
+      ${meta.acronyme ? `<div class="meta-row"><span class="k">Acronyme</span><span class="v">${meta.acronyme}</span></div>` : ''}
+      ${url ? `<div class="meta-row"><span class="k">Site officiel</span><span class="v"><a href="${url}" target="_blank" rel="noopener">Visiter ↗</a></span></div>` : ''}
+      ${meta.licencies2023 ? `<div class="meta-row"><span class="k">Licenciés 2023</span><span class="v">${fmtNum(meta.licencies2023)}</span></div>` : ''}
+      ${meta.clubs ? `<div class="meta-row"><span class="k">Clubs France</span><span class="v">${fmtNum(meta.clubs)}</span></div>` : ''}
+      ${meta.licenceMoyenne ? `<div class="meta-row"><span class="k">Licence moy.</span><span class="v">${meta.licenceMoyenne}€</span></div>` : ''}
+    </div>` : '';
+
+  let profil = '';
+  if (hasProfil) {
+    const h = Math.round(meta.pariteH || 50), f = Math.round(meta.pariteF || (100 - h));
+    const ageRows = [];
+    if (meta.pctUnder18 != null) ageRows.push({ lbl:'< 18 ans', pct: meta.pctUnder18 });
+    if (meta.pct2035 != null)    ageRows.push({ lbl:'20-35 ans', pct: meta.pct2035 });
+    if (meta.pct3655 != null)    ageRows.push({ lbl:'36-55 ans', pct: meta.pct3655 });
+    if (meta.pctOver60 != null)  ageRows.push({ lbl:'> 60 ans', pct: meta.pctOver60 });
+
+    profil = `
+    <div class="meta-card">
+      <div class="meta-eye">— PRATIQUANTS</div>
+      <h3 class="meta-h">Qui pratique ?</h3>
+      ${(meta.pariteH != null) ? `
+        <div class="parite-legend"><span class="h">♂ ${h}% Hommes</span><span class="f">♀ ${f}% Femmes</span></div>
+        <div class="parite-bar"><div class="parite-h" style="width:${h}%"></div><div class="parite-f" style="width:${f}%"></div></div>
+      ` : ''}
+      ${meta.ageMoyen ? `<div class="meta-row"><span class="k">Âge moyen</span><span class="v">${Math.round(meta.ageMoyen)} ans</span></div>` : ''}
+      ${meta.trancheAge ? `<div class="meta-row"><span class="k">Tranche dominante</span><span class="v">${meta.trancheAge}</span></div>` : ''}
+      ${ageRows.length ? `<div class="age-bars">${ageRows.map(r => `
+        <div class="age-row">
+          <span class="age-lbl">${r.lbl}</span>
+          <div class="age-bar-bg"><div class="age-bar-fg" style="width:${Math.min(100,r.pct)}%"></div></div>
+          <span class="age-pct">${Math.round(r.pct)}%</span>
+        </div>`).join('')}</div>` : ''}
+    </div>`;
+  }
+
+  const hn = hasHN ? `
+    <div class="meta-card">
+      <div class="meta-eye">— HAUT NIVEAU</div>
+      <h3 class="meta-h">Élite & Paris 2024</h3>
+      ${meta.shnTotal ? `<div class="meta-row"><span class="k">SHN total</span><span class="v">${fmtNum(meta.shnTotal)}</span></div>` : ''}
+      ${meta.espoirs ? `<div class="meta-row"><span class="k">Espoirs</span><span class="v">${fmtNum(meta.espoirs)}</span></div>` : ''}
+      ${meta.joAthletes ? `<div class="meta-row"><span class="k">Athlètes JO 2024</span><span class="v">${fmtNum(meta.joAthletes)}</span></div>` : ''}
+      ${(meta.medaillesOr || meta.medaillesArgent || meta.medaillesBronze || meta.medaillesTotal) ? `
+        <div class="medals-grid">
+          <div class="medal"><div class="emoji">🥇</div><div class="n">${meta.medaillesOr||0}</div><div class="l">Or</div></div>
+          <div class="medal"><div class="emoji">🥈</div><div class="n">${meta.medaillesArgent||0}</div><div class="l">Argent</div></div>
+          <div class="medal"><div class="emoji">🥉</div><div class="n">${meta.medaillesBronze||0}</div><div class="l">Bronze</div></div>
+        </div>` : ''}
+    </div>` : '';
+
+  return `<div class="meta-wrap">${fede}${profil}${hn}</div>`;
+}
+
+// haversine and getDeptFromCoords come from utils.js
+
+// Lance la recherche via la géolocalisation du navigateur.
+async function loadNearbyClubsByGeoloc() {
+  const btn = document.getElementById('clubs-locate-geoloc');
+  const label = document.getElementById('clubs-location-label');
+  const container = document.getElementById('clubs-grid-container');
+
+  if (!navigator.geolocation) {
+    label.textContent = 'Géolocalisation non supportée. Utilise le code postal.';
+    return;
+  }
+
+  label.textContent = 'Localisation en cours…';
+  if (btn) btn.disabled = true;
+
+  try {
+    const pos = await new Promise((res, rej) =>
+      navigator.geolocation.getCurrentPosition(res, rej, { timeout: 8000 })
+    );
+    const { latitude: lat, longitude: lng } = pos.coords;
+    label.textContent = `Recherche autour de ${lat.toFixed(2)}, ${lng.toFixed(2)}…`;
+    const depCode = getDeptFromCoords(lat, lng);
+    await showClubsByDept(depCode, lat, lng, container);
+  } catch(e) {
+    label.textContent = 'Géolocalisation refusée. Saisis ton code postal.';
+    const input = document.getElementById('clubs-cp-input');
+    if (input) input.focus();
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+// Lance la recherche via un code postal saisi.
+async function loadNearbyClubsByCP() {
+  const input = document.getElementById('clubs-cp-input');
+  const label = document.getElementById('clubs-location-label');
+  const container = document.getElementById('clubs-grid-container');
+  const cp = (input?.value || '').trim();
+
+  if (!/^\d{5}$/.test(cp)) {
+    label.textContent = 'Code postal invalide (5 chiffres attendus).';
+    if (input) input.focus();
+    return;
+  }
+
+  const depCode = getDeptFromCP(cp);
+  if (!depCode) {
+    label.textContent = 'Département non reconnu pour ce code postal.';
+    return;
+  }
+
+  label.textContent = `Recherche autour du ${cp}…`;
+  await showClubsByDept(depCode, null, null, container);
+}
+
+// Compat ancienne API : si un attribut onclick référence encore loadNearbyClubs, on redirige.
+function loadNearbyClubs() { return loadNearbyClubsByGeoloc(); }
+
+async function showClubsByDept(depCode, userLat, userLng, container) {
+  const label = document.getElementById('clubs-location-label');
+  if (!label || !container) return;
+  if (!depCode) {
+    label.textContent = 'Département non détecté. Saisis ton code postal.';
+    return;
+  }
+  label.textContent = `Chargement département ${depCode}…`;
+
+  try {
+    const clubs = (await loadDeptClubs(depCode, container)) || [];
+
+    // Filter by sport.id — le JSON dept-XX utilise sport_ids (array, fiable) et disc (slug, fiable).
+    // ATTENTION : le champ singulier c.sport_id est CORROMPU dans la base (héritage du scraping)
+    // et NE DOIT PAS être utilisé pour le matching (sinon padel renvoie 156 clubs de judo).
+    const sportSlug = (typeof DISCIPLINES !== 'undefined')
+      ? Object.entries(DISCIPLINES).find(([, d]) => Array.isArray(d.sport_ids) && d.sport_ids.includes(sport.id))?.[0]
+      : null;
+    const sportClubs = clubs.filter(c => {
+      if (!c) return false;
+      // Source 1 (fiable) : sport_ids array contient l'id du sport
+      if (Array.isArray(c.sport_ids) && c.sport_ids.includes(sport.id)) return true;
+      // Source 2 (fiable) : disc slug correspond à la discipline du sport
+      if (sportSlug && c.disc === sportSlug) return true;
+      // Source 3 (legacy/array) : c.sports array
+      if (Array.isArray(c.sports) && c.sports.includes(sport.id)) return true;
+      return false;
+    });
+
+    // Compute distances only when user position is known; memoize by club id
+    if (userLat !== null && userLng !== null) {
+      clearDistCache();
+      sportClubs.forEach(c => {
+        const lon = c.lon ?? c.lng;
+        if (typeof c.lat === 'number' && typeof lon === 'number') {
+          c._dist = haversine(userLat, userLng, c.lat, lon, c.id);
+        }
+      });
+      sportClubs.sort((a, b) => (a._dist ?? Infinity) - (b._dist ?? Infinity));
+    }
+
+    const nearby = sportClubs.slice(0, 6);
+    // Fix 2026-05-27 : optional chaining sur depts (le JSON n'a pas cette clé)
+    // Fallback : utiliser DEPT_CENTERS[depCode].nom (chargé via dept-geo.js)
+    const depName = (typeof DEPT_CENTERS !== 'undefined' && DEPT_CENTERS && DEPT_CENTERS[depCode] && DEPT_CENTERS[depCode].nom)
+      || depCode;
+    label.textContent = `${sportClubs.length} équipements · Dép. ${depName}`;
+
+    if (nearby.length === 0) {
+      container.innerHTML = `
+        <div class="clubs-empty">
+          <div class="clubs-empty-icon">🔍</div>
+          <p class="clubs-empty-title">Clubs non encore référencés pour <em>${sport.nom}</em></p>
+          <p class="clubs-empty-sub">Notre base de données ne couvre pas encore tous les sports dans chaque département. Aidez-nous à l'enrichir !</p>
+          <div class="clubs-empty-actions">
+            <a href="mailto:clubs@kinetic.fr?subject=Suggestion de club — ${encodeURIComponent(sport.nom)}&body=Bonjour,%0A%0AJe pratique ${encodeURIComponent(sport.nom)} et souhaite signaler un club :%0A%0ANom du club :%0AAdresse :%0ASite web :%0A%0AMerci !"
+               class="btn btn-accent btn-sm">Suggérer un club</a>
+            <a href="map.html" class="btn btn-ghost btn-sm">Explorer tous les clubs</a>
+          </div>
+        </div>`;
+      return;
+    }
+
+    const colors = ['var(--violet)', 'var(--orange)', 'var(--ink)', 'var(--violet)', 'var(--orange)', 'var(--ink)'];
+    container.innerHTML = `<div class="clubs-grid">${nearby.map((c, i) => `
+      <a href="club.html?id=${encodeURIComponent(c.id)}&dep=${depCode}" class="club-card" aria-label="${c.nom || 'Équipement sportif'}${c.ville ? ' à ' + c.ville : ''} — voir la fiche">
+        <div class="club-top">
+          <div class="club-icon" style="background:${colors[i%colors.length]}" aria-hidden="true">${icon('trophy', 18)}</div>
+          ${c._dist !== undefined ? `<div class="club-km" aria-label="${c._dist < 1 ? (c._dist*1000|0)+' mètres' : c._dist.toFixed(1)+' kilomètres'}">${c._dist < 1 ? (c._dist*1000|0)+' M' : c._dist.toFixed(1)+' KM'}</div>` : ''}
+        </div>
+        <div class="club-name">${c.nom || 'Équipement sportif'}</div>
+        <div class="club-addr">${c.cp ? c.cp+' ' : ''}${c.ville || ''}</div>
+        <span class="club-link" aria-hidden="true">Voir sur la carte ${icon('arrow', 12)}</span>
+      </a>
+    `).join('')}</div>
+    <div style="margin-top:12px;text-align:center">
+      <a href="map.html" style="font-size:12px;color:var(--gray);font-weight:700;letter-spacing:.05em;text-transform:uppercase">
+        Voir tous les ${sportClubs.length} équipements →
+      </a>
+    </div>`;
+  } catch(err) {
+    container.innerHTML = `<div style="padding:24px;color:var(--gray);text-align:center">Erreur de chargement. ${err.message}</div>`;
+  }
+}
+
+document.getElementById('sport-content').innerHTML = `
+  <section class="sp-hero" id="sp-hero-section">
+    <div class="sp-hero-left">
+      <div class="eye">KINETIC · FICHE SPORT · ${sport.cat.toUpperCase()}</div>
+      <h1>${sport.nom}</h1>
+      <p class="desc">Découvre tout sur ${sport.nom.toLowerCase()} : disciplines, clubs, fédérations, ton match.</p>
+      <div class="sp-hero-tags">
+        <span class="pill pill-orange">${sport.cat}</span>
+        ${sport.scores[1] >= 3 ? '<span class="pill" style="background:rgba(255,255,255,.08);color:white;border-color:rgba(255,255,255,.15)">OUTDOOR</span>' : ''}
+        ${sport.scores[4] >= 3 ? '<span class="pill" style="background:rgba(255,255,255,.08);color:white;border-color:rgba(255,255,255,.15)">COLLECTIF</span>' : '<span class="pill" style="background:rgba(255,255,255,.08);color:white;border-color:rgba(255,255,255,.15)">INDIVIDUEL</span>'}
+        ${sport.scores[2] >= 4 ? '<span class="pill" style="background:rgba(255,255,255,.08);color:white;border-color:rgba(255,255,255,.15)">INTENSE</span>' : ''}
+      </div>
+    </div>
+    <button class="sp-play-btn" aria-label="En savoir plus sur ${sport.nom}">${icon('play', 24)}</button>
+  </section>
+
+  <div class="info-grid">
+    <div class="match-card">
+      <div class="match-top">
+        <div>
+          <h3>Ton <span style="color:var(--orange);font-style:italic;font-weight:500">match</span> avec ce sport</h3>
+          <p style="color:var(--gray);font-size:13px;margin-top:4px">Profil du sport sur 5 dimensions clés</p>
+        </div>
+        ${userCompat !== null
+          ? `<div style="text-align:right"><div class="match-pct">${userCompat}%</div><div class="match-pct-small">MATCH</div></div>`
+          : `<a href="trouver-club.html" class="btn btn-primary btn-sm">Trouver mon sport ${icon('arrow', 14)}</a>`}
+      </div>
+      <div class="dim-grid">
+        ${dims.map(d => `
+          <div class="dim-row">
+            <span class="dim-lbl">${d.label}</span>
+            <div class="dim-dots">${dimDots(sport.scores[d.idx])}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div class="stats-card">
+      <h3>Les <span style="font-style:italic;font-weight:500">chiffres</span></h3>
+      ${licencies.map(s => `
+        <div class="stat-row"><span class="k">${s.label}</span><span class="v">${s.val}</span></div>
+      `).join('')}
+    </div>
+  </div>
+
+  ${renderMetaSections()}
+
+  <div class="desc-section">
+    <div class="desc-eyebrow">— À PROPOS</div>
+    <h2 class="desc-h">Pourquoi <span class="italic">${sport.nom.toLowerCase()}</span> ?</h2>
+    <div class="desc-text">
+      ${desc.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+    </div>
+  </div>
+
+  ${sportRules.length ? `
+  <div class="rules-section">
+    <div class="rules-eyebrow">— RÈGLES DU SPORT</div>
+    <h2 class="rules-h">Comment ça <span class="italic">marche</span> ?</h2>
+    <ol class="rules-list">
+      ${sportRules.map(r => `<li class="rules-item"><span class="rules-bullet" aria-hidden="true">${icon('check', 16)}</span><span class="rules-text">${r}</span></li>`).join('')}
+    </ol>
+  </div>
+  ` : ''}
+
+  <div class="clubs-wrap">
+    <div class="clubs-top">
+      <div class="sec-h" style="margin:0">
+        <h2>Clubs <span class="accent">près de toi</span></h2>
+      </div>
+    </div>
+    <div class="clubs-locate-bar" role="group" aria-label="Trouver les clubs proches">
+      <button type="button" class="clubs-locate-btn" id="clubs-locate-geoloc" onclick="loadNearbyClubsByGeoloc()" aria-label="Me géolocaliser pour trouver les clubs proches">
+        ${icon('pin', 16)}
+        <span>Me géolocaliser</span>
+      </button>
+      <form class="clubs-locate-form" id="clubs-locate-form" onsubmit="event.preventDefault(); loadNearbyClubsByCP();" aria-label="Saisir un code postal">
+        <label for="clubs-cp-input" class="sr-only">Code postal</label>
+        <input
+          type="text"
+          inputmode="numeric"
+          pattern="[0-9]{5}"
+          maxlength="5"
+          id="clubs-cp-input"
+          placeholder="Ou ton code postal"
+          aria-label="Code postal (5 chiffres)"
+          autocomplete="postal-code"
+        />
+        <button type="submit" class="clubs-locate-submit" aria-label="Rechercher les clubs autour de ce code postal">
+          ${icon('arrow', 14)}
+        </button>
+      </form>
+      <div class="clubs-locate-status" id="clubs-location-label" aria-live="polite">${meta.clubsCount ? `${meta.clubsCount.toLocaleString('fr')} équipements en France` : ''}</div>
+    </div>
+    <div id="clubs-grid-container">
+      <div style="text-align:center;padding:32px;color:var(--gray);font-size:13px">
+        <div style="font-size:24px;margin-bottom:8px" aria-hidden="true">📍</div>
+        Géolocalise-toi ou saisis ton code postal pour trouver les clubs de ${sport.nom.toLowerCase()} près de chez toi.
+        ${meta.clubsCount ? `<div style="margin-top:8px;font-weight:700;color:var(--ink)">${meta.clubsCount.toLocaleString('fr')} équipements en France</div>` : ''}
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-h">
+    <h2>Tu pourrais <span class="accent">aussi aimer</span></h2>
+  </div>
+  <div class="related-grid">
+    ${related.map((r, i) => `
+      <a href="sport.html?id=${r.id}" class="related-card">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <div class="related-num">№ ${String(i+1).padStart(2,'0')}</div>
+          <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center">${icon('arrow', 14)}</div>
+        </div>
+        <div>
+          <div class="related-icon">${sportIcon(r, 22)}</div>
+          <div class="related-name">${r.nom}</div>
+        </div>
+      </a>
+    `).join('')}
+  </div>
+
+  <div class="cta-bottom">
+    <div>
+      <h3>${userCompat !== null ? 'Explore d\'<span class="italic">autres</span> sports' : 'Pas encore fait <span class="italic">le quiz</span> ?'}</h3>
+      <p>${userCompat !== null ? 'Découvre tes 5 sports compatibles et ton profil complet.' : 'Découvre les sports qui correspondent vraiment à ta personnalité.'}</p>
+    </div>
+    <a href="${userCompat !== null ? 'results.html' : 'quiz.html'}" class="btn btn-accent btn-lg">${userCompat !== null ? 'Mes résultats' : 'Commencer'} ${icon('arrow', 16)}</a>
+  </div>
+`;
+
+// Applique la photo en background du hero si disponible
+(function() {
+  const photoUrl = (typeof getSportPhoto === 'function') ? getSportPhoto(sport) : null;
+  if (photoUrl) {
+    const hero = document.getElementById('sp-hero-section');
+    if (hero) {
+      hero.style.backgroundImage = `url('${photoUrl}')`;
+      hero.classList.add('has-photo');
+    }
+  }
+})();
+</script>
+
+<script src="enhance-2026.js" defer></script>
+</body>
+</html>

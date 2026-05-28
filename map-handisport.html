@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clubs handisport et sport adapté en France | Kinetic Para</title>
+<meta name="description" content="Trouve un club handisport ou sport adapté près de chez toi. Structures labellisées FFH et FFSA, recherche par département.">
+<link rel="canonical" href="https://kinetic.app/map-handisport.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0E0B1F">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="enhance-2026.css">
+<style>
+  :root { --para-blue: #2A5FE0; --para-gradient: linear-gradient(135deg, var(--violet, #6C47FF), var(--para-blue) 90%); }
+  main { position: relative; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); }
+  .para-banner {
+    background: var(--ink, #0E0B1F); color: white; padding: 12px 0;
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 13px; letter-spacing: .2em;
+  }
+  .para-banner-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .para-pill { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; background: var(--para-gradient); border-radius: 100px; }
+  .para-pill::before { content: '♿'; font-size: 14px; }
+  .para-back { color: rgba(255,255,255,.7); text-decoration: none; font-size: 12px; letter-spacing: .15em; }
+  .para-back:hover { color: white; }
+
+  .hero {
+    padding: clamp(48px, 8vw, 80px) 0 clamp(32px, 5vw, 56px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before, .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero::before { top: -100px; left: -50px; background: radial-gradient(circle, var(--violet) 0%, transparent 65%); opacity: .25; }
+  .hero::after { top: 50px; right: -50px; background: radial-gradient(circle, var(--para-blue) 0%, transparent 65%); opacity: .3; }
+  .hero-eye {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 14px;
+    letter-spacing: .25em;
+    color: var(--para-blue);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-h1 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: .9;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-h1 .italic { font-style: italic; color: var(--violet); font-weight: 500; }
+  .hero-sub {
+    color: var(--gray);
+    font-size: 16px;
+    max-width: 600px;
+    margin: 16px auto 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 720px;
+    margin: 0 auto 32px;
+  }
+  .filter-card {
+    padding: 18px 20px;
+    background: white;
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .filter-card label { font-size: 11px; color: var(--gray); letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
+  .filter-card select {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .clubs-section {
+    padding: 32px 0 80px;
+  }
+  .clubs-info {
+    text-align: center;
+    padding: 32px;
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    margin-bottom: 32px;
+  }
+  .clubs-info h3 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .clubs-info p { color: var(--gray); font-size: 14px; line-height: 1.5; max-width: 600px; margin: 0 auto; }
+
+  .map-container {
+    height: 480px;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    font-size: 14px;
+    text-align: center;
+    padding: 32px;
+  }
+  .map-empty-icon { font-size: 48px; margin-bottom: 12px; }
+
+  /* Liens fédés */
+  .fed-section { padding: 48px 0; }
+  .fed-head { text-align: center; margin-bottom: 32px; }
+  .fed-head h2 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .fed-head h2 .accent { color: var(--violet); font-style: italic; font-weight: 500; }
+  .fed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .fed-card {
+    padding: 28px;
+    background: var(--ink);
+    color: white;
+    border-radius: 24px;
+    text-decoration: none;
+    transition: all .25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .fed-card:nth-child(2) { background: var(--violet); }
+  .fed-card:nth-child(3) { background: var(--para-blue); }
+  .fed-card:hover { transform: translateY(-4px); }
+  .fed-acronym {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .fed-card-name { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .fed-card-desc { font-size: 13px; opacity: .85; line-height: 1.5; margin-bottom: 14px; }
+  .fed-card-cta { font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,.4); padding-bottom: 2px; display: inline-block; }
+
+  @media (max-width: 700px) {
+    .filters, .fed-grid { grid-template-columns: 1fr; gap: 10px; }
+    .hero { padding: 24px 0 16px; }
+    .hero-sub { font-size: 14px; padding: 0 16px; }
+    .para-banner-inner { padding: 0 16px; }
+    .filter-card { padding: 14px 16px; border-radius: 16px; min-height: 48px; }
+    .filter-card select { font-size: 16px; }
+    .clubs-section { padding: 20px 16px 60px; }
+    .clubs-info { padding: 20px 16px; border-radius: 18px; }
+    .clubs-info h3 { font-size: 22px; }
+    .map-container { height: 360px; border-radius: 18px; padding: 20px; }
+    .fed-section { padding: 28px 16px; }
+    .fed-head { margin-bottom: 20px; }
+    .fed-card { padding: 20px 18px; border-radius: 18px; }
+    .fed-acronym { font-size: 28px; }
+  }
+</style>
+<!-- Apple PWA -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kinetic">
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- Open Graph + Twitter (audit 2026-05-28) -->
+<meta property="og:title" content="Clubs handisport et sport adapté en France | Kinetic Para">
+<meta property="og:description" content="Trouve un club handisport ou sport adapté près de chez toi. Structures labellisées FFH et FFSA, recherche par département.">
+<meta property="og:url" content="https://kinetic.app/map-handisport.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Clubs handisport et sport adapté en France | Kinetic Para">
+<meta name="twitter:description" content="Trouve un club handisport ou sport adapté près de chez toi. Structures labellisées FFH et FFSA, recherche par département.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+
+<main id="main-content">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eye">CARTE DES CLUBS LABELLISÉS</div>
+      <h1 class="hero-h1">Trouve ton<br><span class="italic">club</span> adapté</h1>
+      <p class="hero-sub">Plus de 1 200 structures labellisées FFH et FFSA en France. Filtre par sport et département.</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="filters">
+      <div class="filter-card">
+        <label for="filter-handi">Type</label>
+        <select id="filter-handi">
+          <option value="">Tous les handicaps</option>
+          <option value="fauteuil">Fauteuil</option>
+          <option value="moteur">Mobilité réduite</option>
+          <option value="visuel">Déficience visuelle</option>
+          <option value="auditif">Déficience auditive</option>
+          <option value="intel">Déficience intellectuelle</option>
+        </select>
+      </div>
+      <div class="filter-card">
+        <label for="filter-sport">Sport</label>
+        <select id="filter-sport">
+          <option value="">Tous les sports</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="clubs-section">
+    <div class="container">
+      <div class="clubs-info">
+        <h3>V1 en cours de construction</h3>
+        <p>La carte interactive des clubs handisport arrive prochainement. En attendant, tu peux consulter directement les annuaires officiels des fédérations ci-dessous, ou faire le quiz pour qu'on te recommande des disciplines.</p>
+      </div>
+
+      <div id="map" class="map-container">
+        <div>
+          <div class="map-empty-icon">🗺️</div>
+          <div><b>Carte des clubs labellisés</b></div>
+          <div style="margin-top:8px">Bientôt disponible. En attendant, utilise les liens fédérations ci-dessous.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fed-section">
+    <div class="container">
+      <div class="fed-head">
+        <h2>Annuaires <span class="accent">officiels</span></h2>
+      </div>
+      <div class="fed-grid">
+        <a href="https://handisport.org/clubs-handisport/" target="_blank" rel="noopener" class="fed-card">
+          <div class="fed-acronym">FFH</div>
+          <div class="fed-card-name">Fédération Française Handisport</div>
+          <div class="fed-card-desc">Annuaire des clubs handisport (handicap moteur, sensoriel). Recherche par département.</div>
+          <span class="fed-card-cta">Voir l'annuaire →</span>
+        </a>
+        <a href="https://www.ffsa.asso.fr/clubs-affilies/" target="_blank" rel="noopener" class="fed-card">
+          <div class="fed-acronym">FFSA</div>
+          <div class="fed-card-name">Fédération Française Sport Adapté</div>
+          <div class="fed-card-desc">Annuaire des clubs sport adapté (handicap mental, psychique). Recherche par discipline.</div>
+          <span class="fed-card-cta">Voir l'annuaire →</span>
+        </a>
+        <a href="https://france-paralympique.fr/disciplines-paralympiques/" target="_blank" rel="noopener" class="fed-card">
+          <div class="fed-acronym">CPSF</div>
+          <div class="fed-card-name">Comité Paralympique Sportif Français</div>
+          <div class="fed-card-desc">Liste des disciplines paralympiques avec liens vers les fédérations délégataires.</div>
+          <span class="fed-card-cta">Voir les disciplines →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="data.js"></script>
+<script>
+// Populate sport filter from para sports
+const PARA_SPORTS_IDS = [86, 130, 131, 132, 133, 134, 135, 139, 195, 196, 197, 198, 199, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474];
+const sel = document.getElementById('filter-sport');
+PARA_SPORTS_IDS.forEach(id => {
+  const sport = SPORTS.find(s => s.id === id);
+  if (!sport) return;
+  const opt = document.createElement('option');
+  opt.value = id;
+  opt.textContent = sport.nom;
+  sel.appendChild(opt);
+});
+</script>
+
+<script src="components/footer.js" defer></script>
+<script src="components/cookie-banner.js" defer></script>
+<script src="enhance-2026.js" defer></script>
+</body>
+</html>

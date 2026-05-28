@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports insolites · 290 disciplines · Kinetic</title>
+<meta name="description" content="Les sports les plus insolites de France. Kabaddi, kin-ball, sepak takraw, croquet, échecs sportifs… découvre les disciplines rares mais répertoriées.">
+<link rel="canonical" href="https://kinetic.app/nouveautes.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+
+<link rel="stylesheet" href="shared.css">
+
+<style>
+:root {
+  --line: rgba(14,11,31,0.16);
+  --line-soft: rgba(14,11,31,0.08);
+  --muted: rgba(14,11,31,0.55);
+  --lime-soft: #F0FAD0;
+  --lime-deep: #B8E61E;
+  --violet-soft: #EFEAFF;
+  --shadow-md: 0 12px 28px rgba(14,11,31,.10);
+  --radius-lg: 18px;
+}
+
+a { text-decoration: none; color: inherit; }
+.page-wrap { max-width: 1280px; margin: 0 auto; padding: 24px 28px 80px; }
+
+/* Breadcrumb */
+.crumb {
+  display: flex; gap: 8px; align-items: center;
+  font-size: 12px; font-weight: 600; color: var(--gray);
+  letter-spacing: .05em; text-transform: uppercase; margin: 12px 0 20px;
+}
+.crumb a:hover { color: var(--ink); }
+.crumb .sep { color: var(--gray-light); }
+
+/* Hero */
+.n-hero {
+  background: linear-gradient(135deg, var(--ink) 0%, var(--violet-deep, #2E1A7A) 100%);
+  color: white; border-radius: 28px;
+  padding: 48px 40px; margin-bottom: 36px;
+  position: relative; overflow: hidden;
+}
+.n-hero::before {
+  content: ''; position: absolute; right: -100px; top: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(212,255,58,.18), transparent 65%);
+}
+.n-hero::after {
+  content: ''; position: absolute; left: -80px; bottom: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(255,90,31,.22), transparent 65%);
+}
+.n-hero .inner { position: relative; z-index: 2; }
+.n-hero .eyebrow {
+  font-family: 'Archivo Narrow'; font-weight: 700; font-size: 12px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--lime); display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 14px;
+}
+.n-hero .eyebrow .pulse {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--lime);
+  box-shadow: 0 0 0 4px rgba(212,255,58,.30);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.4);} }
+.n-hero h1 {
+  font-family: 'Archivo Narrow'; font-weight: 700; font-size: clamp(40px, 6vw, 64px);
+  line-height: .95; margin: 0 0 14px; letter-spacing: -.005em;
+}
+.n-hero h1 em { font-style: italic; color: var(--lime); }
+.n-hero p {
+  font-size: 15.5px; color: rgba(255,255,255,.78);
+  max-width: 640px; line-height: 1.55; margin: 0;
+}
+.n-hero .meta-row {
+  margin-top: 24px; display: flex; gap: 28px; flex-wrap: wrap;
+  font-size: 12px; color: rgba(255,255,255,.6);
+}
+.n-hero .meta-row b {
+  display: block; color: white;
+  font-family: 'Archivo Narrow'; font-weight: 700; font-size: 22px;
+  margin-bottom: 2px;
+}
+
+/* Section labels */
+.section-label {
+  font-family: 'Archivo Narrow'; font-weight: 700; font-size: 12px;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
+  display: flex; align-items: center; gap: 14px; margin: 0 0 18px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--line-soft); }
+.section-label .count {
+  background: var(--lime-soft); color: var(--ink);
+  font-size: 11px; padding: 2px 8px; border-radius: 100px;
+  border: 1px solid var(--lime-deep);
+}
+
+/* Grid */
+.n-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px; margin-bottom: 48px;
+}
+.n-card {
+  background: white; border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg); overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+  text-decoration: none; color: inherit;
+}
+.n-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--ink); }
+.n-card .top {
+  height: 130px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 70px;
+  background: linear-gradient(135deg, var(--violet-soft), var(--paper));
+}
+.n-card .top.lime { background: linear-gradient(135deg, var(--lime-soft), white); }
+.n-card .top.orange { background: linear-gradient(135deg, #FFE3D0, #FFF5EC); }
+.n-card .top.pink { background: linear-gradient(135deg, #FFD9F0, white); }
+.n-card .top.blue { background: linear-gradient(135deg, #D0E8FF, white); }
+.n-card .top.has-photo { background-size: cover; background-position: center; }
+.n-card .top.has-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,11,31,.08) 0%, rgba(14,11,31,.5) 100%); border-radius: inherit; }
+.n-card .top.has-photo .emoji { display: none; }
+.n-card .top .tag {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(255,255,255,.95); backdrop-filter: blur(8px);
+  font-family: 'Archivo Narrow'; font-weight: 700; font-size: 10px;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 5px 10px; border-radius: 100px;
+}
+.n-card .top .trend {
+  position: absolute; bottom: 12px; right: 12px;
+  background: var(--lime); color: var(--ink);
+  font-family: 'Archivo Narrow'; font-weight: 700; font-size: 11px;
+  padding: 4px 10px; border-radius: 100px;
+  border: 1.5px solid var(--lime-deep);
+}
+.n-card .body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.n-card h3 {
+  margin: 0; font-family: 'Archivo Narrow'; font-weight: 700;
+  font-size: 19px; line-height: 1.1; letter-spacing: .01em;
+}
+.n-card .meta {
+  font-family: 'Archivo Narrow'; font-weight: 600; font-size: 10.5px;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+}
+.n-card .desc { font-size: 13px; color: var(--muted); line-height: 1.5; flex: 1; }
+.n-card .stats {
+  display: flex; gap: 8px; padding-top: 12px;
+  border-top: 1px solid var(--line-soft); flex-wrap: wrap;
+}
+.n-card .stats .chip {
+  font-size: 11px; padding: 3px 10px; background: var(--paper);
+  border-radius: 100px; color: var(--ink); border: 1px solid var(--line-soft);
+}
+.n-card .cta {
+  font-family: 'Archivo Narrow'; font-weight: 700; font-size: 12px;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--violet);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+
+/* Help CTA */
+.n-help {
+  margin-top: 48px; background: var(--lime-soft);
+  border: 1.5px solid var(--lime-deep); border-radius: var(--radius-lg);
+  padding: 28px; display: grid; grid-template-columns: 1fr auto;
+  gap: 18px; align-items: center;
+}
+.n-help h3 { font-family: 'Archivo Narrow'; font-weight: 700; font-size: 24px; margin: 0 0 6px; }
+.n-help h3 em { font-style: italic; color: var(--violet); }
+.n-help p { margin: 0; font-size: 13px; color: var(--muted); max-width: 540px; }
+.n-help .btn {
+  padding: 14px 26px; background: var(--ink); color: white;
+  border-radius: 100px; font-weight: 700; font-size: 13px; text-decoration: none;
+}
+.n-help .btn:hover { background: var(--violet); }
+
+@media (max-width: 700px) {
+  .page-wrap { padding: 14px 14px 60px; }
+  .n-hero { padding: 32px 22px; border-radius: 20px; }
+  .n-grid { grid-template-columns: 1fr; gap: 12px; }
+  .n-help { grid-template-columns: 1fr; padding: 22px; }
+}
+</style>
+
+<!-- Open Graph + Twitter (audit 2026-05-28) -->
+<meta property="og:title" content="Sports insolites · 290 disciplines · Kinetic">
+<meta property="og:description" content="Les sports les plus insolites de France. Kabaddi, kin-ball, sepak takraw, croquet, échecs sportifs… découvre les disciplines rares mais répertoriées.">
+<meta property="og:url" content="https://kinetic.app/nouveautes.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sports insolites · 290 disciplines · Kinetic">
+<meta name="twitter:description" content="Les sports les plus insolites de France. Kabaddi, kin-ball, sepak takraw, croquet, échecs sportifs… découvre les disciplines rares mais répertoriées.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+
+<script src="components/nav.js"></script>
+
+<main id="main-content" class="page-wrap">
+
+  <nav class="crumb" aria-label="Fil d'Ariane">
+    <a href="index.html">Accueil</a>
+    <span class="sep">›</span>
+    <a href="explorer-sports.html">Explorer</a>
+    <span class="sep">›</span>
+    <span aria-current="page">Sports insolites</span>
+  </nav>
+
+  <section class="n-hero">
+    <div class="inner">
+      <div class="eyebrow"><span class="pulse"></span> Catalogue rare · 290 disciplines</div>
+      <h1>Les <em>sports insolites</em><br>du paysage français.</h1>
+      <p>Kabaddi, kin-ball, sepak takraw, échecs sportifs, croquet, lancer de bottes, biathlon laser… des disciplines bizarres, rares ou méconnues — et pourtant toutes répertoriées avec leur fédération en France.</p>
+      <div class="meta-row">
+        <div><b id="stat-niche">—</b>sports insolites</div>
+        <div><b id="stat-rare">—</b>moins de 5k licenciés</div>
+        <div><b id="stat-ultra-rare">—</b>moins de 1k licenciés</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ULTRA RARES -->
+  <h2 class="section-label">🦄 Ultra-rares <span class="count" id="lbl-ultra">—</span></h2>
+  <p style="font-size:13.5px;color:var(--km-muted);max-width:680px;margin:-10px 0 18px">Moins de 1 000 licenciés en France. Les pépites confidentielles, souvent une fédé pour quelques centaines de passionnés.</p>
+  <div class="n-grid" id="ultra-grid"></div>
+
+  <!-- RARES -->
+  <h2 class="section-label">🌿 Rares <span class="count" id="lbl-rare">—</span></h2>
+  <p style="font-size:13.5px;color:var(--km-muted);max-width:680px;margin:-10px 0 18px">Entre 1 000 et 5 000 licenciés. Tu connais peut-être de nom, mais pas grand monde autour de toi en fait.</p>
+  <div class="n-grid" id="rare-grid"></div>
+
+  <!-- INSOLITES TOP -->
+  <h2 class="section-label">🎲 Insolites · à découvrir <span class="count" id="lbl-insolite">—</span></h2>
+  <p style="font-size:13.5px;color:var(--km-muted);max-width:680px;margin:-10px 0 18px">Disciplines bizarres ou hyper spécifiques qui méritent leur place. Tu vas en apprendre des nouvelles.</p>
+  <div class="n-grid" id="insolite-grid"></div>
+
+  <!-- HELP -->
+  <section class="n-help">
+    <div>
+      <h3>Pas trouvé <em>le sport</em> qu'il te faut ?</h3>
+      <p>Lance le quiz Kinetic : 3 questions express et tu repars avec un match perso parmi les 477 sports répertoriés.</p>
+    </div>
+    <a href="trouver-club.html" class="btn">Trouver mon sport →</a>
+  </section>
+
+</main>
+
+<script src="components/footer.js"></script>
+<script src="data.js"></script>
+<script src="sport-photos.js?v=2"></script>
+<script src="fed-photos.js"></script>
+
+<script>
+const $ = (s) => document.querySelector(s);
+
+const SPORT_EMOJI = {
+  'Football': '⚽', 'Rugby à XV': '🏉', 'Basketball': '🏀', 'Handball': '🤾',
+  'Volleyball': '🏐', 'Tennis': '🎾', 'Badminton': '🏸', 'Tennis de table': '🏓',
+  'Natation': '🏊', 'Athlétisme': '🏃', 'Cyclisme route': '🚴', 'Judo': '🥋',
+  'Karaté': '🥋', 'Boxe': '🥊', 'Escrime': '🤺', 'Golf': '⛳', 'Surf': '🏄',
+  'Ski alpin': '⛷️', 'Snowboard': '🏂', 'Escalade': '🧗', 'Equitation': '🐎',
+  'Voile': '⛵', 'Aviron': '🚣', 'Padel': '🎾', 'Pétanque': '🎳', 'Plongée': '🤿',
+  'Ultimate': '🥏', 'Disc Golf': '🥏', 'Floorball': '🏑', 'Skateboard': '🛹',
+  'Roller': '🛼', 'Yoga': '🧘', 'Fitness': '💪', 'Crossfit': '🏋️',
+  'Trail': '🏔️', 'Triathlon': '🏊', 'Tir à l\'arc': '🏹', 'Tir sportif': '🎯'
+};
+// data.js déclare déjà CAT_EMOJI globalement - on l'utilise sans le re-déclarer
+const CAT_EMOJI_FALLBACK = {
+  'Collectif': '⚽', 'Individuel': '🏃', 'Combat': '🥊', 'Aquatique': '🏊',
+  'Glisse': '🏂', 'Précision': '🎯', 'Force': '🏋️', 'Mécanique': '🏎️',
+  'Animalier': '🐎', 'Montagne': '⛰️', 'Cardio': '❤️', 'Bien-être': '🧘'
+};
+function emojiFor(s) {
+  return SPORT_EMOJI[s.nom]
+      || (typeof CAT_EMOJI !== 'undefined' && CAT_EMOJI[s.cat])
+      || CAT_EMOJI_FALLBACK[s.cat]
+      || '🎽';
+}
+function fmt(n) {
+  if (!n) return '—';
+  if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
+  if (n >= 1000) return Math.round(n/1000) + 'k';
+  return n.toString();
+}
+
+function makeCard(s, badge, color) {
+  const photoFn = typeof getSportPhoto === 'function' ? getSportPhoto : (typeof getFedPhoto === 'function' ? getFedPhoto : null);
+  const photo = photoFn ? photoFn(s) : null;
+  const topClass = photo ? 'top has-photo' : `top ${color || ''}`;
+  const topStyle = photo ? ` style="background-image:url('${photo}')"` : '';
+  return `
+    <a class="n-card" href="sport.html?id=${s.id}">
+      <div class="${topClass}"${topStyle}>
+        <span class="emoji" aria-hidden="true">${emojiFor(s)}</span>
+        ${badge ? `<span class="tag">${badge}</span>` : ''}
+        ${s.meta?.tendance === 'boom' ? '<span class="trend">🚀 BOOM</span>' : ''}
+      </div>
+      <div class="body">
+        <h3>${s.nom}</h3>
+        <div class="meta">${s.cat} · ${s.meta?.acronyme || ''}</div>
+        <div class="desc">${s.meta?.description || s.meta?.motsCles || 'Discipline à découvrir.'}</div>
+        <div class="stats">
+          ${s.meta?.licencies2024 ? `<span class="chip">👥 ${fmt(s.meta.licencies2024)} lic.</span>` : ''}
+          ${(s.meta?.clubsCount || s.meta?.clubs) ? `<span class="chip">🏟️ ${fmt(s.meta.clubsCount || s.meta.clubs)} clubs</span>` : ''}
+          ${s.meta?.jo2024 === 'Oui' ? `<span class="chip">🏅 JO</span>` : ''}
+        </div>
+        <span class="cta">Découvrir →</span>
+      </div>
+    </a>
+  `;
+}
+
+const colors = ['lime', 'orange', 'pink', '', 'blue'];
+
+// Helper : récupère le nombre de licenciés d'un sport (fallback 0)
+function lic(s) { return s.meta?.licencies2024 || s.meta?.licencies2023 || s.meta?.nb_licencies_fr || 0; }
+
+// === ULTRA-RARES : < 1 000 licenciés ===
+const ultraRare = SPORTS
+  .filter(s => { const l = lic(s); return l > 0 && l < 1000; })
+  .sort((a,b) => lic(a) - lic(b))
+  .slice(0, 12);
+
+$('#stat-ultra-rare').textContent = SPORTS.filter(s => { const l = lic(s); return l > 0 && l < 1000; }).length;
+$('#lbl-ultra').textContent = ultraRare.length + ' sports';
+$('#ultra-grid').innerHTML = ultraRare.map((s, i) =>
+  makeCard(s, 'Ultra-rare', colors[i % colors.length])
+).join('') || `<div style="grid-column:1/-1;text-align:center;padding:30px;color:var(--km-muted)">Aucun sport ultra-rare répertorié pour le moment.</div>`;
+
+// === RARES : 1 000 - 5 000 licenciés ===
+const rare = SPORTS
+  .filter(s => { const l = lic(s); return l >= 1000 && l < 5000; })
+  .sort((a,b) => lic(a) - lic(b))
+  .slice(0, 12);
+
+$('#stat-rare').textContent = SPORTS.filter(s => { const l = lic(s); return l >= 1000 && l < 5000; }).length;
+$('#lbl-rare').textContent = rare.length + ' sports';
+$('#rare-grid').innerHTML = rare.map((s, i) =>
+  makeCard(s, 'Rare', colors[i % colors.length])
+).join('');
+
+// === INSOLITES : sports avec moins de 15k licenciés mais aux noms intrigants ===
+const NICHE_KEYWORDS = ['kabaddi','kin-ball','sepak','takraw','crosse','quidditch','curling','disc','frisbee','bobsleigh','luge','skeleton','pelote','jorkyball','tchoukball','korfball','floorball','padel','pickleball','spikeball','footgolf','footvolley','beach','squash','racquetball','cestaball','crossfit','parkour','slackline','highline','tir','tir à l\'arc','sumo','sambo','penchak','silat','viet','vovinam','aikido','wushu','kung-fu','capoeira','muay','kickboxing','grappling','luttes','sambo','escrime','iaido','kendo','naginata','kyudo','pétanque','boules','lyonnaise','provençal','jeu','quilles','golf','rugby','touch','flag','flag-football','football américain','baseball','softball','cricket','hurling','hockey','glace','crosse','polo','aviron','rame','planche','dragon','kayak','canoe','raft','rafting','barefoot','ski nautique','wakeboard','wakesurf','flyboard','kitesurf','windsurf','funboard','planche','char','land yachting','speedway','bob','luge','curling','patinage','danse','sur glace','rouge','court','blanc','vert','escalade','via ferrata','spéléo','spéléologie','grimpe','bouldering','dry-tooling','escalade glace','escalade vitesse','escalade bloc','escalade voie','randonnée','marche','trail','course','ultratrail','swimrun','aquathlon','duathlon','triathlon','pentathlon','heptathlon','décathlon','course orientation','raid'];
+
+const insolite = SPORTS
+  .filter(s => {
+    const l = lic(s);
+    if (l >= 20000) return false; // suffisamment connus
+    const nom = (s.nom || '').toLowerCase();
+    return NICHE_KEYWORDS.some(k => nom.includes(k)) || l < 8000;
+  })
+  .filter(s => !ultraRare.includes(s) && !rare.includes(s))
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 16);
+
+$('#stat-niche').textContent = insolite.length + ultraRare.length + rare.length;
+$('#lbl-insolite').textContent = insolite.length + ' sports';
+$('#insolite-grid').innerHTML = insolite.map((s, i) =>
+  makeCard(s, 'Insolite', colors[i % colors.length])
+).join('');
+</script>
+
+</body>
+</html>

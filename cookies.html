@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de cookies | Kinetic</title>
+<meta name="description" content="Politique cookies de Kinetic : quels cookies utilisés, comment les gérer, gestion du consentement. Conforme RGPD/CNIL.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://kinetic.app/cookies.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .legal-wrap { max-width: 780px; margin: 0 auto; padding: 40px 24px 100px; }
+  .legal-hero { background: var(--orange); color: white; border-radius: 32px; padding: 48px; margin-bottom: 40px; position: relative; overflow: hidden; }
+  .legal-hero::before { content: ''; position: absolute; right: -10%; top: -40%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,.25) 0%, transparent 70%); }
+  .legal-eyebrow { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 13px; letter-spacing: .25em; opacity: .7; margin-bottom: 12px; position: relative; z-index: 2; }
+  .legal-hero h1 { font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: clamp(36px, 6vw, 72px); line-height: .92; letter-spacing: -.02em; text-transform: uppercase; position: relative; z-index: 2; }
+  .legal-date { font-size: 13px; opacity: .7; margin-top: 12px; position: relative; z-index: 2; }
+  .legal-body { display: flex; flex-direction: column; gap: 32px; }
+  .legal-section { background: white; border: 1.5px solid var(--border); box-shadow: 0 2px 12px rgba(46,26,122,.06); border-radius: 24px; padding: 32px; }
+  .legal-section h2 { font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 16px; color: var(--ink); }
+  .legal-section h2 .accent { color: var(--orange); font-style: italic; font-weight: 500; }
+  .legal-section p, .legal-section li { font-size: 14px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 10px; }
+  .legal-section ul { padding-left: 20px; }
+  .legal-section strong { color: var(--ink); font-weight: 700; }
+  .legal-section a { color: var(--violet); text-decoration: underline; }
+  .cookie-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+  .cookie-table th { text-align: left; padding: 10px 12px; background: rgba(14,11,31,.06); font-weight: 700; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
+  .cookie-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--ink-soft); }
+  .cookie-table tr:last-child td { border-bottom: none; }
+  .cookie-table code { font-size: 12px; background: rgba(14,11,31,.06); padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 100px; font-size: 11px; font-weight: 700; }
+  .badge-green { background: rgba(16,185,129,.12); color: #059669; }
+  .badge-gray { background: rgba(14,11,31,.06); color: var(--gray); }
+  .consent-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+
+  @media (max-width: 700px) {
+    .legal-wrap { padding: 16px 14px 60px; }
+    .legal-hero { padding: 24px 20px; border-radius: 22px; margin-bottom: 24px; }
+    .legal-hero h1 { font-size: clamp(28px, 9vw, 44px); }
+    .legal-body { gap: 16px; }
+    .legal-section { padding: 22px 18px; border-radius: 18px; }
+    .legal-section h2 { font-size: 18px; margin-bottom: 12px; }
+    .legal-section p, .legal-section li { font-size: 13px; }
+    .cookie-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .consent-actions { gap: 8px; }
+    .consent-actions .btn { width: 100%; }
+  }
+</style>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<main id="main-content" class="legal-wrap">
+  <nav aria-label="Fil d'Ariane" class="crumb">
+    <a href="index.html">Kinetic</a>
+    <span class="sep" aria-hidden="true">/</span>
+    <span class="crumb-current" aria-current="page">Cookies</span>
+  </nav>
+
+  <div class="legal-hero">
+    <div class="legal-eyebrow">KINETIC · RGPD</div>
+    <h1>Politique<br>de cookies</h1>
+    <div class="legal-date">Dernière mise à jour : 22 avril 2026</div>
+  </div>
+
+  <div class="legal-body">
+    <section class="legal-section" aria-labelledby="s-quoi">
+      <h2 id="s-quoi">C'est <span class="accent">quoi un cookie ?</span></h2>
+      <p>Un cookie est un petit fichier texte déposé dans votre navigateur lors de la visite d'un site. Il peut servir à mémoriser vos préférences, suivre votre navigation ou afficher de la publicité ciblée.</p>
+      <p>Kinetic utilise uniquement des cookies strictement nécessaires au fonctionnement du service.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="s-liste">
+      <h2 id="s-liste">Cookies <span class="accent">utilisés</span></h2>
+      <table class="cookie-table" aria-label="Liste des cookies Kinetic">
+        <thead>
+          <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Type</th>
+            <th scope="col">Durée</th>
+            <th scope="col">Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>kinetic_quiz_state</code></td>
+            <td><span class="badge badge-green">Fonctionnel</span></td>
+            <td>Session</td>
+            <td>Sauvegarde votre progression dans le quiz pour reprendre là où vous en étiez</td>
+          </tr>
+          <tr>
+            <td><code>kinetic_cookie_consent</code></td>
+            <td><span class="badge badge-green">Fonctionnel</span></td>
+            <td>1 an</td>
+            <td>Mémorise votre choix de consentement pour ne pas réafficher la bannière</td>
+          </tr>
+          <tr>
+            <td><code>kinetic_explorer_idx</code></td>
+            <td><span class="badge badge-green">Fonctionnel</span></td>
+            <td>Session</td>
+            <td>Mémorise votre position dans le feed Explorer pour reprendre au même endroit</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:16px">Aucun cookie publicitaire, analytique ou de tracking tiers n'est déposé par Kinetic.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="s-tiers">
+      <h2 id="s-tiers">Cookies <span class="accent">tiers</span></h2>
+      <p>Des cookies peuvent être déposés par des services tiers que Kinetic utilise :</p>
+      <table class="cookie-table" aria-label="Liste des cookies tiers">
+        <thead>
+          <tr>
+            <th scope="col">Service</th>
+            <th scope="col">Usage</th>
+            <th scope="col">Politique</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Google Fonts</strong></td>
+            <td>Chargement des polices — peut enregistrer votre IP</td>
+            <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Voir</a></td>
+          </tr>
+          <tr>
+            <td><strong>OpenStreetMap</strong></td>
+            <td>Tuiles cartographiques sur la page clubs</td>
+            <td><a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">Voir</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="legal-section" aria-labelledby="s-gerer">
+      <h2 id="s-gerer">Gérer <span class="accent">vos préférences</span></h2>
+      <p>Vous pouvez modifier votre consentement à tout moment :</p>
+      <div class="consent-actions">
+        <button class="btn btn-primary" onclick="localStorage.setItem('kinetic_cookie_consent','accepted'); this.textContent = '✓ Préférence enregistrée'; this.disabled = true;" type="button">Accepter les cookies</button>
+        <button class="btn btn-ghost" onclick="localStorage.setItem('kinetic_cookie_consent','refused'); this.textContent = '✓ Préférence enregistrée'; this.disabled = true;" type="button">Refuser les cookies non essentiels</button>
+      </div>
+      <p style="margin-top:16px">Vous pouvez également effacer tous les cookies Kinetic depuis les paramètres de votre navigateur → Confidentialité → Cookies et données de site → Supprimer pour kinetic.app.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="s-contact">
+      <h2 id="s-contact">Contact</h2>
+      <p>Pour toute question relative à notre politique de cookies : <a href="mailto:privacy@kinetic.app">privacy@kinetic.app</a></p>
+    </section>
+  </div>
+</main>
+
+<script src="components/footer.js" defer></script>
+<script src="components/cookie-banner.js" defer></script>
+</body>
+</html>

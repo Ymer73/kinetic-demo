@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Pages de redirection (deja redirigees via vercel.json)
+Disallow: /quiz.html
+Disallow: /results.html
+Disallow: /categories.html
+
+# Page d'auto-declaration (token magique uniquement, ne pas indexer)
+Disallow: /ma-fiche.html
+
+# Prototypes / pages internes
+Disallow: /feed.html
+
+# Endpoints API et donnees brutes
+Disallow: /clubs/
+
+Sitemap: https://kinetic.app/sitemap.xml

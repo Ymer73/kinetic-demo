@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Compléter ma fiche club - Kinetic Studio</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--violet-ultralight) 0%, var(--paper) 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ink);
+  }
+  .mf-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+  .mf-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .mf-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .mf-logo-mark {
+    width: 38px; height: 38px;
+    background: var(--ink);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--lime);
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: -.04em;
+  }
+  .mf-logo-text {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+  }
+  .mf-logo-text .ital { font-style: italic; font-weight: 500; color: var(--violet); }
+
+  .mf-card {
+    background: white;
+    border-radius: 28px;
+    padding: 32px 36px;
+    box-shadow: 0 12px 40px rgba(46,26,122,.10);
+  }
+  .mf-eyebrow {
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--violet);
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .mf-title {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+    margin: 0 0 6px;
+    text-align: center;
+  }
+  .mf-title .ital { font-style: italic; font-weight: 500; color: var(--violet); }
+  .mf-club-name {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--violet);
+    margin: 0 0 8px;
+    letter-spacing: -.01em;
+  }
+  .mf-intro {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0 0 24px;
+  }
+  .mf-section-title {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--violet);
+    margin: 26px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1.5px dashed var(--border);
+  }
+  .mf-form-group { margin-bottom: 16px; }
+  .mf-form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: .02em;
+  }
+  .mf-form-group .hint {
+    font-size: 11px;
+    color: var(--gray);
+    font-weight: 500;
+    margin-left: 6px;
+  }
+  .mf-form-group input,
+  .mf-form-group select,
+  .mf-form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--paper);
+    transition: border-color .15s, background .15s;
+    box-sizing: border-box;
+  }
+  .mf-form-group input:focus,
+  .mf-form-group select:focus,
+  .mf-form-group textarea:focus {
+    outline: none;
+    border-color: var(--violet);
+    background: white;
+  }
+  .mf-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .mf-team-row, .mf-plan-row {
+    display: grid;
+    gap: 8px;
+    padding: 12px;
+    background: var(--paper);
+    border-radius: 14px;
+    margin-bottom: 10px;
+  }
+  .mf-team-row { grid-template-columns: 1fr 110px 110px 36px; }
+  .mf-plan-row { grid-template-columns: 1fr 110px 90px 90px 36px; }
+  .mf-team-row input, .mf-plan-row input,
+  .mf-team-row select, .mf-plan-row select {
+    padding: 9px 10px;
+    font-size: 13px;
+    border-radius: 10px;
+    background: white;
+  }
+  .mf-remove-btn {
+    background: rgba(255,90,31,.12);
+    color: var(--orange);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .mf-remove-btn:hover { background: rgba(255,90,31,.25); }
+  .mf-add-btn {
+    background: transparent;
+    border: 1.5px dashed var(--violet);
+    color: var(--violet);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 4px;
+    transition: background .15s;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .mf-add-btn:hover { background: var(--violet-ultralight); }
+
+  .mf-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1.5px solid var(--border);
+  }
+  .mf-actions button {
+    flex: 1;
+    padding: 16px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: all .15s;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .mf-actions .submit { background: var(--ink); color: white; }
+  .mf-actions .submit:hover:not(:disabled) { background: var(--violet); transform: translateY(-1px); }
+  .mf-actions .submit:disabled { background: var(--gray-light); cursor: not-allowed; }
+
+  .mf-status {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 12px;
+    display: none;
+  }
+  .mf-status.success { background: rgba(16,185,129,.12); color: var(--green); display: block; }
+  .mf-status.error { background: rgba(255,90,31,.12); color: var(--orange); display: block; }
+  .mf-status.loading { background: var(--violet-ultralight); color: var(--violet); display: block; }
+
+  .mf-footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 12px;
+    color: var(--gray);
+  }
+  .mf-footer a { color: var(--violet); text-decoration: none; }
+  .mf-footer a:hover { text-decoration: underline; }
+
+  .mf-loading-state, .mf-error-state {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .mf-error-state h2 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .mf-error-state p { color: var(--gray); margin-bottom: 20px; }
+  .mf-error-state a {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--ink);
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  @media (max-width: 600px) {
+    .mf-wrap { padding: 16px 12px 60px; }
+    .mf-card { padding: 22px 18px; border-radius: 20px; }
+    .mf-title { font-size: 24px; }
+    .mf-form-row { grid-template-columns: 1fr; gap: 10px; }
+    .mf-team-row { grid-template-columns: 1fr 1fr 36px; gap: 8px; }
+    .mf-plan-row { grid-template-columns: 1fr 1fr 36px; gap: 8px; }
+    .mf-header { padding: 0 4px 16px; }
+    .mf-logo-text { font-size: 16px; }
+    input, select, textarea { min-height: 48px !important; font-size: 16px !important; }
+  }
+
+  @media (max-width: 390px) {
+    .mf-card { padding: 18px 14px; }
+    .mf-title { font-size: 22px; }
+  }
+
+  /* Hide skip-link et autres trucs du shared.css qui n'ont pas de sens ici */
+  .skip-link { display: none !important; }
+
+  /* Cloudflare Turnstile widget centrage */
+  .cf-turnstile { display: flex; justify-content: center; margin: 16px 0 8px; }
+</style>
+<!-- Cloudflare Turnstile (anti-spam, P0 audit 2026-05-28) -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu</a>
+
+<div class="mf-wrap">
+
+  <header class="mf-header">
+    <a href="/" class="mf-logo" aria-label="Kinetic Studio">
+      <span class="mf-logo-mark" aria-hidden="true">K</span>
+      <span class="mf-logo-text">Kinetic <span class="ital">Studio</span></span>
+    </a>
+  </header>
+
+  <main id="main" class="mf-card">
+
+    <!-- État : chargement initial -->
+    <div class="mf-loading-state" id="mf-loading">
+      <div style="font-size:32px;animation:spin 1.5s linear infinite;display:inline-block">⏳</div>
+      <p style="margin-top:16px;color:var(--gray)">Chargement de votre fiche...</p>
+    </div>
+
+    <!-- État : erreur (token invalide ou club introuvable) -->
+    <div class="mf-error-state" id="mf-error" style="display:none">
+      <div style="font-size:48px;margin-bottom:8px">😕</div>
+      <h2>Lien invalide ou expiré</h2>
+      <p id="mf-error-msg">Ce lien ne fonctionne plus. Si vous gérez un club, contactez-nous directement.</p>
+      <a href="https://kinetic.studio">Retour au site</a>
+    </div>
+
+    <!-- État : formulaire -->
+    <div id="mf-form-state" style="display:none">
+
+      <div class="mf-eyebrow">AUTO-DÉCLARATION OFFICIELLE</div>
+      <h1 class="mf-title">Complétez la <span class="ital">fiche</span> de</h1>
+      <p class="mf-club-name" id="mf-club-name">—</p>
+      <p class="mf-intro" id="mf-club-meta">—</p>
+
+      <p class="mf-intro">
+        Vos infos seront ajoutées à la fiche après une vérification rapide.
+        Tous les champs sont optionnels, remplissez ce que vous pouvez.
+      </p>
+
+      <form id="mf-form" novalidate>
+
+        <!-- Contact responsable -->
+        <div class="mf-section-title">Qui remplit cette fiche</div>
+        <div class="mf-form-row">
+          <div class="mf-form-group">
+            <label for="mf-contact-nom">Votre nom <span class="hint">requis</span></label>
+            <input id="mf-contact-nom" name="contact_nom" type="text" required maxlength="80" autocomplete="name" />
+          </div>
+          <div class="mf-form-group">
+            <label for="mf-contact-role">Votre rôle</label>
+            <select id="mf-contact-role" name="contact_role">
+              <option value="">Choisir...</option>
+              <option>Président</option>
+              <option>Secrétaire</option>
+              <option>Trésorier</option>
+              <option>Entraîneur</option>
+              <option>Bénévole</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="mf-form-group">
+          <label for="mf-contact-email">Email de contact <span class="hint">requis pour validation</span></label>
+          <input id="mf-contact-email" name="contact_email" type="email" required autocomplete="email" />
+        </div>
+
+        <!-- Coordonnées club -->
+        <div class="mf-section-title">Coordonnées du club</div>
+        <div class="mf-form-row">
+          <div class="mf-form-group">
+            <label for="mf-tel">Téléphone</label>
+            <input id="mf-tel" name="tel" type="tel" autocomplete="tel" placeholder="04 79 00 00 00" />
+          </div>
+          <div class="mf-form-group">
+            <label for="mf-email">Email du club</label>
+            <input id="mf-email" name="email" type="email" placeholder="contact@monclub.fr" />
+          </div>
+        </div>
+        <div class="mf-form-group">
+          <label for="mf-web">Site web</label>
+          <input id="mf-web" name="web" type="url" placeholder="https://monclub.fr" />
+        </div>
+
+        <!-- Réseaux -->
+        <div class="mf-section-title">Réseaux sociaux</div>
+        <div class="mf-form-row">
+          <div class="mf-form-group">
+            <label for="mf-instagram">Instagram</label>
+            <input id="mf-instagram" name="instagram" type="url" placeholder="https://instagram.com/monclub" />
+          </div>
+          <div class="mf-form-group">
+            <label for="mf-facebook">Facebook</label>
+            <input id="mf-facebook" name="facebook" type="url" placeholder="https://facebook.com/monclub" />
+          </div>
+        </div>
+        <div class="mf-form-row">
+          <div class="mf-form-group">
+            <label for="mf-tiktok">TikTok</label>
+            <input id="mf-tiktok" name="tiktok" type="url" placeholder="https://tiktok.com/@monclub" />
+          </div>
+          <div class="mf-form-group">
+            <label for="mf-youtube">YouTube</label>
+            <input id="mf-youtube" name="youtube" type="url" placeholder="https://youtube.com/@monclub" />
+          </div>
+        </div>
+
+        <!-- Effectifs -->
+        <div class="mf-section-title">Effectifs</div>
+        <div class="mf-form-row">
+          <div class="mf-form-group">
+            <label for="mf-nb-licencies">Nombre de licenciés</label>
+            <input id="mf-nb-licencies" name="nb_licencies" type="number" min="0" max="50000" placeholder="240" />
+          </div>
+          <div class="mf-form-group">
+            <label for="mf-annee">Année de référence</label>
+            <input id="mf-annee" name="annee_licencies" type="number" min="2020" max="2030" placeholder="2025" />
+          </div>
+        </div>
+
+        <!-- Équipes -->
+        <div class="mf-section-title">Équipes</div>
+        <div id="mf-equipes-list"></div>
+        <button type="button" class="mf-add-btn" id="mf-add-equipe">+ Ajouter une équipe</button>
+
+        <!-- Planning -->
+        <div class="mf-section-title">Planning d'entraînement</div>
+        <div id="mf-planning-list"></div>
+        <button type="button" class="mf-add-btn" id="mf-add-planning">+ Ajouter un créneau</button>
+
+        <!-- Cloudflare Turnstile : anti-bot invisible/managed (audit 2026-05-28, Site Key publique) -->
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADXwtoLNNSdub_tC" data-theme="light"></div>
+
+        <div class="mf-status" id="mf-status" role="status" aria-live="polite"></div>
+
+        <div class="mf-actions">
+          <button type="submit" class="submit" id="mf-submit">Envoyer ma fiche</button>
+        </div>
+      </form>
+    </div>
+
+  </main>
+
+  <footer class="mf-footer">
+    <p>Kinetic Studio · <a href="/mentions-legales.html" target="_blank" rel="noopener noreferrer">Mentions légales</a> · <a href="/confidentialite.html" target="_blank" rel="noopener noreferrer">Vos données</a></p>
+  </footer>
+
+</div>
+
+<style>
+  @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+</style>
+
+<script src="components/nav.js" data-bottom-only="true"></script>
+<script src="ma-fiche.js" defer></script>
+</body>
+</html>

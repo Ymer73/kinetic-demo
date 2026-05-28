@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports du mois | Kinetic</title>
+<meta name="description" content="Chaque mois, Kinetic met en avant un sport en plein essor. Découvrez nos sélections éditoriales : Ultimate, Padel, Disc Golf et bien d'autres.">
+<link rel="canonical" href="https://kinetic.app/sports-du-mois.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+<link rel="stylesheet" href="shared.css">
+
+<style>
+  .page-wrap { max-width: 1200px; margin: 0 auto; padding: 40px clamp(20px,5vw,56px) 100px; }
+  .page-hero {
+    background: var(--ink); color: white; border-radius: 32px;
+    padding: 56px 48px; margin-bottom: 56px; position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; right: -5%; top: -50%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--orange) 0%, transparent 65%); opacity: .35;
+  }
+  .page-eyebrow {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 13px; letter-spacing: .25em; opacity: .6; margin-bottom: 14px;
+    position: relative; z-index: 2;
+  }
+  .page-hero h1 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700; font-size: clamp(42px, 7vw, 88px);
+    line-height: .92; letter-spacing: -.02em; text-transform: uppercase;
+    position: relative; z-index: 2; margin-bottom: 20px;
+  }
+  .page-hero p { font-size: 16px; opacity: .7; max-width: 520px; line-height: 1.6; position: relative; z-index: 2; }
+
+  .section-label {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 12px; letter-spacing: .25em; color: var(--gray);
+    margin-bottom: 24px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .sport-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; margin-bottom: 64px; }
+
+  .sport-card {
+    background: white; backdrop-filter: blur(20px);
+    border: 1.5px solid var(--border); border-radius: 24px;
+    overflow: hidden; display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+    transition: transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s;
+  }
+  .sport-card:hover { transform: translateY(-6px); border-color: var(--violet); }
+  .sport-card-header {
+    padding: 32px 32px 24px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .sport-card-header.has-photo {
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg);
+  }
+  .sport-card-header.has-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(14,11,31,0.15) 0%, rgba(14,11,31,0.72) 60%, rgba(14,11,31,0.9) 100%);
+    border-radius: inherit;
+  }
+  .sport-card-header.has-photo .sport-card-tag,
+  .sport-card-header.has-photo h2 {
+    position: relative;
+    z-index: 1;
+  }
+  .sport-card-header.has-photo .sport-card-emoji {
+    display: none;
+  }
+  .sport-card-tag {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 11px; letter-spacing: .2em;
+    background: var(--orange); color: white;
+    padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 16px;
+  }
+  .sport-card-tag.current { background: var(--violet); }
+  .sport-card-emoji { font-size: 56px; line-height: 1; margin-bottom: 12px; display: block; }
+  .sport-card h2 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700; font-size: 36px; text-transform: uppercase;
+    letter-spacing: -.02em; line-height: .95;
+  }
+  .sport-card h2 em { font-style: italic; color: var(--orange); font-weight: 500; }
+  .sport-card-body { padding: 24px 32px 32px; flex: 1; display: flex; flex-direction: column; gap: 16px; }
+  .sport-card-meta { font-size: 12px; color: var(--gray); letter-spacing: .1em; text-transform: uppercase; }
+  .sport-card-desc { font-size: 14px; line-height: 1.65; color: var(--gray); flex: 1; }
+  .sport-card-stats { display: flex; gap: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .sport-card-stat .n { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 28px; color: white; line-height: 1; }
+  .sport-card-stat .n .acc { color: var(--orange); font-size: 20px; }
+  .sport-card-stat .l { font-size: 11px; color: var(--gray); margin-top: 2px; }
+  .sport-card-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 13px; letter-spacing: .15em; color: var(--violet);
+    padding-top: 16px;
+  }
+
+  .crumb { margin-bottom: 32px; }
+
+  @media (max-width: 700px) {
+    .page-wrap { padding: 16px 14px 60px; }
+    .page-hero { padding: 28px 22px; border-radius: 24px; margin-bottom: 32px; }
+    .page-hero h1 { font-size: clamp(34px, 11vw, 56px); }
+    .page-hero p { font-size: 14px; }
+    .section-label { font-size: 11px; margin-bottom: 16px; }
+    .sport-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 40px; }
+    .sport-card { border-radius: 20px; }
+    .sport-card-header { padding: 22px 22px 18px; }
+    .sport-card-emoji { font-size: 44px; }
+    .sport-card h2 { font-size: 28px; }
+    .sport-card-body { padding: 18px 22px 22px; gap: 12px; }
+    .sport-card-stat .n { font-size: 22px; }
+  }
+</style>
+
+<!-- Open Graph + Twitter (audit 2026-05-28) -->
+<meta property="og:title" content="Sports du mois | Kinetic">
+<meta property="og:description" content="Chaque mois, Kinetic met en avant un sport en plein essor. Découvrez nos sélections éditoriales : Ultimate, Padel, Disc Golf et bien d">
+<meta property="og:url" content="https://kinetic.app/sports-du-mois.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sports du mois | Kinetic">
+<meta name="twitter:description" content="Chaque mois, Kinetic met en avant un sport en plein essor. Découvrez nos sélections éditoriales : Ultimate, Padel, Disc Golf et bien d">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<main id="main-content" class="page-wrap">
+  <nav class="crumb" aria-label="Fil d'Ariane">
+    <a href="index.html">Accueil</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <span aria-current="page">Sports du mois</span>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-eyebrow">KINETIC MAGAZINE · SÉLECTION ÉDITORIALE</div>
+    <h1>Sports<br><span style="color:var(--orange);font-style:italic;font-weight:500">du mois</span></h1>
+    <p>Chaque mois, notre équipe éditoriale sélectionne un sport en plein essor — des données, une vidéo, et tout ce qu'il faut pour se lancer.</p>
+  </div>
+
+  <div class="section-label">NUMÉRO EN COURS · AVRIL 2026</div>
+
+  <div class="sport-grid">
+    <a href="sport.html?id=56" class="sport-card">
+      <div class="sport-card-header has-photo" style="background-image:url('https://images.unsplash.com/photo-1725724642839-8a9694a4892c?auto=format&fit=crop&w=800&h=500&q=80')">
+        <span class="sport-card-tag current">AVR 2026 · EN COURS</span>
+        <span class="sport-card-emoji" aria-hidden="true">🥏</span>
+        <h2>ULTI<em>mate</em></h2>
+      </div>
+      <div class="sport-card-body">
+        <div class="sport-card-meta">Collectif mixte · Outdoor · FFDF</div>
+        <p class="sport-card-desc">Frisbee de précision en équipe mixte. Pas d'arbitre, pas de contact, juste de la vitesse, des passes folles et un disque qui flotte 60m.</p>
+        <div class="sport-card-stats">
+          <div class="sport-card-stat"><div class="n">12<span class="acc">k</span></div><div class="l">Licenciés</div></div>
+          <div class="sport-card-stat"><div class="n">230<span class="acc">+</span></div><div class="l">Clubs</div></div>
+          <div class="sport-card-stat"><div class="n"><span class="acc">+38%</span></div><div class="l">Croissance</div></div>
+        </div>
+        <div class="sport-card-cta">Voir la fiche complète →</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="section-label">ARCHIVES · ÉDITIONS PRÉCÉDENTES</div>
+
+  <div class="sport-grid">
+    <a href="sport.html?id=42" class="sport-card">
+      <div class="sport-card-header has-photo" style="background-image:url('https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=800&h=500&q=80')">
+        <span class="sport-card-tag">MARS 2026</span>
+        <span class="sport-card-emoji" aria-hidden="true">🎾</span>
+        <h2>PA<em>del</em></h2>
+      </div>
+      <div class="sport-card-body">
+        <div class="sport-card-meta">Raquette · Indoor/Outdoor · FFT</div>
+        <p class="sport-card-desc">Le sport qui explose en France — terrain fermé, rebonds sur les murs, accessibilité immédiate. +200% de pratiquants en 3 ans.</p>
+        <div class="sport-card-stats">
+          <div class="sport-card-stat"><div class="n">280<span class="acc">k</span></div><div class="l">Licenciés</div></div>
+          <div class="sport-card-stat"><div class="n">1200<span class="acc">+</span></div><div class="l">Clubs</div></div>
+        </div>
+        <div class="sport-card-cta">Voir la fiche complète →</div>
+      </div>
+    </a>
+
+    <a href="sport.html?id=38" class="sport-card">
+      <div class="sport-card-header has-photo" style="background-image:url('https://images.unsplash.com/photo-1536639070539-43ec572aca6d?auto=format&fit=crop&w=800&h=500&q=80')">
+        <span class="sport-card-tag">FÉV 2026</span>
+        <span class="sport-card-emoji" aria-hidden="true">🧗</span>
+        <h2>ESCA<em>lade</em></h2>
+      </div>
+      <div class="sport-card-body">
+        <div class="sport-card-meta">Individuel · Indoor/Outdoor · FFME</div>
+        <p class="sport-card-desc">Le sport de la génération Z. Full-body, mental, communauté ultra-soudée. Les salles poussent dans toutes les villes.</p>
+        <div class="sport-card-stats">
+          <div class="sport-card-stat"><div class="n">95<span class="acc">k</span></div><div class="l">Licenciés</div></div>
+          <div class="sport-card-stat"><div class="n">500<span class="acc">+</span></div><div class="l">Clubs</div></div>
+        </div>
+        <div class="sport-card-cta">Voir la fiche complète →</div>
+      </div>
+    </a>
+
+    <a href="sport.html?id=12" class="sport-card">
+      <div class="sport-card-header has-photo" style="background-image:url('https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=800&h=500&q=80')">
+        <span class="sport-card-tag">JAN 2026</span>
+        <span class="sport-card-emoji" aria-hidden="true">🏊</span>
+        <h2>WATER<em>polo</em></h2>
+      </div>
+      <div class="sport-card-body">
+        <div class="sport-card-meta">Collectif · Aquatique · FFN</div>
+        <p class="sport-card-desc">L'un des sports les plus physiques du monde — cardio, nage, contact. Et pourtant, presque invisible du grand public.</p>
+        <div class="sport-card-stats">
+          <div class="sport-card-stat"><div class="n">14<span class="acc">k</span></div><div class="l">Licenciés</div></div>
+          <div class="sport-card-stat"><div class="n">340<span class="acc">+</span></div><div class="l">Clubs</div></div>
+        </div>
+        <div class="sport-card-cta">Voir la fiche complète →</div>
+      </div>
+    </a>
+  </div>
+</main>
+
+<script src="components/footer.js" defer></script>
+<script src="components/cookie-banner.js" defer></script>
+</body>
+</html>

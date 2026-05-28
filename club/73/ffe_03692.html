@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">EARL ELEVAGE DE L ORISAN · Mercury | Kinetic</title>
+<meta id="meta-desc" name="description" content="Infos pratiques de EARL ELEVAGE DE L ORISAN à Mercury : adresse, contacts, disciplines (equitation). Annuaire Kinetic.">
+<link id="meta-canonical" rel="canonical" href="https://kinetic.app/club/73/ffe_03692">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kinetic">
+<meta property="og:locale" content="fr_FR">
+<meta id="og-title" property="og:title" content="EARL ELEVAGE DE L ORISAN · Mercury | Kinetic">
+<meta id="og-desc" property="og:description" content="Infos pratiques de EARL ELEVAGE DE L ORISAN à Mercury : adresse, contacts, disciplines (equitation). Annuaire Kinetic.">
+<meta id="og-url" property="og:url" content="https://kinetic.app/club/73/ffe_03692">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta id="tw-title" name="twitter:title" content="EARL ELEVAGE DE L ORISAN · Mercury | Kinetic">
+<meta id="tw-desc" name="twitter:description" content="Infos pratiques de EARL ELEVAGE DE L ORISAN à Mercury : adresse, contacts, disciplines (equitation). Annuaire Kinetic.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+<link rel="stylesheet" href="shared.css">
+<!-- Leaflet (carte hero interactive) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="/club.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"EARL ELEVAGE DE L ORISAN","url":"https://kinetic.app/club/73/ffe_03692","description":"Infos pratiques de EARL ELEVAGE DE L ORISAN à Mercury : adresse, contacts, disciplines (equitation). Annuaire Kinetic.","sport":"equitation","address":{"@type":"PostalAddress","addressCountry":"FR","streetAddress":"259 CHEMIN DU PLAN","addressLocality":"Mercury","postalCode":"73200"},"geo":{"@type":"GeoCoordinates","latitude":45.669466,"longitude":6.344222},"telephone":"04 79 32 53 49","sameAs":["http://elevage.orisan.com"]}</script>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="../../demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<main id="main-content">
+
+  <!-- Loading state -->
+  <div class="loading-screen" id="loading-screen" style="min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding-top:120px;color:var(--gray)">
+    <div class="loading-spinner" aria-hidden="true" style="width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--orange);border-radius:50%;animation:spin .7s linear infinite"></div>
+    <p>Chargement de la fiche club...</p>
+  </div>
+
+  <div id="club-content" style="display:none">
+
+    <!-- ─── BREADCRUMB ─── -->
+    <div class="crumb" id="crumb">
+      <a href="clubs.html">Clubs</a>
+      <span class="sep">/</span>
+      <span id="crumb-ville"></span>
+      <span class="sep">/</span>
+      <span id="crumb-disc"></span>
+      <span class="sep">/</span>
+      <span id="crumb-name"></span>
+    </div>
+
+    <!-- ─── HERO ─── -->
+    <section class="club-hero">
+      <div>
+        <span class="hero-tag"><span class="ic"></span> <span id="hero-tag-text">CLUB</span></span>
+        <span class="hero-tag verified-badge" id="verified-badge" style="display:none;background:linear-gradient(135deg,#22C55E,#16A34A);margin-left:8px">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:2px"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          VÉRIFIÉ PAR LE CLUB
+        </span>
+        <h1 id="hero-h1">Club sportif</h1>
+        <span class="addr-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span id="hero-addr">Adresse</span>
+        </span>
+      </div>
+
+      <div class="hero-map" id="hero-map">
+        <!-- Carte Leaflet réelle (occupera tout l'espace) -->
+        <div id="hero-map-leaflet" style="position:absolute;inset:0;border-radius:28px;overflow:hidden;z-index:1"></div>
+        <!-- Fallback décoratif (visible si pas de coords) -->
+        <div class="ring" aria-hidden="true"></div>
+        <div class="pin-shadow" aria-hidden="true"></div>
+        <div class="pin" aria-hidden="true"><div class="marker"></div></div>
+        <div class="hero-map-overlay">
+          <div>
+            <div class="k">Adresse</div>
+            <b id="map-addr-short">Adresse</b>
+          </div>
+          <a id="map-directions" href="#" target="_blank" rel="noopener">Itinéraire →</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─── KEY STATS ─── -->
+    <div class="key-stats">
+      <div class="ks-cell">
+        <div class="ks-num" id="ks-licencies">·</div>
+        <div class="ks-lbl">Licenciés</div>
+      </div>
+      <div class="ks-cell">
+        <div class="ks-num" id="ks-disciplines">·</div>
+        <div class="ks-lbl">Disciplines</div>
+      </div>
+      <div class="ks-cell">
+        <div class="ks-num" id="ks-licence-prix">·</div>
+        <div class="ks-lbl">Licence adulte</div>
+      </div>
+      <div class="ks-cell">
+        <div class="ks-num" id="ks-dept">·</div>
+        <div class="ks-lbl" id="ks-dept-lbl">Département</div>
+      </div>
+    </div>
+
+<!-- ─── MAIN GRID : Présentation + Booking ─── -->
+<div class="main-grid">
+
+  <!-- LEFT · Présentation -->
+  <div class="pres">
+    <div class="pres-eyebrow">· LE CLUB</div>
+    <h2>Présentation</h2>
+    <div id="pres-body"></div>
+
+    <!-- Disciplines (binding dynamique) -->
+    <div class="disciplines">
+      <h3>Disciplines proposées</h3>
+      <div class="disc-list" id="disc-list"></div>
+    </div>
+
+    <!-- Coordonnées (binding dynamique) -->
+    <div class="coords" id="coords"></div>
+
+    <!-- Socials (binding dynamique) -->
+    <div class="socials">
+      <h3>Suivez-nous</h3>
+      <div class="socials-grid" id="socials-grid"></div>
+
+      <!-- Federation link (binding dynamique) -->
+      <a href="#" id="fede-link" target="_blank" rel="noopener" class="fede" style="display:none">
+        <div class="fede-logo" id="fede-logo">FED</div>
+        <div class="fede-body">
+          <small>Club affilié</small>
+          <b id="fede-name">Fédération</b>
+          <span id="fede-details"></span>
+        </div>
+        <div class="fede-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- Schedule moved below practical -->
+  </div>
+
+  <!-- RIGHT · Booking widget -->
+  <aside class="booking">
+    <div class="book-head">
+      <div class="book-eyebrow"><span class="dot"></span> RÉSERVATION EN LIGNE</div>
+      <h2>Ta séance <span class="ital">d'essai</span></h2>
+      <p>1 séance d'essai par semaine, gratuite. Choisis ta discipline et ton créneau, on s'occupe du reste.</p>
+      <span class="free-tag">✦ 100% GRATUITE</span>
+    </div>
+
+    <div class="book-body">
+
+      <!-- Step 1 · Discipline (binding dynamique) -->
+      <div class="book-step-label"><span class="num">1</span> CHOISIS UNE DISCIPLINE</div>
+      <div class="disc-picker" id="discPicker"></div>
+
+      <!-- Step 2 · Day -->
+      <div class="book-step-label"><span class="num">2</span> CHOISIS UN JOUR</div>
+      <div class="day-picker" id="dayPicker"></div>
+
+      <!-- Step 3 · Slot -->
+      <div class="book-step-label"><span class="num">3</span> CHOISIS UN HORAIRE</div>
+      <div id="slotsContainer">
+        <div class="slot-section" id="amSection">
+          <div class="slot-section-label"><span class="em" aria-hidden="true">☀️</span> Matin</div>
+          <div class="slot-grid" id="slotsAm"></div>
+        </div>
+        <div class="slot-section" id="pmSection">
+          <div class="slot-section-label"><span class="em" aria-hidden="true">🌇</span> Après-midi & soir</div>
+          <div class="slot-grid" id="slotsPm"></div>
+        </div>
+      </div>
+
+      <!-- Step 4 · Confirm -->
+      <div class="book-confirm">
+        <div class="book-summary" id="bookSummary" style="display:none">
+          <div class="left">
+            <span style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);font-weight:600">Récap</span>
+            <b id="summaryText">·</b>
+          </div>
+          <span class="price">GRATUIT</span>
+        </div>
+        <button class="book-cta" id="bookCta" disabled>
+          Choisis un créneau
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <button class="contact-club-btn" id="contactClubBtn" type="button" style="width:100%;margin-top:10px;padding:12px;background:white;color:var(--ink);border:1px solid var(--border);border-radius:100px;font-family:inherit;font-weight:600;font-size:13px;cursor:pointer">Contacter le club directement</button>
+        <p class="book-foot">Annulation gratuite jusqu'à 2h avant. Pas de carte bancaire requise.</p>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+    <!-- ─── PLANNING DE LA SEMAINE (binding dynamique) ─── -->
+    <section class="schedule schedule-full">
+      <div class="sched-head">
+        <div>
+          <div class="sched-eyebrow"><span class="line" aria-hidden="true"></span> HORAIRES D'ENTRAÎNEMENT</div>
+          <h2 class="sched-title">La <span class="ital">semaine</span> au club.</h2>
+        </div>
+        <p class="sched-sub" id="sched-sub">Planning hebdomadaire du club.</p>
+      </div>
+
+      <div id="planning-wrap" style="position:relative">
+        <div class="week-grid" id="weekGrid"></div>
+        <div id="planning-empty-overlay" style="display:none;position:absolute;inset:0;background:rgba(246,243,255,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:18px;display:flex;align-items:center;justify-content:center;z-index:5">
+          <div style="background:white;border:1px solid var(--border);border-radius:18px;padding:24px 28px;text-align:center;box-shadow:0 14px 36px rgba(46,26,122,.12);max-width:360px">
+            <strong style="display:block;font-family:'Archivo Narrow',Impact,sans-serif;font-size:20px;text-transform:uppercase;margin-bottom:6px">Planning pas encore renseigné</strong>
+            <p style="font-size:13px;color:var(--ink-soft);margin-bottom:14px;line-height:1.5">Tu connais ce club ? Aide-nous à le compléter.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="week-foot" id="week-foot" style="display:none">→ <a href="#" id="planning-pdf-link">Voir le planning complet</a></p>
+    </section>
+
+<!-- ─── ÉVÉNEMENTS / PORTES OUVERTES ─── -->
+<section class="events">
+  <div class="events-head">
+    <div>
+      <div class="sched-eyebrow"><span class="line"></span> ÉVÉNEMENTS À VENIR</div>
+      <h2 class="sched-title">Viens nous <span class="ital">rencontrer</span>.</h2>
+    </div>
+    <p class="sched-sub">Portes ouvertes, journées découverte, compétitions ouvertes au public. Tu peux passer sans inscription.</p>
+  </div>
+
+  <div class="events-grid">
+    <article class="event-card type-portes">
+      <div class="event-date">
+        <div class="event-day">15</div>
+        <div class="event-month">OCT</div>
+        <div class="event-year">2026</div>
+      </div>
+      <div class="event-body">
+        <span class="event-tag">🎉 Portes ouvertes</span>
+        <h3>Journée découverte de l'athlé</h3>
+        <p class="event-when">⏰ 14h00 – 18h00 · accès libre</p>
+        <p class="event-desc">Toutes les disciplines en démo, équipement prêté, coachs présents pour répondre à tes questions. Crêpes et café offerts.</p>
+        <a href="#" class="event-cta">J'y vais →</a>
+      </div>
+    </article>
+
+    <article class="event-card type-decouverte">
+      <div class="event-date">
+        <div class="event-day">22</div>
+        <div class="event-month">NOV</div>
+        <div class="event-year">2026</div>
+      </div>
+      <div class="event-body">
+        <span class="event-tag">✨ Séance découverte</span>
+        <h3>Initiation au saut en hauteur</h3>
+        <p class="event-when">⏰ 10h00 – 12h00 · 12 places max</p>
+        <p class="event-desc">Tu veux essayer le saut en hauteur sans engagement ? Pierre te guide pendant 2h, du Fosbury aux premiers essais.</p>
+        <a href="#" class="event-cta">Réserver ma place →</a>
+      </div>
+    </article>
+
+    <article class="event-card type-stage">
+      <div class="event-date">
+        <div class="event-day">21</div>
+        <div class="event-month">DÉC</div>
+        <div class="event-year">2026</div>
+      </div>
+      <div class="event-body">
+        <span class="event-tag">🏔️ Stage</span>
+        <h3>Stage de Noël à Font-Romeu</h3>
+        <p class="event-when">📅 21 – 28 déc · 7 jours · 380€</p>
+        <p class="event-desc">Stage d'altitude annuel ouvert aux licenciés et invités. Tous niveaux, encadrement 3 coachs, demi-pension incluse.</p>
+        <a href="#" class="event-cta">Plus d'infos →</a>
+      </div>
+    </article>
+
+    <article class="event-card type-compet">
+      <div class="event-date">
+        <div class="event-day">18</div>
+        <div class="event-month">JAN</div>
+        <div class="event-year">2027</div>
+      </div>
+      <div class="event-body">
+        <span class="event-tag">🏆 Compétition</span>
+        <h3>Cross du 15ᵉ · édition n°42</h3>
+        <p class="event-when">⏰ 9h00 · gratuit pour le public</p>
+        <p class="event-desc">Notre cross annuel dans le Parc Suzanne-Lenglen. 6 km, départs par catégorie d'âge. Spectateurs bienvenus à 11h pour la course phare.</p>
+        <a href="#" class="event-cta">Voir le détail →</a>
+      </div>
+    </article>
+  </div>
+
+  <a href="#" class="events-all">Voir tous les événements du club →</a>
+</section>
+
+
+<!-- ─── AVIS DE LA COMMUNAUTÉ ─── -->
+<section class="reviews">
+  <div class="reviews-head">
+    <div>
+      <div class="sched-eyebrow"><span class="line"></span> AVIS DE LA COMMUNAUTÉ</div>
+      <h2 class="sched-title">Ce qu'en <span class="ital">disent</span> les membres.</h2>
+    </div>
+    <div class="reviews-rating">
+      <div class="stars-big">
+        <div class="stars-big-fill" id="avgStarsFill" style="width:96%">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <div class="stars-big-bg">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+      </div>
+      <div class="reviews-meta">
+        <b id="avgScore">4,8</b><span class="out">/5</span>
+        <span class="reviews-count"><span id="reviewsCount">132</span> avis</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <form class="review-form" id="reviewForm" novalidate>
+    <div class="review-form-eyebrow">✨ LAISSE TON AVIS</div>
+    <div class="review-form-row">
+      <div class="review-stars" id="ratingStars" role="radiogroup" aria-label="Note">
+        <button type="button" class="rs-btn" data-val="1" aria-label="1 étoile">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </button>
+        <button type="button" class="rs-btn" data-val="2" aria-label="2 étoiles">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </button>
+        <button type="button" class="rs-btn" data-val="3" aria-label="3 étoiles">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </button>
+        <button type="button" class="rs-btn" data-val="4" aria-label="4 étoiles">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </button>
+        <button type="button" class="rs-btn" data-val="5" aria-label="5 étoiles">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </button>
+      </div>
+      <span class="rating-hint" id="ratingHint">Clique pour noter →</span>
+    </div>
+
+    <input type="text" class="review-input" id="revName" placeholder="Ton prénom (ex: Mehdi)" autocomplete="given-name" maxlength="40" />
+    <textarea class="review-textarea" id="revText" placeholder="Raconte ton expérience au club… (coachs, ambiance, installations)" maxlength="400" rows="3"></textarea>
+    <div class="review-form-foot">
+      <span class="char-count" id="charCount">0 / 400</span>
+      <button type="submit" class="review-submit" disabled>
+        Publier mon avis
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </form>
+
+  <!-- Reviews list -->
+  <div class="reviews-list" id="reviewsList">
+    <article class="review-card" data-rating="5">
+      <div class="review-head">
+        <div class="review-avatar" style="background:linear-gradient(135deg, var(--violet), var(--orange))">MD</div>
+        <div class="review-who">
+          <b>Mehdi D.</b>
+          <span>Licencié depuis 2024 · il y a 3 jours</span>
+        </div>
+        <div class="review-stars-mini" data-rating="5"></div>
+      </div>
+      <p>Coachs au top, ambiance familiale, et la piste vient d'être refaite. J'avais peur de me sentir déplacé en commençant à 30 ans, en fait pas du tout · il y a des gens de tous les âges.</p>
+    </article>
+    <article class="review-card" data-rating="5">
+      <div class="review-head">
+        <div class="review-avatar" style="background:linear-gradient(135deg, var(--orange), #D63384)">CB</div>
+        <div class="review-who">
+          <b>Camille B.</b>
+          <span>Licenciée depuis 2023 · il y a 2 semaines</span>
+        </div>
+        <div class="review-stars-mini" data-rating="5"></div>
+      </div>
+      <p>Pierre m'a fait progresser de 12cm en saut en hauteur en 6 mois. Le club organise des stages d'été géniaux à Font-Romeu, je recommande à fond.</p>
+    </article>
+    <article class="review-card" data-rating="4">
+      <div class="review-head">
+        <div class="review-avatar" style="background:linear-gradient(135deg, var(--lime), var(--violet))">JL</div>
+        <div class="review-who">
+          <b>Julien L.</b>
+          <span>Licencié depuis 2022 · il y a 1 mois</span>
+        </div>
+        <div class="review-stars-mini" data-rating="4"></div>
+      </div>
+      <p>Très bon club, infrastructures top. Seul bémol : les vestiaires sont un peu vieillissants et il y a parfois beaucoup de monde sur la piste le mardi soir.</p>
+    </article>
+  </div>
+
+  <button class="reviews-more" id="loadMoreReviews">Voir les 129 autres avis</button>
+</section>
+
+<!-- ─── CLAIM CLUB CTA ─── -->
+<section class="claim-club">
+  <div class="claim-inner">
+    <div class="claim-icon">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M20.55 18.66A11 11 0 0023 12c0-6.07-4.93-11-11-11S1 5.93 1 12c0 2.46.81 4.73 2.17 6.55L1 23l5.45-1.82A11 11 0 0012 23"/></svg>
+    </div>
+    <div class="claim-body">
+      <div class="claim-eyebrow">CORRECTION, MISE À JOUR, AJOUT ?</div>
+      <h2>Une <span class="ital">erreur</span> ?<br>Remplis la fiche.</h2>
+      <p>Aide-nous à garder cette fiche à jour : horaires, contacts, créneaux d'essai, événements à venir. <b>100% gratuit</b>, validé en 24h par notre équipe.</p>
+    </div>
+    <div class="claim-actions">
+      <a href="#" class="claim-cta" data-open-claim>
+        Réclamer cette fiche
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#" class="claim-link">→ En savoir plus</a>
+    </div>
+  </div>
+</section>
+
+    <!-- ─── PRACTICAL INFO (sous le planning, comme demandé) ─── -->
+    <section class="practical">
+      <h2>Infos <span class="ital">pratiques</span></h2>
+      <div class="practical-grid">
+        <div class="pcard">
+          <div class="ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h3>Première séance</h3>
+          <p>Arrive 15 min en avance. On te fait visiter les vestiaires, on te présente les coachs et tu rejoins le groupe correspondant à ton niveau.</p>
+        </div>
+        <div class="pcard">
+          <div class="ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 7-10 13L2 10z"/><path d="M11 3l1 7M13 3l-1 7M2 10h20"/></svg>
+          </div>
+          <h3>À apporter</h3>
+          <p>Tenue de sport adaptée, baskets, gourde et serviette. Le club fournit le matériel technique nécessaire à la pratique.</p>
+        </div>
+        <div class="pcard">
+          <div class="ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Durée</h3>
+          <p>Une séance type dure entre 1h et 2h, échauffement et retour au calme inclus. De quoi vraiment ressentir le sport.</p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /#club-content -->
+</main>
+
+
+<!-- ─── CLAIM CLUB MODAL FORM ─── -->
+<!-- ─── CLAIM FORM MODAL ─── -->
+<div class="modal-bg modal-bg--wide" id="claimModal">
+  <div class="modal claim-modal">
+    <button class="claim-close" data-close-claim aria-label="Fermer">✕</button>
+    <div class="claim-header">
+      <div class="claim-step-tag">FORMULAIRE · 5 MIN</div>
+      <h3>Remplis la fiche de <span class="ital">ton club</span></h3>
+      <p>Toutes les infos sont validées par notre équipe sous 24h. Aucune n'est obligatoire à part le contact.</p>
+    </div>
+
+    <form id="claimForm" class="claim-form" novalidate>
+
+      <!-- STEP 1 · contact -->
+      <fieldset class="cf-step">
+        <legend><span class="n">1</span> Toi, le référent</legend>
+        <div class="cf-row two">
+          <label class="cf-field">
+            <span>Prénom *</span>
+            <input type="text" name="firstName" placeholder="Julien" required />
+          </label>
+          <label class="cf-field">
+            <span>Nom *</span>
+            <input type="text" name="lastName" placeholder="Renaud" required />
+          </label>
+        </div>
+        <label class="cf-field">
+          <span>Email *</span>
+          <input type="email" name="email" placeholder="julien@sop15.fr" required />
+        </label>
+        <label class="cf-field">
+          <span>Ton rôle au club</span>
+          <select name="role">
+            <option value="">· choisir ·</option>
+            <option>Président(e)</option>
+            <option>Coach</option>
+            <option>Secrétaire / trésorier</option>
+            <option>Bénévole</option>
+            <option>Licencié(e)</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <!-- STEP 2 · club info -->
+      <fieldset class="cf-step">
+        <legend><span class="n">2</span> Le club</legend>
+        <label class="cf-field">
+          <span>Nom du club</span>
+          <input type="text" name="clubName" placeholder="Stade Olympique Paris 15" />
+        </label>
+        <label class="cf-field">
+          <span>Adresse complète</span>
+          <input type="text" name="address" placeholder="2 av. Porte de la Plaine, 75015 Paris" />
+        </label>
+        <label class="cf-field">
+          <span>Présentation du club (2-3 phrases)</span>
+          <textarea name="presentation" rows="3" maxlength="400" placeholder="Histoire, valeurs, ce qui rend ton club unique…"></textarea>
+        </label>
+        <div class="cf-row two">
+          <label class="cf-field">
+            <span>Année de fondation</span>
+            <input type="number" name="founded" placeholder="1962" min="1800" max="2026" />
+          </label>
+          <label class="cf-field">
+            <span>Licence annuelle (€)</span>
+            <input type="number" name="licensePrice" placeholder="180" min="0" />
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- STEP 3 · disciplines + niveaux -->
+      <fieldset class="cf-step">
+        <legend><span class="n">3</span> Disciplines &amp; niveaux proposés</legend>
+        <p class="cf-help">Une ligne par couple <b>discipline + équipe / niveau</b>. Ex: « Sprint Adulte » et « Sprint Jeune -13 » sont 2 lignes différentes.</p>
+
+        <div class="cf-disc-list" id="cfDiscList">
+          <div class="cf-disc-row">
+            <label class="cf-trial-field">
+              <span class="cf-trial-lbl">Discipline</span>
+              <input type="text" name="discName[]" placeholder="Ex: Sprint, Trail, Touch Rugby" autocomplete="off" />
+            </label>
+            <label class="cf-trial-field">
+              <span class="cf-trial-lbl">Niveau / équipe</span>
+              <input type="text" name="discLevel[]" placeholder="Ex: Adulte compétition, Jeune -13, Loisir…" autocomplete="off" />
+            </label>
+            <button type="button" class="cf-trial-rm" aria-label="Retirer">✕</button>
+          </div>
+        </div>
+
+        <button type="button" class="cf-add-trial" id="cfAddDisc">+ Ajouter une discipline</button>
+
+        <label class="cf-field" style="margin-top:18px">
+          <span>Détails libres sur les disciplines <em>(facultatif)</em></span>
+          <textarea name="discNotes" rows="3" placeholder="Spécificités, créneaux par discipline, ouvertures saisonnières, niveaux particuliers…"></textarea>
+        </label>
+        <label class="cf-field cf-file-field">
+          <span>Planning en pièce jointe <em>(facultatif)</em></span>
+          <div class="cf-file-drop" id="cfPlanningDrop">
+            <input type="file" name="planningFile" id="cfPlanningInput" accept=".pdf,.png,.jpg,.jpeg,.webp,image/*" hidden />
+            <div class="cf-file-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <div class="cf-file-text">
+              <b>Dépose ton planning PDF/JPG</b>
+              <small id="cfPlanningName">ou clique pour parcourir · 5 Mo max</small>
+            </div>
+            <button type="button" class="cf-file-clear" id="cfPlanningClear" style="display:none" aria-label="Retirer le fichier">✕</button>
+          </div>
+        </label>
+        <label class="cf-field">
+          <span>Planning d'entraînement (texte libre, jours + horaires par discipline)</span>
+          <textarea name="schedule" rows="4" placeholder="Ex:&#10;Sprint Adulte : mardi 18h30·20h, jeudi 18h30·20h&#10;Demi-fond Jeune : lundi 19h·20h30…"></textarea>
+        </label>
+      </fieldset>
+
+      <!-- STEP 4 · licenciés -->
+      <fieldset class="cf-step">
+        <legend><span class="n">4</span> Tes licenciés</legend>
+        <label class="cf-field">
+          <span>Nombre total de licenciés</span>
+          <input type="number" name="totalLicensees" placeholder="487" min="0" />
+        </label>
+        <div class="cf-row two">
+          <label class="cf-field">
+            <span>Dont garçons / hommes <em>(facultatif)</em></span>
+            <input type="number" name="male" placeholder="265" min="0" />
+          </label>
+          <label class="cf-field">
+            <span>Dont filles / femmes <em>(facultatif)</em></span>
+            <input type="number" name="female" placeholder="222" min="0" />
+          </label>
+        </div>
+        <p class="cf-help">Données agrégées. Ne nous communique pas d'infos personnelles sur tes licenciés.</p>
+      </fieldset>
+
+      <!-- STEP 5 · contact public -->
+      <fieldset class="cf-step">
+        <legend><span class="n">5</span> Infos pratiques (publiques)</legend>
+        <div class="cf-row two">
+          <label class="cf-field">
+            <span>Téléphone du club</span>
+            <input type="tel" name="phone" placeholder="01 45 67 89 10" />
+          </label>
+          <label class="cf-field">
+            <span>Email public</span>
+            <input type="email" name="publicEmail" placeholder="contact@sop15.fr" />
+          </label>
+        </div>
+        <label class="cf-field">
+          <span>Site web</span>
+          <input type="url" name="website" placeholder="https://sop15.fr" />
+        </label>
+      </fieldset>
+
+      <!-- STEP 6 · socials -->
+      <fieldset class="cf-step">
+        <legend><span class="n">6</span> Réseaux sociaux</legend>
+        <div class="cf-row two">
+          <label class="cf-field">
+            <span>Instagram</span>
+            <input type="text" name="instagram" placeholder="@sop15athle" />
+          </label>
+          <label class="cf-field">
+            <span>Facebook</span>
+            <input type="text" name="facebook" placeholder="facebook.com/sop15" />
+          </label>
+        </div>
+        <div class="cf-row two">
+          <label class="cf-field">
+            <span>Strava (club)</span>
+            <input type="text" name="strava" placeholder="strava.com/clubs/sop15" />
+          </label>
+          <label class="cf-field">
+            <span>TikTok / YouTube</span>
+            <input type="text" name="otherSocial" placeholder="@sop15" />
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- STEP 7 · reservation -->
+      <fieldset class="cf-step cf-toggle-wrap">
+        <legend><span class="n">7</span> Réservation séance d'essai</legend>
+        <label class="cf-toggle">
+          <input type="checkbox" name="enableBooking" id="cfBooking">
+          <span class="cf-toggle-track"><span class="cf-toggle-thumb"></span></span>
+          <span class="cf-toggle-label">
+            <b>Activer la réservation en ligne</b>
+            <small>Les visiteurs pourront réserver leur séance d'essai directement depuis Kinetic</small>
+          </span>
+        </label>
+
+        <div class="cf-booking-extra" id="cfBookingExtra">
+          <div class="cf-sched-panel" style="margin-top:6px">
+            <span class="cf-radio-label">🎯 Tes créneaux d'essai</span>
+            <p class="cf-help" style="margin-top:-4px">Chaque créneau correspond à une <b>discipline</b> + une <b>équipe</b> + un <b>horaire</b>. Tu peux en ajouter autant que tu veux.</p>
+
+            <div class="cf-trial-list" id="cfTrialList">
+              <div class="cf-trial-slot">
+                <div class="cf-trial-row">
+                  <label class="cf-trial-field cf-trial-disc">
+                    <span class="cf-trial-lbl">Discipline</span>
+                    <input type="text" name="trialDisc[]" placeholder="Ex: Sprint" autocomplete="off" />
+                  </label>
+                  <label class="cf-trial-field cf-trial-group">
+                    <span class="cf-trial-lbl">Équipe / niveau</span>
+                    <input type="text" name="trialGroup[]" placeholder="Ex: Adulte loisir" autocomplete="off" />
+                  </label>
+                  <label class="cf-trial-field cf-trial-day">
+                    <span class="cf-trial-lbl">Jour</span>
+                    <input type="text" name="trialDay[]" placeholder="Ex: mardi" autocomplete="off" />
+                  </label>
+                  <label class="cf-trial-field cf-trial-time">
+                    <span class="cf-trial-lbl">Heure</span>
+                    <input type="time" name="trialTime[]" value="18:30" />
+                  </label>
+                  <button type="button" class="cf-trial-rm" aria-label="Retirer">✕</button>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="cf-add-trial" id="cfAddTrial">+ Ajouter un créneau</button>
+
+            <label class="cf-field" style="margin-top:18px">
+              <span>Avec quelle régularité ces créneaux ? <em>(texte libre)</em></span>
+              <input type="text" name="weeklyFrequency" placeholder="Ex: toutes les semaines, sauf vacances scolaires, 2x/mois…" autocomplete="off" />
+            </label>
+          </div>
+
+          <div class="cf-sched-panel cf-exc-panel" style="margin-top:24px">
+            <span class="cf-radio-label">🎉 Dates exceptionnelles <em>(facultatif)</em></span>
+            <p class="cf-help" style="margin-top:-4px">Portes ouvertes, journée découverte, événements spéciaux… ajoute-les ici en plus de tes créneaux hebdo.</p>
+            <div class="cf-dates-list" id="cfDates">
+              <div class="cf-date-row">
+                <input type="date" name="excDates[]" />
+                <input type="time" name="excTimes[]" value="14:00" />
+                <input type="text" name="excLabels[]" placeholder="Ex: Portes ouvertes, Journée découverte…" />
+                <button type="button" class="cf-date-rm" aria-label="Retirer">✕</button>
+              </div>
+            </div>
+            <button type="button" class="cf-add-date" id="cfAddDate">+ Ajouter une date</button>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- STEP 8 · note libre -->
+      <fieldset class="cf-step">
+        <legend><span class="n">8</span> Note libre <em>(facultatif)</em></legend>
+        <p class="cf-help">Anecdote sur le club, spécificité, demande particulière, photo à ajouter… tout ce qui n'a pas sa place ailleurs.</p>
+        <label class="cf-field">
+          <span>Quelque chose à nous dire ?</span>
+          <textarea name="freeNote" rows="4" maxlength="600" placeholder="Ex: On a besoin d'aide pour mettre en ligne nos photos ; notre club est handi-accueillant et on aimerait que ça se voie ; on héberge aussi un club de marche nordique le dimanche…"></textarea>
+        </label>
+      </fieldset>
+    </form>
+
+    <div class="cf-foot">
+      <p class="cf-disclaimer">En soumettant ce formulaire, tu acceptes que Kinetic publie ces informations après validation. Tu pourras les modifier à tout moment.</p>
+      <div class="cf-foot-actions">
+        <button type="button" class="cf-cancel" data-close-claim>Annuler</button>
+        <button type="submit" form="claimForm" class="cf-submit">
+          Envoyer pour validation
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Success state -->
+    <div class="claim-success" id="claimSuccess">
+      <div class="check-circle">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+      </div>
+      <h3>Bien <span class="ital">reçu</span> !</h3>
+      <p>On valide ta fiche sous 24h. Tu recevras un mail à l'adresse indiquée dès qu'elle sera en ligne.</p>
+      <button type="button" class="cf-submit" data-close-claim style="margin-top:16px">Top, merci&nbsp;!</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SUCCESS MODAL ─── -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <div class="check-circle">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+    </div>
+    <h3>C'est <span class="ital">noté</span> !</h3>
+    <p>Ta séance d'essai est réservée. Tu vas recevoir un mail de confirmation dans 2 minutes.</p>
+    <div class="modal-summary">
+      <div class="row"><span class="k">Discipline</span><span class="v" id="mDisc">Sprint</span></div>
+      <div class="row"><span class="k">Date</span><span class="v" id="mDate">·</span></div>
+      <div class="row"><span class="k">Horaire</span><span class="v" id="mTime">·</span></div>
+      <div class="row"><span class="k">Lieu</span><span class="v">Stade Olympique Paris 15</span></div>
+      <div class="row"><span class="k">Tarif</span><span class="v" style="color:var(--orange)">100% GRATUIT</span></div>
+    </div>
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeModal()">Plus tard</button>
+      <button class="primary" onclick="closeModal()">Ajouter au calendrier</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─── SUCCESS MODAL ─── -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <div class="check-circle">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+    </div>
+    <h3>C'est <span class="ital">noté</span> !</h3>
+    <p>Ta séance d'essai est réservée. Tu vas recevoir un mail de confirmation dans 2 minutes.</p>
+    <div class="modal-summary">
+      <div class="row"><span class="k">Discipline</span><span class="v" id="mDisc">·</span></div>
+      <div class="row"><span class="k">Date</span><span class="v" id="mDate">·</span></div>
+      <div class="row"><span class="k">Horaire</span><span class="v" id="mTime">·</span></div>
+      <div class="row"><span class="k">Lieu</span><span class="v" id="mClub">·</span></div>
+      <div class="row"><span class="k">Tarif</span><span class="v" style="color:var(--orange)">100% GRATUIT</span></div>
+    </div>
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeModal()">Plus tard</button>
+      <button class="primary" onclick="closeModal()">Ajouter au calendrier</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─── Scripts data + composants ─── -->
+<script src="disciplines.js"></script>
+<script src="data.js"></script>
+<script src="utils.js"></script>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script src="/club-page.js"></script>
+
+<!-- Cacher la bottom-nav mobile + son spacer sur la fiche club -->
+<style>body > .bottom-nav, body > .bottom-nav-spacer { display: none !important; }</style>
+
+<script src="components/footer.js" defer></script>
+<script src="components/cookie-banner.js" defer></script>
+<script src="enhance-2026.js" defer></script>
+
+</body>
+</html>

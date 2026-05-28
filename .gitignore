@@ -1,4 +1,53 @@
+# Dossiers archives lourdes (à ne pas envoyer sur GitHub)
+archives/
+_to-delete/
+_dev/
+
+# Vidéos
+*.mp4
+*.mov
+*.avi
+
+# Données brutes scrapers
+_scrapers/**/raw/
+_scrapers/**/*_raw.json
+
+# Builds intermédiaires et rapports
+_data-build/
+_reports/
+_queue/
+
+# Fichiers système Mac et éditeurs
 .DS_Store
-.push-demo.log
-*.command
-build_brief_pdf.py
+*.log
+.vscode/
+.idea/
+
+# Dépendances et caches
+node_modules/
+__pycache__/
+*.pyc
+
+# Backups dept-XX.json (créés par merge.js)
+clubs/dept-*.json.backup-*
+clubs/dept-*.json.tmp
+
+# Backups .bak / .backup (audit 2026-05-28 : 8 backups racine pushés par erreur)
+*.bak
+*.bak-*
+*.backup
+*.backup-*
+*.backup_*
+
+# Data interne sprints (à garder local, pas sur GitHub)
+_sprints/
+_audits/
+_logs/
+_prompts/
+
+# Backups canonical (rémanents du sed Sprint 0, à nettoyer en local)
+*.bak-canonical
+
+# Dossier _archives_sprint0/ : JS morts mis de côté lors du Sprint 0
+# Garder local pour rollback rapide, ne pas push sur GitHub
+_archives_sprint0/

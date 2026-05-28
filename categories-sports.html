@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toutes les catégories de sports · Kinetic</title>
+<meta name="description" content="Toutes les catégories de sports répertoriés en France : Collectif, Combat, Aquatique, Glisse, Plein air, Précision, Mind & body... 290 disciplines par envie.">
+<link rel="canonical" href="https://kinetic.app/categories-sports.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="kinetic-mockup.css">
+
+<style>
+a { text-decoration: none; color: inherit; }
+.page-wrap { max-width: 1280px; margin: 0 auto; padding: 24px 28px 80px; }
+
+.crumb { display: flex; gap: 8px; align-items: center; font-size: 12px; font-weight: 600; color: var(--km-muted); letter-spacing: .05em; text-transform: uppercase; margin: 12px 0 20px; }
+.crumb a:hover { color: var(--km-ink); }
+.crumb .sep { color: var(--km-line); }
+
+.cs-hero { background: var(--km-lime-soft); border: 1px solid var(--km-lime-deep); border-radius: 28px; padding: 48px 40px; margin-bottom: 36px; }
+.cs-hero .eyebrow { font-family: 'Archivo Narrow'; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--km-muted); margin-bottom: 14px; }
+.cs-hero h1 { font-family: 'Archivo Narrow'; font-weight: 700; font-size: clamp(40px, 6vw, 60px); line-height: .95; margin: 0 0 14px; letter-spacing: -.005em; color: var(--km-ink); }
+.cs-hero h1 em { font-style: italic; color: var(--km-violet); }
+.cs-hero p { font-size: 15px; color: var(--km-muted); max-width: 640px; line-height: 1.55; margin: 0; }
+
+.cs-cat-block { background: white; border: 1px solid var(--km-line-soft); border-radius: 22px; padding: 28px; margin-bottom: 18px; }
+.cs-cat-head { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--km-line-soft); }
+.cs-cat-head .ic { font-size: 42px; line-height: 1; }
+.cs-cat-head h2 { margin: 0; font-family: 'Archivo Narrow'; font-weight: 700; font-size: 28px; letter-spacing: -.005em; color: var(--km-ink); }
+.cs-cat-head .count { font-family: 'Archivo Narrow'; font-weight: 700; font-size: 14px; background: var(--km-lime-soft); color: var(--km-ink); border: 1px solid var(--km-lime-deep); padding: 3px 12px; border-radius: 100px; margin-left: auto; }
+.cs-cat-desc { font-size: 14px; color: var(--km-muted); margin: 0 0 18px; max-width: 740px; line-height: 1.5; }
+.cs-cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.cs-sport { background: var(--km-paper); border: 1px solid var(--km-line-soft); border-radius: 12px; padding: 12px; display: grid; grid-template-columns: 32px 1fr auto; gap: 10px; align-items: center; transition: all .12s; }
+.cs-sport:hover { background: white; border-color: var(--km-ink); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(14,11,31,.08); }
+.cs-sport .glyph { width: 32px; height: 32px; border-radius: 8px; background: white; border: 1px solid var(--km-line-soft); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.cs-sport .info { min-width: 0; }
+.cs-sport .nm { font-family: 'Archivo Narrow'; font-weight: 700; font-size: 13px; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--km-ink); }
+.cs-sport .meta { font-size: 10.5px; color: var(--km-muted); margin-top: 2px; }
+.cs-sport .arrow { font-size: 13px; color: var(--km-violet); font-weight: 700; }
+.cs-show-more { margin-top: 12px; text-align: center; }
+.cs-show-more button { background: transparent; border: 1px dashed var(--km-line); color: var(--km-ink); padding: 8px 18px; border-radius: 100px; font-family: inherit; font-weight: 600; font-size: 12.5px; cursor: pointer; }
+.cs-show-more button:hover { border-color: var(--km-ink); background: var(--km-paper); }
+
+@media (max-width: 700px) {
+  .page-wrap { padding: 14px 14px 60px; }
+  .cs-hero { padding: 32px 22px; border-radius: 20px; }
+  .cs-cat-block { padding: 22px 18px; border-radius: 18px; }
+  .cs-cat-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- Open Graph + Twitter (audit 2026-05-28) -->
+<meta property="og:title" content="Toutes les catégories de sports · Kinetic">
+<meta property="og:description" content="Toutes les catégories de sports répertoriés en France : Collectif, Combat, Aquatique, Glisse, Plein air, Précision, Mind & body... 290 disciplines par envie.">
+<meta property="og:url" content="https://kinetic.app/categories-sports.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Toutes les catégories de sports · Kinetic">
+<meta name="twitter:description" content="Toutes les catégories de sports répertoriés en France : Collectif, Combat, Aquatique, Glisse, Plein air, Précision, Mind & body... 290 disciplines par envie.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body class="km-page">
+
+<script src="components/nav.js"></script>
+
+<main id="main-content" class="page-wrap">
+
+  <nav class="crumb" aria-label="Fil d'Ariane">
+    <a href="index.html">Accueil</a>
+    <span class="sep">›</span>
+    <a href="explorer-sports.html">Explorer</a>
+    <span class="sep">›</span>
+    <span aria-current="page">Toutes les catégories</span>
+  </nav>
+
+  <section class="cs-hero">
+    <div class="eyebrow">Par envie · 290 disciplines · 13 catégories</div>
+    <h1>Trouve ton <em>sport</em><br>par catégorie d'envie.</h1>
+    <p>Chaque catégorie regroupe les sports qui partagent une vibe similaire : du collectif au mind & body, en passant par le combat ou la verticale. Choisis ton ambiance, on te donne les sports qui collent.</p>
+  </section>
+
+  <div id="cats-container"></div>
+
+</main>
+
+<script src="components/footer.js"></script>
+<script src="data.js"></script>
+
+<script>
+const $ = (s) => document.querySelector(s);
+
+const CAT_DESC = {
+  'Collectif': "Tu joues avec, pas contre. Le ballon comme prétexte pour bouger en équipe et créer des amitiés.",
+  'Individuel': "Toi face à toi-même, ton chrono ou ton geste. La progression personnelle au centre.",
+  'Combat': "L'art de recevoir un coup et d'éviter d'en donner. Contrôle de soi et explosivité.",
+  'Aquatique': "L'eau qui amortit, qui résiste, qui porte. Du chlore à l'océan, tout y est.",
+  'Glisse': "Neige, asphalte, vague. La vitesse comme moyen d'expression.",
+  'Précision': "Geste juste, concentration totale. Tout se joue dans la milliseconde et le millimètre.",
+  'Force': "Soulever, pousser, tirer. La puissance brute comme terrain de jeu.",
+  'Mécanique': "Volant, moteur, vitesse. Le pilotage comme discipline à part entière.",
+  'Animalier': "Avec un cheval, un chien, un faucon. Sports en duo inter-espèces.",
+  'Montagne & Nature': "Forêts, sommets, sentiers. Le sport en plein air par excellence.",
+  'Aérien': "Quitter le sol, jouer avec le vent. La gravité comme adversaire.",
+  'Danse & Arts': "Le mouvement comme expression. Entre sport et art performatif.",
+  'Mental': "Échecs, go, bridge. Le sport de l'esprit, reconnu officiellement.",
+};
+const CAT_EMOJI_FB = {
+  'Collectif':'⚽','Individuel':'🏃','Combat':'🥊','Aquatique':'🏊','Glisse':'🏂',
+  'Précision':'🎯','Force':'🏋️','Mécanique':'🏎️','Animalier':'🐎','Montagne & Nature':'🏔️',
+  'Aérien':'🪂','Danse & Arts':'💃','Mental':'🧠'
+};
+
+const SPORT_EMOJI_MAP = {
+  'Football':'⚽','Rugby à XV':'🏉','Basketball':'🏀','Handball':'🤾','Volleyball':'🏐',
+  'Tennis':'🎾','Badminton':'🏸','Tennis de table':'🏓','Natation':'🏊','Athlétisme':'🏃',
+  'Cyclisme route':'🚴','Judo':'🥋','Karaté':'🥋','Boxe':'🥊','Escrime':'🤺','Golf':'⛳',
+  'Surf':'🏄','Ski alpin':'⛷️','Snowboard':'🏂','Escalade':'🧗','Equitation':'🐎','Voile':'⛵',
+  'Aviron':'🚣','Padel':'🎾','Pétanque':'🎳','Plongée':'🤿','Ultimate':'🥏','Skateboard':'🛹',
+  'Roller':'🛼','Yoga':'🧘','Fitness':'💪','Crossfit':'🏋️','Trail':'🏔️','Triathlon':'🏊',
+  'Tir à l\'arc':'🏹','Pickleball':'🏓','Danse':'💃'
+};
+
+function glyphFor(s) {
+  if (SPORT_EMOJI_MAP[s.nom]) return SPORT_EMOJI_MAP[s.nom];
+  if (typeof CAT_EMOJI !== 'undefined' && CAT_EMOJI[s.cat]) return CAT_EMOJI[s.cat];
+  return CAT_EMOJI_FB[s.cat] || '🎽';
+}
+function fmt(n) { if (!n) return ''; if (n >= 1000) return Math.round(n/1000)+'k'; return n.toString(); }
+
+// Regrouper SPORTS par catégorie
+const byCat = {};
+SPORTS.forEach(s => {
+  const c = s.cat || 'Autre';
+  (byCat[c] = byCat[c] || []).push(s);
+});
+
+// Sort cats par count desc
+const sortedCats = Object.entries(byCat).sort((a,b) => b[1].length - a[1].length);
+
+// Render
+const INITIAL_LIMIT = 12;
+$('#cats-container').innerHTML = sortedCats.map(([cat, sports]) => {
+  // Sort sports par nb licencies desc
+  sports.sort((a,b) => (b.meta?.licencies2024 || 0) - (a.meta?.licencies2024 || 0));
+  const ic = (typeof CAT_EMOJI !== 'undefined' && CAT_EMOJI[cat]) || CAT_EMOJI_FB[cat] || '🎽';
+  const desc = CAT_DESC[cat] || `Tous les sports de la catégorie ${cat}.`;
+  return `
+    <section class="cs-cat-block" data-cat="${cat}">
+      <div class="cs-cat-head">
+        <span class="ic">${ic}</span>
+        <h2>${cat}</h2>
+        <span class="count">${sports.length} sport${sports.length > 1 ? 's' : ''}</span>
+      </div>
+      <p class="cs-cat-desc">${desc}</p>
+      <div class="cs-cat-grid" data-grid="${cat}">
+        ${sports.slice(0, INITIAL_LIMIT).map(s => `
+          <a class="cs-sport" href="sport.html?id=${s.id}">
+            <div class="glyph">${glyphFor(s)}</div>
+            <div class="info">
+              <div class="nm">${s.nom}</div>
+              <div class="meta">${s.meta?.acronyme || ''}${s.meta?.licencies2024 ? ' · '+fmt(s.meta.licencies2024)+' lic.' : ''}</div>
+            </div>
+            <div class="arrow">→</div>
+          </a>
+        `).join('')}
+      </div>
+      ${sports.length > INITIAL_LIMIT ? `
+        <div class="cs-show-more">
+          <button data-cat="${cat}" data-shown="${INITIAL_LIMIT}" data-total="${sports.length}">
+            Afficher les ${sports.length - INITIAL_LIMIT} autres ${cat.toLowerCase()} →
+          </button>
+        </div>
+      ` : ''}
+    </section>
+  `;
+}).join('');
+
+// Show more handlers
+document.querySelectorAll('.cs-show-more button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const cat = btn.dataset.cat;
+    const sports = byCat[cat];
+    sports.sort((a,b) => (b.meta?.licencies2024 || 0) - (a.meta?.licencies2024 || 0));
+    const grid = document.querySelector(`[data-grid="${cat}"]`);
+    grid.innerHTML = sports.map(s => `
+      <a class="cs-sport" href="sport.html?id=${s.id}">
+        <div class="glyph">${glyphFor(s)}</div>
+        <div class="info">
+          <div class="nm">${s.nom}</div>
+          <div class="meta">${s.meta?.acronyme || ''}${s.meta?.licencies2024 ? ' · '+fmt(s.meta.licencies2024)+' lic.' : ''}</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+    `).join('');
+    btn.parentElement.style.display = 'none';
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinetic Para - Trouve ton parasport adapté à ton handicap</title>
+<meta name="description" content="Trouve un sport adapté à ton handicap. Quiz personnalisé, clubs labellisés FFH/FFSA, sports paralympiques. Gratuit.">
+<meta name="keywords" content="parasport, handisport, sport adapté handicap, club handisport, FFH, FFSA, sport fauteuil, sport aveugle, sport adapté">
+<link rel="canonical" href="https://kinetic.app/handisport.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kinetic Para, l'écosystème sport adapté">
+<meta property="og:description" content="Trouve un sport adapté à ton handicap. Quiz personnalisé, clubs labellisés FFH/FFSA, sports paralympiques. Gratuit.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0E0B1F">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="enhance-2026.css">
+<style>
+  /* ─── Identité visuelle Kinetic Para : violet plus présent, codes proches mais distincts ─── */
+  :root {
+    --para-blue: #2A5FE0;
+    --para-blue-dark: #1A3FA0;
+    --para-gradient: linear-gradient(135deg, var(--violet, #6C47FF), var(--para-blue) 90%);
+  }
+  main { position: relative; overflow: hidden; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 56px); }
+
+  /* Eyebrow nav qui distingue de l'écosystème principal */
+  .para-banner {
+    background: var(--ink, #0E0B1F);
+    color: white;
+    padding: 12px 0;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: .2em;
+    position: relative;
+    z-index: 50;
+  }
+  .para-banner-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .para-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    background: var(--para-gradient);
+    border-radius: 100px;
+  }
+  .para-pill::before { content: '♿'; font-size: 14px; }
+  .para-back {
+    color: rgba(255,255,255,.7);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: .15em;
+  }
+  .para-back:hover { color: white; }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    padding: clamp(48px, 8vw, 100px) 0 clamp(40px, 6vw, 72px);
+  }
+  .hero-blobs { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+  .hero-blobs .b1 { width: 380px; height: 380px; top: -80px; left: -100px; background: var(--violet, #6C47FF); filter: blur(80px); opacity: .25; border-radius: 50%; position: absolute; }
+  .hero-blobs .b2 { width: 320px; height: 320px; top: 30%; right: -100px; background: var(--para-blue); filter: blur(80px); opacity: .3; border-radius: 50%; position: absolute; }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 48px;
+    align-items: end;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 14px;
+    letter-spacing: .25em;
+    color: var(--para-blue);
+    margin-bottom: 16px;
+  }
+  .hero-headline {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 8.5vw, 144px);
+    line-height: .85;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--ink, #0E0B1F);
+    margin: 0 0 24px;
+  }
+  .hero-headline .italic { font-style: italic; font-weight: 500; color: var(--violet, #6C47FF); }
+  .hero-headline .accent {
+    background: var(--para-gradient);
+    color: white;
+    padding: 0 .15em;
+    display: inline-block;
+    transform: rotate(-1.5deg);
+    border-radius: 12px;
+  }
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft, #2A2550);
+    max-width: 480px;
+    margin-bottom: 28px;
+  }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .hero-stat-card {
+    background: var(--ink, #0E0B1F);
+    color: white;
+    border-radius: 32px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-stat-card::before {
+    content: '';
+    position: absolute;
+    top: -30%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--violet, #6C47FF) 0%, transparent 70%);
+    opacity: .55;
+  }
+  .hero-stat-card::after {
+    content: '';
+    position: absolute;
+    bottom: -30%; left: -10%;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, var(--para-blue) 0%, transparent 70%);
+    opacity: .55;
+  }
+  .stat-eye {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: .2em;
+    opacity: .55;
+    z-index: 2;
+    position: relative;
+  }
+  .stat-big {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: clamp(48px, 5vw, 80px);
+    line-height: 1;
+    z-index: 2;
+    position: relative;
+    margin: 12px 0 8px;
+  }
+  .stat-big .accent { color: var(--violet, #6C47FF); }
+  .stat-text { font-size: 14px; opacity: .8; line-height: 1.5; z-index: 2; position: relative; }
+
+  /* ─── 3 piliers (comment ça marche, version handisport) ─── */
+  .pillars-section { padding: clamp(48px, 6vw, 80px) 0; }
+  .pillars-head { text-align: center; margin-bottom: 40px; }
+  .pillars-head h2 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: .92;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .pillars-head h2 .accent { color: var(--violet); font-style: italic; font-weight: 500; }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .pillar-card {
+    padding: 32px;
+    border-radius: 28px;
+    border: 1px solid var(--glass-border, rgba(14,11,31,.08));
+    background: var(--glass-bg, rgba(255,255,255,.55));
+    backdrop-filter: blur(20px);
+  }
+  .pillar-card:nth-child(1) { background: var(--ink); color: white; border-color: rgba(255,255,255,.1); }
+  .pillar-card:nth-child(2) { background: var(--violet); color: white; border-color: transparent; }
+  .pillar-card:nth-child(3) { background: var(--para-blue); color: white; border-color: transparent; }
+  .pillar-num {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 64px;
+    line-height: 1;
+    opacity: .25;
+    margin-bottom: 16px;
+  }
+  .pillar-title {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .pillar-desc { font-size: 14px; line-height: 1.55; opacity: .9; }
+
+  /* ─── Disciplines disponibles ─── */
+  .disc-section { padding: clamp(48px, 6vw, 80px) 0; }
+  .disc-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .disc-head h2 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: .92;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .disc-head h2 .accent { color: var(--violet); font-style: italic; font-weight: 500; }
+  .disc-head p { font-size: 14px; color: var(--gray, #9992C0); max-width: 360px; line-height: 1.5; margin: 0; }
+  .disc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .disc-card {
+    background: white;
+    border: 1px solid var(--glass-border, rgba(14,11,31,.08));
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: all .25s;
+    position: relative;
+  }
+  .disc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(46,26,122,.18);
+    border-color: var(--violet);
+  }
+  .disc-tag {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 11px;
+    letter-spacing: .15em;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--violet);
+    color: white;
+  }
+  .disc-name {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .disc-cat {
+    font-size: 12px;
+    color: var(--gray, #9992C0);
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* ─── Partenaires institutionnels ─── */
+  .partners-section { padding: clamp(48px, 6vw, 72px) 0; }
+  .partners-head { text-align: center; margin-bottom: 32px; }
+  .partners-head h2 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+  .partners-head p { color: var(--gray, #9992C0); font-size: 14px; max-width: 600px; margin: 0 auto; }
+  .partners-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .partner-card {
+    background: var(--glass-bg-strong, rgba(255,255,255,.7));
+    border: 1px solid var(--glass-border, rgba(14,11,31,.08));
+    border-radius: 24px;
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    transition: all .2s;
+  }
+  .partner-card:hover { background: white; border-color: var(--violet); }
+  .partner-acronym {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 28px;
+    color: var(--violet);
+    letter-spacing: .05em;
+    line-height: 1;
+  }
+  .partner-name { font-weight: 700; margin: 6px 0 4px; font-size: 14px; }
+  .partner-desc { font-size: 13px; color: var(--gray, #9992C0); line-height: 1.4; }
+
+  /* ─── CTA final ─── */
+  .cta-final {
+    margin: clamp(48px, 6vw, 80px) clamp(0px, 2vw, 24px) 24px;
+    padding: clamp(48px, 6vw, 80px) clamp(28px, 5vw, 56px);
+    background: var(--para-gradient);
+    color: white;
+    border-radius: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(0,0,0,.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-final h2 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: .92;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+    position: relative;
+    z-index: 2;
+  }
+  .cta-final p { opacity: .9; margin: 0 0 24px; font-size: 15px; position: relative; z-index: 2; }
+  .cta-final .btn {
+    background: white;
+    color: var(--ink);
+    border: none;
+    position: relative; z-index: 2;
+  }
+  .cta-final .btn:hover { background: var(--ink); color: white; }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .pillars-grid, .disc-grid, .partners-list { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .pillars-grid, .disc-grid, .partners-list { grid-template-columns: 1fr; gap: 12px; }
+    .hero { padding: 24px 0 28px; }
+    .hero-grid { gap: 20px; }
+    .hero-eyebrow { font-size: 11px; margin-bottom: 12px; }
+    .hero-headline { font-size: clamp(36px, 11vw, 60px); margin: 0 0 16px; }
+    .hero-sub { font-size: 14px; margin-bottom: 20px; }
+    .hero-ctas { flex-direction: column; gap: 10px; }
+    .hero-ctas .btn { width: 100%; min-height: 48px; justify-content: center; }
+    .hero-stat-card { padding: 22px 20px; border-radius: 22px; }
+    .para-banner-inner { padding: 0 14px; gap: 12px; }
+    .para-banner { font-size: 11px; }
+    .cta-final { padding: 32px 20px; border-radius: 24px; margin: 24px 14px; }
+    .cta-final .btn { width: 100%; }
+  }
+</style>
+<!-- Apple PWA -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kinetic">
+<meta name="mobile-web-app-capable" content="yes">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<main id="main-content">
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero-blobs" aria-hidden="true">
+      <div class="b1"></div>
+      <div class="b2"></div>
+    </div>
+
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-eyebrow">SPORT ADAPTÉ - PARALYMPIQUE</div>
+        <h1 class="hero-headline">
+          TROUVE<br>
+          <span class="italic">ton</span> <span class="accent">parasport</span>
+        </h1>
+        <p class="hero-sub">
+          Un quiz dédié, des clubs labellisés FFH et FFSA, et une vraie sélection de disciplines adaptées à ton handicap. <b>Gratuit, sans inscription.</b>
+        </p>
+        <div class="hero-ctas">
+          <a href="quiz-handisport.html" class="btn btn-primary btn-lg">Faire le quiz parasport →</a>
+          <a href="map-handisport.html" class="btn btn-glass btn-lg">Voir les clubs</a>
+        </div>
+      </div>
+
+      <div class="hero-stat-card">
+        <div class="stat-eye">EN FRANCE</div>
+        <div class="stat-big">2,8 <span class="accent">millions</span></div>
+        <p class="stat-text">de personnes en situation de handicap, dont une large majorité éloignée de la pratique sportive faute d'infos accessibles.</p>
+        <div style="border-top:1px solid rgba(255,255,255,.15); margin-top:20px; padding-top:16px; font-size:13px; opacity:.75; position:relative; z-index:2">
+          <b>Notre mission :</b> casser cette friction. Un quiz, une carte, des sports.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 3 PILIERS ─── -->
+  <section class="pillars-section">
+    <div class="container">
+      <div class="pillars-head">
+        <h2>Comment <span class="accent">ça marche</span></h2>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-num">01</div>
+          <div class="pillar-title">Quiz<br>adapté</div>
+          <p class="pillar-desc">7 questions sur ton handicap, ta mobilité, tes envies, ton environnement. Gratuit, anonyme.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">02</div>
+          <div class="pillar-title">Sports<br>compatibles</div>
+          <p class="pillar-desc">On te propose les disciplines qui te correspondent : paralympiques, adaptées, fauteuil, mixtes.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">03</div>
+          <div class="pillar-title">Clubs<br>labellisés</div>
+          <p class="pillar-desc">Les structures vraiment adaptées près de chez toi, certifiées FFH ou FFSA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DISCIPLINES ─── -->
+  <section class="disc-section">
+    <div class="container">
+      <div class="disc-head">
+        <div>
+          <h2>Quelques <span class="accent">disciplines</span></h2>
+        </div>
+        <p>Une sélection des sports adaptés disponibles en France. Le quiz t'oriente vers ceux qui te correspondent.</p>
+      </div>
+      <div class="disc-grid" id="disc-grid">
+        <!-- généré par JS depuis data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PARTENAIRES ─── -->
+  <section class="partners-section">
+    <div class="container">
+      <div class="partners-head">
+        <h2>Les fédérations <span style="color:var(--violet)">de référence</span></h2>
+        <p>Kinetic s'appuie sur les structures officielles du parasport français.</p>
+      </div>
+      <div class="partners-list">
+        <a href="https://handisport.org/" target="_blank" rel="noopener" class="partner-card">
+          <div class="partner-acronym">FFH</div>
+          <div class="partner-name">Fédération Française Handisport</div>
+          <div class="partner-desc">Référente sur le handicap moteur, sensoriel et physique.</div>
+        </a>
+        <a href="https://www.ffsa.asso.fr/" target="_blank" rel="noopener" class="partner-card">
+          <div class="partner-acronym">FFSA</div>
+          <div class="partner-name">Fédération Française du Sport Adapté</div>
+          <div class="partner-desc">Référente sur le handicap mental et psychique.</div>
+        </a>
+        <a href="https://france-paralympique.fr/" target="_blank" rel="noopener" class="partner-card">
+          <div class="partner-acronym">CPSF</div>
+          <div class="partner-name">Comité Paralympique Sportif Français</div>
+          <div class="partner-desc">Sélectionne et accompagne les athlètes paralympiques.</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="container">
+    <div class="cta-final">
+      <h2>Prêt à trouver<br>ton parasport ?</h2>
+      <p>7 questions, 2 minutes. Personne ne te jugera.</p>
+      <a href="quiz-handisport.html" class="btn btn-lg">Commencer le quiz →</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="disciplines.js"></script>
+<script src="data.js"></script>
+<script src="icons.js"></script>
+<script>
+// ─── Disciplines parasport surfacées depuis data.js ─────
+// IDs handisport / parasport identifiés dans le dataset Kinetic.
+const PARA_IDS = [86, 130, 131, 132, 133, 134, 135, 139, 195, 196, 197, 198, 199, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474];
+const TAGS = {
+  fauteuil: 'Fauteuil',
+  visuel: 'Déficience visuelle',
+  sensoriel: 'Sensoriel',
+  moteur: 'Handicap moteur',
+  intel: 'Sport adapté'
+};
+const TAG_MAP = {
+  130: 'fauteuil', 131: 'fauteuil', 86: 'fauteuil', 139: 'fauteuil',
+  463: 'fauteuil', 464: 'fauteuil', 465: 'fauteuil', 466: 'fauteuil',
+  133: 'visuel', 195: 'visuel',
+  132: 'sensoriel',
+  134: 'moteur', 135: 'moteur', 196: 'moteur', 197: 'moteur', 198: 'moteur', 199: 'moteur',
+  467: 'moteur', 468: 'moteur', 469: 'moteur', 472: 'moteur', 473: 'moteur', 474: 'moteur',
+  470: 'intel', 471: 'intel'
+};
+
+(function () {
+  const grid = document.getElementById('disc-grid');
+  if (!grid) return;
+  const surfaced = SPORTS.filter(s => PARA_IDS.includes(s.id)).slice(0, 9);
+  grid.innerHTML = surfaced.map(s => {
+    const tagKey = TAG_MAP[s.id] || 'moteur';
+    return `
+      <a class="disc-card" href="sport.html?id=${s.id}">
+        <span class="disc-tag">${TAGS[tagKey]}</span>
+        <div class="disc-name">${s.nom}</div>
+        <div class="disc-cat">${s.cat}</div>
+      </a>
+    `;
+  }).join('');
+})();
+</script>
+
+<script src="components/footer.js" defer></script>
+<script src="components/cookie-banner.js" defer></script>
+<script src="enhance-2026.js" defer></script>
+</body>
+</html>

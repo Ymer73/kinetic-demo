@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carte · Trouve ton club | Kinetic</title>
+<meta name="description" content="Carte interactive des 125 000 clubs sportifs en France. Filtre par sport, département, ville. Géoloc automatique.">
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="dept-geo.js"></script>
+<script src="disciplines.js"></script>
+
+<link rel="stylesheet" href="shared.css">
+
+<link rel="stylesheet" href="/map.css">
+
+<!-- Apple PWA -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Open Graph + Twitter (audit 2026-05-28) -->
+<meta property="og:title" content="Carte · Trouve ton club | Kinetic">
+<meta property="og:description" content="Carte interactive des 125 000 clubs sportifs en France. Filtre par sport, département, ville. Géoloc automatique.">
+<meta property="og:url" content="https://kinetic.app/map.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Carte · Trouve ton club | Kinetic">
+<meta name="twitter:description" content="Carte interactive des 125 000 clubs sportifs en France. Filtre par sport, département, ville. Géoloc automatique.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js" data-fixed="true"></script>
+
+<main id="main-content" class="mv2">
+
+  <!-- Hero strip : crumbs + titre + counter -->
+  <section class="mv2-hero">
+    <div class="mv2-hero-row">
+      <div>
+        <nav class="mv2-crumbs" aria-label="Fil d'Ariane">
+          <a href="index.html">Kinetic</a>
+          <span class="sep">/</span>
+          <span>Clubs · Carte de France</span>
+        </nav>
+        <h1 class="mv2-title">Trouve ton <em>club.</em></h1>
+      </div>
+      <div class="mv2-counter" role="status" aria-live="polite">
+        <div class="col"><div class="n" id="mv2-c-clubs">—</div><div class="lbl">Clubs</div></div>
+        <div class="col"><div class="n" id="mv2-c-sports">—</div><div class="lbl">Sports</div></div>
+        <div class="col"><div class="n" id="mv2-c-dept">73</div><div class="lbl">Dpt.</div></div>
+      </div>
+    </div>
+
+    <!-- The big filter bar : la pièce maîtresse de la V1 -->
+    <div class="mv2-filter-bar mv2-glass-strong" role="search" aria-label="Filtres de recherche">
+
+      <!-- Search -->
+      <div class="fb-search dropdown-wrap" id="fb-search-wrap">
+        <span class="ic" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+        </span>
+        <input
+          type="search"
+          id="fb-search-input"
+          placeholder="Cherche un sport, une ville, un club…"
+          autocomplete="new-password"
+          autocorrect="off"
+          autocapitalize="off"
+          autocomplete="off"
+          spellcheck="false"
+          name="kinetic-search-x"
+          aria-label="Recherche">
+        <div class="search-dropdown" id="fb-search-dropdown" hidden></div>
+      </div>
+
+      <div class="fb-divider" aria-hidden="true"></div>
+
+      <!-- Sports group -->
+      <div class="fb-group dropdown-wrap" id="fb-sports-wrap">
+        <div id="fb-sport-chips"></div>
+        <button class="mv2-chip add" id="fb-sport-add" aria-haspopup="listbox" aria-expanded="false">+ Sport</button>
+        <div class="dropdown" id="fb-sport-dropdown" hidden role="listbox" aria-label="Choisir un sport">
+          <h5>Choisis un ou plusieurs sports</h5>
+          <div class="opts" id="fb-sport-opts"></div>
+        </div>
+      </div>
+
+      <div class="fb-divider" aria-hidden="true"></div>
+
+      <!-- Lieu group -->
+      <div class="fb-group dropdown-wrap" id="fb-lieu-wrap">
+        <button class="mv2-chip on" id="fb-dept-chip" aria-haspopup="listbox" aria-expanded="false">
+          <span id="fb-dept-label">73 — Savoie</span>
+        </button>
+        <div class="dropdown" id="fb-dept-dropdown" hidden role="listbox" aria-label="Choisir un département">
+          <h5>Département</h5>
+          <div class="dept-search-wrap">
+            <input
+              type="text"
+              id="fb-dept-search"
+              class="dept-search-input"
+              placeholder="Cherche un département…"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Filtrer la liste des départements">
+          </div>
+          <div class="opts" id="fb-dept-opts"></div>
+        </div>
+      </div>
+
+      <!-- Reset -->
+      <button class="fb-reset hidden" id="fb-reset" aria-label="Réinitialiser tous les filtres">
+        Réinitialiser ⟲
+      </button>
+    </div>
+
+    <!-- Popular sports row -->
+    <div class="mv2-quick" id="mv2-quick" aria-label="Sports populaires">
+      <span class="eyebrow">Populaire</span>
+      <button class="qc" data-sport="football"><span>⚽</span> Football</button>
+      <button class="qc" data-sport="natation"><span>🏊</span> Natation</button>
+      <button class="qc" data-sport="judo"><span>🥋</span> Judo</button>
+      <button class="qc" data-sport="tennis"><span>🎾</span> Tennis</button>
+      <button class="qc" data-sport="equitation"><span>🐴</span> Équitation</button>
+      <button class="qc" data-sport="gymnastique"><span>🤸</span> Gym</button>
+      <button class="qc" data-sport="basket-ball"><span>🏀</span> Basket</button>
+      <button class="qc" data-sport="rugby"><span>🏉</span> Rugby</button>
+      <button class="qc" data-sport="ski-alpin"><span>⛷️</span> Ski alpin</button>
+      <button class="qc" data-sport="escalade"><span>🧗</span> Escalade</button>
+    </div>
+  </section>
+
+  <!-- Map stage -->
+  <div class="mv2-stage">
+    <div id="mv2-map" role="application" aria-label="Carte interactive des clubs sportifs"></div>
+
+    <!-- Status pill -->
+    <div class="mv2-status mv2-glass">
+      <span class="live" aria-hidden="true"></span>
+      <div>
+        <div class="lbl-l">Carte en temps réel</div>
+        <div class="lbl-r" id="mv2-status-lbl">— clubs · Savoie</div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="mv2-legend mv2-glass" aria-hidden="true">
+      <span><span class="dot" style="background:var(--orange)"></span>&lt;10</span>
+      <span><span class="dot" style="background:var(--violet)"></span>10–50</span>
+      <span><span class="dot" style="background:var(--ink)"></span>50+</span>
+      <span class="src">Open data · Min. Sports</span>
+    </div>
+
+    <!-- Loader -->
+    <div class="mv2-loader" id="mv2-loader">
+      <div class="spinner"></div>
+      <div class="lbl">Chargement des clubs…</div>
+    </div>
+
+    <!-- Results drawer (bottom-right glass) -->
+    <aside class="mv2-drawer mv2-glass" id="mv2-drawer" aria-label="Liste des résultats">
+      <div class="mv2-drawer-head">
+        <div class="left">
+          <span class="eyebrow" style="font-size:9px">Résultats</span>
+          <div class="lbl-r"><span id="mv2-results-count">—</span> <span class="acc">clubs</span></div>
+        </div>
+        <button class="mv2-toggle-list" id="mv2-toggle-list" aria-expanded="true">Réduire ↓</button>
+      </div>
+      <div class="mv2-drawer-list" id="mv2-drawer-list" aria-live="polite"></div>
+    </aside>
+  </div>
+
+  <!-- Overlay fond -->
+  <div class="dd-overlay" id="dd-overlay"></div>
+
+  <!-- Detail drawer (panel droit) -->
+  <aside class="detail-drawer" id="detail-drawer" aria-label="Fiche club">
+    <!-- Hero toujours visible -->
+    <div class="dd-hero" id="dd-hero">
+      <div class="dd-photo-label" id="dd-photo-label">[ Image / Photo du club ]</div>
+      <button class="dd-close" id="dd-close" aria-label="Fermer">✕</button>
+      <div class="dd-badges">
+        <span class="b b-dark" id="dd-badge-disc"></span>
+        <span class="b b-lime" id="dd-badge-year" style="display:none"></span>
+      </div>
+    </div>
+
+    <div class="dd-body">
+      <!-- Nom + localisation -->
+      <h2 id="dd-name">Club</h2>
+      <div class="dd-addr" id="dd-addr">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a4.5 4.5 0 0 1 4.5 4.5c0 3-4.5 9-4.5 9S3.5 8.5 3.5 5.5A4.5 4.5 0 0 1 8 1zm0 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+        <span id="dd-addr-text"></span>
+      </div>
+
+      <!-- Stats 3 colonnes -->
+      <div class="dd-stats" id="dd-stats-row"></div>
+
+      <!-- Présentation -->
+      <div class="dd-section" id="dd-section-pres" style="display:none">
+        <h4>Le club</h4>
+        <p class="dd-pres" id="dd-pres-text"></p>
+      </div>
+
+      <!-- Sports proposés -->
+      <div class="dd-section" id="dd-section-sports" style="display:none">
+        <h4>Sports proposés</h4>
+        <div class="dd-tags" id="dd-sports-tags"></div>
+      </div>
+
+      <!-- Public -->
+      <div class="dd-section" id="dd-section-public" style="display:none">
+        <h4>Public</h4>
+        <div class="dd-tags" id="dd-public-tags"></div>
+      </div>
+
+      <!-- Planning / Horaires -->
+      <div class="dd-section" id="dd-section-planning" style="display:none">
+        <h4>Horaires</h4>
+        <div class="dd-planning" id="dd-planning-list"></div>
+      </div>
+
+      <!-- Tarifs -->
+      <div class="dd-section" id="dd-section-tarif" style="display:none">
+        <h4>Tarifs</h4>
+        <div class="dd-tarif-text" id="dd-tarif-text"></div>
+      </div>
+
+      <!-- Contact / Liens -->
+      <div class="dd-section" id="dd-section-links" style="display:none">
+        <h4>Retrouver le club</h4>
+        <div class="dd-links" id="dd-links-row"></div>
+      </div>
+
+      <!-- CTA -->
+      <div class="dd-cta">
+        <a class="primary" id="dd-cta-link" href="#">Voir la fiche complète →</a>
+        <button class="star" id="dd-star" aria-label="Sauvegarder">★</button>
+      </div>
+    </div>
+  </aside>
+</main>
+
+
+<script>
+/* ════════════════════════════════════════════════════════════════════
+   MAP V2 — Logique JS vanilla
+   ════════════════════════════════════════════════════════════════════ */
+
+(function () {
+  'use strict';
+
+  // ── DATA : départements France métro ──────────────────────────────
+  const DEPT_NAMES = {
+    '01':'Ain','02':'Aisne','03':'Allier','04':'Alpes-de-Haute-Provence','05':'Hautes-Alpes',
+    '06':'Alpes-Maritimes','07':'Ardèche','08':'Ardennes','09':'Ariège','10':'Aube',
+    '11':'Aude','12':'Aveyron','13':'Bouches-du-Rhône','14':'Calvados','15':'Cantal',
+    '16':'Charente','17':'Charente-Maritime','18':'Cher','19':'Corrèze','2A':'Corse-du-Sud',
+    '2B':'Haute-Corse','21':'Côte-d\'Or','22':'Côtes-d\'Armor','23':'Creuse','24':'Dordogne',
+    '25':'Doubs','26':'Drôme','27':'Eure','28':'Eure-et-Loir','29':'Finistère',
+    '30':'Gard','31':'Haute-Garonne','32':'Gers','33':'Gironde','34':'Hérault',
+    '35':'Ille-et-Vilaine','36':'Indre','37':'Indre-et-Loire','38':'Isère','39':'Jura',
+    '40':'Landes','41':'Loir-et-Cher','42':'Loire','43':'Haute-Loire','44':'Loire-Atlantique',
+    '45':'Loiret','46':'Lot','47':'Lot-et-Garonne','48':'Lozère','49':'Maine-et-Loire',
+    '50':'Manche','51':'Marne','52':'Haute-Marne','53':'Mayenne','54':'Meurthe-et-Moselle',
+    '55':'Meuse','56':'Morbihan','57':'Moselle','58':'Nièvre','59':'Nord',
+    '60':'Oise','61':'Orne','62':'Pas-de-Calais','63':'Puy-de-Dôme','64':'Pyrénées-Atlantiques',
+    '65':'Hautes-Pyrénées','66':'Pyrénées-Orientales','67':'Bas-Rhin','68':'Haut-Rhin','69':'Rhône',
+    '70':'Haute-Saône','71':'Saône-et-Loire','72':'Sarthe','73':'Savoie','74':'Haute-Savoie',
+    '75':'Paris','76':'Seine-Maritime','77':'Seine-et-Marne','78':'Yvelines','79':'Deux-Sèvres',
+    '80':'Somme','81':'Tarn','82':'Tarn-et-Garonne','83':'Var','84':'Vaucluse',
+    '85':'Vendée','86':'Vienne','87':'Haute-Vienne','88':'Vosges','89':'Yonne',
+    '90':'Territoire de Belfort','91':'Essonne','92':'Hauts-de-Seine','93':'Seine-Saint-Denis',
+    '94':'Val-de-Marne','95':'Val-d\'Oise',
+  };
+
+  // Bounding boxes (rough) pour quelques départements
+  const DEPT_BOUNDS = {
+    '73':[[45.07,5.65],[45.92,7.20]],'74':[[45.69,5.80],[46.41,6.95]],
+    '69':[[45.45,4.25],[46.30,5.16]],'38':[[44.70,4.69],[45.88,6.05]],
+    '75':[[48.81,2.22],[48.91,2.47]],'06':[[43.48,6.65],[44.36,7.72]],
+    '33':[[44.20,-1.25],[45.57,-0.04]],'31':[[42.70,0.42],[43.95,2.05]],
+    '59':[[50.05,2.07],[51.08,4.23]],'44':[[46.86,-2.55],[47.83,-1.00]],
+    '13':[[43.18,4.22],[43.97,5.78]],'34':[[43.21,2.53],[43.97,4.18]],
+    '67':[[48.18,7.05],[49.08,8.23]],'76':[[49.25,0.06],[50.06,1.79]],
+    '35':[[47.63,-2.31],[48.71,-0.95]],'45':[[47.66,1.50],[48.40,3.13]],
+  };
+  const FRANCE_BOUNDS = [[42.5,-5.5],[51.2,8.5]];
+
+  // Émojis sport (approximation : on tente le slug, sinon ●)
+  const SPORT_EMOJIS = {
+    'football':'⚽','natation':'🏊','judo':'🥋','tennis':'🎾','equitation':'🐴',
+    'gymnastique':'🤸','gym':'🤸','basket-ball':'🏀','basketball':'🏀','rugby':'🏉',
+    'ski-alpin':'⛷️','ski':'⛷️','escalade':'🧗','voile':'⛵','athletisme':'🏃',
+    'cyclisme':'🚴','vtt':'🚵','trail':'🏃','yoga':'🧘','danse':'💃',
+    'aikido':'🥋','karate':'🥋','boxe':'🥊','handball':'🤾','volley-ball':'🏐',
+    'volley':'🏐','tennis-de-table':'🏓','badminton':'🏸','golf':'⛳','peche':'🎣',
+    'plongee':'🤿','surf':'🏄','triathlon':'🏊','aviron':'🚣','canoe-kayak':'🛶',
+  };
+  // sportEmoji : on cherche d'abord dans SPORT_EMOJIS (hardcodé), puis dans
+  // disciplines.js (153 disciplines avec emoji), puis ● par défaut.
+  const sportEmoji = (slug) => {
+    const s = (slug || '').toLowerCase();
+    if (SPORT_EMOJIS[s]) return SPORT_EMOJIS[s];
+    if (typeof DISCIPLINES !== 'undefined' && DISCIPLINES[s] && DISCIPLINES[s].emoji && DISCIPLINES[s].emoji !== '🏅') {
+      return DISCIPLINES[s].emoji;
+    }
+    return '●';
+  };
+  const prettify = (slug) => (slug || '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+  // ── URL PARAMS ────────────────────────────────────────────────────
+  // Permet à trouver-club.html de pré-filtrer la map :
+  //   map.html?sport=natation&lat=45.5&lon=5.9&radius=50&locLabel=Chambéry
+  //   map.html?sport=football&dept=73
+  const urlParams = new URLSearchParams(window.location.search);
+  const initSport = (urlParams.get('sport') || '').toLowerCase().trim();
+  const initLat = parseFloat(urlParams.get('lat'));
+  const initLon = parseFloat(urlParams.get('lon'));
+  const initRadius = parseFloat(urlParams.get('radius')) || 0;
+  const initDept = (urlParams.get('dept') || '').toUpperCase().trim();
+  const initLabel = urlParams.get('locLabel') || '';
+
+  // Si on a un dept mais pas de lat/lon, on tombe sur le chef-lieu (DEPT_CENTERS)
+  let centerLat = isFinite(initLat) ? initLat : null;
+  let centerLon = isFinite(initLon) ? initLon : null;
+  let radiusKm = initRadius > 0 ? initRadius : 0;
+  if ((centerLat == null || centerLon == null) && initDept && typeof DEPT_CENTERS !== 'undefined' && DEPT_CENTERS[initDept]) {
+    centerLat = DEPT_CENTERS[initDept].lat;
+    centerLon = DEPT_CENTERS[initDept].lon;
+    if (!radiusKm) radiusKm = 50;
+  }
+
+  // Haversine distance (km)
+  function haversine(lat1, lon1, lat2, lon2) {
+    if (lat1 == null || lat2 == null) return Infinity;
+    const R = 6371;
+    const toRad = d => d * Math.PI / 180;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2)**2;
+    return 2 * R * Math.asin(Math.sqrt(a));
+  }
+
+  // Trouve le dept dont le chef-lieu est le plus proche de lat/lon
+  function findDeptForPoint(lat, lon) {
+    if (lat == null || lon == null || typeof DEPT_CENTERS === 'undefined') return null;
+    let best = null, bestD = Infinity;
+    Object.entries(DEPT_CENTERS).forEach(([code, c]) => {
+      const d = haversine(lat, lon, c.lat, c.lon);
+      if (d < bestD) { bestD = d; best = code; }
+    });
+    return best;
+  }
+
+  // Liste des depts à charger pour un rayon donné autour de lat/lon
+  // → dept du point + adjacents (couvre ~80km, suffisant pour 50km)
+  function deptsForRadius(lat, lon, radius) {
+    const home = findDeptForPoint(lat, lon);
+    if (!home) return [];
+    const set = new Set([home]);
+    if (typeof DEPT_ADJACENTS !== 'undefined' && DEPT_ADJACENTS[home]) {
+      DEPT_ADJACENTS[home].forEach(d => set.add(d));
+    }
+    // Pour rayons > 30km, on inclut aussi les depts dont le chef-lieu est dans (radius + 80)
+    if (radius > 30 && typeof DEPT_CENTERS !== 'undefined') {
+      Object.entries(DEPT_CENTERS).forEach(([code, c]) => {
+        if (haversine(lat, lon, c.lat, c.lon) <= radius + 80) set.add(code);
+      });
+    }
+    return Array.from(set);
+  }
+
+  // ── STATE ─────────────────────────────────────────────────────────
+  const state = {
+    dept: initDept || (centerLat != null ? findDeptForPoint(centerLat, centerLon) : null) || '73',
+    sportSlugs: initSport ? [initSport] : [],
+    query: '',
+    allClubs: [],
+    filteredClubs: [],
+    selectedClubId: null,
+    sportsCatalog: [],
+    // Rayon géo (km) autour de center{Lat,Lon} ; 0 = pas de filtre rayon
+    centerLat: centerLat,
+    centerLon: centerLon,
+    radiusKm: radiusKm,
+    locLabel: initLabel,
+  };
+  // Marqueur visuel + cercle dessinés sur la map quand un rayon est actif
+  let _radiusCircle = null;
+  let _radiusCenterMarker = null;
+
+  // ── DOM refs ──────────────────────────────────────────────────────
+  const els = {
+    searchInput: document.getElementById('fb-search-input'),
+    searchDropdown: document.getElementById('fb-search-dropdown'),
+    searchWrap: document.getElementById('fb-search-wrap'),
+    sportChips: document.getElementById('fb-sport-chips'),
+    sportAdd: document.getElementById('fb-sport-add'),
+    sportDropdown: document.getElementById('fb-sport-dropdown'),
+    sportOpts: document.getElementById('fb-sport-opts'),
+    sportWrap: document.getElementById('fb-sports-wrap'),
+    deptChip: document.getElementById('fb-dept-chip'),
+    deptLabel: document.getElementById('fb-dept-label'),
+    deptDropdown: document.getElementById('fb-dept-dropdown'),
+    deptOpts: document.getElementById('fb-dept-opts'),
+    deptWrap: document.getElementById('fb-lieu-wrap'),
+    deptSearch: document.getElementById('fb-dept-search'),
+    reset: document.getElementById('fb-reset'),
+    cClubs: document.getElementById('mv2-c-clubs'),
+    cSports: document.getElementById('mv2-c-sports'),
+    cDept: document.getElementById('mv2-c-dept'),
+    statusLbl: document.getElementById('mv2-status-lbl'),
+    drawer: document.getElementById('mv2-drawer'),
+    drawerList: document.getElementById('mv2-drawer-list'),
+    resultsCount: document.getElementById('mv2-results-count'),
+    toggleList: document.getElementById('mv2-toggle-list'),
+    quick: document.getElementById('mv2-quick'),
+    loader: document.getElementById('mv2-loader'),
+    detailDrawer: document.getElementById('detail-drawer'),
+    ddOverlay: document.getElementById('dd-overlay'),
+    ddClose: document.getElementById('dd-close'),
+    ddName: document.getElementById('dd-name'),
+    ddAddr: document.getElementById('dd-addr'),
+    ddSportsTags: document.getElementById('dd-sports-tags'),
+    ddCtaLink: document.getElementById('dd-cta-link'),
+    ddBadgeYear: document.getElementById('dd-badge-year'),
+  };
+
+  // ── MAP init ──────────────────────────────────────────────────────
+  const map = L.map('mv2-map', {
+    zoomControl: false,
+    attributionControl: true,
+    worldCopyJump: false,
+    minZoom: 5,
+    maxZoom: 18,
+    zoomSnap: 0.5,
+  });
+  L.control.zoom({ position: 'topright' }).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap · Carto',
+    subdomains: 'abcd',
+    maxZoom: 19,
+  }).addTo(map);
+  document.getElementById('mv2-map').classList.add('tint-pastel');
+
+  // Cluster group
+  const cluster = L.markerClusterGroup({
+    showCoverageOnHover: false,
+    maxClusterRadius: 56,
+    spiderfyOnMaxZoom: true,
+    animate: true,
+    iconCreateFunction: (c) => {
+      const n = c.getChildCount();
+      const cls = n < 10 ? 's' : n < 50 ? 'm' : 'l';
+      const size = cls === 's' ? 30 : cls === 'm' ? 38 : 48;
+      return L.divIcon({
+        html: `<div class="k-cluster ${cls}">${n}</div>`,
+        className: '',
+        iconSize: [size, size],
+      });
+    },
+  });
+  cluster.on('clusterclick', (e) => e.layer.zoomToBounds({ padding: [40, 40] }));
+  map.addLayer(cluster);
+  // Cadrage initial : si on a un dept dans l'URL on l'utilise, sinon défaut Savoie
+  // Le radius circle (s'il existe) override ce cadrage dans initLoad().
+  const _initBounds = DEPT_BOUNDS[state.dept] || DEPT_BOUNDS['73'];
+  map.fitBounds(_initBounds, { padding: [40, 40] });
+
+  const markersById = {};
+
+  // ── Helpers ───────────────────────────────────────────────────────
+  function cpMatchesDept(cp, depCode) {
+    if (!cp) return false;
+    const cpStr = String(cp).padStart(5, '0');
+    if (depCode === '2A' || depCode === '2B') return cpStr.startsWith('20');
+    return cpStr.startsWith(depCode);
+  }
+
+  function convertClub(c, depCode, depNom) {
+    // sport_ids dans le JSON sont des numéros (référence à data.js).
+    // Pour les filtres on utilise c.disc (slug textuel : "football", "athletisme"...).
+    const slugs = c.disc ? [c.disc] : [];
+    return {
+      ...c, // PRÉSERVE tous les champs du JSON original (nb_licencies, annee_fondation, prix_licence, presentation, tel, email, facebook, instagram, planning, seances_essai, disciplines_proposees, etc.)
+      id: c.id || (c.nom + '-' + c.cp),
+      nom: c.nom || 'Club sportif',
+      disc: c.disc || 'sport',
+      adresse: c.adresse || [c.cp, c.ville].filter(Boolean).join(', '),
+      cp: c.cp || '',
+      ville: c.ville || '',
+      lat: c.lat,
+      lon: c.lon,
+      dep: depCode,
+      depName: DEPT_NAMES[depCode] || depNom,
+      sport_ids: slugs,
+      web: c.web || c.site || null,
+      _id: c.id,
+    };
+  }
+
+  // ── Loader ────────────────────────────────────────────────────────
+  function showLoader(label) {
+    if (label) els.loader.querySelector('.lbl').textContent = label;
+    els.loader.classList.remove('hidden');
+  }
+  function hideLoader() { els.loader.classList.add('hidden'); }
+
+  // Charge un seul département (helper interne)
+  async function loadOneDept(depCode) {
+    let clubs = [];
+    try {
+      const r = await fetch(`clubs/dept-${depCode}.json?v=3`);
+      if (r.ok) {
+        const data = await r.json();
+        clubs = (data.clubs || [])
+          .map(c => convertClub(c, depCode, data.dep_nom))
+          .filter(c => cpMatchesDept(c.cp, depCode) && c.lat && c.lon);
+      } else {
+        // Chunked fallback
+        for (let part = 1; part <= 5; part++) {
+          const rp = await fetch(`clubs/dept-${depCode}-${part}.json?v=2`);
+          if (!rp.ok) break;
+          const dp = await rp.json();
+          clubs = clubs.concat(
+            (dp.clubs || [])
+              .map(c => convertClub(c, depCode, dp.dep_nom))
+              .filter(c => cpMatchesDept(c.cp, depCode) && c.lat && c.lon)
+          );
+        }
+      }
+    } catch (e) {
+      console.error('Erreur chargement dept', depCode, e);
+    }
+    return clubs;
+  }
+
+  // ── Load clubs by dept (ou 'FR' pour toute la France) ─────────────
+  async function loadDept(depCode) {
+    if (depCode === 'FR') {
+      showLoader(`Chargement de toute la France…`);
+      const codes = Object.keys(DEPT_NAMES);
+      // Charge tous les départements en parallèle, tolère les 404 silencieusement
+      const results = await Promise.allSettled(codes.map(c => loadOneDept(c)));
+      const clubs = results
+        .filter(r => r.status === 'fulfilled')
+        .flatMap(r => r.value);
+      state.allClubs = clubs;
+      const slugSet = new Set();
+      clubs.forEach(c => (c.sport_ids || []).forEach(s => s && slugSet.add(s)));
+      state.sportsCatalog = Array.from(slugSet).sort();
+      hideLoader();
+      return clubs;
+    }
+    showLoader(`Chargement ${DEPT_NAMES[depCode] || depCode}…`);
+    const clubs = await loadOneDept(depCode);
+    state.allClubs = clubs;
+    const slugSet = new Set();
+    clubs.forEach(c => (c.sport_ids || []).forEach(s => s && slugSet.add(s)));
+    state.sportsCatalog = Array.from(slugSet).sort();
+    hideLoader();
+    return clubs;
+  }
+
+  // ── Filter clubs ──────────────────────────────────────────────────
+  function filterClubs() {
+    const q = state.query.trim();
+    const nq = norm(q);
+    state.filteredClubs = state.allClubs.filter(c => {
+      // Filtre sport (chips actifs)
+      if (state.sportSlugs.length) {
+        const hit = (c.sport_ids || []).some(s => state.sportSlugs.includes(s));
+        if (!hit) return false;
+      }
+      // Filtre rayon (km) autour de state.centerLat/centerLon
+      if (state.radiusKm > 0 && state.centerLat != null && state.centerLon != null) {
+        const d = haversine(state.centerLat, state.centerLon, c.lat, c.lon);
+        if (d > state.radiusKm) return false;
+      }
+      if (!nq) return true;
+
+      // Blob normalisé : nom + ville + slugs sports + noms sports lisibles
+      const nom = c.nom || '';
+      const ville = c.ville || '';
+      const sportNames = (c.sport_ids || []).map(s => prettify(s)).join(' ');
+      const disc = c.disc || '';
+      const blob = [nom, ville, sportNames, disc].join(' ');
+
+      // Substring exact normalisé → match immédiat
+      if (norm(blob).includes(nq)) return true;
+
+      // Fuzzy multi-mot : chaque mot du query doit matcher dans un des champs
+      const qWords = tokenize(q).filter(w => w.length >= 2);
+      if (!qWords.length) return false;
+      const allFields = [nom, ville, sportNames, disc].filter(Boolean);
+      return qWords.every(qw => {
+        const nqw = norm(qw);
+        return allFields.some(field => {
+          const tWords = tokenize(field);
+          return tWords.some(tw => wordMatches(nqw, tw));
+        });
+      });
+    });
+  }
+
+  // ── Render markers ────────────────────────────────────────────────
+  function renderMarkers() {
+    cluster.clearLayers();
+    Object.keys(markersById).forEach(k => delete markersById[k]);
+    state.filteredClubs.forEach(c => {
+      const emoji = sportEmoji(c.sport_ids[0]);
+      const color = state.sportSlugs.length ? '#6C47FF' : '#0E0B1F';
+      const icon = L.divIcon({
+        html: `<div class="k-pin"><div class="head" style="background:${color}"><span class="glyph">${emoji}</span></div></div>`,
+        className: '',
+        iconSize: [34, 42],
+        iconAnchor: [17, 42],
+        popupAnchor: [0, -38],
+      });
+      const m = L.marker([c.lat, c.lon], { icon });
+      m.on('click', () => {
+        openDetailDrawer(c);
+        scrollToClubInList(c.id);
+      });
+      markersById[c.id] = m;
+      cluster.addLayer(m);
+    });
+  }
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/[&<>"']/g, m => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+  }
+
+  // ── Render drawer (liste résultats) ───────────────────────────────
+  function renderDrawer() {
+    const list = state.filteredClubs.slice(0, 50);
+    els.resultsCount.textContent = state.filteredClubs.length;
+    els.drawerList.innerHTML = '';
+    if (!list.length) {
+      els.drawerList.innerHTML = `
+<div style="padding:24px 12px;text-align:center;color:var(--muted);font-size:13px;">
+  <div class="narrow" style="font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px;">
+    Aucun club
+  </div>
+  Essaie de retirer un filtre ou de changer de département.
+</div>`;
+      return;
+    }
+    list.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'r-card' + (c.id === state.selectedClubId ? ' active' : '');
+      btn.innerHTML = `
+<div class="badge">${sportEmoji(c.sport_ids[0])}</div>
+<div class="body">
+  <h4>${escapeHtml(c.nom)}</h4>
+  <div class="loc">${escapeHtml(c.ville || '')} · ${c.dep}</div>
+  <div class="foot">
+    <span class="s">${escapeHtml(prettify(c.sport_ids[0] || 'sport'))}</span>
+    <span class="go">Voir →</span>
+  </div>
+</div>`;
+      btn.addEventListener('click', () => {
+        const m = markersById[c.id];
+        if (m) {
+          map.flyTo(m.getLatLng(), Math.max(map.getZoom(), 13), { duration: .6 });
+        }
+        openDetailDrawer(c);
+      });
+      els.drawerList.appendChild(btn);
+    });
+  }
+
+  function scrollToClubInList(id) {
+    const el = els.drawerList.querySelector(`.r-card.active`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // ── Update UI state ───────────────────────────────────────────────
+  function updateUI() {
+    const isFR = state.dept === 'FR';
+    // Counter
+    els.cClubs.textContent = state.filteredClubs.length;
+    els.cSports.textContent = new Set(state.filteredClubs.flatMap(c => c.sport_ids || [])).size;
+    els.cDept.textContent = isFR ? 'FR' : state.dept;
+    // Status
+    const lieu = isFR ? 'France' : (DEPT_NAMES[state.dept] || state.dept);
+    els.statusLbl.textContent = `${state.filteredClubs.length} club${state.filteredClubs.length > 1 ? 's' : ''} · ${lieu}`;
+    // Dept chip label
+    els.deptLabel.textContent = isFR ? '🇫🇷 Toute la France' : `${state.dept} — ${DEPT_NAMES[state.dept] || ''}`;
+    // Sport chips
+    renderSportChips();
+    // Reset button visibility
+    const hasFilters = state.sportSlugs.length || state.query;
+    els.reset.classList.toggle('hidden', !hasFilters);
+    // Quick chips active state
+    els.quick.querySelectorAll('.qc').forEach(b => {
+      b.classList.toggle('active', state.sportSlugs.includes(b.dataset.sport));
+    });
+  }
+
+  function renderSportChips() {
+    els.sportChips.innerHTML = '';
+    state.sportSlugs.forEach(slug => {
+      const chip = document.createElement('span');
+      chip.className = 'mv2-chip violet';
+      chip.innerHTML = `
+<span class="mv2-chip-icon">${sportEmoji(slug)}</span>${prettify(slug)}<span class="x" aria-label="Retirer">×</span>`;
+      chip.querySelector('.x').addEventListener('click', (e) => {
+        e.stopPropagation();
+        state.sportSlugs = state.sportSlugs.filter(s => s !== slug);
+        applyFilters();
+      });
+      els.sportChips.appendChild(chip);
+    });
+  }
+
+  // ── Fuzzy search (Levenshtein) ────────────────────────────────────
+  // ── Moteur de recherche fuzzy avec normalisation accents ─────────
+
+  // Retire les accents et met en minuscule : "Athlétisme" → "athletisme"
+  function norm(str) {
+    return String(str || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+  }
+
+  // Distance Levenshtein classique
+  function levenshtein(a, b) {
+    const m = a.length, n = b.length;
+    if (!m) return n; if (!n) return m;
+    const row = Array.from({length: n + 1}, (_, i) => i);
+    for (let i = 1; i <= m; i++) {
+      let prev = i;
+      for (let j = 1; j <= n; j++) {
+        const val = a[i-1] === b[j-1]
+          ? row[j-1]
+          : 1 + Math.min(prev, row[j], row[j-1]);
+        row[j-1] = prev;
+        prev = val;
+      }
+      row[n] = prev;
+    }
+    return row[n];
+  }
+
+  // Seuil adaptatif : 1 faute pour ≤5 chars, 2 pour ≤8, 3 pour plus long
+  function threshold(len) {
+    return len <= 5 ? 1 : len <= 8 ? 2 : 3;
+  }
+
+  // Est-ce qu'un mot de query matche un mot du texte ?
+  function wordMatches(qw, tw) {
+    if (tw === qw) return true;
+    if (tw.startsWith(qw) && qw.length >= 3) return true; // "foot" → "football"
+    if (qw.length < 3) return false;
+    // Comparaison sur préfixe même longueur
+    const thr = threshold(qw.length);
+    const prefix = tw.slice(0, qw.length);
+    if (levenshtein(qw, prefix) <= thr) return true;
+    // Comparaison mot complet si proche en longueur
+    if (Math.abs(tw.length - qw.length) <= thr && levenshtein(qw, tw) <= thr) return true;
+    return false;
+  }
+
+  // Découpe un texte normalisé en mots
+  function tokenize(str) {
+    return norm(str).split(/[\s\-\/()',\.]+/).filter(w => w.length > 0);
+  }
+
+  // Query multi-mots : tous les mots du query doivent trouver un match dans le texte
+  // Retourne {match: bool, suggestion: string|null}
+  function fuzzyMatchText(query, text) {
+    const nq = norm(query);
+    const nt = norm(text);
+    if (!nq) return { match: true, suggestion: null };
+    // Substring exact (normalisé)
+    if (nt.includes(nq)) return { match: true, suggestion: null };
+    const qWords = tokenize(query).filter(w => w.length >= 2);
+    if (!qWords.length) return { match: false, suggestion: null };
+    const tWords = tokenize(text);
+    const allMatch = qWords.every(qw => tWords.some(tw => wordMatches(qw, tw)));
+    return { match: allMatch, suggestion: allMatch ? text : null };
+  }
+
+  // Pour les suggestions du dropdown sport
+  function fuzzyWord(q, word) {
+    const nq = norm(q), nw = norm(word);
+    if (nw.includes(nq)) return { match: true, score: 0, suggestion: word };
+    if (nq.length < 3) return { match: false, score: 999, suggestion: null };
+    const thr = threshold(nq.length);
+    const prefix = nw.slice(0, nq.length);
+    const d = levenshtein(nq, prefix);
+    if (d <= thr) return { match: true, score: d, suggestion: word };
+    if (Math.abs(nw.length - nq.length) <= thr && levenshtein(nq, nw) <= thr)
+      return { match: true, score: levenshtein(nq, nw), suggestion: word };
+    return { match: false, score: 999, suggestion: null };
+  }
+
+  // ── Detail drawer ─────────────────────────────────────────────────
+  function openDetailDrawer(c) {
+    state.selectedClubId = c.id;
+
+    // ── Nom
+    els.ddName.textContent = c.nom;
+
+    // ── Localisation
+    document.getElementById('dd-addr-text').textContent =
+      [c.ville, c.dep].filter(Boolean).join(' · ').toUpperCase();
+
+    // ── Hero : photo ou gradient
+    const heroEl = document.getElementById('dd-hero');
+    const photoUrl = c.photo || c.image || c.photo_url || null;
+    const photoLabel = document.getElementById('dd-photo-label');
+    if (photoUrl) {
+      heroEl.style.backgroundImage = `url(${JSON.stringify(photoUrl)})`;
+      heroEl.style.backgroundSize = 'cover';
+      heroEl.style.backgroundPosition = 'center';
+      if (photoLabel) photoLabel.style.display = 'none';
+    } else {
+      heroEl.style.backgroundImage = '';
+      if (photoLabel) photoLabel.style.display = '';
+    }
+
+    // ── Badges hero (toujours affichés, fallback ville si pas de disc)
+    const badgeDisc = document.getElementById('dd-badge-disc');
+    badgeDisc.textContent = c.disc ? c.disc.replace(/-/g,' ').toUpperCase() : (c.ville || 'FRANCE').toUpperCase();
+    const badgeYear = document.getElementById('dd-badge-year');
+    const annee = c.annee_fondation || c.annee_creation;
+    badgeYear.textContent = annee ? `Depuis ${annee}` : `Année à confirmer`;
+    badgeYear.style.display = '';
+
+    // ── Stats 3 cols (toujours visibles, avec fallback "?" plutôt qu'un tiret)
+    const statsRow = document.getElementById('dd-stats-row');
+    const licencies = c.nb_licencies || c.adherents;
+    const nbSports = (c.sport_ids || []).length || 1; // au moins 1 (le sport principal)
+    const currentYear = new Date().getFullYear();
+    const ageStr = annee ? `<span style="font-size:.5em;vertical-align:super">ans</span><br>${currentYear - parseInt(annee)}` : '?';
+    const stats = [
+      { n: licencies ? licencies.toLocaleString('fr-FR') : '?', l: 'Adhérents' },
+      { n: nbSports, l: nbSports > 1 ? 'Sports' : 'Sport' },
+      { n: annee ? (currentYear - parseInt(annee)) + '<span style="font-size:.45em;vertical-align:super;margin-left:2px">ans</span>' : '?', l: annee ? "D'âge" : 'Fondé' }
+    ];
+    statsRow.innerHTML = stats.map(s =>
+      `<div class="dd-stat"><div class="n">${s.n}</div><div class="l">${s.l}</div></div>`
+    ).join('');
+
+    // ── Présentation (toujours affichée avec fallback générique basé sur le sport)
+    const secPres = document.getElementById('dd-section-pres');
+    secPres.style.display = '';
+    const presEl = document.getElementById('dd-pres-text');
+    if (c.presentation) {
+      presEl.textContent = c.presentation;
+    } else {
+      const discLabel = c.disc ? c.disc.replace(/-/g,' ') : 'son sport';
+      const villeStr = c.ville || 'votre région';
+      presEl.textContent = `Club de ${discLabel} à ${villeStr}. Plus d'infos disponibles sur la fiche complète : horaires, tarifs, contact direct.`;
+    }
+
+    // ── Sports proposés (toujours visible, au moins le sport principal)
+    const secSports = document.getElementById('dd-section-sports');
+    secSports.style.display = '';
+    const sportIds = (c.sport_ids?.length ? c.sport_ids : (c.disc ? [c.disc] : []));
+    if (sportIds.length) {
+      els.ddSportsTags.innerHTML = sportIds.slice(0, 8)
+        .map(s => `<span class="t">${sportEmoji(s)} ${prettify(s)}</span>`).join('');
+    } else {
+      els.ddSportsTags.innerHTML = `<span class="t" style="opacity:.7">Sports à confirmer</span>`;
+    }
+
+    // ── Public (déduit du planning, sinon fallback intelligent)
+    const secPub = document.getElementById('dd-section-public');
+    const pubTags = document.getElementById('dd-public-tags');
+    const pubSet = new Set();
+    if (c.planning?.length) {
+      c.planning.forEach(p => {
+        const cat = (p.categorie || p.equipe || '').toLowerCase();
+        if (cat.includes('enfant') || cat.includes('jeune') || cat.includes('u10') || cat.includes('u12') || cat.includes('u14') || cat.includes('école')) pubSet.add('🧒 Enfants');
+        if (cat.includes('adulte') || cat.includes('senior')) pubSet.add('🧑 Adultes');
+        if (cat.includes('veteran') || cat.includes('vétéran') || cat.includes('master')) pubSet.add('👴 Vétérans');
+      });
+    }
+    if (c.public_cible) {
+      c.public_cible.split(',').forEach(p => pubSet.add(p.trim()));
+    }
+    // Fallback : si rien remonté, on suppose Enfants + Adultes (cas le plus courant)
+    if (pubSet.size === 0) {
+      pubSet.add('🧒 Enfants');
+      pubSet.add('🧑 Adultes');
+      pubSet.add('♿ Para sur demande');
+    }
+    secPub.style.display = '';
+    pubTags.innerHTML = [...pubSet].map(p => `<span class="t t-pub">${p}</span>`).join('');
+
+    // ── Planning (max 3 créneaux)
+    const secPlan = document.getElementById('dd-section-planning');
+    const planList = document.getElementById('dd-planning-list');
+    if (c.planning?.length) {
+      secPlan.style.display = '';
+      const jours = {'lundi':'Lun','mardi':'Mar','mercredi':'Mer','jeudi':'Jeu','vendredi':'Ven','samedi':'Sam','dimanche':'Dim'};
+      planList.innerHTML = c.planning.slice(0, 3).map(p => {
+        const jour = jours[p.jour?.toLowerCase()] || p.jour || '';
+        const label = p.categorie || p.equipe || '';
+        const heure = p.debut && p.fin ? `${p.debut}–${p.fin}` : (p.heure || '');
+        return `<div class="dd-slot">
+          <span class="slot-day">${jour}</span>
+          <span class="slot-info">${escapeHtml(label)}</span>
+          <span class="slot-time">${escapeHtml(heure)}</span>
+        </div>`;
+      }).join('');
+    } else {
+      secPlan.style.display = 'none';
+    }
+
+    // ── Tarifs (toujours affichés, fallback "sur demande" si rien)
+    const secTarif = document.getElementById('dd-section-tarif');
+    const tarifText = document.getElementById('dd-tarif-text');
+    secTarif.style.display = '';
+    if (c.prix_licence) {
+      let txt = `À partir de <strong>${c.prix_licence} €/an</strong>`;
+      if (c.licence_incluse !== false) txt += ` · licence incluse`;
+      if (c.seances_essai?.jours?.length) txt += ` · essai gratuit pendant ${c.seances_essai.jours.length} séances`;
+      else if (c.essai_gratuit) txt += ` · essai gratuit possible`;
+      tarifText.innerHTML = txt;
+    } else {
+      tarifText.innerHTML = `Tarifs sur demande · <a href="club.html?id=${encodeURIComponent(c._id || c.id)}&dep=${encodeURIComponent(c.dep || state.dept)}" style="color:var(--ink);text-decoration:underline;font-weight:600">Contacter le club →</a>`;
+    }
+
+    // ── Liens contact
+    const secLinks = document.getElementById('dd-section-links');
+    const linksRow = document.getElementById('dd-links-row');
+    const links = [];
+    if (c.tel) links.push(`<a href="tel:${escapeHtml(c.tel)}" class="link-tel">📞 ${escapeHtml(c.tel)}</a>`);
+    if (c.web) links.push(`<a href="${escapeHtml(c.web)}" target="_blank" rel="noopener">🌐 Site web</a>`);
+    if (c.instagram) links.push(`<a href="${escapeHtml(c.instagram)}" target="_blank" rel="noopener">📸 Instagram</a>`);
+    if (c.facebook) links.push(`<a href="${escapeHtml(c.facebook)}" target="_blank" rel="noopener">👥 Facebook</a>`);
+    if (links.length) {
+      secLinks.style.display = '';
+      linksRow.innerHTML = links.join('');
+    } else {
+      secLinks.style.display = 'none';
+    }
+
+    // ── CTA
+    const clubId = encodeURIComponent(c._id || c.id);
+    const clubDep = encodeURIComponent(c.dep || state.dept);
+    els.ddCtaLink.href = `club.html?id=${clubId}&dep=${clubDep}`;
+
+    // ── Open
+    els.detailDrawer.classList.add('open');
+    els.ddOverlay.classList.add('visible');
+    renderDrawer();
+  }
+
+  function closeDetailDrawer() {
+    els.detailDrawer.classList.remove('open');
+    els.ddOverlay.classList.remove('visible');
+  }
+
+  els.ddClose.addEventListener('click', closeDetailDrawer);
+  els.ddOverlay.addEventListener('click', closeDetailDrawer);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDetailDrawer();
+  });
+
+  // ── Apply filters (full refresh) ──────────────────────────────────
+  function applyFilters() {
+    filterClubs();
+    renderMarkers();
+    renderDrawer();
+    updateUI();
+  }
+
+  // ── Sport dropdown ────────────────────────────────────────────────
+  function buildSportDropdown() {
+    els.sportOpts.innerHTML = '';
+    state.sportsCatalog.forEach(slug => {
+      const opt = document.createElement('span');
+      opt.className = 'opt' + (state.sportSlugs.includes(slug) ? ' on' : '');
+      opt.dataset.slug = slug;
+      const count = state.allClubs.filter(c => (c.sport_ids || []).includes(slug)).length;
+      opt.innerHTML = `${sportEmoji(slug)} ${prettify(slug)} <span class="opt-sub">${count}</span>`;
+      opt.addEventListener('click', () => toggleSport(slug));
+      els.sportOpts.appendChild(opt);
+    });
+  }
+
+  function toggleSport(slug) {
+    if (state.sportSlugs.includes(slug)) {
+      state.sportSlugs = state.sportSlugs.filter(s => s !== slug);
+    } else {
+      state.sportSlugs = [...state.sportSlugs, slug];
+    }
+    buildSportDropdown();
+    applyFilters();
+  }
+
+  // ── Dept dropdown ─────────────────────────────────────────────────
+  function buildDeptDropdown(filter) {
+    els.deptOpts.innerHTML = '';
+    const nf = norm(filter || '');
+
+    // Option "Toute la France" toujours en premier (sauf si on filtre et que ça matche pas)
+    if (!nf || norm('Toute la France').includes(nf) || nf === 'fr' || norm('France').includes(nf)) {
+      const optAll = document.createElement('span');
+      optAll.className = 'opt opt-all' + (state.dept === 'FR' ? ' on' : '');
+      optAll.dataset.dept = 'FR';
+      optAll.innerHTML = `🇫🇷 Toute la France`;
+      optAll.addEventListener('click', () => setDept('FR'));
+      els.deptOpts.appendChild(optAll);
+    }
+
+    const entries = Object.entries(DEPT_NAMES).filter(([code, name]) => {
+      if (!nf) return true;
+      return norm(code).includes(nf) || norm(name).includes(nf);
+    });
+
+    if (!entries.length) {
+      const empty = document.createElement('div');
+      empty.className = 'opts-empty';
+      empty.textContent = 'Aucun département.';
+      els.deptOpts.appendChild(empty);
+      return;
+    }
+
+    entries.forEach(([code, name]) => {
+      const opt = document.createElement('span');
+      opt.className = 'opt' + (state.dept === code ? ' on' : '');
+      opt.dataset.dept = code;
+      opt.innerHTML = `<b>${code}</b> · ${name}`;
+      opt.addEventListener('click', () => setDept(code));
+      els.deptOpts.appendChild(opt);
+    });
+  }
+
+  async function setDept(code) {
+    if (code === state.dept) return;
+    state.dept = code;
+    state.selectedClubId = null;
+    closeAllDropdowns();
+    if (els.deptSearch) els.deptSearch.value = '';
+    await loadDept(code);
+    buildSportDropdown();
+    applyFilters();
+    // Fly to bounds
+    if (code === 'FR') {
+      map.flyToBounds(FRANCE_BOUNDS, { padding: [40, 40], duration: .8 });
+    } else if (DEPT_BOUNDS[code]) {
+      map.flyToBounds(DEPT_BOUNDS[code], { padding: [40, 40], duration: .8 });
+    }
+  }
+
+  // ── Search dropdown (avec fuzzy + suggestion ortho) ──────────────
+  function renderSearchDropdown() {
+    const q = state.query.trim();
+    const nq = norm(q);
+    els.searchDropdown.innerHTML = '';
+    if (!nq) { els.searchDropdown.hidden = true; return; }
+    els.searchDropdown.hidden = false;
+
+    // Sports : exact normalisé d'abord, puis fuzzy
+    const exactSports = state.sportsCatalog.filter(s =>
+      norm(s).includes(nq) || norm(prettify(s)).includes(nq)
+    );
+    const fuzzySports = exactSports.length ? [] : state.sportsCatalog.filter(s => {
+      const tWords = tokenize(s + ' ' + prettify(s));
+      return tokenize(q).filter(w => w.length >= 2)
+        .every(qw => tWords.some(tw => wordMatches(norm(qw), tw)));
+    });
+    const matchSports = [...new Set([...exactSports, ...fuzzySports])].slice(0, 5);
+
+    // Clubs : exact normalisé d'abord, puis fuzzy
+    const exactClubs = state.allClubs.filter(c =>
+      norm(c.nom).includes(nq) || norm(c.ville || '').includes(nq)
+    );
+    const fuzzyClubs = exactClubs.length ? [] : state.allClubs.filter(c =>
+      fuzzyMatchText(q, c.nom).match || fuzzyMatchText(q, c.ville || '').match
+    );
+    const matchClubs = [...new Set([...exactClubs, ...fuzzyClubs])].slice(0, 8);
+
+    // Suggestion ortho : premier sport fuzzy trouvé
+    let spellSuggestion = null;
+    if (!exactSports.length && fuzzySports.length) {
+      spellSuggestion = prettify(fuzzySports[0]);
+    }
+
+    let html = '';
+
+    // Bandeau suggestion
+    if (spellSuggestion) {
+      html += `<div class="search-suggestion">Résultats pour <span class="kw" data-suggest="${escapeHtml(fuzzySports[0])}">${spellSuggestion}</span> ?</div>`;
+    }
+
+    if (matchSports.length) {
+      html += '<div class="grp-label">Sports</div>';
+      matchSports.forEach(slug => {
+        html += `
+<div class="item" data-act="sport" data-slug="${slug}">
+  <div class="ico">${sportEmoji(slug)}</div>
+  <div class="grow"><div class="n">${prettify(slug)}</div></div>
+</div>`;
+      });
+    }
+    if (matchClubs.length) {
+      html += '<div class="grp-label">Clubs</div>';
+      matchClubs.forEach(c => {
+        html += `
+<div class="item" data-act="club" data-id="${escapeHtml(c.id)}">
+  <div class="ico">${sportEmoji(c.sport_ids[0])}</div>
+  <div class="grow"><div class="n">${escapeHtml(c.nom)}</div><div class="s">${escapeHtml(c.ville || '')} · ${c.dep}</div></div>
+</div>`;
+      });
+    }
+    if (!matchSports.length && !matchClubs.length) {
+      html = '<div class="empty">Aucun résultat. Essaie un autre mot.</div>';
+    }
+    els.searchDropdown.innerHTML = html;
+
+    // Bind : clic sur suggestion ortho
+    const suggestEl = els.searchDropdown.querySelector('.kw[data-suggest]');
+    if (suggestEl) {
+      suggestEl.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleSport(suggestEl.dataset.suggest);
+        els.searchInput.value = '';
+        state.query = '';
+        renderSearchDropdown();
+      });
+    }
+
+    // Bind clicks items
+    els.searchDropdown.querySelectorAll('.item').forEach(item => {
+      item.addEventListener('click', () => {
+        const act = item.dataset.act;
+        if (act === 'sport') {
+          toggleSport(item.dataset.slug);
+          els.searchInput.value = '';
+          state.query = '';
+          renderSearchDropdown();
+        } else if (act === 'club') {
+          const c = state.allClubs.find(cc => cc.id === item.dataset.id);
+          if (c) {
+            map.flyTo([c.lat, c.lon], 14, { duration: .8 });
+            setTimeout(() => openDetailDrawer(c), 500);
+          }
+          els.searchDropdown.hidden = true;
+        }
+      });
+    });
+  }
+
+  // ── Dropdowns visibility ──────────────────────────────────────────
+  function closeAllDropdowns() {
+    els.sportDropdown.hidden = true;
+    els.deptDropdown.hidden = true;
+    els.searchDropdown.hidden = true;
+    els.sportAdd.setAttribute('aria-expanded', 'false');
+    els.deptChip.setAttribute('aria-expanded', 'false');
+  }
+
+  els.sportAdd.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = !els.sportDropdown.hidden;
+    closeAllDropdowns();
+    els.sportDropdown.hidden = open;
+    els.sportAdd.setAttribute('aria-expanded', String(!open));
+  });
+
+  els.deptChip.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = !els.deptDropdown.hidden;
+    closeAllDropdowns();
+    els.deptDropdown.hidden = open;
+    els.deptChip.setAttribute('aria-expanded', String(!open));
+    if (!open && els.deptSearch) {
+      // À l'ouverture, on remet la liste complète et on focus la recherche
+      els.deptSearch.value = '';
+      buildDeptDropdown('');
+      setTimeout(() => els.deptSearch.focus(), 50);
+    }
+  });
+
+  if (els.deptSearch) {
+    els.deptSearch.addEventListener('input', (e) => {
+      buildDeptDropdown(e.target.value);
+    });
+    els.deptSearch.addEventListener('click', (e) => e.stopPropagation());
+  }
+
+  els.searchInput.addEventListener('input', (e) => {
+    state.query = e.target.value;
+    applyFilters();
+    renderSearchDropdown();
+  });
+  els.searchInput.addEventListener('focus', () => {
+    if (state.query) renderSearchDropdown();
+  });
+
+  // Escape ferme les dropdowns + blur la recherche
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllDropdowns();
+      els.searchInput.blur();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!els.sportWrap.contains(e.target)) {
+      els.sportDropdown.hidden = true;
+      els.sportAdd.setAttribute('aria-expanded', 'false');
+    }
+    if (!els.deptWrap.contains(e.target)) {
+      els.deptDropdown.hidden = true;
+      els.deptChip.setAttribute('aria-expanded', 'false');
+    }
+    if (!els.searchWrap.contains(e.target)) {
+      els.searchDropdown.hidden = true;
+    }
+  });
+
+  // Reset button
+  els.reset.addEventListener('click', () => {
+    state.sportSlugs = [];
+    state.query = '';
+    els.searchInput.value = '';
+    buildSportDropdown();
+    applyFilters();
+  });
+
+  // Quick chips
+  els.quick.querySelectorAll('.qc').forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggleSport(btn.dataset.sport);
+    });
+  });
+
+  // Drawer toggle (collapse/expand)
+  els.toggleList.addEventListener('click', () => {
+    const collapsed = els.drawer.classList.toggle('collapsed');
+    els.toggleList.textContent = collapsed ? 'Liste ↑' : 'Réduire ↓';
+    els.toggleList.setAttribute('aria-expanded', String(!collapsed));
+  });
+
+  // ── INIT ──────────────────────────────────────────────────────────
+  buildDeptDropdown();
+
+  // Charge les clubs : soit un rayon (lat/lon + radius), soit un dept, soit dept 73 par défaut
+  async function initLoad() {
+    if (state.centerLat != null && state.centerLon != null && state.radiusKm > 0) {
+      // Mode rayon : charger tous les depts couverts
+      showLoader(`Chargement des clubs autour${state.locLabel ? ' de ' + state.locLabel : ''}…`);
+      const depts = deptsForRadius(state.centerLat, state.centerLon, state.radiusKm);
+      const results = await Promise.allSettled(depts.map(d => loadOneDept(d)));
+      const clubs = results.filter(r => r.status === 'fulfilled').flatMap(r => r.value);
+      state.allClubs = clubs;
+      // Met à jour le catalogue de sports dispo
+      const slugSet = new Set();
+      clubs.forEach(c => (c.sport_ids || []).forEach(s => s && slugSet.add(s)));
+      state.sportsCatalog = Array.from(slugSet).sort();
+      hideLoader();
+      // Affiche le cercle + centre la map
+      drawRadiusCircle();
+    } else {
+      // Mode classique : un seul dept
+      await loadDept(state.dept || '73');
+    }
+    buildSportDropdown();
+    applyFilters();
+    // Sync chips du dropdown sport avec le sport pré-sélectionné
+    if (state.sportSlugs.length) {
+      // Re-render pour que le chip apparaisse dans la barre
+      renderSportChips && renderSportChips();
+    }
+  }
+
+  function drawRadiusCircle() {
+    if (state.centerLat == null || state.centerLon == null || !state.radiusKm) return;
+    const center = [state.centerLat, state.centerLon];
+    if (_radiusCircle) { try { map.removeLayer(_radiusCircle); } catch (_) {} }
+    if (_radiusCenterMarker) { try { map.removeLayer(_radiusCenterMarker); } catch (_) {} }
+    _radiusCircle = L.circle(center, {
+      radius: state.radiusKm * 1000,
+      color: '#6C47FF',
+      weight: 2,
+      opacity: .55,
+      fillColor: '#6C47FF',
+      fillOpacity: .07,
+      interactive: false,
+    }).addTo(map);
+    _radiusCenterMarker = L.marker(center, {
+      icon: L.divIcon({
+        html: '<div style="background:#0E0B1F;color:#fff;border:2px solid #fff;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:11px;box-shadow:0 4px 12px rgba(14,11,31,.35)">📍</div>',
+        className: '',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
+      }),
+      interactive: false,
+      keyboard: false,
+    }).addTo(map);
+    map.fitBounds(_radiusCircle.getBounds(), { padding: [20, 20] });
+  }
+
+  initLoad();
+})();
+</script>
+
+<script src="components/footer.js"></script>
+</body>
+</html>

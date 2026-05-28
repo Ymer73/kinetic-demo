@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explorer des sports · Kinetic</title>
+<meta name="description" content="Le bottin du sport en France. 290 disciplines, 128 fédérations. Parcours par catégorie, par tendance, par fédération.">
+<link rel="canonical" href="https://kinetic.app/explorer-sports.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="kinetic-mockup.css">
+
+<style>
+/* ── PAGE-SPECIFIC : EXPLORER DES SPORTS ── */
+.e-page{max-width:1500px;margin:0 auto;}
+
+/* HERO SEARCH — refonte dark Kinetic (ink + gradient violet/orange + kinetic edit) */
+.e-hero{
+  position:relative;overflow:hidden;
+  background:var(--km-ink);
+  margin:24px 28px 0;
+  border-radius:32px;
+  padding:64px 32px 56px;
+  box-shadow:0 18px 50px rgba(14,11,31,.22);
+  isolation:isolate;
+}
+.e-hero::before{
+  content:'';position:absolute;right:-14%;top:-30%;width:560px;height:560px;
+  background:radial-gradient(circle, rgba(108,71,255,.55), transparent 65%);
+  pointer-events:none;z-index:0;
+}
+.e-hero::after{
+  content:'';position:absolute;left:-12%;bottom:-40%;width:480px;height:480px;
+  background:radial-gradient(circle, rgba(255,90,31,.42), transparent 65%);
+  pointer-events:none;z-index:0;
+}
+.e-hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;text-align:center;}
+.e-hero .eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  border-radius:100px;padding:7px 16px;
+  font-family:'Archivo Narrow';font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.85) !important;opacity:1 !important;
+  backdrop-filter:blur(8px);
+}
+.e-hero .eyebrow::before{
+  content:'';width:8px;height:8px;border-radius:50%;background:var(--km-orange);
+  box-shadow:0 0 0 4px rgba(255,90,31,.25);
+  animation:eheropulse 1.8s ease-in-out infinite;
+}
+@keyframes eheropulse{0%,100%{transform:scale(1);}50%{transform:scale(1.4);}}
+.e-hero h1{
+  font-family:'Archivo Narrow';font-weight:700;font-size:clamp(48px,6.5vw,82px);line-height:.95;
+  margin:24px 0 0;letter-spacing:-.01em;color:white;
+}
+.e-hero h1 em{font-style:italic;color:var(--km-orange);}
+.e-hero .sub{
+  font-size:16px;color:rgba(255,255,255,.7);margin:18px 0 0;
+  max-width:620px;margin-left:auto;margin-right:auto;line-height:1.5;
+}
+.e-search{
+  margin-top:32px;background:white;border-radius:var(--km-radius-pill);
+  padding:7px;display:flex;align-items:center;gap:4px;
+  box-shadow:0 16px 40px rgba(108,71,255,.25), 0 4px 12px rgba(14,11,31,.15);
+  max-width:920px;margin-left:auto;margin-right:auto;
+  border:1px solid rgba(255,255,255,.8);
+}
+.e-search .field{
+  flex:1;display:flex;align-items:center;gap:10px;padding:11px 20px;
+  font-size:14.5px;color:var(--km-ink);min-width:0;
+}
+.e-search .field svg{flex:0 0 16px;color:var(--km-violet);}
+.e-search .field input{
+  flex:1;border:0;outline:0;background:transparent;font:inherit;min-width:0;color:var(--km-ink);
+}
+.e-search .field input::placeholder{color:var(--km-muted);}
+.e-search .divider{height:22px;width:1px;background:var(--km-line-soft);flex:0 0 auto;}
+.e-search .filter{
+  padding:8px 14px;font-size:13px;color:var(--km-muted);background:transparent;border:0;
+  display:inline-flex;align-items:center;gap:6px;cursor:pointer;border-radius:100px;
+  transition:background .12s,color .12s;
+}
+.e-search .filter:hover{color:var(--km-ink);background:var(--km-paper);}
+.e-search .filter b{color:var(--km-ink);font-weight:600;}
+.e-search .go{
+  margin-left:auto;padding:12px 22px;background:var(--km-ink);color:white;border:0;border-radius:100px;
+  font-family:'Archivo Narrow';font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;transition:transform .12s,background .15s;
+}
+.e-search .go:hover{background:var(--km-violet);transform:translateY(-1px);}
+.e-quick{
+  margin-top:20px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+}
+.e-quick .lbl{
+  font-family:'Archivo Narrow';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);margin-right:6px;
+}
+.e-quick .chip{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:white;
+  backdrop-filter:blur(8px);transition:background .15s,border-color .15s,transform .12s;
+}
+.e-quick .chip:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.32);transform:translateY(-1px);}
+@media (max-width:880px){
+  .e-hero{padding:44px 22px 38px;border-radius:24px;margin:16px 14px 0;}
+  .e-hero .sub{font-size:14.5px;}
+  .e-search{flex-wrap:wrap;border-radius:24px;padding:8px;}
+  .e-search .divider{display:none;}
+  .e-search .field{flex:1 1 100%;}
+  .e-search .filter{flex:1 0 calc(33% - 8px);justify-content:center;background:var(--km-paper);}
+  .e-search .go{flex:1 1 100%;justify-content:center;}
+}
+
+/* SECTION */
+.e-section{padding:36px 28px 0;}
+.e-section-head{
+  display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px;gap:24px;
+}
+.e-section-head .ttl{
+  font-family:'Archivo Narrow';font-weight:700;font-size:30px;line-height:1;letter-spacing:0;color:var(--km-ink);
+}
+.e-section-head .ttl em{font-style:italic;color:var(--km-violet);}
+.e-section-head .lbl{font-family:'Archivo Narrow';font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--km-muted);margin-bottom:6px;}
+
+/* B-CORP BANNER */
+.e-banner-bcorp{
+  margin:24px 28px 0;background:white;border:1px solid var(--km-line-soft);border-radius:var(--km-radius-lg);
+  padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  box-shadow:var(--km-shadow-sm);
+}
+.e-banner-bcorp .badge{
+  background:var(--km-violet-soft);color:var(--km-violet);
+  font-family:'Archivo Narrow';font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  padding:5px 10px;border-radius:6px;
+}
+.e-banner-bcorp h3{margin:6px 0 2px;font-family:'Archivo Narrow';font-weight:700;font-size:18px;letter-spacing:.01em;color:var(--km-ink);}
+.e-banner-bcorp p{margin:0;font-size:13px;color:var(--km-muted);max-width:640px;}
+.e-banner-bcorp .actions{display:flex;gap:8px;flex:0 0 auto;}
+
+/* NEW SPORTS CARDS */
+.e-new-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:14px;}
+.e-new-card{
+  background:white;border:1px solid var(--km-line-soft);border-radius:var(--km-radius-lg);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .15s, box-shadow .15s, border-color .15s;cursor:pointer;text-decoration:none;color:var(--km-ink);
+}
+.e-new-card:hover{transform:translateY(-3px);box-shadow:var(--km-shadow-md);border-color:var(--km-line);}
+.e-new-card .img{height:90px;position:relative;}
+.e-new-card .img > .sport-img{position:absolute;inset:0;border-radius:0;}
+.e-new-card .body{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1;}
+.e-new-card .name{font-family:'Archivo Narrow';font-weight:700;font-size:16px;line-height:1.15;letter-spacing:.01em;}
+.e-new-card .fed{font-family:'Archivo Narrow';font-weight:600;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--km-muted);}
+.e-new-card .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;font-size:11.5px;color:var(--km-muted);}
+.e-new-card .cta{padding:10px 14px;border-top:1px solid var(--km-line-soft);text-align:center;font-family:'Archivo Narrow';font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+.e-new-card:hover .cta{background:var(--km-paper);}
+
+/* MOMENT CARDS */
+.e-moment-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:14px;}
+.e-moment-card{
+  background:white;border:1px solid var(--km-line-soft);border-radius:var(--km-radius-lg);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .15s, box-shadow .15s;cursor:pointer;text-decoration:none;color:var(--km-ink);
+}
+.e-moment-card:hover{transform:translateY(-3px);box-shadow:var(--km-shadow-md);}
+.e-moment-card .img{height:160px;position:relative;}
+.e-moment-card .img > .sport-img{position:absolute;inset:0;border-radius:0;}
+.e-moment-card .img .badge{
+  position:absolute;top:10px;left:10px;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+  font-family:'Archivo Narrow';font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  padding:5px 10px;border-radius:100px;z-index:1;
+}
+.e-moment-card .img .trend{
+  position:absolute;bottom:10px;right:10px;
+  background:var(--km-orange);color:var(--km-ink);
+  font-family:'Archivo Narrow';font-weight:700;font-size:11px;
+  padding:4px 10px;border-radius:100px;border:1.5px solid #E34A10;z-index:1;
+}
+.e-moment-card .body{padding:16px;display:flex;flex-direction:column;gap:8px;}
+.e-moment-card .name{font-family:'Archivo Narrow';font-weight:700;font-size:18px;line-height:1.1;letter-spacing:.01em;}
+.e-moment-card .meta{font-family:'Archivo Narrow';font-weight:600;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--km-muted);}
+.e-moment-card .ft{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-size:12px;color:var(--km-muted);}
+.e-moment-card .ft .clubs{display:flex;align-items:center;gap:4px;}
+
+/* CATEGORY GRID */
+.e-cats{display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;}
+.e-cat{
+  background:white;border:1px solid var(--km-line-soft);border-radius:var(--km-radius-lg);
+  padding:24px 18px;text-align:center;cursor:pointer;text-decoration:none;color:var(--km-ink);
+  transition:transform .15s, box-shadow .15s, border-color .15s;
+  display:block;
+}
+.e-cat:hover{transform:translateY(-2px);box-shadow:var(--km-shadow-md);border-color:var(--km-ink);}
+.e-cat .ic{font-size:32px;}
+.e-cat .name{
+  margin-top:8px;font-family:'Archivo Narrow';font-weight:700;font-size:16px;
+  letter-spacing:.02em;
+}
+.e-cat .lbl{
+  margin-top:4px;font-family:'Archivo Narrow';font-weight:600;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--km-muted);
+}
+
+/* MAG EDITORIAL */
+.e-mag{
+  background:white;border:1px solid var(--km-line-soft);border-radius:var(--km-radius-lg);
+  overflow:hidden;display:grid;grid-template-columns:1fr 1fr;
+}
+.e-mag .img{position:relative;min-height:300px;}
+.e-mag .img .ribbon{
+  position:absolute;top:14px;left:14px;
+  background:var(--km-orange);color:white;
+  font-family:'Archivo Narrow';font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  padding:5px 10px;border-radius:6px;z-index:1;
+}
+.e-mag .body{padding:28px;display:flex;flex-direction:column;gap:14px;}
+.e-mag h2{margin:0;font-family:'Archivo Narrow';font-weight:700;font-size:32px;line-height:1;color:var(--km-ink);}
+.e-mag h2 em{font-style:italic;color:var(--km-orange);}
+.e-mag p{margin:0;font-size:13.5px;color:var(--km-muted);line-height:1.55;}
+.e-mag .episode{
+  display:flex;align-items:center;gap:12px;padding:12px 0;
+  border-top:1px solid var(--km-line-soft);cursor:pointer;
+}
+.e-mag .episode:first-of-type{border-top:0;}
+.e-mag .episode:hover .play{background:var(--km-orange);}
+.e-mag .episode .play{
+  width:32px;height:32px;border-radius:50%;background:var(--km-ink);color:white;
+  display:flex;align-items:center;justify-content:center;flex:0 0 32px;
+  transition:background .15s;
+}
+.e-mag .episode .info{flex:1;}
+.e-mag .episode .t{font-family:'Archivo Narrow';font-weight:700;font-size:14px;letter-spacing:.01em;color:var(--km-ink);}
+.e-mag .episode .d{font-size:11px;color:var(--km-muted);margin-top:2px;}
+.e-mag .episode .dur{font-family:'Archivo Narrow';font-weight:600;font-size:11px;color:var(--km-muted);}
+
+/* BY DISCIPLINE */
+.e-disc-grid{display:grid;grid-template-columns:repeat(4, 1fr) 240px;gap:14px;}
+.e-disc{
+  background:white;border:1px solid var(--km-line-soft);border-radius:var(--km-radius-lg);
+  padding:18px;cursor:pointer;text-decoration:none;color:var(--km-ink);
+  transition:transform .15s, box-shadow .15s;display:block;
+}
+.e-disc:hover{transform:translateY(-2px);box-shadow:var(--km-shadow-md);}
+.e-disc .ic{font-size:32px;}
+.e-disc .name{font-family:'Archivo Narrow';font-weight:700;font-size:16px;margin-top:8px;letter-spacing:.01em;}
+.e-disc .desc{font-size:11.5px;color:var(--km-muted);margin-top:6px;line-height:1.45;}
+.e-disc .more{font-size:10.5px;color:var(--km-violet);font-weight:600;margin-top:8px;}
+.e-disc-cta{
+  background:var(--km-ink);color:white;border-radius:var(--km-radius-lg);padding:18px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.e-disc-cta .ic{font-size:28px;}
+.e-disc-cta .ttl{font-family:'Archivo Narrow';font-weight:700;font-size:16px;line-height:1.15;text-transform:uppercase;letter-spacing:.02em;}
+.e-disc-cta .sub{font-size:11.5px;color:rgba(255,255,255,.65);}
+
+/* FED BANNER — palette home (glass + accent violet) */
+.e-fed-banner{
+  background:var(--km-glass-strong);
+  backdrop-filter:blur(16px) saturate(1.3);
+  -webkit-backdrop-filter:blur(16px) saturate(1.3);
+  border:1px solid var(--km-glass-border);
+  box-shadow:var(--km-shadow-md);
+  border-radius:var(--km-radius-lg);
+  padding:24px;display:grid;grid-template-columns:140px 1fr 220px;gap:24px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.e-fed-banner::before{
+  content:'';position:absolute;right:-60px;top:-60px;width:220px;height:220px;
+  background:radial-gradient(circle, rgba(108,71,255,.18), transparent 65%);
+  pointer-events:none;
+}
+.e-fed-banner .ill{
+  height:100px;background:white;border-radius:var(--km-radius);
+  display:flex;align-items:center;justify-content:center;font-size:48px;
+  border:1px solid var(--km-line-soft);
+}
+.e-fed-banner h3{margin:0;font-family:'Archivo Narrow';font-weight:700;font-size:22px;line-height:1.1;color:var(--km-ink);}
+.e-fed-banner p{margin:6px 0 0;font-size:13px;color:var(--km-muted);line-height:1.5;}
+
+/* MORE SPORTS GRID */
+.e-more-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:12px;}
+.e-more-card{
+  background:white;border:1px solid var(--km-line-soft);border-radius:var(--km-radius);
+  padding:14px;display:flex;flex-direction:column;gap:8px;cursor:pointer;text-decoration:none;color:var(--km-ink);
+  transition:transform .15s, box-shadow .15s, border-color .15s;
+}
+.e-more-card:hover{transform:translateY(-2px);box-shadow:var(--km-shadow-md);border-color:var(--km-line);}
+.e-more-card .head{display:flex;align-items:center;gap:10px;}
+.e-more-card .ic{
+  width:42px;height:42px;border-radius:10px;flex:0 0 42px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+}
+.e-more-card .name{font-family:'Archivo Narrow';font-weight:700;font-size:14px;line-height:1.1;letter-spacing:.01em;}
+.e-more-card .fed{font-family:'Archivo Narrow';font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--km-muted);margin-top:2px;}
+.e-more-card .stats{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--km-muted);}
+.e-more-card .stats .chip{font-size:10.5px;padding:2px 8px;}
+
+/* ── GRILLE COMPLÈTE DE TOUS LES SPORTS ── */
+.e-allsports{
+  background:white;border:1px solid var(--km-line-soft);
+  border-radius:var(--km-radius-lg);
+  padding:24px;margin-top:14px;
+}
+.e-allsports-head{
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;
+}
+.e-allsports-search{
+  display:flex;align-items:center;gap:8px;
+  background:var(--km-paper);border:1px solid var(--km-line-soft);
+  padding:8px 14px;border-radius:100px;min-width:320px;
+  flex:1;max-width:480px;
+}
+.e-allsports-search input{
+  flex:1;border:0;outline:0;background:transparent;font:inherit;
+  font-size:13.5px;color:var(--km-ink);min-width:0;
+}
+.e-allsports-search input::placeholder{color:var(--km-muted);}
+.e-allsports-tabs{
+  display:flex;gap:6px;flex-wrap:wrap;
+  margin-bottom:18px;padding-bottom:14px;
+  border-bottom:1px solid var(--km-line-soft);
+}
+.e-allsports-tab{
+  padding:6px 12px;background:white;border:1px solid var(--km-line-soft);
+  border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;
+  color:var(--km-ink);font-family:inherit;
+  display:inline-flex;align-items:center;gap:4px;
+}
+.e-allsports-tab:hover{border-color:var(--km-ink);}
+.e-allsports-tab.on{background:var(--km-ink);color:white;border-color:var(--km-ink);}
+.e-allsports-tab .n{opacity:.65;font-size:10.5px;}
+.e-allsports-tab.on .n{color:rgba(255,255,255,.75);opacity:1;}
+.e-allsports-count{
+  font-family:'Archivo Narrow';font-weight:700;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--km-muted);
+}
+.e-allsports-count b{color:var(--km-violet);}
+.e-allsports-grid{
+  display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:10px;
+}
+.e-as-card{
+  background:var(--km-paper);border:1px solid var(--km-line-soft);
+  border-radius:12px;padding:12px;cursor:pointer;
+  text-decoration:none;color:var(--km-ink);
+  display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;
+  transition:transform .12s, box-shadow .12s, border-color .12s, background .12s;
+}
+.e-as-card:hover{transform:translateY(-2px);background:white;border-color:var(--km-ink);box-shadow:var(--km-shadow-sm);}
+.e-as-card .glyph{
+  width:36px;height:36px;border-radius:8px;background:white;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  border:1px solid var(--km-line-soft);
+}
+.e-as-card .info{min-width:0;}
+.e-as-card .nm{font-family:'Archivo Narrow';font-weight:700;font-size:13.5px;letter-spacing:.005em;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.e-as-card .meta{font-size:10.5px;color:var(--km-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.e-as-card .arrow{color:var(--km-violet);font-weight:700;font-size:14px;}
+.e-as-empty{
+  padding:40px;text-align:center;color:var(--km-muted);font-size:13px;
+  border:1.5px dashed var(--km-line);border-radius:12px;
+}
+.e-as-loadmore{
+  margin-top:18px;text-align:center;
+}
+.e-as-loadmore button{
+  background:white;border:1px solid var(--km-line);color:var(--km-ink);
+  padding:10px 22px;border-radius:100px;cursor:pointer;font-family:inherit;
+  font-weight:600;font-size:13px;
+}
+.e-as-loadmore button:hover{background:var(--km-paper);border-color:var(--km-ink);}
+
+/* ── STATS BANNER ── */
+.e-stats{
+  display:grid;grid-template-columns:repeat(4, 1fr);gap:14px;
+  margin-top:14px;
+}
+.e-stat-card{
+  background:white;border:1px solid var(--km-line-soft);border-radius:var(--km-radius-lg);
+  padding:22px 20px;text-align:center;
+}
+.e-stat-card .n{
+  font-family:'Archivo Narrow';font-weight:700;font-size:42px;line-height:1;
+  color:var(--km-ink);letter-spacing:-.01em;
+}
+.e-stat-card .n em{color:var(--km-violet);font-style:italic;}
+.e-stat-card .l{
+  font-family:'Archivo Narrow';font-weight:600;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--km-muted);margin-top:6px;
+}
+
+@media (max-width:880px){
+  .e-stats{grid-template-columns:repeat(2, 1fr);}
+  .e-allsports-search{min-width:auto;width:100%;}
+}
+
+/* LINK CLOUDS */
+.e-clouds{
+  display:grid;grid-template-columns:repeat(3, 1fr);gap:32px;
+  padding:36px 0 0;border-top:1px solid var(--km-line-soft);
+  margin-top:48px;
+}
+.e-cloud h4{margin:0 0 12px;font-family:'Archivo Narrow';font-weight:700;font-size:15px;letter-spacing:.01em;color:var(--km-ink);}
+.e-cloud .chips{display:flex;flex-wrap:wrap;gap:6px;}
+.e-cloud .chips a{
+  background:white;border:1px solid var(--km-line);border-radius:100px;
+  padding:5px 12px;font-size:12px;color:var(--km-ink);text-decoration:none;
+}
+.e-cloud .chips a:hover{background:var(--km-paper);border-color:var(--km-ink);}
+
+@media (max-width:1100px){
+  .e-new-grid{grid-template-columns:repeat(2, 1fr);}
+  .e-moment-grid{grid-template-columns:repeat(2, 1fr);}
+  .e-disc-grid{grid-template-columns:repeat(2, 1fr);}
+  .e-disc-cta{grid-column:1/-1;}
+  .e-more-grid{grid-template-columns:repeat(2, 1fr);}
+  .e-clouds{grid-template-columns:1fr;gap:20px;}
+  .e-mag{grid-template-columns:1fr;}
+  .e-mag .img{min-height:180px;}
+  .e-fed-banner{grid-template-columns:1fr;text-align:center;}
+  .e-fed-banner .ill{max-width:140px;margin:0 auto;}
+}
+@media (max-width:680px){
+  .e-hero{padding:24px 14px 24px;}
+  .e-hero h1{font-size:36px;}
+  .e-search{flex-wrap:wrap;border-radius:18px;}
+  .e-search .divider{display:none;}
+  .e-search .filter{flex:1;}
+  .e-section{padding:28px 14px 0;}
+  .e-cats{grid-template-columns:repeat(2, 1fr);}
+  .e-new-grid{grid-template-columns:1fr;}
+  .e-moment-grid{grid-template-columns:1fr;}
+  .e-banner-bcorp{margin:18px 14px 0;flex-direction:column;text-align:center;}
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* ── SEARCH MODE : la page devient une "page de résultats" ── */
+/* ──────────────────────────────────────────────────────────── */
+/* On masque tout l'éditorial (B-corp, Nouveautés, Moment, Catégories, */
+/* Mag, Fédérations, Banner, Stats, Clouds) et on agrandit la grille. */
+body.search-mode .e-editorial { display: none; }
+
+/* Hero contracté en search mode */
+body.search-mode .e-hero {
+  padding: 24px 28px 18px;
+  border-radius: 24px;
+  position: sticky; top: 8px; z-index: 30;
+}
+body.search-mode .e-hero h1 { font-size: 24px; margin: 0 0 4px; }
+body.search-mode .e-hero h1 em { color: var(--km-violet); }
+body.search-mode .e-hero .sub { display: none; }
+body.search-mode .e-hero .eyebrow { display: none; }
+body.search-mode .e-quick { display: none; }
+body.search-mode .e-search { margin-top: 12px; }
+
+/* Section all-sports prend tout le focus */
+body.search-mode #all-sports { padding-top: 18px; }
+body.search-mode .e-allsports {
+  padding: 28px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+body.search-mode .e-allsports-head { margin-bottom: 14px; }
+body.search-mode .e-allsports-head .e-allsports-search { display: none; } /* la barre du hero suffit */
+body.search-mode .e-allsports-count {
+  font-size: 22px; letter-spacing: 0; text-transform: none;
+  font-family: 'Archivo Narrow'; color: var(--km-ink);
+}
+body.search-mode .e-allsports-count b {
+  font-size: 28px; color: var(--km-ink);
+}
+body.search-mode .e-section-head { display: none; } /* on n'a plus besoin du titre "Tous les sports répertoriés" */
+
+/* Cartes verticales type "Welcome to the Jungle" : image bandeau dominante, body compact en dessous */
+body.search-mode .e-allsports-grid {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+body.search-mode .e-as-card {
+  display: flex; flex-direction: column;
+  padding: 0;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--km-line-soft);
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+body.search-mode .e-as-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(15,12,40,.12);
+  border-color: var(--km-line);
+  background: white;
+}
+/* Banner image : domine la carte (ratio ~16:11 = légèrement panoramique mais visible) */
+body.search-mode .e-as-card .e-card-banner {
+  position: relative;
+  aspect-ratio: 16/11;
+  width: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+body.search-mode .e-as-card .e-card-banner .glyph-big {
+  font-size: 72px; filter: drop-shadow(0 4px 14px rgba(0,0,0,.18));
+  opacity: .95;
+}
+body.search-mode .e-as-card .e-card-logo {
+  position: absolute; left: 14px; bottom: -22px;
+  width: 60px; height: 60px; border-radius: 14px;
+  background: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 14px rgba(15,12,40,.12);
+  border: 1px solid var(--km-line-soft);
+}
+body.search-mode .e-as-card .e-card-body {
+  padding: 32px 18px 14px;
+  display: flex; flex-direction: column; gap: 7px;
+  flex: 1;
+}
+body.search-mode .e-as-card .e-card-name {
+  font-family: 'Archivo Narrow'; font-weight: 700;
+  font-size: 22px; line-height: 1.1; letter-spacing: 0;
+  color: var(--km-ink);
+  margin-bottom: 2px;
+}
+body.search-mode .e-as-card .e-card-name mark {
+  background: #FFF06A; color: var(--km-ink); padding: 0 2px; border-radius: 3px;
+}
+body.search-mode .e-as-card .e-card-meta {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12.5px; color: var(--km-muted);
+}
+body.search-mode .e-as-card .e-card-meta .ico {
+  width: 14px; height: 14px; flex: 0 0 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+body.search-mode .e-as-card .e-card-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 18px;
+  border-top: 1px solid var(--km-line-soft);
+  font-size: 12.5px;
+  margin-top: auto;
+}
+body.search-mode .e-as-card .e-card-foot .clubs-count {
+  color: var(--km-ink); font-weight: 600;
+}
+body.search-mode .e-as-card .e-card-foot .cta {
+  background: white; border: 1px solid var(--km-line);
+  padding: 6px 14px; border-radius: 100px;
+  font-family: inherit; font-size: 12px; font-weight: 600;
+  color: var(--km-ink);
+}
+body.search-mode .e-as-card:hover .e-card-foot .cta {
+  background: var(--km-ink); color: white; border-color: var(--km-ink);
+}
+/* On masque les éléments de la carte compacte */
+body.search-mode .e-as-card .glyph,
+body.search-mode .e-as-card .info,
+body.search-mode .e-as-card .arrow { display: none; }
+
+@media (max-width: 880px) {
+  body.search-mode .e-allsports-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (max-width: 540px) {
+  body.search-mode .e-allsports-grid { grid-template-columns: 1fr; }
+}
+
+/* Les filtres restent masqués même en mode résultats (pilotés depuis le hero uniquement) */
+body.search-mode .e-filters { display: none; }
+
+/* Bouton "Tout effacer / Retour" en haut de la grille */
+body.search-mode .e-results-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 0 0 14px;
+}
+.e-results-bar { display: none; }
+.e-results-bar .e-results-back {
+  background: transparent; border: 0; cursor: pointer;
+  font: inherit; font-size: 13px; font-weight: 600;
+  color: var(--km-violet); display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 10px; border-radius: 8px;
+}
+.e-results-bar .e-results-back:hover { background: var(--km-violet-soft); }
+.e-results-summary { font-size: 13px; color: var(--km-ink); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.e-results-summary .e-tag {
+  display: inline-block; background: var(--km-violet-soft); color: var(--km-violet);
+  font-weight: 600; padding: 3px 8px; border-radius: 6px; font-size: 12px;
+}
+
+@media (max-width: 880px) {
+  body.search-mode .e-allsports-grid { grid-template-columns: 1fr; }
+  body.search-mode .e-hero { padding: 18px 14px; position: static; }
+  body.search-mode .e-hero h1 { font-size: 20px; }
+}
+
+/* ── BOUTONS-FILTRES DU HERO (au lieu de spans) ── */
+.e-search .filter{
+  background:transparent;border:0;outline:0;font:inherit;cursor:pointer;
+  padding:0 14px;font-size:13px;color:var(--km-muted);
+  display:inline-flex;align-items:center;gap:6px;
+  position:relative;
+}
+.e-search .filter:focus-visible{outline:2px solid var(--km-violet);outline-offset:2px;border-radius:6px;}
+.e-search .filter.has-value{color:var(--km-ink);font-weight:600;}
+.e-search .filter.has-value::after{
+  content:'';position:absolute;top:2px;right:6px;
+  width:6px;height:6px;border-radius:50%;background:var(--km-violet);
+}
+
+/* ── SUGGESTIONS AUTO-COMPLETE SOUS LE HERO ── */
+.hero-suggest{
+  max-width:900px;margin:8px auto 0;
+  background:white;border-radius:18px;
+  box-shadow:var(--km-shadow-lg, 0 12px 40px rgba(15,12,40,.18));
+  overflow:hidden;display:none;
+  text-align:left;
+}
+.hero-suggest.open{display:block;}
+.hero-suggest .sg-item{
+  display:flex;align-items:center;gap:12px;padding:10px 16px;
+  cursor:pointer;text-decoration:none;color:var(--km-ink);
+  border-bottom:1px solid var(--km-line-soft);
+}
+.hero-suggest .sg-item:last-child{border-bottom:0;}
+.hero-suggest .sg-item:hover,
+.hero-suggest .sg-item.hl{background:var(--km-paper);}
+.hero-suggest .sg-glyph{
+  width:34px;height:34px;border-radius:8px;background:var(--km-paper);
+  display:flex;align-items:center;justify-content:center;font-size:18px;flex:0 0 34px;
+}
+.hero-suggest .sg-name{font-family:'Archivo Narrow';font-weight:700;font-size:14.5px;letter-spacing:.005em;}
+.hero-suggest .sg-meta{font-size:11px;color:var(--km-muted);margin-top:1px;}
+.hero-suggest .sg-arrow{margin-left:auto;color:var(--km-violet);font-weight:700;}
+.hero-suggest .sg-foot{
+  padding:10px 16px;font-size:12px;color:var(--km-muted);
+  background:var(--km-paper);text-align:center;
+}
+.hero-suggest .sg-foot b{color:var(--km-violet);}
+
+/* ── BLOC FILTRES SOUS LA GRILLE (toujours présent dans le DOM mais masqué — */
+/*   l'état est piloté uniquement depuis les dropdowns du hero) ── */
+.e-filters { display: none; }
+.e-filters-internal{
+  display:flex;flex-wrap:wrap;align-items:flex-start;gap:18px 24px;
+  margin-bottom:20px;padding-bottom:16px;
+  border-bottom:1px solid var(--km-line-soft);
+}
+.e-filter-group{display:flex;flex-direction:column;gap:6px;min-width:0;}
+.e-filter-label{
+  font-family:'Archivo Narrow';font-weight:700;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--km-muted);
+}
+.e-filter-chips{display:flex;flex-wrap:wrap;gap:5px;}
+.e-chip{
+  background:white;border:1px solid var(--km-line-soft);
+  border-radius:100px;padding:5px 12px;
+  font-size:12px;font-weight:600;cursor:pointer;color:var(--km-ink);
+  font-family:inherit;
+  transition:background .12s, border-color .12s, color .12s, transform .08s;
+}
+.e-chip:hover{border-color:var(--km-ink);}
+.e-chip:focus-visible{outline:2px solid var(--km-violet);outline-offset:2px;}
+.e-chip:active{transform:scale(.97);}
+.e-chip.on{background:var(--km-ink);color:white;border-color:var(--km-ink);}
+.e-filter-reset{
+  margin-left:auto;align-self:flex-end;
+  background:transparent;border:0;cursor:pointer;
+  font:inherit;font-size:12px;color:var(--km-violet);font-weight:600;
+  padding:6px 10px;border-radius:6px;
+}
+.e-filter-reset:hover{background:var(--km-violet-soft);}
+
+/* ── BOUTON CLEAR DANS LA BARRE DE RECHERCHE ── */
+.e-clear-btn{
+  background:transparent;border:0;cursor:pointer;
+  font-size:22px;line-height:1;color:var(--km-muted);
+  width:24px;height:24px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.e-clear-btn:hover{background:var(--km-line-soft);color:var(--km-ink);}
+
+/* ── DROPDOWN HERO (popup au-dessus du form) ── */
+.hero-dropdown{
+  position:absolute;top:100%;left:0;margin-top:8px;
+  background:white;border-radius:14px;
+  box-shadow:0 12px 40px rgba(15,12,40,.18);
+  padding:12px;min-width:240px;z-index:5;
+  display:none;
+}
+.hero-dropdown.open{display:block;}
+.hero-dropdown .dd-title{
+  font-family:'Archivo Narrow';font-weight:700;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--km-muted);
+  padding:4px 8px 8px;
+}
+.hero-dropdown .dd-item{
+  display:flex;align-items:center;gap:8px;
+  padding:7px 10px;cursor:pointer;border-radius:8px;
+  font-size:13px;color:var(--km-ink);
+}
+.hero-dropdown .dd-item:hover{background:var(--km-paper);}
+.hero-dropdown .dd-item.on{background:var(--km-violet-soft);color:var(--km-violet);font-weight:600;}
+.hero-dropdown .dd-item .ic{width:18px;text-align:center;}
+
+@media (max-width:680px){
+  .hero-suggest{margin-left:14px;margin-right:14px;}
+  .e-filters{gap:14px;}
+}
+</style>
+
+<!-- Open Graph + Twitter (audit 2026-05-28) -->
+<meta property="og:title" content="Explorer des sports · Kinetic">
+<meta property="og:description" content="Le bottin du sport en France. 290 disciplines, 128 fédérations. Parcours par catégorie, par tendance, par fédération.">
+<meta property="og:url" content="https://kinetic.app/explorer-sports.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Explorer des sports · Kinetic">
+<meta name="twitter:description" content="Le bottin du sport en France. 290 disciplines, 128 fédérations. Parcours par catégorie, par tendance, par fédération.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body class="km-page">
+
+<script src="components/nav.js"></script>
+
+<main class="e-page" id="main-content">
+
+  <!-- HERO SEARCH -->
+  <section class="e-hero">
+    <div class="e-hero-inner">
+      <div class="eyebrow">Explorer · 290 disciplines · 128 fédérations</div>
+      <h1>Trouve le <em>sport</em> qui te correspond.</h1>
+      <p class="sub">Le bottin du sport en France. Parcours par catégorie, par tendance, par fédération — ou tape un mot-clé.</p>
+      <form class="e-search" onsubmit="doSearch(event)" role="search">
+        <div class="field">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+          <input id="search-input" autocomplete="off" placeholder='Cherche un sport (ex. "foot", "voile", "tennis", "boxe"...)' aria-label="Rechercher un sport">
+        </div>
+        <span class="divider"></span>
+        <button type="button" class="filter" id="hero-filter-cat" aria-haspopup="true" aria-expanded="false">Catégorie <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <span class="divider"></span>
+        <button type="button" class="filter" id="hero-filter-int" aria-haspopup="true" aria-expanded="false">Intensité <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <span class="divider"></span>
+        <button type="button" class="filter" id="hero-filter-fmt" aria-haspopup="true" aria-expanded="false">Format <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <span class="divider"></span>
+        <button type="button" class="filter" id="hero-filter-season" aria-haspopup="true" aria-expanded="false">Saison <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <span class="divider"></span>
+        <button type="button" class="filter" id="hero-filter-env" aria-haspopup="true" aria-expanded="false">Lieu <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <button class="btn btn-ink go" type="submit">Rechercher</button>
+      </form>
+      <div id="hero-suggest" class="hero-suggest" role="listbox" aria-label="Suggestions de sports"></div>
+      <div class="e-quick" id="quick-queries">
+        <span class="lbl">Populaire</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="e-page">
+
+    <!-- B-CORP BANNER -->
+    <div class="e-banner-bcorp e-editorial">
+      <div style="flex:1">
+        <span class="badge">★ Sport pour tous</span>
+        <h3>Découvre les sports labellisés "Inclusif".</h3>
+        <p>Renseigne-toi sur les disciplines qui s'engagent à respecter les valeurs sociales et environnementales : handisport, mixité, low-carbone.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-white btn-sm" href="handisport.html">En savoir +</a>
+        <a class="btn btn-ink btn-sm" href="handisport.html">Découvrir</a>
+      </div>
+    </div>
+
+    <!-- 01 NOUVEAUX SPORTS -->
+    <section class="e-section e-editorial">
+      <div class="e-section-head">
+        <div>
+          <div class="lbl">Section 01 · cette semaine</div>
+          <div class="ttl">Nouveaux <em>sports</em> à explorer.</div>
+        </div>
+        <a class="btn btn-white btn-sm" href="nouveautes.html">Sports insolites →</a>
+      </div>
+      <div class="e-new-grid" id="new-grid"></div>
+    </section>
+
+    <!-- 02 SPORTS DU MOMENT -->
+    <section class="e-section e-editorial">
+      <div class="e-section-head">
+        <div>
+          <div class="lbl">Section 02 · top tendances</div>
+          <div class="ttl">Sports du <em>moment</em>.</div>
+        </div>
+        <a class="btn btn-white btn-sm" href="sports-du-moment.html">Tout voir →</a>
+      </div>
+      <div class="e-moment-grid" id="moment-grid"></div>
+    </section>
+
+    <!-- 03 CATÉGORIES -->
+    <section class="e-section e-editorial">
+      <div class="e-section-head">
+        <div>
+          <div class="lbl">Section 03 · par envie</div>
+          <div class="ttl">Catégories <em>populaires</em>.</div>
+        </div>
+        <a class="btn btn-white btn-sm" href="categories-sports.html">Toutes les catégories →</a>
+      </div>
+      <div class="e-cats" id="cats-grid"></div>
+    </section>
+
+    <!-- 04 LE MAG -->
+    <section class="e-section e-editorial">
+      <div class="e-section-head">
+        <div>
+          <div class="lbl">Section 04 · éditorial</div>
+          <div class="ttl">Le <em>mag</em> du mois.</div>
+        </div>
+        <a class="btn btn-white btn-sm" href="sports-du-mois.html">Tous les épisodes →</a>
+      </div>
+      <article class="e-mag">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1725724642839-8a9694a4892c?auto=format&fit=crop&w=900&h=600&q=80');background-size:cover;background-position:center;">
+          <span class="ribbon">N°08 · Mai 2026 · En cours</span>
+        </div>
+        <div class="body">
+          <span class="eyebrow">★ Cover Story · Sport du mois</span>
+          <h2>L'<em>Ultimate</em>, frisbee de précision en mixité totale.</h2>
+          <p>Pas d'arbitre, pas de contact, juste de la vitesse, des passes folles et un disque qui flotte à 60m. <b>+38%</b> de pratiquants chez les 18-30 ans en 3 ans. La fairness est dans l'ADN du sport : tout se gère entre joueurs, en direct. On a enquêté sur ce sport qui pousse fort chez les étudiants et les jeunes actifs.</p>
+          <div style="display:flex;gap:8px;margin-top:6px">
+            <a class="btn btn-ink btn-sm" href="sports-du-mois.html">Lire l'enquête →</a>
+            <a class="btn btn-white btn-sm" href="sports-du-mois.html">▶ Bande-annonce</a>
+          </div>
+          <div style="margin-top:8px">
+            <a class="episode" href="sports-du-mois.html" style="text-decoration:none;color:inherit">
+              <div class="play">▶</div>
+              <div class="info">
+                <div class="t">Le mag · Ultimate — pas d'arbitre, juste de la vitesse</div>
+                <div class="d">16 mai 2026 · 8:42</div>
+              </div>
+              <span class="dur">8:42</span>
+            </a>
+            <a class="episode" href="sport.html?id=42" style="text-decoration:none;color:inherit">
+              <div class="play">▶</div>
+              <div class="info">
+                <div class="t">Mars · Padel — le sport qui explose (+220%)</div>
+                <div class="d">12 mars 2026 · 12:08</div>
+              </div>
+              <span class="dur">12:08</span>
+            </a>
+            <a class="episode" href="sport.html?id=26" style="text-decoration:none;color:inherit">
+              <div class="play">▶</div>
+              <div class="info">
+                <div class="t">Février · Escalade — le sport de la Gen Z</div>
+                <div class="d">8 février 2026 · 9:50</div>
+              </div>
+              <span class="dur">9:50</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 05 DÉCOUVRE PAR FÉDÉRATION -->
+    <section class="e-section e-editorial">
+      <div class="e-section-head">
+        <div>
+          <div class="lbl">Section 05 · par fédération</div>
+          <div class="ttl">Découvre par <em>fédération</em>.</div>
+        </div>
+        <a class="btn btn-white btn-sm" href="federations.html">Toutes les fédés →</a>
+      </div>
+      <div class="e-disc-grid" id="feds-grid"></div>
+    </section>
+
+    <!-- FED BANNER -->
+    <section class="e-section e-editorial">
+      <div class="e-fed-banner">
+        <div class="ill">🏛</div>
+        <div>
+          <span class="eyebrow">Tu représentes une fédération ?</span>
+          <h3>Tu voudrais voir <em style="font-style:italic;color:var(--km-violet)">ta fédé</em> ici ?</h3>
+          <p>Crée la fiche sport de ta discipline et commence à attirer les pratiquants qui correspondent à ta culture, gratuitement.</p>
+        </div>
+        <a class="btn btn-ink" href="contact-presse.html">En savoir plus →</a>
+      </div>
+    </section>
+
+    <!-- STATS GLOBALES -->
+    <section class="e-section e-editorial">
+      <div class="e-section-head">
+        <div>
+          <div class="lbl">La data Kinetic · Mai 2026</div>
+          <div class="ttl"><em>Kinetic</em> en chiffres.</div>
+        </div>
+      </div>
+      <div class="e-stats">
+        <div class="e-stat-card">
+          <div class="n" id="stat-sports-n"><em>477</em></div>
+          <div class="l">Sports répertoriés</div>
+        </div>
+        <div class="e-stat-card">
+          <div class="n"><em>128</em></div>
+          <div class="l">Fédérations</div>
+        </div>
+        <div class="e-stat-card">
+          <div class="n"><em>125k</em></div>
+          <div class="l">Clubs en France</div>
+        </div>
+        <div class="e-stat-card">
+          <div class="n"><em>13</em></div>
+          <div class="l">Catégories d'envie</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRILLE DE TOUS LES SPORTS RÉPERTORIÉS -->
+    <section class="e-section" id="all-sports">
+      <div class="e-section-head">
+        <div>
+          <div class="lbl">Section 07 · base complète</div>
+          <div class="ttl">Tous les sports <em>répertoriés</em>.</div>
+        </div>
+        <a class="btn btn-white btn-sm" href="trouver-club.html">Quiz personnalisé →</a>
+      </div>
+      <div class="e-allsports">
+        <!-- Barre "retour à l'accueil" visible uniquement en mode résultats -->
+        <div class="e-results-bar">
+          <button type="button" class="e-results-back" id="results-back" aria-label="Retour à l'exploration">← Retour à l'exploration</button>
+          <div class="e-results-summary" id="results-summary"></div>
+        </div>
+        <div class="e-allsports-head">
+          <div class="e-allsports-search">
+            <span style="font-size:14px" aria-hidden="true">🔍</span>
+            <input type="text" id="all-search" autocomplete="off" placeholder="Recherche un sport (foot, tennis, voile, boxe...)" aria-label="Recherche un sport">
+            <button type="button" id="all-search-clear" class="e-clear-btn" aria-label="Effacer la recherche" style="display:none">×</button>
+          </div>
+          <div class="e-allsports-count">
+            <b id="all-count">—</b> sports trouvés
+          </div>
+        </div>
+
+        <!-- FILTRES SPORT (pas de localisation) -->
+        <div class="e-filters" id="filters-row">
+          <div class="e-filter-group">
+            <span class="e-filter-label">Catégorie</span>
+            <div class="e-filter-chips" id="filter-cats"></div>
+          </div>
+          <div class="e-filter-group">
+            <span class="e-filter-label">Intensité</span>
+            <div class="e-filter-chips" id="filter-int">
+              <button class="e-chip on" data-int="all">Toutes</button>
+              <button class="e-chip" data-int="chill">Chill</button>
+              <button class="e-chip" data-int="modere">Modéré</button>
+              <button class="e-chip" data-int="intense">Intense</button>
+              <button class="e-chip" data-int="extreme">Extrême</button>
+            </div>
+          </div>
+          <div class="e-filter-group">
+            <span class="e-filter-label">Format</span>
+            <div class="e-filter-chips" id="filter-fmt">
+              <button class="e-chip on" data-fmt="all">Tous</button>
+              <button class="e-chip" data-fmt="solo">Solo</button>
+              <button class="e-chip" data-fmt="duo">Duo</button>
+              <button class="e-chip" data-fmt="collectif">Collectif</button>
+            </div>
+          </div>
+          <div class="e-filter-group">
+            <span class="e-filter-label">Saison</span>
+            <div class="e-filter-chips" id="filter-season">
+              <button class="e-chip on" data-season="all">Toute l'année</button>
+              <button class="e-chip" data-season="ete">Été</button>
+              <button class="e-chip" data-season="hiver">Hiver</button>
+            </div>
+          </div>
+          <div class="e-filter-group">
+            <span class="e-filter-label">Lieu</span>
+            <div class="e-filter-chips" id="filter-env">
+              <button class="e-chip on" data-env="all">Tous</button>
+              <button class="e-chip" data-env="outdoor">Outdoor</button>
+              <button class="e-chip" data-env="indoor">Indoor</button>
+              <button class="e-chip" data-env="eau">Eau</button>
+              <button class="e-chip" data-env="montagne">Montagne</button>
+            </div>
+          </div>
+          <button type="button" class="e-filter-reset" id="filter-reset">Réinitialiser</button>
+        </div>
+
+        <div class="e-allsports-grid" id="all-grid" aria-live="polite"></div>
+        <div class="e-as-loadmore" id="all-loadmore" style="display:none">
+          <button id="all-loadmore-btn">Afficher plus de sports →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINK CLOUDS -->
+    <section class="e-section e-editorial">
+      <div class="e-clouds">
+        <div class="e-cloud">
+          <h4>Sports par catégorie</h4>
+          <div class="chips" id="cloud-cats"></div>
+        </div>
+        <div class="e-cloud">
+          <h4>Sports par région</h4>
+          <div class="chips" id="cloud-regions"></div>
+        </div>
+        <div class="e-cloud">
+          <h4>Sports par fédération</h4>
+          <div class="chips" id="cloud-feds"></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</main>
+
+<script src="components/footer.js"></script>
+<script src="k-data.js"></script>
+<script src="data.js"></script>
+<script src="sport-photos.js?v=2"></script>
+<script src="fed-photos.js"></script>
+<script src="sport-search.js"></script>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => Array.from(document.querySelectorAll(s));
+// k-data.js déclare déjà au top niveau : CATEGORIES, K_SPORTS, POPULAR_QUERIES, POPULAR_CATS, REGIONS, FEDS
+// data.js déclare déjà au top niveau : SPORTS (477 sports)
+// On ne re-déclare PAS ces consts (sinon SyntaxError). On utilise des alias.
+const KSPORTS = (typeof K_SPORTS !== 'undefined') ? K_SPORTS : (window.K_DATA?.SPORTS || []);
+
+// === Helpers ===
+function getCat(id) { return CATEGORIES.find(c => c.id === id); }
+function sportImage(sport, height) {
+  const photo = (typeof getSportPhoto === 'function') ? getSportPhoto(sport) : ((typeof getFedPhoto === 'function') ? getFedPhoto(sport) : null);
+  if (photo) {
+    const fed = sport.meta?.acronyme || sport.fed || '';
+    return `<div class="sport-img has-photo" style="height:${height}px;background-image:url('${photo}')">${fed ? `<span class="fed-badge" aria-hidden="true">${fed}</span>` : ''}</div>`;
+  }
+  return `<div class="sport-img ${sport.img || ''}" style="height:${height}px"><span class="glyph" aria-hidden="true">${sport.glyph || '🏃'}</span></div>`;
+}
+function fmt(n) { return n.toLocaleString('fr-FR'); }
+
+// === Quick queries ===
+const quickHTML = POPULAR_QUERIES.slice(0, 7).map(id => {
+  const s = KSPORTS.find(x => x.id === id);
+  if (!s) return '';
+  return `<a class="chip" href="sport.html?s=${s.id}">${s.glyph} ${s.name}</a>`;
+}).join('');
+$('#quick-queries').insertAdjacentHTML('beforeend', quickHTML);
+
+// === Search ===
+// Au lieu de rediriger, on scroll vers la grille en pré-remplissant la recherche.
+window.doSearch = (e) => {
+  if (e && e.preventDefault) e.preventDefault();
+  const q = $('#search-input').value.trim();
+  syncHeroToGrid(q);
+};
+function syncHeroToGrid(q) {
+  const allInput = $('#all-search');
+  const wasSearchMode = document.body.classList.contains('search-mode');
+  if (allInput) {
+    allInput.value = q || '';
+    allInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+  // Scroll seulement sur la transition (sinon ça scroll à chaque keystroke = pénible)
+  setTimeout(() => {
+    const isSearchMode = document.body.classList.contains('search-mode');
+    if (isSearchMode && !wasSearchMode) {
+      const target = document.getElementById('all-sports');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 150);
+}
+
+// === Section 01 — Nouveaux sports ===
+const newSports = KSPORTS.filter(s => s.tags.includes('nouveau') || s.tags.includes('tendance')).slice(0, 4);
+$('#new-grid').innerHTML = newSports.map(s => {
+  const cat = getCat(s.cat);
+  return `
+    <a class="e-new-card" href="sport.html?s=${s.id}">
+      <div class="img">${sportImage(s, 90)}</div>
+      <div class="body">
+        <span class="fed">${s.fed} · ${cat?.name || ''}</span>
+        <div class="name">${s.name}</div>
+        <div class="row">
+          <span>📍 ${s.season === 'an' ? 'France' : s.season}</span>
+        </div>
+      </div>
+      <div class="cta">Découvrir +</div>
+    </a>
+  `;
+}).join('');
+
+// === Section 02 — Sports du moment ===
+const momentSports = [...KSPORTS].sort((a,b) => parseInt(b.trend) - parseInt(a.trend)).slice(0, 4);
+const badges = ['★ Boom', 'Tendance', 'Été', 'Saison'];
+$('#moment-grid').innerHTML = momentSports.map((s, i) => {
+  const cat = getCat(s.cat);
+  const showTrend = s.trend && s.trend.startsWith('+') && parseInt(s.trend) >= 15;
+  return `
+    <a class="e-moment-card" href="sport.html?s=${s.id}">
+      <div class="img">
+        ${sportImage(s, 160)}
+        <span class="badge">${badges[i]}</span>
+        ${showTrend ? `<span class="trend">↗ ${s.trend}</span>` : ''}
+      </div>
+      <div class="body">
+        <span class="meta">${cat?.name || ''} · ${s.fed}</span>
+        <div class="name">${s.name}</div>
+        <div class="ft">
+          <span class="clubs">🏟 ${fmt(s.clubs)} clubs</span>
+          <span style="color:var(--km-violet);font-weight:600">Suivre +</span>
+        </div>
+      </div>
+    </a>
+  `;
+}).join('');
+
+// === Section 03 — Catégories ===
+const cats = CATEGORIES.filter(c => POPULAR_CATS.includes(c.id)).slice(0, 6);
+$('#cats-grid').innerHTML = cats.map(c => {
+  const count = KSPORTS.filter(s => s.cat === c.id).length;
+  return `
+    <a class="e-cat" href="trouver-club.html?cat=${c.id}">
+      <div class="ic">${c.icon}</div>
+      <div class="name">${c.name}</div>
+      <div class="lbl">${count} sports</div>
+    </a>
+  `;
+}).join('');
+
+// === Section 05 — Découvre par fédération (5 cards + 1 CTA) ===
+const TOP_FEDS = [
+  { id:'fff',     ic:'⚽', name:'FF Football',        desc:'14 800 clubs · Le sport-roi en France. Compétition à tous niveaux et école de foot dès 5 ans.' },
+  { id:'fft',     ic:'🎾', name:'FF Tennis',          desc:'8 220 clubs · Tennis + padel + pickleball + beach. Une fédé qui pousse fort sur le padel.' },
+  { id:'ffr',     ic:'🏉', name:'FF Rugby',           desc:'1 810 clubs · Du XV au touch en passant par le rugby à 7. Le sport de la 3e mi-temps.' },
+  { id:'ffjudo',  ic:'🥋', name:'FF Judo',            desc:'5 630 clubs · Le judo et toute la famille des arts martiaux japonais. Solide école pour ados.' },
+  { id:'ffme',    ic:'🧗', name:'FF Montagne Escalade', desc:'1 166 clubs · Escalade, alpinisme, canyonisme. La fédé qui explose chez les 15-25 ans.' },
+];
+$('#feds-grid').innerHTML = TOP_FEDS.map(f => `
+  <a class="e-disc" href="federations.html#${f.id}">
+    <div class="ic">${f.ic}</div>
+    <div class="name">${f.name}</div>
+    <div class="desc">${f.desc}</div>
+    <div class="more">+ Voir la fédé →</div>
+  </a>
+`).join('') + `
+  <div class="e-disc-cta">
+    <div class="ic">✦</div>
+    <div class="ttl">+ de 128 fédérations<br>répertoriées</div>
+    <div class="sub">Voile, escrime, parapente, échecs, danse, tir... la France a une fédé pour tout.</div>
+    <a class="btn btn-orange" href="federations.html" style="margin-top:auto">Tout voir →</a>
+  </div>
+`;
+
+// === Link clouds ===
+$('#cloud-cats').innerHTML = CATEGORIES.map(c =>
+  `<a href="trouver-club.html?cat=${c.id}">${c.icon} ${c.name}</a>`
+).join('');
+
+$('#cloud-regions').innerHTML = REGIONS.slice(0, 10).map(r =>
+  `<a href="map.html?region=${encodeURIComponent(r)}">${r}</a>`
+).join('');
+
+$('#cloud-feds').innerHTML = FEDS.map(f =>
+  `<a href="federations.html#${f.id}">${f.name}</a>`
+).join('') + `<a href="federations.html" style="color:var(--km-violet);font-weight:600">+ 122 fédés →</a>`;
+
+// === GRILLE COMPLÈTE DES 477 SPORTS (data.js) ===
+const ALL_SPORTS = (typeof SPORTS !== "undefined" && Array.isArray(SPORTS)) ? SPORTS : [];
+
+// Emoji mapping pour les 477 sports (data.js déclare déjà CAT_EMOJI au top niveau,
+// donc on utilise des noms locaux différents pour éviter "already declared")
+const NOM_TO_EMOJI = {
+  'Football':'⚽','Rugby à XV':'🏉','Rugby':'🏉','Basketball':'🏀','Handball':'🤾',
+  'Volleyball':'🏐','Tennis':'🎾','Badminton':'🏸','Tennis de table':'🏓',
+  'Natation':'🏊','Athlétisme':'🏃','Cyclisme route':'🚴','Cyclisme':'🚴','Judo':'🥋',
+  'Karaté':'🥋','Boxe':'🥊','Escrime':'🤺','Golf':'⛳','Surf':'🏄','Ski alpin':'⛷️',
+  'Snowboard':'🏂','Escalade':'🧗','Equitation':'🐎','Voile':'⛵','Aviron':'🚣',
+  'Padel':'🎾','Pétanque':'🎳','Plongée':'🤿','Ultimate':'🥏','Disc Golf':'🥏',
+  'Floorball':'🏑','Skateboard':'🛹','Roller':'🛼','Yoga':'🧘','Fitness':'💪',
+  'Crossfit':'🏋️','Trail':'🏔️','Triathlon':'🏊','Tir à l\'arc':'🏹','Tir sportif':'🎯',
+};
+// CAT_EMOJI existe DÉJÀ globalement (data.js). On ne re-déclare pas, on utilise.
+function getGlyph(s) {
+  if (NOM_TO_EMOJI[s.nom]) return NOM_TO_EMOJI[s.nom];
+  if (typeof CAT_EMOJI !== 'undefined' && CAT_EMOJI[s.cat]) return CAT_EMOJI[s.cat];
+  return '🎽';
+}
+function fmtNum(n) {
+  if (!n) return '—';
+  if (n >= 1000) return Math.round(n/1000) + 'k';
+  return n.toString();
+}
+
+// Surligne (case insensitive, accents-insensitive) la query dans le nom
+function highlight(text, query) {
+  if (!query) return text;
+  try {
+    // On normalise pour trouver les positions ; on insère <mark> sur le texte original
+    const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const nText = norm(text);
+    const nQuery = norm(query);
+    if (nQuery.length < 2) return text;
+    const idx = nText.indexOf(nQuery);
+    if (idx < 0) return text;
+    return text.slice(0, idx) + '<mark>' + text.slice(idx, idx + nQuery.length) + '</mark>' + text.slice(idx + nQuery.length);
+  } catch (e) { return text; }
+}
+
+// Catégories possibles dans data.js
+const allCats = {};
+ALL_SPORTS.forEach(s => {
+  const c = s.cat || 'Autre';
+  allCats[c] = (allCats[c] || 0) + 1;
+});
+const catOrder = Object.entries(allCats).sort((a,b) => b[1] - a[1]);
+
+// État de la grille : filtres "sport pur" (pas de localisation)
+const grid = {
+  cat: 'all',          // 'all' | 'Collectif' | 'Individuel' | ...
+  intensity: 'all',    // 'all' | 'chill' (0-1) | 'modere' (2-3) | 'intense' (4) | 'extreme' (5)
+  format: 'all',       // 'all' | 'solo' (0-1) | 'duo' (2-3) | 'collectif' (4-5)
+  season: 'all',       // 'all' | 'ete' | 'hiver'
+  env: 'all',          // 'all' | 'outdoor' | 'indoor' | 'eau' | 'montagne'
+  search: '',
+  limit: 60,
+};
+
+// ─── Filtres : prédicats basés sur les dimensions data.js ───
+// scores[0]=Contact, [1]=Outdoor, [2]=Intensité, [4]=Collectif, [14]=Eau, [16]=Nature, [17]=Domicile/Indoor, [18]=Saisonnier
+function passIntensity(s) {
+  const v = s.scores ? s.scores[2] : null;
+  if (v == null) return grid.intensity === 'all';
+  switch (grid.intensity) {
+    case 'all': return true;
+    case 'chill': return v <= 1;
+    case 'modere': return v >= 2 && v <= 3;
+    case 'intense': return v === 4;
+    case 'extreme': return v === 5;
+  }
+  return true;
+}
+function passFormat(s) {
+  const v = s.scores ? s.scores[4] : null;
+  if (v == null) return grid.format === 'all';
+  switch (grid.format) {
+    case 'all': return true;
+    case 'solo': return v <= 1;
+    case 'duo': return v >= 2 && v <= 3;
+    case 'collectif': return v >= 4;
+  }
+  return true;
+}
+function passSeason(s) {
+  if (grid.season === 'all') return true;
+  // Source 1 : meta.saison (string : 'annee' | 'ete' | 'hiver')
+  if (s.meta && s.meta.saison) {
+    if (grid.season === 'ete') return s.meta.saison === 'ete' || s.meta.saison === 'annee';
+    if (grid.season === 'hiver') return s.meta.saison === 'hiver' || s.meta.saison === 'annee';
+  }
+  // Source 2 : scores[18] (Saisonnier) >= 4 = très saisonnier
+  // Si saisonnier élevé + dimension 16 (Nature) >= 3 + cat Glisse → hiver
+  // Sinon on garde un fallback ouvert (true) si meta.saison absent
+  if (!s.scores) return true;
+  if (grid.season === 'hiver') {
+    return s.cat === 'Glisse' || (s.meta?.saison === 'hiver');
+  }
+  if (grid.season === 'ete') {
+    return s.cat === 'Aquatique' || (s.meta?.saison === 'ete');
+  }
+  return true;
+}
+function passEnv(s) {
+  if (grid.env === 'all') return true;
+  if (!s.scores) return true;
+  const outdoor = s.scores[1];
+  const eau = s.scores[14];
+  const nature = s.scores[16];
+  switch (grid.env) {
+    case 'outdoor': return outdoor >= 3;
+    case 'indoor': return outdoor <= 1;
+    case 'eau': return eau >= 3 || s.cat === 'Aquatique';
+    case 'montagne': return nature >= 4 || s.cat === 'Montagne & Nature' || s.cat === 'Glisse';
+  }
+  return true;
+}
+function passCat(s) {
+  if (grid.cat === 'all') return true;
+  return (s.cat || 'Autre') === grid.cat;
+}
+
+function buildCatChips() {
+  const wrap = $('#filter-cats');
+  if (!wrap) return;
+  wrap.innerHTML = `
+    <button class="e-chip on" data-cat="all">Toutes</button>
+    ${catOrder.map(([cat, n]) => {
+      const ic = (typeof CAT_EMOJI !== 'undefined' && CAT_EMOJI[cat]) || '';
+      return `<button class="e-chip" data-cat="${cat}">${ic ? ic + ' ' : ''}${cat}</button>`;
+    }).join('')}
+  `;
+}
+
+function wireFilters() {
+  // Map root selector → state key → dataset attribute name
+  const groups = [
+    { root: '#filter-cats',   state: 'cat',       attr: 'cat' },
+    { root: '#filter-int',    state: 'intensity', attr: 'int' },
+    { root: '#filter-fmt',    state: 'format',    attr: 'fmt' },
+    { root: '#filter-season', state: 'season',    attr: 'season' },
+    { root: '#filter-env',    state: 'env',       attr: 'env' },
+  ];
+  groups.forEach(g => {
+    const root = document.querySelector(g.root);
+    if (!root) return;
+    root.addEventListener('click', (e) => {
+      const btn = e.target.closest('.e-chip');
+      if (!btn) return;
+      root.querySelectorAll('.e-chip').forEach(c => c.classList.remove('on'));
+      btn.classList.add('on');
+      grid[g.state] = btn.dataset[g.attr];
+      grid.limit = 60;
+      renderGrid();
+      updateHeroFilterBadges();
+    });
+  });
+
+  const reset = $('#filter-reset');
+  if (reset) reset.addEventListener('click', () => {
+    grid.cat = grid.intensity = grid.format = grid.season = grid.env = 'all';
+    grid.search = '';
+    if ($('#all-search')) $('#all-search').value = '';
+    if ($('#search-input')) $('#search-input').value = '';
+    if ($('#all-search-clear')) $('#all-search-clear').style.display = 'none';
+    // remettre les chips "Toutes/Tous" actifs
+    document.querySelectorAll('#filters-row .e-chip').forEach(c => c.classList.remove('on'));
+    groups.forEach(g => {
+      const def = document.querySelector(`${g.root} .e-chip[data-${g.attr}="all"]`);
+      if (def) def.classList.add('on');
+    });
+    grid.limit = 60;
+    renderGrid();
+    updateHeroFilterBadges();
+  });
+}
+
+function isSearchActive() {
+  return !!(grid.search) ||
+    grid.cat !== 'all' || grid.intensity !== 'all' ||
+    grid.format !== 'all' || grid.season !== 'all' || grid.env !== 'all';
+}
+
+function updateSearchModeUI(listLength) {
+  const active = isSearchActive();
+  document.body.classList.toggle('search-mode', active);
+  // Met à jour le résumé : "12 résultats pour "voile""
+  const sum = $('#results-summary');
+  if (sum) {
+    if (active) {
+      const bits = [];
+      if (grid.search) bits.push(`"${grid.search}"`);
+      const labels = {
+        intensity: { chill: 'Chill', modere: 'Modéré', intense: 'Intense', extreme: 'Extrême' },
+        format:    { solo: 'Solo', duo: 'Duo', collectif: 'Collectif' },
+        season:    { ete: 'Été', hiver: 'Hiver' },
+        env:       { outdoor: 'Outdoor', indoor: 'Indoor', eau: 'Eau', montagne: 'Montagne' },
+      };
+      if (grid.cat !== 'all') bits.push(grid.cat);
+      ['intensity','format','season','env'].forEach(k => {
+        if (grid[k] !== 'all') bits.push(labels[k][grid[k]] || grid[k]);
+      });
+      const tags = bits.length ? ' · ' + bits.map(b => `<span class="e-tag">${b}</span>`).join(' ') : '';
+      sum.innerHTML = `<span style="color:var(--km-muted);font-size:13px">Filtres :</span>${tags}`;
+    } else {
+      sum.innerHTML = '';
+    }
+  }
+}
+
+function renderGrid() {
+  // 1. Recherche fuzzy si query, sinon tous les sports
+  let list = grid.search
+    ? KineticSearch.searchSports(ALL_SPORTS, grid.search)
+    : ALL_SPORTS.slice();
+
+  // 2. Filtres sport
+  list = list.filter(s => passCat(s) && passIntensity(s) && passFormat(s) && passSeason(s) && passEnv(s));
+
+  // 3. Tri : si recherche active on garde l'ordre du moteur (par score), sinon alphabétique
+  if (!grid.search) list.sort((a,b) => a.nom.localeCompare(b.nom, 'fr'));
+
+  const shown = list.slice(0, grid.limit);
+
+  $('#all-count').textContent = list.length.toLocaleString('fr-FR');
+  updateSearchModeUI(list.length);
+
+  if (shown.length === 0) {
+    $('#all-grid').innerHTML = `
+      <div class="e-as-empty" style="grid-column:1/-1">
+        <div style="font-size:32px;margin-bottom:8px">🔍</div>
+        <div style="font-family:'Archivo Narrow';font-weight:700;font-size:18px;margin-bottom:4px;color:var(--km-ink)">Aucun sport ne correspond</div>
+        <div>Essaie d'autres mots-clés, ou réinitialise les filtres.</div>
+      </div>
+    `;
+    $('#all-loadmore').style.display = 'none';
+    return;
+  }
+
+  // Map catégorie → variante de gradient .sport-img
+  const CAT_VARIANT = {
+    'Collectif':'orange', 'Combat':'orange',
+    'Aquatique':'violet', 'Glisse':'violet', 'Danse & Arts':'violet',
+    'Montagne & Nature':'lime', 'Équestre':'lime',
+    'Mental':'dark', 'Moteur':'dark',
+    'Individuel':'', 'Aérien':'',
+  };
+  const searchMode = isSearchActive();
+  $('#all-grid').innerHTML = shown.map(s => {
+    const clubs = s.meta?.clubsCount || s.meta?.clubs || s.meta?.nb_licencies_fr || 0;
+    const glyph = getGlyph(s);
+    if (searchMode) {
+      // Carte enrichie type "Welcome to the Jungle" avec image bandeau
+      const variant = CAT_VARIANT[s.cat] || '';
+      const fed = s.meta?.acronyme || s.meta?.federation || '';
+      const fedAcro = s.meta?.acronyme || '';
+      const intensity = s.scores ? s.scores[2] : null;
+      const collectif = s.scores ? s.scores[4] : null;
+      const fmt = collectif != null ? (collectif <= 1 ? 'Solo' : collectif <= 3 ? 'Petit groupe' : 'Collectif') : '';
+      const intLabel = intensity != null ? (intensity <= 1 ? 'Chill' : intensity <= 3 ? 'Modéré' : intensity === 4 ? 'Intense' : 'Extrême') : '';
+      const nameHighlighted = grid.search ? highlight(s.nom, grid.search) : s.nom;
+      const photo = (typeof getSportPhoto === 'function') ? getSportPhoto(s) : ((typeof getFedPhoto === 'function') ? getFedPhoto(s) : null);
+      const bannerClass = photo ? 'e-card-banner sport-img has-photo' : `e-card-banner sport-img ${variant}`;
+      const bannerStyle = photo ? `style="background-image:url('${photo}')"` : '';
+      const fedBadge = fedAcro ? `<span class="fed-badge" aria-hidden="true">${fedAcro}</span>` : '';
+      return `
+        <a class="e-as-card" href="sport.html?id=${s.id}">
+          <div class="${bannerClass}" ${bannerStyle}>
+            ${!photo ? `<span class="glyph-big" aria-hidden="true">${glyph}</span><div class="e-card-logo" aria-hidden="true">${glyph}</div>` : ''}
+            ${fedBadge}
+          </div>
+          <div class="e-card-body">
+            <div class="e-card-name">${nameHighlighted}</div>
+            <div class="e-card-meta"><span class="ico">🏷️</span>${s.cat || '—'}${fed ? ' · ' + fed : ''}</div>
+            ${intLabel ? `<div class="e-card-meta"><span class="ico">⚡️</span>${intLabel}${fmt ? ' · ' + fmt : ''}</div>` : ''}
+            ${clubs ? `<div class="e-card-meta"><span class="ico">📍</span>${fmtNum(clubs)} ${s.meta?.nb_licencies_fr ? 'licenciés' : 'clubs'} en France</div>` : ''}
+          </div>
+          <div class="e-card-foot">
+            <span class="clubs-count">${clubs ? fmtNum(clubs) + (s.meta?.nb_licencies_fr ? ' licenciés' : ' clubs') : 'Voir la fiche'}</span>
+            <span class="cta">Découvrir →</span>
+          </div>
+        </a>
+      `;
+    }
+    // Carte compacte (vue normale)
+    return `
+      <a class="e-as-card" href="sport.html?id=${s.id}">
+        <div class="glyph">${glyph}</div>
+        <div class="info">
+          <div class="nm">${s.nom}</div>
+          <div class="meta">${s.cat || ''}${s.meta?.acronyme ? ' · ' + s.meta.acronyme : ''}${clubs ? ' · ' + fmtNum(clubs) + ' clubs' : ''}</div>
+        </div>
+        <div class="arrow">→</div>
+      </a>
+    `;
+  }).join('');
+
+  $('#all-loadmore').style.display = list.length > grid.limit ? 'block' : 'none';
+  $('#all-loadmore-btn').textContent = `Afficher plus de sports (${list.length - grid.limit} restants) →`;
+}
+
+// ─── Recherche live sur la grille ───
+const searchInput = $('#all-search');
+const clearBtn = $('#all-search-clear');
+if (searchInput) {
+  let debounce;
+  searchInput.addEventListener('input', (e) => {
+    clearTimeout(debounce);
+    const v = e.target.value.trim();
+    if (clearBtn) clearBtn.style.display = v ? 'inline-flex' : 'none';
+    debounce = setTimeout(() => {
+      grid.search = v;
+      grid.limit = 60;
+      renderGrid();
+    }, 120);
+  });
+}
+if (clearBtn) {
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    grid.search = '';
+    grid.limit = 60;
+    clearBtn.style.display = 'none';
+    renderGrid();
+    searchInput.focus();
+  });
+}
+const loadmore = $('#all-loadmore-btn');
+if (loadmore) {
+  loadmore.addEventListener('click', () => {
+    grid.limit += 60;
+    renderGrid();
+  });
+}
+
+// ─── Hero : taper sync direct vers la grille (mode résultats type Welcome to the Jungle) ───
+const heroInput = $('#search-input');
+const heroSuggest = $('#hero-suggest');
+let heroDebounce;
+if (heroSuggest) heroSuggest.style.display = 'none'; // plus besoin du dropdown auto-complete
+if (heroInput) {
+  heroInput.addEventListener('input', (e) => {
+    clearTimeout(heroDebounce);
+    heroDebounce = setTimeout(() => {
+      syncHeroToGrid(e.target.value);
+    }, 120);
+  });
+  heroInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      heroInput.value = '';
+      syncHeroToGrid('');
+    }
+  });
+}
+
+// ─── Dropdowns des filtres du hero (popups au-dessus du form) ───
+function makeHeroDropdown(buttonId, title, options, onPick) {
+  const btn = document.getElementById(buttonId);
+  if (!btn) return;
+  // crée le dropdown
+  const dd = document.createElement('div');
+  dd.className = 'hero-dropdown';
+  dd.innerHTML = `<div class="dd-title">${title}</div>` + options.map(o => `
+    <div class="dd-item ${o.value === 'all' ? 'on' : ''}" data-value="${o.value}"><span class="ic">${o.icon || ''}</span>${o.label}</div>
+  `).join('');
+  btn.style.position = 'relative';
+  btn.appendChild(dd);
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.querySelectorAll('.hero-dropdown.open').forEach(x => { if (x !== dd) x.classList.remove('open'); });
+    dd.classList.toggle('open');
+    btn.setAttribute('aria-expanded', dd.classList.contains('open') ? 'true' : 'false');
+  });
+  dd.addEventListener('click', (e) => {
+    const item = e.target.closest('.dd-item');
+    if (!item) return;
+    e.stopPropagation();
+    dd.querySelectorAll('.dd-item').forEach(it => it.classList.remove('on'));
+    item.classList.add('on');
+    const v = item.dataset.value;
+    onPick(v, item.textContent.trim());
+    dd.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('click', () => {
+    dd.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+}
+
+function setHeroFilterLabel(buttonId, label, hasValue) {
+  const btn = document.getElementById(buttonId);
+  if (!btn) return;
+  // on garde la flèche svg et on remplace le 1er textNode
+  const chev = btn.querySelector('svg');
+  btn.innerHTML = '';
+  btn.appendChild(document.createTextNode(label + ' '));
+  if (chev) btn.appendChild(chev);
+  btn.classList.toggle('has-value', !!hasValue);
+}
+
+function updateHeroFilterBadges() {
+  setHeroFilterLabel('hero-filter-cat', grid.cat === 'all' ? 'Catégorie' : grid.cat, grid.cat !== 'all');
+  const intLabels = { all: 'Intensité', chill: 'Chill', modere: 'Modéré', intense: 'Intense', extreme: 'Extrême' };
+  setHeroFilterLabel('hero-filter-int', intLabels[grid.intensity] || 'Intensité', grid.intensity !== 'all');
+  const fmtLabels = { all: 'Format', solo: 'Solo', duo: 'Duo', collectif: 'Collectif' };
+  setHeroFilterLabel('hero-filter-fmt', fmtLabels[grid.format] || 'Format', grid.format !== 'all');
+  const seasonLabels = { all: 'Saison', ete: 'Été', hiver: 'Hiver' };
+  setHeroFilterLabel('hero-filter-season', seasonLabels[grid.season] || 'Saison', grid.season !== 'all');
+  const envLabels = { all: 'Lieu', outdoor: 'Outdoor', indoor: 'Indoor', eau: 'Eau', montagne: 'Montagne' };
+  setHeroFilterLabel('hero-filter-env', envLabels[grid.env] || 'Lieu', grid.env !== 'all');
+}
+
+function selectGridChip(groupSel, value) {
+  const root = document.querySelector(groupSel);
+  if (!root) return;
+  root.querySelectorAll('.e-chip').forEach(c => c.classList.toggle('on', (c.dataset.cat || c.dataset.int || c.dataset.fmt || c.dataset.season || c.dataset.env) === value));
+}
+
+// On déclenche le wiring après que les chips soient générées (cf. init plus bas)
+function wireHeroFilters() {
+  const catOpts = [{ value: 'all', label: 'Toutes', icon: '✦' }]
+    .concat(catOrder.map(([cat]) => ({ value: cat, label: cat, icon: (typeof CAT_EMOJI !== 'undefined' && CAT_EMOJI[cat]) || '' })));
+  makeHeroDropdown('hero-filter-cat', 'Choisis une catégorie', catOpts, (v) => {
+    grid.cat = v; grid.limit = 60;
+    selectGridChip('#filter-cats', v);
+    updateHeroFilterBadges();
+    renderGrid();
+    syncHeroToGrid($('#search-input').value);
+  });
+  makeHeroDropdown('hero-filter-int', 'Quelle intensité ?', [
+    { value: 'all', label: 'Toutes', icon: '✦' },
+    { value: 'chill', label: 'Chill (zen, doux)', icon: '🧘' },
+    { value: 'modere', label: 'Modéré', icon: '🏃' },
+    { value: 'intense', label: 'Intense', icon: '💪' },
+    { value: 'extreme', label: 'Extrême', icon: '🔥' },
+  ], (v) => {
+    grid.intensity = v; grid.limit = 60;
+    selectGridChip('#filter-int', v);
+    updateHeroFilterBadges();
+    renderGrid();
+    syncHeroToGrid($('#search-input').value);
+  });
+  makeHeroDropdown('hero-filter-fmt', 'Solo ou collectif ?', [
+    { value: 'all', label: 'Tous', icon: '✦' },
+    { value: 'solo', label: 'Solo', icon: '👤' },
+    { value: 'duo', label: 'Duo / Petits groupes', icon: '👥' },
+    { value: 'collectif', label: 'Collectif', icon: '👨‍👩‍👧' },
+  ], (v) => {
+    grid.format = v; grid.limit = 60;
+    selectGridChip('#filter-fmt', v);
+    updateHeroFilterBadges();
+    renderGrid();
+    syncHeroToGrid($('#search-input').value);
+  });
+  makeHeroDropdown('hero-filter-season', 'À quelle saison ?', [
+    { value: 'all', label: 'Toute l\'année', icon: '✦' },
+    { value: 'ete', label: 'Été', icon: '☀️' },
+    { value: 'hiver', label: 'Hiver', icon: '❄️' },
+  ], (v) => {
+    grid.season = v; grid.limit = 60;
+    selectGridChip('#filter-season', v);
+    updateHeroFilterBadges();
+    renderGrid();
+    syncHeroToGrid($('#search-input').value);
+  });
+  makeHeroDropdown('hero-filter-env', 'Où ça se pratique ?', [
+    { value: 'all', label: 'Partout', icon: '✦' },
+    { value: 'outdoor', label: 'Outdoor', icon: '🌳' },
+    { value: 'indoor', label: 'Indoor', icon: '🏠' },
+    { value: 'eau', label: 'Sur l\'eau', icon: '🌊' },
+    { value: 'montagne', label: 'En montagne', icon: '🏔️' },
+  ], (v) => {
+    grid.env = v; grid.limit = 60;
+    selectGridChip('#filter-env', v);
+    updateHeroFilterBadges();
+    renderGrid();
+    syncHeroToGrid($('#search-input').value);
+  });
+}
+
+// ─── Bouton "Retour" en mode résultats : reset complet + scroll en haut ───
+const backBtn = $('#results-back');
+if (backBtn) {
+  backBtn.addEventListener('click', () => {
+    const reset = $('#filter-reset');
+    if (reset) reset.click();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+if (ALL_SPORTS.length > 0) {
+  $('#stat-sports-n').innerHTML = `<em>${ALL_SPORTS.length}</em>`;
+  buildCatChips();
+  wireFilters();
+  wireHeroFilters();
+  renderGrid();
+}
+</script>
+
+</body>
+</html>

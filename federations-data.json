@@ -1,0 +1,6143 @@
+[
+  {
+    "source": "fff",
+    "acronyme": "FFF",
+    "nom": "Fédération Française de Football",
+    "url": "https://www.fff.fr",
+    "clubs_base": 14021,
+    "clubs_officiel": 13498,
+    "sports_base": [
+      {
+        "id": 1,
+        "nom": "Football"
+      },
+      {
+        "id": 71,
+        "nom": "Futsal"
+      },
+      {
+        "id": 83,
+        "nom": "Beach Soccer"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Football à 11",
+        "sport_id": 1,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Football à 8",
+        "sport_id": 1,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Football à 5",
+        "sport_id": 1,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Futsal",
+        "sport_id": 71,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Beach Soccer",
+        "sport_id": 83,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Football féminin",
+        "sport_id": 1,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Football diversifié (loisir)",
+        "sport_id": 1,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Football handicap (CECIFOOT)",
+        "sport_id": 1,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Football en marchant",
+        "sport_id": 1,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Football à effectif réduit",
+        "sport_id": 1,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "football"
+    ],
+    "description": "La FFF est la fédération sportive nationale qui dirige et organise le football en France. Elle compte plus de 2 millions de licenciés.",
+    "slug": "fff",
+    "disciplines_count_verified": 10,
+    "disciplines_verified": true,
+    "verified_source": "https://www.fff.fr/"
+  },
+  {
+    "source": "ffe",
+    "acronyme": "FFE",
+    "nom": "Fédération Française d'Équitation",
+    "url": "https://www.ffe.com",
+    "clubs_base": 10620,
+    "clubs_officiel": 9600,
+    "sports_base": [
+      {
+        "id": 19,
+        "nom": "CSO (Saut d'Obstacles)"
+      },
+      {
+        "id": 121,
+        "nom": "Endurance équestre"
+      },
+      {
+        "id": 119,
+        "nom": "Voltige équestre"
+      },
+      {
+        "id": 118,
+        "nom": "Horse-ball"
+      },
+      {
+        "id": 120,
+        "nom": "Attelage"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "CSO (Saut d'Obstacles)",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Dressage",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "CCE (Concours Complet)",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Endurance équestre",
+        "sport_id": 121,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Voltige équestre",
+        "sport_id": 119,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Horse-ball",
+        "sport_id": 118,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Pony-games",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Attelage",
+        "sport_id": 120,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Reining",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "TREC",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Polo équestre",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Équitation western",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Hunter",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Equifeel",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Equifun",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Para-équitation",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Tir à l'arc équestre",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Pony-Mountain Trail",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Amazone",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Showing",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Working Equitation",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Doma vaquera",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Gymkhana",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Camargue",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Ride and Drive",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Polocrosse",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Saut Hippique en parcours",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Dressage paralympique",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Tir Western",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Concours d'élevage",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "equitation"
+    ],
+    "description": "La FFE administre l'équitation et toutes ses disciplines en France : CSO, dressage, voltige, attelage, horse-ball, polo, endurance.",
+    "slug": "ffe",
+    "disciplines_count_verified": 33,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffe.com/pratiquer/disciplines"
+  },
+  {
+    "source": "fft",
+    "acronyme": "FFT",
+    "nom": "Fédération Française de Tennis",
+    "url": "https://www.fft.fr",
+    "clubs_base": 5292,
+    "clubs_officiel": 7139,
+    "sports_base": [
+      {
+        "id": 6,
+        "nom": "Tennis"
+      },
+      {
+        "id": 42,
+        "nom": "Padel"
+      },
+      {
+        "id": 102,
+        "nom": "Pickleball"
+      },
+      {
+        "id": 216,
+        "nom": "Soft tennis"
+      },
+      {
+        "id": 273,
+        "nom": "Beach tennis"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Tennis",
+        "sport_id": 6,
+        "in_data": true,
+        "officiel": 4721
+      },
+      {
+        "label": "Padel",
+        "sport_id": 42,
+        "in_data": true,
+        "officiel": 589
+      },
+      {
+        "label": "Beach Tennis",
+        "sport_id": 273,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Tennis fauteuil",
+        "sport_id": 6,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Pickleball",
+        "sport_id": 102,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Soft tennis",
+        "sport_id": 216,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Tennis adapté",
+        "sport_id": 6,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "padel",
+      "tennis"
+    ],
+    "description": "La FFT organise le tennis, le padel et le beach tennis en France. Elle organise notamment Roland-Garros.",
+    "slug": "fft",
+    "disciplines_count_verified": 7,
+    "disciplines_verified": true,
+    "verified_source": "https://www.fft.fr/"
+  },
+  {
+    "source": "ffkda",
+    "acronyme": "FFKAMA",
+    "nom": "Fédération Française de Karaté et Disciplines Associées",
+    "url": "https://www.ffkarate.fr",
+    "clubs_base": 5027,
+    "clubs_officiel": 4764,
+    "sports_base": [
+      {
+        "id": 13,
+        "nom": "Karaté"
+      },
+      {
+        "id": 75,
+        "nom": "Wushu / Kung-fu"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Karaté",
+        "sport_id": 13,
+        "in_data": true,
+        "officiel": 5034
+      },
+      {
+        "label": "Wushu",
+        "sport_id": 75,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Krav-Maga",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "AMV (Arts Martiaux Vietnamiens)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Yoseikan Budo",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Nihon Tai Jitsu",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Para-karaté",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Sport Chanbara",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "karate"
+    ],
+    "description": "La FFKDA encadre le karaté, le wushu sanda, le penchak silat, le viet vo dao et le krav-maga.",
+    "slug": "ffkda",
+    "disciplines_count_verified": 8,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffkarate.fr/"
+  },
+  {
+    "source": "ffepgv",
+    "acronyme": "FFEPGV",
+    "nom": "Fédération Française d'Éducation Physique et Gymnique Volontaire",
+    "url": "https://ffepgv.fr",
+    "clubs_base": 3675,
+    "clubs_officiel": 4224,
+    "sports_base": [
+      {
+        "id": 73,
+        "nom": "Yoga / Pilates"
+      },
+      {
+        "id": 128,
+        "nom": "Marche nordique"
+      },
+      {
+        "id": 46,
+        "nom": "Danse sportive"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Yoga",
+        "sport_id": 73,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Pilates",
+        "sport_id": 73,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Body Zen",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Cross Training",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Cardio fitness",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Renforcement musculaire",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Acti'March (marche active)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Marche nordique",
+        "sport_id": 128,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Danse",
+        "sport_id": 46,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Gym équilibre",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Gym douce",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Gym tonique",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Stretching",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Aquagym",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Bien-être",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "fitness"
+    ],
+    "description": "La FFEPGV propose des activités sport-santé : gym, fitness, yoga, Pilates, CrossFit.",
+    "slug": "ffepgv",
+    "disciplines_count_verified": 15,
+    "disciplines_verified": true,
+    "verified_source": "https://ffepgv.fr/pour-tous-les-ages"
+  },
+  {
+    "source": "ffbb",
+    "acronyme": "FFBB",
+    "nom": "Fédération Française de Basketball",
+    "url": "https://www.ffbb.com",
+    "clubs_base": 4407,
+    "clubs_officiel": 3743,
+    "sports_base": [
+      {
+        "id": 3,
+        "nom": "Basketball"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Basketball",
+        "sport_id": 3,
+        "in_data": true,
+        "officiel": 4407
+      },
+      {
+        "label": "Basketball 3x3",
+        "sport_id": 3,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Mini-basket",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Basket fauteuil",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Basket inclusif debout",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Basket inclusif partagé",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Basket inclusif mixte",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "basketball"
+    ],
+    "description": "La FFBB administre le basketball, le 3x3, le mini-basket et le basket fauteuil.",
+    "slug": "ffbb",
+    "disciplines_count_verified": 7,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffbb.com/"
+  },
+  {
+    "source": "fftt",
+    "acronyme": "FFTT",
+    "nom": "Fédération Française de Tennis de Table",
+    "url": "https://www.fftt.com",
+    "clubs_base": 3023,
+    "clubs_officiel": 3125,
+    "sports_base": [
+      {
+        "id": 6,
+        "nom": "Tennis"
+      },
+      {
+        "id": 8,
+        "nom": "Tennis de table"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Tennis de table",
+        "sport_id": 8,
+        "in_data": true,
+        "officiel": 3023
+      },
+      {
+        "label": "Para tennis de table",
+        "sport_id": 6,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "tennis-table"
+    ],
+    "description": "La FFTT encadre le tennis de table et le para tennis de table en France.",
+    "slug": "fftt",
+    "disciplines_count_verified": 2,
+    "disciplines_verified": true,
+    "verified_source": "https://www.fftt.com/"
+  },
+  {
+    "source": "ffboxe",
+    "acronyme": "FFBoxe",
+    "nom": "Fédération Française de Boxe",
+    "url": "https://www.ffboxe.com",
+    "clubs_base": 1166,
+    "clubs_officiel": 1130,
+    "sports_base": [
+      {
+        "id": 15,
+        "nom": "Boxe anglaise"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Boxe amateur (olympique)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Boxe professionnelle",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Boxe assaut",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Boxe combat",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Boxe éducative",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Aéroboxe",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Boxe loisir",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Boxe adaptée",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Boxe féminine",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "boxe"
+    ],
+    "description": "La Fédération Française de Boxe administre la boxe anglaise.",
+    "slug": "ffboxe",
+    "disciplines_count_verified": 9,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffboxe.com/"
+  },
+  {
+    "source": "ffa",
+    "acronyme": "FFA",
+    "nom": "Fédération Française d'Athlétisme",
+    "url": "https://www.athle.fr",
+    "clubs_base": 7383,
+    "clubs_officiel": 2600,
+    "sports_base": [
+      {
+        "id": 185,
+        "nom": "Marche athlétique"
+      },
+      {
+        "id": 74,
+        "nom": "Trail running"
+      },
+      {
+        "id": 128,
+        "nom": "Marche nordique"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Courses (du 50m au 10000m, haies)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Sauts (perche, hauteur, longueur, triple)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Lancers (poids, javelot, disque, marteau)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Marche athlétique",
+        "sport_id": 185,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Épreuves combinées (Décathlon, Heptathlon)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Cross-country",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Running",
+        "sport_id": 74,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Trail running",
+        "sport_id": 74,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Marche nordique",
+        "sport_id": 128,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Course en montagne",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Course sur route",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "aerien",
+      "athletisme"
+    ],
+    "description": "La FFA encadre l'athlétisme, le trail running, la course à pied, la marche nordique et toutes les disciplines associées.",
+    "slug": "ffa",
+    "disciplines_count_verified": 11,
+    "disciplines_verified": true,
+    "verified_source": "https://www.athle.fr"
+  },
+  {
+    "source": "ffrp",
+    "acronyme": "FFRando",
+    "nom": "Fédération Française de Randonnée Pédestre",
+    "url": "https://www.ffrandonnee.fr",
+    "clubs_base": 1843,
+    "clubs_officiel": 3400,
+    "sports_base": [
+      {
+        "id": 261,
+        "nom": "Randonnée pédestre"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Randonnée pédestre",
+        "officiel": 1845,
+        "sport_id": 261,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "randonnee"
+    ],
+    "description": "La FFRP organise la randonnée pédestre, la marche nordique et le trail.",
+    "slug": "ffrp"
+  },
+  {
+    "source": "ffcyclisme",
+    "acronyme": "FFC",
+    "nom": "Fédération Française de Cyclisme",
+    "url": "https://www.ffc.fr",
+    "clubs_base": 2348,
+    "clubs_officiel": 2700,
+    "sports_base": [
+      {
+        "id": 11,
+        "nom": "Cyclisme route"
+      },
+      {
+        "id": 51,
+        "nom": "BMX"
+      },
+      {
+        "id": 52,
+        "nom": "VTT"
+      },
+      {
+        "id": 85,
+        "nom": "Cyclisme piste"
+      },
+      {
+        "id": 278,
+        "nom": "BMX freestyle"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Cyclisme route",
+        "sport_id": 11,
+        "in_data": true,
+        "officiel": 2351
+      },
+      {
+        "label": "Cyclisme piste",
+        "sport_id": 85,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "VTT",
+        "sport_id": 52,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Cyclo-cross",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "BMX",
+        "sport_id": 51,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "BMX Freestyle",
+        "sport_id": 278,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Trial vélo",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Cyclisme en salle",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Polo-vélo",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "VTT électrique",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "cyclisme"
+    ],
+    "description": "La FFC administre le cyclisme route, le VTT, le BMX, la piste, le cyclo-cross et le BMX freestyle.",
+    "slug": "ffcyclisme",
+    "disciplines_count_verified": 10,
+    "disciplines_verified": true,
+    "verified_source": "https://ffc.fr/"
+  },
+  {
+    "source": "ffhandball",
+    "acronyme": "FFHB",
+    "nom": "Fédération Française de Handball",
+    "url": "https://www.ffhandball.fr",
+    "clubs_base": 2307,
+    "clubs_officiel": 2311,
+    "sports_base": [
+      {
+        "id": 4,
+        "nom": "Handball"
+      },
+      {
+        "id": 293,
+        "nom": "Sandball"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Handball (intérieur)",
+        "sport_id": 4,
+        "in_data": true,
+        "officiel": 2307
+      },
+      {
+        "label": "Beach Handball",
+        "sport_id": 4,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Sandball",
+        "sport_id": 293,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Handball fauteuil",
+        "sport_id": 4,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Handball adapté",
+        "sport_id": 4,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Handensemble",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Hand à 4",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Babyhand",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "handball"
+    ],
+    "description": "La FFHB encadre le handball, le beach handball et le sandball.",
+    "slug": "ffhandball",
+    "disciplines_count_verified": 8,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffhandball.fr/"
+  },
+  {
+    "source": "ffessm",
+    "acronyme": "FFESSM",
+    "nom": "Fédération Française d'Études et de Sports Sous-Marins",
+    "url": "https://www.ffessm.fr",
+    "clubs_base": 2006,
+    "clubs_officiel": 2500,
+    "sports_base": [
+      {
+        "id": 210,
+        "nom": "Apnée / Freediving"
+      },
+      {
+        "id": 158,
+        "nom": "Hockey subaquatique"
+      },
+      {
+        "id": 157,
+        "nom": "Nage avec palmes"
+      },
+      {
+        "id": 264,
+        "nom": "Plongée souterraine"
+      },
+      {
+        "id": 259,
+        "nom": "Rugby subaquatique"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Plongée bouteille (scaphandre)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Apnée",
+        "sport_id": 210,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Hockey subaquatique",
+        "sport_id": 158,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Tir sur cible subaquatique",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Nage avec palmes",
+        "sport_id": 157,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Pêche sous-marine",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Orientation subaquatique",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Photographie sous-marine",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Vidéo sous-marine",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Plongée tek",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Plongée souterraine",
+        "sport_id": 264,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Plongée scientifique",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Snorkeling (randonnée subaquatique)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Rugby subaquatique",
+        "sport_id": 259,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Sauvetage subaquatique",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "plongee"
+    ],
+    "description": "La FFESSM administre la plongée sous-marine, l'apnée, la nage avec palmes, la pêche sous-marine et le hockey subaquatique.",
+    "slug": "ffessm",
+    "disciplines_count_verified": 15,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffessm.fr/"
+  },
+  {
+    "source": "ffr",
+    "acronyme": "FFR",
+    "nom": "Fédération Française de Rugby",
+    "url": "https://www.ffr.fr",
+    "clubs_base": 1973,
+    "clubs_officiel": 1972,
+    "sports_base": [
+      {
+        "id": 2,
+        "nom": "Rugby à XV"
+      },
+      {
+        "id": 36,
+        "nom": "Rugby à 7"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Rugby à XV",
+        "sport_id": 2,
+        "in_data": true,
+        "officiel": 1980
+      },
+      {
+        "label": "Rugby à 7",
+        "sport_id": 36,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Rugby à 5",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Rugby fauteuil",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Beach rugby",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "rugby"
+    ],
+    "description": "La FFR encadre le rugby à XV, le rugby à 7, le rugby fauteuil et le touch rugby.",
+    "slug": "ffr",
+    "disciplines_count_verified": 5,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffr.fr/"
+  },
+  {
+    "source": "ffbad",
+    "acronyme": "FFBAD",
+    "nom": "Fédération Française de Badminton",
+    "url": "https://www.ffbad.org",
+    "clubs_base": 2359,
+    "clubs_officiel": 1946,
+    "sports_base": [
+      {
+        "id": 7,
+        "nom": "Badminton"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Simple Hommes",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Simple Dames",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Double Hommes",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Double Dames",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Double Mixte",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "AirBadminton (extérieur)",
+        "sport_id": 7,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Para-Badminton",
+        "sport_id": 7,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Badminton adapté",
+        "sport_id": 7,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Plumfoot",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "badminton"
+    ],
+    "description": "La FFBAD administre le badminton et le para-badminton.",
+    "slug": "ffbad",
+    "disciplines_count_verified": 9,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffbad.org/"
+  },
+  {
+    "source": "fftir",
+    "acronyme": "FFTir",
+    "nom": "Fédération Française de Tir",
+    "url": "https://www.fftir.org",
+    "clubs_base": 2312,
+    "clubs_officiel": 4200,
+    "sports_base": [
+      {
+        "id": 233,
+        "nom": "Tir sportif (carabine, pistolet)"
+      },
+      {
+        "id": 234,
+        "nom": "Tir aux plateaux (ball-trap)"
+      },
+      {
+        "id": 308,
+        "nom": "Arbalète (tir)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Carabine",
+        "sport_id": 233,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Pistolet",
+        "sport_id": 233,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Tir aux plateaux",
+        "sport_id": 234,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Silhouettes métalliques",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Bench Rest",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Cible mouvante",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Tir aux armes anciennes",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Tir aux armes réglementées",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Arbalète",
+        "sport_id": 308,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Tir vitesse",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Para-tir",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Écoles de tir",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "tir"
+    ],
+    "description": "La FFTir encadre le tir sportif (carabine, pistolet), le tir aux armes anciennes et le tir longue distance.",
+    "slug": "fftir",
+    "disciplines_count_verified": 12,
+    "disciplines_verified": true,
+    "verified_source": "https://www.fftir.org/disciplines/"
+  },
+  {
+    "source": "ffds",
+    "acronyme": "FFDanse",
+    "nom": "Fédération Française de Danse",
+    "url": "https://www.ffdanse.fr",
+    "clubs_base": 2252,
+    "clubs_officiel": 1715,
+    "sports_base": [
+      {
+        "id": 46,
+        "nom": "Danse sportive"
+      },
+      {
+        "id": 68,
+        "nom": "Danse hip-hop"
+      },
+      {
+        "id": 100,
+        "nom": "Danse de salon"
+      },
+      {
+        "id": 101,
+        "nom": "Breakdance / Breaking"
+      },
+      {
+        "id": 270,
+        "nom": "Rock'n'roll acrobatique"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Danse sportive",
+        "officiel": null,
+        "sport_id": 46,
+        "in_data": true
+      },
+      {
+        "label": "Danse hip-hop",
+        "officiel": null,
+        "sport_id": 68,
+        "in_data": true
+      },
+      {
+        "label": "Danse de salon",
+        "officiel": null,
+        "sport_id": 100,
+        "in_data": true
+      },
+      {
+        "label": "Breakdance / Breaking",
+        "officiel": null,
+        "sport_id": 101,
+        "in_data": true
+      },
+      {
+        "label": "Rock'n'roll acrobatique",
+        "sport_id": 270,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "danse"
+    ],
+    "description": "La FFDanse organise la danse sportive, hip-hop, salon, country et breakdance.",
+    "slug": "ffds",
+    "aliases": [
+      "ffdanse"
+    ]
+  },
+  {
+    "source": "ffn",
+    "acronyme": "FFN",
+    "nom": "Fédération Française de Natation",
+    "url": "https://www.ffnatation.fr",
+    "clubs_base": 1591,
+    "clubs_officiel": 1303,
+    "sports_base": [
+      {
+        "id": 9,
+        "nom": "Natation"
+      },
+      {
+        "id": 81,
+        "nom": "Natation en eau libre"
+      },
+      {
+        "id": 63,
+        "nom": "Water-polo"
+      },
+      {
+        "id": 87,
+        "nom": "Plongeon"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Natation course",
+        "sport_id": 9,
+        "in_data": true,
+        "officiel": 1592
+      },
+      {
+        "label": "Eau libre",
+        "sport_id": 81,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Natation artistique (synchronisée)",
+        "sport_id": 9,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Water-polo",
+        "sport_id": 63,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Plongeon",
+        "sport_id": 87,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Maîtres",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "natation"
+    ],
+    "description": "La FFN administre la natation, le water-polo, la natation synchronisée, l'eau libre et le plongeon.",
+    "slug": "ffn",
+    "disciplines_count_verified": 6,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffnatation.fr/"
+  },
+  {
+    "source": "ffta",
+    "acronyme": "FFTA",
+    "nom": "Fédération Française de Tir à l'Arc",
+    "url": "https://www.ffta.fr",
+    "clubs_base": 1575,
+    "clubs_officiel": 1605,
+    "sports_base": [
+      {
+        "id": 33,
+        "nom": "Tir à l'arc"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Tir classique (cible)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Tir compound",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Tir en campagne",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Tir 3D",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Parcours Nature",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Beursault",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Tir nature",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Run Archery",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Para-tir à l'arc",
+        "sport_id": 33,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Tir à l'arc équestre",
+        "sport_id": 33,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "tir-arc"
+    ],
+    "description": "La FFTA encadre le tir à l'arc classique, compound, beursault, tir nature et 3D.",
+    "slug": "ffta",
+    "disciplines_count_verified": 10,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffta.fr/pratiquer/disciplines-officielles-et-nouvelles-pratiques"
+  },
+  {
+    "source": "ffsb",
+    "acronyme": "FFB",
+    "nom": "Fédération Française de Sport Boules",
+    "url": "https://www.ffsportboules.fr",
+    "clubs_base": 666,
+    "clubs_officiel": 2500,
+    "sports_base": [
+      {
+        "id": 243,
+        "nom": "Boules lyonnaises"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Boules lyonnaises",
+        "officiel": 667,
+        "sport_id": 243,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "sport-boules"
+    ],
+    "description": "La FFSB encadre le sport-boules, la boule lyonnaise et les boules carrées.",
+    "slug": "ffsb"
+  },
+  {
+    "source": "ffgolf",
+    "acronyme": "FFGolf",
+    "nom": "Fédération Française de Golf",
+    "url": "https://www.ffgolf.org",
+    "clubs_base": 1371,
+    "clubs_officiel": 1554,
+    "sports_base": [
+      {
+        "id": 20,
+        "nom": "Golf"
+      },
+      {
+        "id": 190,
+        "nom": "Footgolf"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Golf (stroke play)",
+        "sport_id": 20,
+        "in_data": true,
+        "officiel": 1371
+      },
+      {
+        "label": "Golf (match play)",
+        "sport_id": 20,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Pitch & Putt",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Footgolf",
+        "sport_id": 190,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Golf compact",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Para-golf",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Speed Golf",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "golf"
+    ],
+    "description": "La FFGolf administre le golf, le pitch & putt et le footgolf.",
+    "slug": "ffgolf",
+    "disciplines_count_verified": 7,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffgolf.org/"
+  },
+  {
+    "source": "ffgym",
+    "acronyme": "FFG",
+    "nom": "Fédération Française de Gymnastique",
+    "url": "https://www.ffgym.fr",
+    "clubs_base": 1128,
+    "clubs_officiel": 6000,
+    "sports_base": [
+      {
+        "id": 99,
+        "nom": "Cheerleading"
+      },
+      {
+        "id": 127,
+        "nom": "Parkour / Freerun"
+      },
+      {
+        "id": 70,
+        "nom": "Trampoline"
+      },
+      {
+        "id": 97,
+        "nom": "Gym artistique masculine"
+      },
+      {
+        "id": 69,
+        "nom": "Gym acrobatique"
+      },
+      {
+        "id": 96,
+        "nom": "Gymnastique rythmique (GR)"
+      },
+      {
+        "id": 98,
+        "nom": "Acrosport"
+      },
+      {
+        "id": 231,
+        "nom": "Gymnastique artistique"
+      },
+      {
+        "id": 232,
+        "nom": "Gymnastique rythmique"
+      },
+      {
+        "id": 271,
+        "nom": "Aérobic sportif"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Cheerleading",
+        "officiel": null,
+        "sport_id": 99,
+        "in_data": true
+      },
+      {
+        "label": "Parkour / Freerun",
+        "officiel": null,
+        "sport_id": 127,
+        "in_data": true
+      },
+      {
+        "label": "Trampoline",
+        "officiel": null,
+        "sport_id": 70,
+        "in_data": true
+      },
+      {
+        "label": "Gym artistique masculine",
+        "officiel": null,
+        "sport_id": 97,
+        "in_data": true
+      },
+      {
+        "label": "Gym acrobatique",
+        "officiel": null,
+        "sport_id": 69,
+        "in_data": true
+      },
+      {
+        "label": "Gymnastique rythmique (GR)",
+        "officiel": null,
+        "sport_id": 96,
+        "in_data": true
+      },
+      {
+        "label": "Acrosport",
+        "officiel": null,
+        "sport_id": 98,
+        "in_data": true
+      },
+      {
+        "label": "Gymnastique artistique",
+        "officiel": null,
+        "sport_id": 231,
+        "in_data": true
+      },
+      {
+        "label": "Gymnastique rythmique",
+        "officiel": null,
+        "sport_id": 232,
+        "in_data": true
+      },
+      {
+        "label": "Aérobic sportif",
+        "officiel": null,
+        "sport_id": 271,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "gym"
+    ],
+    "description": "La FFG organise la gymnastique artistique, rythmique, l'acrosport, le trampoline, l'aérobic et le cheerleading.",
+    "slug": "ffgym"
+  },
+  {
+    "source": "ffvb",
+    "acronyme": "FFVolley",
+    "nom": "Fédération Française de Volleyball",
+    "url": "https://www.ffvb.org",
+    "clubs_base": 1260,
+    "clubs_officiel": 1413,
+    "sports_base": [
+      {
+        "id": 5,
+        "nom": "Volleyball"
+      },
+      {
+        "id": 37,
+        "nom": "Beach Volley"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Volleyball (intérieur)",
+        "sport_id": 5,
+        "in_data": true,
+        "officiel": 1260
+      },
+      {
+        "label": "Beach Volley",
+        "sport_id": 37,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Snow Volley",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Volley assis (paralympique)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Volley sourd",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "EducVolley",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "VolleyLoisir",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "VolleyCitoyen",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "volleyball"
+    ],
+    "description": "La FFVB encadre le volleyball, le beach volley, le snow volley et le volley assis.",
+    "slug": "ffvb",
+    "disciplines_count_verified": 8,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffvb.org/pratiquer/"
+  },
+  {
+    "source": "ffmoto",
+    "acronyme": "FFM",
+    "nom": "Fédération Française Motocycliste",
+    "url": "https://www.ffmoto.org",
+    "clubs_base": 1209,
+    "clubs_officiel": 2800,
+    "sports_base": [
+      {
+        "id": 53,
+        "nom": "Moto / Motocross"
+      },
+      {
+        "id": 152,
+        "nom": "Enduro moto"
+      },
+      {
+        "id": 151,
+        "nom": "Trial moto"
+      },
+      {
+        "id": 289,
+        "nom": "Quadball (ex-Quidditch)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Vitesse moto",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Motocross",
+        "sport_id": 53,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Enduro moto",
+        "sport_id": 152,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Trial moto",
+        "sport_id": 151,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Supermotard",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Quad",
+        "sport_id": 289,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Side-car",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Rallye routier",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Pit Bike",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Speedway",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Endurance moto",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Moto ancienne",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Moto handi",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Mini-vert",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Ice race",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Sprint moto",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "moto"
+    ],
+    "description": "La FFM organise le motocross, l'enduro, le trial, la vitesse, le quad et le speedway.",
+    "slug": "ffmoto",
+    "disciplines_count_verified": 16,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffmoto.org/"
+  },
+  {
+    "source": "fftri",
+    "acronyme": "FFTRI",
+    "nom": "Fédération Française de Triathlon",
+    "url": "https://www.fftri.com",
+    "clubs_base": 948,
+    "clubs_officiel": 995,
+    "sports_base": [
+      {
+        "id": 28,
+        "nom": "Triathlon"
+      },
+      {
+        "id": 359,
+        "nom": "Aquathlon (apnée + lutte)"
+      },
+      {
+        "id": 184,
+        "nom": "Raid multisport / Course d'aventure"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Triathlon (S, M, L, XL, XXL)",
+        "sport_id": 28,
+        "in_data": true,
+        "officiel": 948
+      },
+      {
+        "label": "Aquathlon",
+        "sport_id": 359,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Duathlon",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Cross Triathlon",
+        "sport_id": 28,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Cross Duathlon",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Swimrun",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Bike & Run",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Triathlon des Neiges",
+        "sport_id": 28,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Raid",
+        "sport_id": 184,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Contre-la-montre",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "triathlon"
+    ],
+    "description": "La FFTri administre le triathlon, le duathlon, l'aquathlon et le bike & run.",
+    "slug": "fftri",
+    "disciplines_count_verified": 10,
+    "disciplines_verified": true,
+    "verified_source": "https://www.fftri.com/"
+  },
+  {
+    "source": "ffrs",
+    "acronyme": "FFRSG",
+    "nom": "Fédération Française de Roller et Sports de Glisse",
+    "url": "https://ffroller-skateboard.fr",
+    "clubs_base": 2676,
+    "clubs_officiel": 917,
+    "sports_base": [
+      {
+        "id": 255,
+        "nom": "Rink hockey"
+      },
+      {
+        "id": 256,
+        "nom": "Roller artistique"
+      },
+      {
+        "id": 154,
+        "nom": "Roller derby"
+      },
+      {
+        "id": 223,
+        "nom": "Skateboard"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Rink hockey",
+        "sport_id": 255,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Roller hockey",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller artistique",
+        "sport_id": 256,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Roller course",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Inline alpine",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller street/park",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller slalom freestyle",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller derby",
+        "sport_id": 154,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Skateboard street",
+        "sport_id": 223,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Skateboard park",
+        "sport_id": 223,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Skateboard descent",
+        "sport_id": 223,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Trottinette freestyle (scooter)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "roller"
+    ],
+    "description": "La FFRS encadre le roller, le skateboard, le roller hockey, le derby et le patinage roller.",
+    "slug": "ffrs",
+    "disciplines_count_verified": 12,
+    "disciplines_verified": true,
+    "verified_source": "https://ffroller-skateboard.fr/"
+  },
+  {
+    "source": "ffechecs",
+    "acronyme": "FFEchecs",
+    "nom": "Fédération Française des Échecs",
+    "url": "https://www.echecs.asso.fr",
+    "clubs_base": 984,
+    "clubs_officiel": 898,
+    "sports_base": [
+      {
+        "id": 67,
+        "nom": "Échecs"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Échecs classique",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Échecs rapide",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Échecs blitz",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Parties à l'aveugle",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Échecs en ligne",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Échecs handi",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Mini-échecs (jeunes)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Échecs adapté",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "echecs"
+    ],
+    "description": "La FFE organise la pratique des échecs en France.",
+    "slug": "ffechecs",
+    "disciplines_count_verified": 8,
+    "disciplines_verified": true,
+    "verified_source": "https://www.echecs.asso.fr/"
+  },
+  {
+    "source": "ffv",
+    "acronyme": "FFVoile",
+    "nom": "Fédération Française de Voile",
+    "url": "https://www.ffvoile.fr",
+    "clubs_base": 943,
+    "clubs_officiel": 1083,
+    "sports_base": [
+      {
+        "id": 61,
+        "nom": "Windsurf"
+      },
+      {
+        "id": 274,
+        "nom": "Wingfoil"
+      },
+      {
+        "id": 412,
+        "nom": "Foilboard / Hydrofoil"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Habitable",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Dériveur",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Quillard léger",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Multicoque",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Windsurf",
+        "sport_id": 61,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Kiteboard",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Voile Radio-Commandée (VRC)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Voile Tradition",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Wingfoil",
+        "sport_id": 274,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Foilboard / Hydrofoil",
+        "sport_id": 412,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "voile"
+    ],
+    "description": "La FFV administre la voile, le windsurf, le kitesurf, la planche à voile et le wingfoil.",
+    "slug": "ffv",
+    "disciplines_count_verified": 10,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffvoile.fr/",
+    "aliases": [
+      "ffv12"
+    ]
+  },
+  {
+    "source": "ffam",
+    "acronyme": "FFAM",
+    "nom": "Fédération Française d'Aéromodélisme",
+    "url": "https://www.ffam.asso.fr",
+    "clubs_base": 822,
+    "clubs_officiel": 0,
+    "sports_base": [
+      {
+        "id": 269,
+        "nom": "Aéromodélisme"
+      }
+    ],
+    "sports_officiel": [],
+    "discs": [
+      "aeromodelisme"
+    ],
+    "description": "La FFAM organise l'aéromodélisme et le pilotage de drones.",
+    "slug": "ffam"
+  },
+  {
+    "source": "fftk",
+    "acronyme": "FFTDA",
+    "nom": "Fédération Française de Taekwondo",
+    "url": "https://www.fftda.fr",
+    "clubs_base": 515,
+    "clubs_officiel": 1200,
+    "sports_base": [
+      {
+        "id": 14,
+        "nom": "Taekwondo"
+      },
+      {
+        "id": 181,
+        "nom": "Hapkido"
+      },
+      {
+        "id": 346,
+        "nom": "Tang soo do"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Taekwondo combat",
+        "sport_id": 14,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Taekwondo poomse (forme)",
+        "sport_id": 14,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Hapkido",
+        "sport_id": 181,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Tang Soo Do",
+        "sport_id": 346,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Soo Bahk Do",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Para-taekwondo",
+        "sport_id": 14,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "taekwondo"
+    ],
+    "description": "La FFTK encadre le taekwondo, le hapkido, le tang soo do et le para-taekwondo.",
+    "slug": "fftk",
+    "disciplines_count_verified": 6,
+    "disciplines_verified": true,
+    "verified_source": "https://www.fftda.fr/"
+  },
+  {
+    "source": "ffaaa",
+    "acronyme": "FFAAA",
+    "nom": "Fédération Française d'Aïkido, Aïkibudo et Affinitaires",
+    "url": "https://aikido.com.fr",
+    "clubs_base": 2422,
+    "clubs_officiel": 872,
+    "sports_base": [
+      {
+        "id": 77,
+        "nom": "Aïkido"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Aïkido",
+        "sport_id": 77,
+        "in_data": true,
+        "officiel": 795
+      },
+      {
+        "label": "Aïkibudo",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Kinomichi",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Wanomichi",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "arts-martiaux"
+    ],
+    "description": "La FFAAA encadre l'aïkido, l'aïkibudo et l'iaïdo.",
+    "slug": "ffaaa",
+    "disciplines_count_verified": 4,
+    "disciplines_verified": true,
+    "verified_source": "https://aikido.com.fr/"
+  },
+  {
+    "source": "ffski",
+    "acronyme": "FFS",
+    "nom": "Fédération Française de Ski",
+    "url": "https://ffs.fr",
+    "clubs_base": 4532,
+    "clubs_officiel": 1500,
+    "sports_base": [
+      {
+        "id": 21,
+        "nom": "Ski alpin"
+      },
+      {
+        "id": 23,
+        "nom": "Ski de fond"
+      },
+      {
+        "id": 58,
+        "nom": "Biathlon"
+      },
+      {
+        "id": 330,
+        "nom": "Saut à ski"
+      },
+      {
+        "id": 331,
+        "nom": "Combiné nordique"
+      },
+      {
+        "id": 22,
+        "nom": "Snowboard"
+      },
+      {
+        "id": 93,
+        "nom": "Télémark"
+      },
+      {
+        "id": 155,
+        "nom": "Ski roues (roller ski)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Ski alpin",
+        "sport_id": 21,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Ski de fond",
+        "sport_id": 23,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Biathlon",
+        "sport_id": 58,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Saut à ski",
+        "sport_id": 330,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Combiné nordique",
+        "sport_id": 331,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Snowboard",
+        "sport_id": 22,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Ski freestyle",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Télémark",
+        "sport_id": 93,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Speed skiing",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Ski-alpinisme",
+        "sport_id": 21,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Rollerski",
+        "sport_id": 155,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Ski sur herbe",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "ski"
+    ],
+    "description": "La FFS administre le ski alpin, fond, snowboard, biathlon, télémark, freestyle, raquettes, saut et skimo.",
+    "slug": "ffski",
+    "disciplines_count_verified": 12,
+    "disciplines_verified": true,
+    "verified_source": "https://ffs.fr/"
+  },
+  {
+    "source": "faemc",
+    "acronyme": "FAEMC",
+    "nom": "Fédération d'Arts Énergétiques et Martiaux Chinois",
+    "url": "https://www.faemc.fr",
+    "clubs_base": 967,
+    "clubs_officiel": 0,
+    "sports_base": [
+      {
+        "id": 77,
+        "nom": "Aïkido"
+      },
+      {
+        "id": 82,
+        "nom": "MMA (Arts Martiaux Mixtes)"
+      }
+    ],
+    "sports_officiel": [],
+    "discs": [
+      "arts-martiaux",
+      "musculation"
+    ],
+    "description": "La FAEMC encadre les arts martiaux émergents, le krav-maga et le MMA.",
+    "slug": "faemc"
+  },
+  {
+    "source": "ffck",
+    "acronyme": "FFCK",
+    "nom": "Fédération Française de Canoë-Kayak",
+    "url": "https://www.ffck.org",
+    "clubs_base": 724,
+    "clubs_officiel": 1800,
+    "sports_base": [
+      {
+        "id": 88,
+        "nom": "Stand Up Paddle (SUP)"
+      },
+      {
+        "id": 90,
+        "nom": "Hydrospeed / Nage en eaux vives"
+      },
+      {
+        "id": 89,
+        "nom": "Rafting"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Course en ligne",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Slalom",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Descente",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Kayak-polo",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Stand Up Paddle (SUP)",
+        "sport_id": 88,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Kayak-cross",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Ocean racing",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Freestyle (eau)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Wave-ski",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Hydrospeed",
+        "sport_id": 90,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Rafting",
+        "sport_id": 89,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Marathon canoë",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "canoë-kayak"
+    ],
+    "description": "La FFCK administre le canoë-kayak, le SUP, l'hydrospeed, le slalom, le rafting et les eaux vives.",
+    "slug": "ffck",
+    "disciplines_count_verified": 12,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffck.org/"
+  },
+  {
+    "source": "ffme",
+    "acronyme": "FFME",
+    "nom": "Fédération Française de la Montagne et de l'Escalade",
+    "url": "https://www.ffme.fr",
+    "clubs_base": 1317,
+    "clubs_officiel": 2800,
+    "sports_base": [
+      {
+        "id": 26,
+        "nom": "Escalade"
+      },
+      {
+        "id": 27,
+        "nom": "Randonnée / Alpinisme"
+      },
+      {
+        "id": 21,
+        "nom": "Ski alpin"
+      },
+      {
+        "id": 95,
+        "nom": "Canyon / Canyoning"
+      },
+      {
+        "id": 94,
+        "nom": "Raquettes à neige"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Escalade Bloc",
+        "sport_id": 26,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Escalade Difficulté (voie)",
+        "sport_id": 26,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Escalade Vitesse",
+        "sport_id": 26,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Alpinisme",
+        "sport_id": 27,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Ski-alpinisme",
+        "sport_id": 21,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Canyoning",
+        "sport_id": 95,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Randonnée montagne",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Raquettes à neige",
+        "sport_id": 94,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Cascade de glace",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "escalade"
+    ],
+    "description": "La FFME encadre l'escalade, l'alpinisme, le ski alpinisme, la cascade de glace et le canyoning.",
+    "slug": "ffme",
+    "disciplines_count_verified": 9,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffme.fr/escalade/"
+  },
+  {
+    "source": "ffplum",
+    "acronyme": "FFPLUM",
+    "nom": "Fédération Française d'ULM",
+    "url": "https://www.ffplum.fr",
+    "clubs_base": 1750,
+    "clubs_officiel": 1200,
+    "sports_base": [
+      {
+        "id": 122,
+        "nom": "ULM"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "ULM Multiaxe",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "ULM Pendulaire",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "ULM Autogire",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "ULM Paramoteur",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "ULM Aérostat (ballon)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "ULM Hélicoptère ultraléger",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "aerien",
+      "ulm"
+    ],
+    "description": "La FFPLUM encadre l'ULM (pendulaire, multiaxe, autogire).",
+    "slug": "ffplum",
+    "disciplines_count_verified": 6,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffplum.fr/"
+  },
+  {
+    "source": "ffab",
+    "acronyme": "FFAB",
+    "nom": "Fédération Française d'Aïkibudo",
+    "url": "https://www.aikibudo.com",
+    "clubs_base": 661,
+    "clubs_officiel": 0,
+    "sports_base": [
+      {
+        "id": 77,
+        "nom": "Aïkido"
+      }
+    ],
+    "sports_officiel": [],
+    "discs": [
+      "arts-martiaux"
+    ],
+    "description": "La FFAB administre l'aïkibudo et l'aïkido traditionnel.",
+    "slug": "ffab"
+  },
+  {
+    "source": "ffbsq",
+    "acronyme": "FFBSQ",
+    "nom": "Fédération Française de Bowling et Sports de Quilles",
+    "url": "https://www.ffbsq.fr",
+    "clubs_base": 543,
+    "clubs_officiel": 679,
+    "sports_base": [
+      {
+        "id": 65,
+        "nom": "Bowling"
+      },
+      {
+        "id": 106,
+        "nom": "Quilles de 9"
+      },
+      {
+        "id": 305,
+        "nom": "Quilles d'Alsace"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Bowling",
+        "officiel": 543,
+        "sport_id": 65,
+        "in_data": true
+      },
+      {
+        "label": "Quilles de 9",
+        "officiel": null,
+        "sport_id": 106,
+        "in_data": true
+      },
+      {
+        "label": "Quilles d'Alsace",
+        "officiel": null,
+        "sport_id": 305,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "bowling"
+    ],
+    "description": "La FFBSQ encadre le bowling, les quilles de 9 et le bowling sportif.",
+    "slug": "ffbsq"
+  },
+  {
+    "source": "ffvl",
+    "acronyme": "FFVL",
+    "nom": "Fédération Française de Vol Libre",
+    "url": "https://www.ffvl.fr",
+    "clubs_base": 691,
+    "clubs_officiel": 700,
+    "sports_base": [
+      {
+        "id": 48,
+        "nom": "Parapente"
+      },
+      {
+        "id": 124,
+        "nom": "Deltaplane"
+      },
+      {
+        "id": 376,
+        "nom": "Boomerang (sport)"
+      },
+      {
+        "id": 396,
+        "nom": "Speed flying"
+      },
+      {
+        "id": 283,
+        "nom": "Snowkite"
+      },
+      {
+        "id": 60,
+        "nom": "Kitesurf"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Parapente",
+        "sport_id": 48,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Deltaplane",
+        "sport_id": 124,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Cerf-volant",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Boomerang",
+        "sport_id": 376,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Speed-riding (speed-flying)",
+        "sport_id": 396,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Snowkite",
+        "sport_id": 283,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Kite-surf",
+        "sport_id": 60,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "aerien",
+      "vol-libre"
+    ],
+    "description": "La FFVL administre le parapente, le deltaplane, le cerf-volant et le snowkite.",
+    "slug": "ffvl",
+    "disciplines_count_verified": 7,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffvl.fr/"
+  },
+  {
+    "source": "ffbillard",
+    "acronyme": "FFBillard",
+    "nom": "Fédération Française de Billard",
+    "url": "https://www.ffbillard.com",
+    "clubs_base": 535,
+    "clubs_officiel": 555,
+    "sports_base": [
+      {
+        "id": 66,
+        "nom": "Billard"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Billard",
+        "officiel": 535,
+        "sport_id": 66,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "billard"
+    ],
+    "description": "La FFBillard encadre le billard américain, français, le snooker et le pool 8.",
+    "slug": "ffbillard"
+  },
+  {
+    "source": "cfjjb",
+    "acronyme": "CFJJB",
+    "nom": "Confédération Française de Jiu-Jitsu Brésilien",
+    "url": "https://cfjjb.com",
+    "clubs_base": 516,
+    "clubs_officiel": 500,
+    "sports_base": [
+      {
+        "id": 248,
+        "nom": "BJJ / Jiu-jitsu brésilien"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "BJJ (Jiu-Jitsu Brésilien) Gi",
+        "sport_id": 248,
+        "in_data": true,
+        "officiel": 517
+      },
+      {
+        "label": "BJJ No-Gi",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "No-Gi Wrestling",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "BJJ Adapté",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "bjj"
+    ],
+    "description": "La CFJJB est l'organe officiel du Jiu-Jitsu Brésilien (BJJ) en France, avec plus de 30 000 pratiquants.",
+    "slug": "cfjjb",
+    "disciplines_count_verified": 4,
+    "disciplines_verified": true,
+    "verified_source": "https://cfjjb.com/"
+  },
+  {
+    "source": "ffbt",
+    "acronyme": "FFBT",
+    "nom": "Fédération Française de Ball-Trap",
+    "url": "https://www.fitasc.com",
+    "clubs_base": 292,
+    "clubs_officiel": 0,
+    "sports_base": [
+      {
+        "id": 34,
+        "nom": "Tir sportif"
+      },
+      {
+        "id": 234,
+        "nom": "Tir aux plateaux (ball-trap)"
+      }
+    ],
+    "sports_officiel": [],
+    "discs": [
+      "ball-trap",
+      "tir"
+    ],
+    "description": "La FFBT organise le ball-trap et le tir aux pigeons.",
+    "slug": "ffbt"
+  },
+  {
+    "source": "ffstb",
+    "acronyme": "FFSTB",
+    "nom": "Fédération Française Sportive de Twirling Bâton",
+    "url": "https://www.fsftb.fr",
+    "clubs_base": 471,
+    "clubs_officiel": 0,
+    "sports_base": [],
+    "sports_officiel": [],
+    "discs": [
+      "twirling"
+    ],
+    "description": "La FFSTB encadre le twirling bâton.",
+    "slug": "ffstb"
+  },
+  {
+    "source": "fflutte",
+    "acronyme": "FFLA",
+    "nom": "Fédération Française de Lutte",
+    "url": "https://www.fflutte.com",
+    "clubs_base": 386,
+    "clubs_officiel": 465,
+    "sports_base": [
+      {
+        "id": 176,
+        "nom": "Lutte gréco-romaine"
+      },
+      {
+        "id": 177,
+        "nom": "Lutte libre"
+      },
+      {
+        "id": 115,
+        "nom": "Sambo"
+      },
+      {
+        "id": 178,
+        "nom": "Grappling"
+      },
+      {
+        "id": 299,
+        "nom": "Gouren (lutte bretonne)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Lutte gréco-romaine",
+        "sport_id": 176,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Lutte libre",
+        "sport_id": 177,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Lutte féminine",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Sambo",
+        "sport_id": 115,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Grappling",
+        "sport_id": 178,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Gouren (lutte bretonne)",
+        "sport_id": 299,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Beach wrestling",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Lutte handi",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "lutte"
+    ],
+    "description": "La FFL administre la lutte gréco-romaine, libre, le sambo et le grappling.",
+    "slug": "fflutte",
+    "disciplines_count_verified": 8,
+    "disciplines_verified": true,
+    "verified_source": "https://www.fflutte.com/"
+  },
+  {
+    "source": "ffaviron",
+    "acronyme": "FFAviron",
+    "nom": "Fédération Française d'Aviron",
+    "url": "https://www.ffaviron.fr",
+    "clubs_base": 400,
+    "clubs_officiel": 421,
+    "sports_base": [
+      {
+        "id": 29,
+        "nom": "Aviron"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Aviron de rivière (couple)",
+        "sport_id": 29,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Aviron de rivière (pointe)",
+        "sport_id": 29,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Aviron de mer (Coastal)",
+        "sport_id": 29,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Aviron indoor (ergomètre)",
+        "sport_id": 29,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Para-aviron (PR1, PR2, PR3)",
+        "sport_id": 29,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Aviron de loisir",
+        "sport_id": 29,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Aviron randonnée",
+        "sport_id": 29,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "aviron"
+    ],
+    "description": "La FFAviron encadre l'aviron, l'aviron de mer et l'aviron indoor.",
+    "slug": "ffaviron",
+    "disciplines_count_verified": 7,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffaviron.fr/"
+  },
+  {
+    "source": "ffsa",
+    "acronyme": "FFSA",
+    "nom": "Fédération Française du Sport Automobile",
+    "url": "https://www.ffsa.org",
+    "clubs_base": 870,
+    "clubs_officiel": 1500,
+    "sports_base": [
+      {
+        "id": 54,
+        "nom": "Sport automobile"
+      },
+      {
+        "id": 153,
+        "nom": "Rallye automobile"
+      },
+      {
+        "id": 236,
+        "nom": "Karting"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Sport automobile",
+        "officiel": 873,
+        "sport_id": 54,
+        "in_data": true
+      },
+      {
+        "label": "Karting",
+        "officiel": null,
+        "sport_id": 236,
+        "in_data": true
+      },
+      {
+        "label": "Rallye automobile",
+        "officiel": null,
+        "sport_id": 153,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "sport-auto"
+    ],
+    "description": "La FFSA organise le sport automobile, le karting, les rallyes et le drift.",
+    "slug": "ffsa"
+  },
+  {
+    "source": "ffhm",
+    "acronyme": "FFHMFAC",
+    "nom": "Fédération Française d'Haltérophilie, Musculation, Force Athlétique et Culturisme",
+    "url": "https://www.ffhaltero.fr",
+    "clubs_base": 333,
+    "clubs_officiel": 2500,
+    "sports_base": [
+      {
+        "id": 44,
+        "nom": "Musculation / Haltérophilie"
+      },
+      {
+        "id": 162,
+        "nom": "Culturisme"
+      },
+      {
+        "id": 160,
+        "nom": "Haltérophilie de compétition"
+      },
+      {
+        "id": 72,
+        "nom": "CrossFit / Functional Fitness"
+      },
+      {
+        "id": 161,
+        "nom": "Force athlétique (powerlifting)"
+      },
+      {
+        "id": 240,
+        "nom": "Musculation (compétition)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Musculation / Haltérophilie",
+        "officiel": null,
+        "sport_id": 44,
+        "in_data": true
+      },
+      {
+        "label": "Culturisme",
+        "officiel": null,
+        "sport_id": 162,
+        "in_data": true
+      },
+      {
+        "label": "Haltérophilie de compétition",
+        "officiel": null,
+        "sport_id": 160,
+        "in_data": true
+      },
+      {
+        "label": "CrossFit / Functional Fitness",
+        "officiel": null,
+        "sport_id": 72,
+        "in_data": true
+      },
+      {
+        "label": "Force athlétique (powerlifting)",
+        "officiel": null,
+        "sport_id": 161,
+        "in_data": true
+      },
+      {
+        "label": "Musculation (compétition)",
+        "officiel": null,
+        "sport_id": 240,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "halterophilie",
+      "musculation"
+    ],
+    "description": "La FFHM encadre l'haltérophilie, la musculation, la force athlétique (powerlifting) et le culturisme.",
+    "slug": "ffhm"
+  },
+  {
+    "source": "ffpb",
+    "acronyme": "FFPB",
+    "nom": "Fédération Française de Pelote Basque",
+    "url": "https://www.ffpb.net",
+    "clubs_base": 373,
+    "clubs_officiel": 400,
+    "sports_base": [
+      {
+        "id": 104,
+        "nom": "Pelote basque"
+      },
+      {
+        "id": 249,
+        "nom": "Pelote basque (main nue)"
+      },
+      {
+        "id": 251,
+        "nom": "Pelote basque (pala)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Paintball",
+        "officiel": null,
+        "sport_id": 432,
+        "in_data": false
+      },
+      {
+        "label": "Pelote basque",
+        "officiel": 271,
+        "sport_id": 104,
+        "in_data": true
+      },
+      {
+        "label": "Pelote basque (main nue)",
+        "officiel": null,
+        "sport_id": 249,
+        "in_data": true
+      },
+      {
+        "label": "Pelote basque (chistera)",
+        "officiel": null,
+        "sport_id": 250,
+        "in_data": false
+      },
+      {
+        "label": "Pelote basque (pala)",
+        "officiel": null,
+        "sport_id": 251,
+        "in_data": true
+      },
+      {
+        "label": "Pelote basque (xare)",
+        "officiel": null,
+        "sport_id": 252,
+        "in_data": false
+      },
+      {
+        "label": "Balle pelote (Jai alai)",
+        "officiel": null,
+        "sport_id": 362,
+        "in_data": false
+      }
+    ],
+    "discs": [
+      "pelote",
+      "pelote-basque"
+    ],
+    "description": "La FFPB administre la pelote basque (cesta punta, chistera, pala, main nue).",
+    "slug": "ffpb",
+    "aliases": [
+      "ffpb_pelote"
+    ]
+  },
+  {
+    "source": "ffsquash",
+    "acronyme": "FFSquash",
+    "nom": "Fédération Française de Squash",
+    "url": "https://www.ffsquash.com",
+    "clubs_base": 252,
+    "clubs_officiel": 272,
+    "sports_base": [
+      {
+        "id": 43,
+        "nom": "Squash"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Squash simple",
+        "sport_id": 43,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Squash double",
+        "sport_id": 43,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Squash 57 (Racquetball)",
+        "sport_id": 43,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Squash adapté",
+        "sport_id": 43,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Mini-squash",
+        "sport_id": 43,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "squash"
+    ],
+    "description": "La FFSquash encadre le squash et le racquetball.",
+    "slug": "ffsquash",
+    "disciplines_count_verified": 5,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffsquash.com/"
+  },
+  {
+    "source": "ffco",
+    "acronyme": "FFCO",
+    "nom": "Fédération Française de Course d'Orientation",
+    "url": "https://www.ffcorientation.fr",
+    "clubs_base": 183,
+    "clubs_officiel": 0,
+    "sports_base": [
+      {
+        "id": 49,
+        "nom": "Course d'orientation"
+      }
+    ],
+    "sports_officiel": [],
+    "discs": [
+      "course-orientation",
+      "orientation"
+    ],
+    "description": "La FFCO administre la course d'orientation, l'orientation pédestre et les raids.",
+    "slug": "ffco"
+  },
+  {
+    "source": "ffsurf",
+    "acronyme": "FFSurf",
+    "nom": "Fédération Française de Surf",
+    "url": "https://www.surfingfrance.com",
+    "clubs_base": 186,
+    "clubs_officiel": 193,
+    "sports_base": [
+      {
+        "id": 32,
+        "nom": "Surf"
+      },
+      {
+        "id": 126,
+        "nom": "Longboard"
+      },
+      {
+        "id": 311,
+        "nom": "Bodyboard"
+      },
+      {
+        "id": 312,
+        "nom": "Bodysurf"
+      },
+      {
+        "id": 88,
+        "nom": "Stand Up Paddle (SUP)"
+      },
+      {
+        "id": 209,
+        "nom": "Surf de rame (SUP race)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Surf (shortboard)",
+        "sport_id": 32,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Longboard",
+        "sport_id": 126,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Bodyboard",
+        "sport_id": 311,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Bodysurf",
+        "sport_id": 312,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Stand Up Paddle (SUP)",
+        "sport_id": 88,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "SUP race",
+        "sport_id": 209,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Kneeboard",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Surf tandem",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Skimboard",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "surf"
+    ],
+    "description": "La FFSurf encadre le surf, le bodyboard, le longboard et le SUP surf.",
+    "slug": "ffsurf",
+    "disciplines_count_verified": 9,
+    "disciplines_verified": true,
+    "verified_source": "https://www.surfingfrance.com/federation/disciplines.html"
+  },
+  {
+    "source": "ffbs",
+    "acronyme": "FFBS",
+    "nom": "Fédération Française de Baseball et Softball",
+    "url": "https://www.ffbsc.fr",
+    "clubs_base": 243,
+    "clubs_officiel": 350,
+    "sports_base": [
+      {
+        "id": 39,
+        "nom": "Baseball / Softball"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Baseball / Softball",
+        "officiel": 248,
+        "sport_id": 39,
+        "in_data": true
+      },
+      {
+        "label": "Baseball",
+        "officiel": null,
+        "sport_id": 237,
+        "in_data": false
+      },
+      {
+        "label": "Softball",
+        "officiel": null,
+        "sport_id": 238,
+        "in_data": false
+      }
+    ],
+    "discs": [
+      "baseball",
+      "baseball-softball"
+    ],
+    "description": "La FFBS administre le baseball, le softball et le cricket.",
+    "slug": "ffbs"
+  },
+  {
+    "source": "ffss",
+    "acronyme": "FFSS",
+    "nom": "Fédération Française de Sauvetage et de Secourisme",
+    "url": "https://www.ffss.fr",
+    "clubs_base": 350,
+    "clubs_officiel": 800,
+    "sports_base": [
+      {
+        "id": 265,
+        "nom": "Sauvetage côtier sportif"
+      },
+      {
+        "id": 266,
+        "nom": "Sauvetage en piscine"
+      },
+      {
+        "id": 267,
+        "nom": "Beach flag"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Sauvetage côtier sportif",
+        "officiel": null,
+        "sport_id": 265,
+        "in_data": true
+      },
+      {
+        "label": "Sauvetage en piscine",
+        "officiel": null,
+        "sport_id": 266,
+        "in_data": true
+      },
+      {
+        "label": "Beach flag",
+        "officiel": null,
+        "sport_id": 267,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "sauvetage"
+    ],
+    "description": "La FFSS administre le sauvetage sportif, le sauvetage côtier et les premiers secours sportifs.",
+    "slug": "ffss"
+  },
+  {
+    "source": "ffsg",
+    "acronyme": "FFSG",
+    "nom": "Fédération Française des Sports de Glace",
+    "url": "https://www.ffsportsdeglace.fr",
+    "clubs_base": 144,
+    "clubs_officiel": 160,
+    "sports_base": [
+      {
+        "id": 24,
+        "nom": "Patinage artistique"
+      },
+      {
+        "id": 41,
+        "nom": "Curling"
+      },
+      {
+        "id": 228,
+        "nom": "Bobsleigh"
+      },
+      {
+        "id": 229,
+        "nom": "Luge"
+      },
+      {
+        "id": 230,
+        "nom": "Skeleton"
+      },
+      {
+        "id": 156,
+        "nom": "Patin de vitesse (short track)"
+      },
+      {
+        "id": 206,
+        "nom": "Ice cross downhill"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Patinage artistique",
+        "sport_id": 24,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Patinage artistique synchronisé",
+        "sport_id": 24,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Danse sur Glace",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Ballet sur Glace",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Freestyle (glace)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Curling",
+        "sport_id": 41,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Bobsleigh",
+        "sport_id": 228,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Luge",
+        "sport_id": 229,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Skeleton",
+        "sport_id": 230,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Short-Track",
+        "sport_id": 156,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Ice Cross",
+        "sport_id": 206,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "patinage",
+      "sports-de-glace"
+    ],
+    "description": "La FFSG encadre le patinage artistique, vitesse, le curling et le bobsleigh.",
+    "slug": "ffsg",
+    "disciplines_count_verified": 11,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffsportsdeglace.fr/disciplines/"
+  },
+  {
+    "source": "ffvp",
+    "acronyme": "FFVV",
+    "nom": "Fédération Française de Vol à Voile",
+    "url": "https://www.ffvv.org",
+    "clubs_base": 149,
+    "clubs_officiel": 156,
+    "sports_base": [
+      {
+        "id": 123,
+        "nom": "Vol à voile / Planeur"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Vol à voile / Planeur",
+        "officiel": 149,
+        "sport_id": 123,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "vol-a-voile",
+      "vol-planeur"
+    ],
+    "description": "La FFVV organise le vol à voile (planeur) et la voltige planeur.",
+    "slug": "ffvp"
+  },
+  {
+    "source": "ffhockey",
+    "acronyme": "FFHockey",
+    "nom": "Fédération Française de Hockey sur Gazon",
+    "url": "https://www.ffhockey.org",
+    "clubs_base": 114,
+    "clubs_officiel": 135,
+    "sports_base": [
+      {
+        "id": 40,
+        "nom": "Hockey sur gazon"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Hockey sur gazon",
+        "officiel": 114,
+        "sport_id": 40,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "hockey-gazon"
+    ],
+    "description": "La FFHockey encadre le hockey sur gazon et le hockey indoor.",
+    "slug": "ffhockey"
+  },
+  {
+    "source": "ffrxiii",
+    "acronyme": "FFRXIII",
+    "nom": "Fédération Française de Rugby à XIII",
+    "url": "https://www.ffr13.fr",
+    "clubs_base": 177,
+    "clubs_officiel": 0,
+    "sports_base": [
+      {
+        "id": 2,
+        "nom": "Rugby à XV"
+      },
+      {
+        "id": 136,
+        "nom": "Rugby à XIII"
+      }
+    ],
+    "sports_officiel": [],
+    "discs": [
+      "rugby",
+      "rugby-xiii"
+    ],
+    "description": "La FFRXIII organise le rugby à XIII en France.",
+    "slug": "ffrxiii"
+  },
+  {
+    "source": "ffsn",
+    "acronyme": "FFSNW",
+    "nom": "Fédération Française de Ski Nautique et Wakeboard",
+    "url": "https://www.ffsnw.fr",
+    "clubs_base": 306,
+    "clubs_officiel": 300,
+    "sports_base": [
+      {
+        "id": 62,
+        "nom": "Wakeboard"
+      },
+      {
+        "id": 84,
+        "nom": "Ski nautique"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Ski nautique",
+        "officiel": null,
+        "sport_id": 84,
+        "in_data": true
+      },
+      {
+        "label": "Wakesurf",
+        "officiel": null,
+        "sport_id": 276,
+        "in_data": false
+      },
+      {
+        "label": "Wakeboard",
+        "officiel": null,
+        "sport_id": 62,
+        "in_data": true
+      },
+      {
+        "label": "Wakeskate",
+        "officiel": null,
+        "sport_id": 411,
+        "in_data": false
+      }
+    ],
+    "discs": [
+      "ski-nautique",
+      "ski-nautique-wakeboard"
+    ],
+    "description": "La FFSN administre le ski nautique, le wakeboard et le wake surf.",
+    "slug": "ffsn"
+  },
+  {
+    "source": "fney",
+    "slug": "fney",
+    "acronyme": "FNEY",
+    "nom": "Fédération Nationale des Enseignants de Yoga",
+    "url": "https://www.fney.fr",
+    "description": "La FNEY est la fédération française dédiée à ses disciplines administrées.",
+    "clubs_base": 3779,
+    "clubs_officiel": 450,
+    "sports_base": [
+      {
+        "id": 73,
+        "nom": "Yoga / Pilates"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Yoga / Pilates",
+        "officiel": 105,
+        "sport_id": 73,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "yoga"
+    ]
+  },
+  {
+    "source": "ffwushu",
+    "slug": "ffwushu",
+    "acronyme": "FFWUSHU",
+    "nom": "Fédération Française de Wushu, Kung-fu et Arts Martiaux Chinois",
+    "url": "https://fwda-wushu.fr",
+    "description": "La FFWUSHU encadre le wushu, le kung-fu, le tai-chi chuan, le qigong et le sanda.",
+    "clubs_base": 67,
+    "clubs_officiel": 500,
+    "sports_base": [
+      {
+        "id": 165,
+        "nom": "Tai-chi chuan"
+      },
+      {
+        "id": 200,
+        "nom": "Qigong"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Wushu Taolu (formes)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Sanda (combat)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Qing Da (combat encadré)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Tai Chi Chuan",
+        "sport_id": 165,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Qi Gong",
+        "sport_id": 200,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Kung-Fu traditionnel",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Kung-Fu moderne",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Bagua Zhang",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Xing Yi Quan",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "wushu"
+    ],
+    "disciplines_count_verified": 9,
+    "disciplines_verified": true,
+    "verified_source": "https://fwda-wushu.fr/disciplines/"
+  },
+  {
+    "source": "ffairsoft",
+    "slug": "ffairsoft",
+    "acronyme": "FFAIRSOFT",
+    "nom": "Fédération Française d'Airsoft",
+    "url": "https://www.ffairsoft.org",
+    "description": "La FFA (Airsoft) organise les compétitions d'airsoft en France.",
+    "clubs_base": 281,
+    "clubs_officiel": 308,
+    "sports_base": [
+      {
+        "id": 433,
+        "nom": "Airsoft (compétition)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Airsoft (compétition)",
+        "officiel": 281,
+        "sport_id": 433,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "airsoft"
+    ]
+  },
+  {
+    "source": "ffsbf",
+    "slug": "ffsbf",
+    "acronyme": "FFSBF",
+    "nom": "Fédération Française de Savate Boxe Française",
+    "url": "https://www.ffboxe.com",
+    "description": "La FFSBF est la fédération française dédiée à ses disciplines administrées.",
+    "clubs_base": 647,
+    "clubs_officiel": 758,
+    "sports_base": [
+      {
+        "id": 16,
+        "nom": "Savate / Boxe française"
+      },
+      {
+        "id": 442,
+        "nom": "Canne de combat"
+      },
+      {
+        "id": 443,
+        "nom": "Bâton (sport de combat)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Savate / Boxe française",
+        "officiel": 647,
+        "sport_id": 16,
+        "in_data": true
+      },
+      {
+        "label": "Canne de combat",
+        "officiel": null,
+        "sport_id": 442,
+        "in_data": true
+      },
+      {
+        "label": "Bâton (sport de combat)",
+        "officiel": null,
+        "sport_id": 443,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "savate"
+    ]
+  },
+  {
+    "source": "ffescrime",
+    "slug": "ffescrime",
+    "acronyme": "FFEscrime",
+    "nom": "Fédération Française d'Escrime",
+    "url": "https://www.ffescrime.fr",
+    "description": "La FFEscrime est la fédération française dédiée à ses disciplines administrées.",
+    "clubs_base": 951,
+    "clubs_officiel": 751,
+    "sports_base": [
+      {
+        "id": 17,
+        "nom": "Escrime"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Fleuret",
+        "sport_id": 17,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Épée",
+        "sport_id": 17,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Sabre",
+        "sport_id": 17,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Escrime artistique",
+        "sport_id": 17,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Handi-escrime (escrime fauteuil)",
+        "sport_id": 17,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "escrime"
+    ],
+    "disciplines_count_verified": 5,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffescrime.fr/"
+  },
+  {
+    "source": "ffkbmda",
+    "slug": "ffkbmda",
+    "acronyme": "FFKBMDA",
+    "nom": "Fédération Française de Kick-boxing, Muay Thai et Disciplines Associées",
+    "url": "https://www.ffkmda.com",
+    "description": "La FFKBMDA est dédiée au kick-boxing, muay thai et disciplines associées.",
+    "clubs_base": 1439,
+    "clubs_officiel": 1325,
+    "sports_base": [
+      {
+        "id": 76,
+        "nom": "Muay Thai / Kick-boxing"
+      },
+      {
+        "id": 246,
+        "nom": "Kickboxing"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Muay Thai / Kick-boxing",
+        "officiel": 718,
+        "sport_id": 76,
+        "in_data": true
+      },
+      {
+        "label": "Kickboxing",
+        "officiel": null,
+        "sport_id": 246,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "muay-thai"
+    ],
+    "aliases": [
+      "ffkmda"
+    ]
+  },
+  {
+    "source": "ffmtda",
+    "slug": "ffmtda",
+    "acronyme": "FFMTDA",
+    "nom": "Fédération Française de Muay Thaï et DA",
+    "url": "https://www.ffmuaythai.fr",
+    "description": "La FFMTDA organise le muay thaï et le muay boran.",
+    "clubs_base": 1358,
+    "clubs_officiel": 600,
+    "sports_base": [
+      {
+        "id": 245,
+        "nom": "Muay thaï"
+      },
+      {
+        "id": 347,
+        "nom": "Muay boran"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Muay thaï",
+        "officiel": 1358,
+        "sport_id": 245,
+        "in_data": true
+      },
+      {
+        "label": "Muay boran",
+        "officiel": null,
+        "sport_id": 347,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "muay-thai"
+    ]
+  },
+  {
+    "source": "ffcapoeira",
+    "slug": "ffcapoeira",
+    "acronyme": "FFCapoeira",
+    "nom": "Fédération Française de Capoeira",
+    "url": "https://www.ffcapoeira.fr",
+    "description": "La FFCapoeira encadre la pratique de la capoeira en France.",
+    "clubs_base": 494,
+    "clubs_officiel": 286,
+    "sports_base": [
+      {
+        "id": 114,
+        "nom": "Capoeira"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Capoeira Régional",
+        "sport_id": 114,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Capoeira Angola",
+        "sport_id": 114,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Capoeira Contemporânea",
+        "sport_id": 114,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Roda de capoeira",
+        "sport_id": 114,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Capoeira musique (berimbau)",
+        "sport_id": 114,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "capoeira"
+    ],
+    "disciplines_count_verified": 5,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffcapoeira.fr/"
+  },
+  {
+    "source": "ffcc",
+    "slug": "ffcc",
+    "acronyme": "FFCC",
+    "nom": "France Cricket",
+    "url": "https://www.francecricket.com",
+    "description": "La FFCC est la fédération française dédiée à ses disciplines administrées.",
+    "clubs_base": 61,
+    "clubs_officiel": 50,
+    "sports_base": [
+      {
+        "id": 168,
+        "nom": "Cricket"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Cricket",
+        "officiel": 61,
+        "sport_id": 168,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "cricket"
+    ]
+  },
+  {
+    "source": "ffroller",
+    "slug": "ffroller",
+    "acronyme": "FFRoller",
+    "nom": "Fédération Française de Roller et Skateboard",
+    "url": "https://ffroller-skateboard.fr",
+    "description": "Fédération roller et skateboard, encadre les disciplines artistiques et de course.",
+    "clubs_base": 2490,
+    "clubs_officiel": 1500,
+    "sports_base": [
+      {
+        "id": 255,
+        "nom": "Rink hockey"
+      },
+      {
+        "id": 256,
+        "nom": "Roller artistique"
+      },
+      {
+        "id": 154,
+        "nom": "Roller derby"
+      },
+      {
+        "id": 223,
+        "nom": "Skateboard"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Rink hockey",
+        "sport_id": 255,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Roller hockey",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller artistique",
+        "sport_id": 256,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Roller course",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Inline alpine",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller street",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller park",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller slalom freestyle",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller derby",
+        "sport_id": 154,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Skateboard street",
+        "sport_id": 223,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Skateboard park",
+        "sport_id": 223,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Skateboard descent",
+        "sport_id": 223,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Trottinette freestyle (scooter)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller randonnée",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Roller danse",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "roller"
+    ],
+    "disciplines_count_verified": 15,
+    "disciplines_verified": true,
+    "verified_source": "https://ffroller-skateboard.fr/"
+  },
+  {
+    "source": "ffpolo",
+    "slug": "ffpolo",
+    "acronyme": "FFPolo",
+    "nom": "Fédération Française de Polo",
+    "url": "https://www.ffpolo.fr",
+    "description": "La FFPolo est la fédération française dédiée à ses disciplines administrées.",
+    "clubs_base": 28,
+    "clubs_officiel": 80,
+    "sports_base": [
+      {
+        "id": 314,
+        "nom": "Polo"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Polo",
+        "officiel": 28,
+        "sport_id": 314,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "polo"
+    ]
+  },
+  {
+    "source": "ffst",
+    "slug": "ffst",
+    "acronyme": "FFST",
+    "nom": "Fédération Française des Sports de Traîneau",
+    "url": "https://www.ffst.fr",
+    "description": "La FFST (Sports de Traîneau) organise mushing et pulka.",
+    "clubs_base": 56,
+    "clubs_officiel": 150,
+    "sports_base": [
+      {
+        "id": 316,
+        "nom": "Attelage canin (traîneau)"
+      },
+      {
+        "id": 317,
+        "nom": "Pulka"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Attelage canin (traîneau)",
+        "officiel": null,
+        "sport_id": 316,
+        "in_data": true
+      },
+      {
+        "label": "Pulka",
+        "officiel": null,
+        "sport_id": 317,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "mushing"
+    ]
+  },
+  {
+    "source": "ffcv",
+    "slug": "ffcv",
+    "acronyme": "FFCV",
+    "nom": "Fédération Française de Char à Voile",
+    "url": "https://www.ffcv.fr",
+    "description": "La FFCV (Char à Voile) organise la pratique sur les plages françaises.",
+    "clubs_base": 104,
+    "clubs_officiel": 100,
+    "sports_base": [
+      {
+        "id": 309,
+        "nom": "Char à voile"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Char à voile",
+        "officiel": 104,
+        "sport_id": 309,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "char-a-voile"
+    ]
+  },
+  {
+    "source": "ffssplo",
+    "slug": "ffssplo",
+    "acronyme": "FFS Spéléo",
+    "nom": "Fédération Française de Spéléologie",
+    "url": "https://www.ffspeleo.fr",
+    "description": "La FFS Spéléo est la fédération française dédiée à ses disciplines administrées.",
+    "clubs_base": 4117,
+    "clubs_officiel": 376,
+    "sports_base": [
+      {
+        "id": 125,
+        "nom": "Spéléologie"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Spéléologie",
+        "officiel": 3749,
+        "sport_id": 125,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "speleologie"
+    ],
+    "aliases": [
+      "ffspeleo"
+    ]
+  },
+  {
+    "source": "ffrh",
+    "slug": "ffrh",
+    "acronyme": "FFRH",
+    "nom": "Fédération Française de Rink Hockey",
+    "url": "https://www.ffroller-hockey.fr",
+    "description": "La FFRH (Rink Hockey) encadre le hockey sur patins à roulettes.",
+    "clubs_base": 70,
+    "clubs_officiel": 200,
+    "sports_base": [
+      {
+        "id": 255,
+        "nom": "Rink hockey"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Rink hockey",
+        "officiel": 70,
+        "sport_id": 255,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "roller-hockey"
+    ]
+  },
+  {
+    "source": "lfrxiii",
+    "slug": "lfrxiii",
+    "acronyme": "LFRXIII",
+    "nom": "Ligue Française de Rugby à XIII",
+    "url": "https://www.lfrugbyleague.com",
+    "description": "La LFRXIII est la fédération française dédiée à ses disciplines administrées.",
+    "clubs_base": 233,
+    "clubs_officiel": 133,
+    "sports_base": [
+      {
+        "id": 136,
+        "nom": "Rugby à XIII"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Rugby à XIII",
+        "officiel": 56,
+        "sport_id": 136,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "rugby-xiii"
+    ]
+  },
+  {
+    "source": "ffmnautique",
+    "slug": "ffmnautique",
+    "acronyme": "FFM Nautique",
+    "nom": "Fédération Française Motonautique",
+    "url": "https://www.ffmotonautique.fr",
+    "description": "La Fédération Française Motonautique encadre le jet-ski, l'offshore et le motonautisme.",
+    "clubs_base": 47,
+    "clubs_officiel": 37,
+    "sports_base": [
+      {
+        "id": 205,
+        "nom": "Jet-ski / Motonautisme"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Jet-ski / Motonautisme",
+        "officiel": 47,
+        "sport_id": 205,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "motonautisme"
+    ]
+  },
+  {
+    "source": "ftf",
+    "slug": "ftf",
+    "acronyme": "FTF",
+    "nom": "Fédération de Touch France",
+    "url": "https://www.touchfrance.fr",
+    "description": "La Fédération de Touch France encadre le touch rugby, sport collectif sans plaquage dérivé du rugby.",
+    "clubs_base": 80,
+    "clubs_officiel": 87,
+    "sports_base": [
+      {
+        "id": 138,
+        "nom": "Touch Rugby"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Touch Rugby",
+        "officiel": 80,
+        "sport_id": 138,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "touch-rugby"
+    ]
+  },
+  {
+    "source": "ffpm",
+    "slug": "ffpm",
+    "acronyme": "FFPM",
+    "nom": "Fédération Française de Pentathlon Moderne",
+    "url": "https://www.federationpechemer.fr",
+    "description": "La FFPM (Pentathlon Moderne) organise les épreuves combinées olympiques.",
+    "clubs_base": 105,
+    "clubs_officiel": 100,
+    "sports_base": [
+      {
+        "id": 320,
+        "nom": "Pêche en mer (compétition)"
+      },
+      {
+        "id": 57,
+        "nom": "Pentathlon moderne"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Pêche en mer (compétition)",
+        "officiel": null,
+        "sport_id": 320,
+        "in_data": true
+      },
+      {
+        "label": "Pentathlon moderne",
+        "officiel": 105,
+        "sport_id": 57,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "pentathlon-moderne"
+    ]
+  },
+  {
+    "source": "ffaaro",
+    "slug": "ffaaro",
+    "acronyme": "FFA Aéro",
+    "nom": "Fédération Française Aéronautique",
+    "url": "https://www.ffaero.fr",
+    "description": "La Fédération Française Aéronautique organise la voltige aérienne et l'aviation légère.",
+    "clubs_base": 230,
+    "clubs_officiel": 578,
+    "sports_base": [
+      {
+        "id": 192,
+        "nom": "Voltige aérienne"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Voltige aérienne",
+        "officiel": 230,
+        "sport_id": 192,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "voltige"
+    ]
+  },
+  {
+    "source": "ffboules",
+    "slug": "ffboules",
+    "acronyme": "FFBoules",
+    "nom": "Fédération Française de Boules",
+    "url": "https://www.ffpjp.fr",
+    "description": "La FFBoules organise le boulingrin et les boules sur gazon.",
+    "clubs_base": 3779,
+    "clubs_officiel": 2026,
+    "sports_base": [
+      {
+        "id": 163,
+        "nom": "Boulingrin / Boules gazon"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Boulingrin / Boules gazon",
+        "officiel": 3779,
+        "sport_id": 163,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "boulingrin"
+    ]
+  },
+  {
+    "source": "ffl",
+    "slug": "ffl",
+    "acronyme": "FFL",
+    "nom": "France Lacrosse",
+    "url": "https://www.francelacrosse.org",
+    "description": "France Lacrosse organise le lacrosse et le lacrosse box (en salle).",
+    "clubs_base": 35,
+    "clubs_officiel": 13,
+    "sports_base": [
+      {
+        "id": 80,
+        "nom": "Lacrosse"
+      },
+      {
+        "id": 391,
+        "nom": "Lacrosse box (salle)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Lacrosse",
+        "officiel": 11,
+        "sport_id": 80,
+        "in_data": true
+      },
+      {
+        "label": "Lacrosse box (salle)",
+        "officiel": null,
+        "sport_id": 391,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "lacrosse"
+    ]
+  },
+  {
+    "source": "fflp",
+    "slug": "fflp",
+    "acronyme": "FFLP",
+    "nom": "Fédération Française de Longue Paume",
+    "url": "https://www.fflonguepaume.fr",
+    "description": "La Fédération Française de Longue Paume préserve cette discipline traditionnelle.",
+    "clubs_base": 24,
+    "clubs_officiel": 21,
+    "sports_base": [
+      {
+        "id": 105,
+        "nom": "Longue paume"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Longue paume",
+        "officiel": 24,
+        "sport_id": 105,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "longue-paume"
+    ]
+  },
+  {
+    "source": "fftb",
+    "slug": "fftb",
+    "acronyme": "FFTB",
+    "nom": "Fédération Française de Tchoukball",
+    "url": "https://www.fftchoukball.fr",
+    "description": "La FFTB est la fédération du tchoukball, sport collectif suisse.",
+    "clubs_base": 27,
+    "clubs_officiel": 40,
+    "sports_base": [
+      {
+        "id": 109,
+        "nom": "Tchoukball"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Tchoukball",
+        "officiel": 27,
+        "sport_id": 109,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "tchoukball"
+    ]
+  },
+  {
+    "source": "ffnetball",
+    "slug": "ffnetball",
+    "acronyme": "FFNetball",
+    "nom": "Fédération Française de Netball",
+    "url": "https://www.netballfrance.com",
+    "description": "La FFNetball encadre le netball en France.",
+    "clubs_base": 13,
+    "clubs_officiel": 30,
+    "sports_base": [
+      {
+        "id": 110,
+        "nom": "Netball"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Netball",
+        "officiel": 13,
+        "sport_id": 110,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "netball"
+    ]
+  },
+  {
+    "source": "ffh",
+    "slug": "ffh",
+    "acronyme": "FFH",
+    "nom": "Fédération Française Handisport",
+    "url": "https://www.handisport.org",
+    "description": "La FFH est la fédération multisports dédiée aux personnes en situation de handicap moteur, sensoriel ou cognitif (Boccia, Goalball, Handbike, Cécifoot, etc.).",
+    "clubs_base": 1779,
+    "clubs_officiel": 1600,
+    "sports_base": [
+      {
+        "id": 132,
+        "nom": "Boccia"
+      },
+      {
+        "id": 133,
+        "nom": "Goalball"
+      },
+      {
+        "id": 195,
+        "nom": "Cécifoot"
+      },
+      {
+        "id": 135,
+        "nom": "Handbike"
+      },
+      {
+        "id": 10,
+        "nom": "Athlétisme"
+      },
+      {
+        "id": 9,
+        "nom": "Natation"
+      },
+      {
+        "id": 6,
+        "nom": "Tennis"
+      },
+      {
+        "id": 33,
+        "nom": "Tir à l'arc"
+      },
+      {
+        "id": 34,
+        "nom": "Tir sportif"
+      },
+      {
+        "id": 29,
+        "nom": "Aviron"
+      },
+      {
+        "id": 307,
+        "nom": "Sarbacane"
+      },
+      {
+        "id": 19,
+        "nom": "Équitation"
+      },
+      {
+        "id": 28,
+        "nom": "Triathlon"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Boccia",
+        "sport_id": 132,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Goalball",
+        "sport_id": 133,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Cécifoot",
+        "sport_id": 195,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Handbike (cyclisme handisport)",
+        "sport_id": 135,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Para-athlétisme",
+        "sport_id": 10,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Para-natation",
+        "sport_id": 9,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Rugby fauteuil",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Basket fauteuil",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Tennis fauteuil",
+        "sport_id": 6,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Para-tir à l'arc",
+        "sport_id": 33,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Para-tir sportif",
+        "sport_id": 34,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Ski handisport",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Voile handisport",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Aviron handisport",
+        "sport_id": 29,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Handisport collectif",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Sarbacane",
+        "sport_id": 307,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Para-équitation",
+        "sport_id": 19,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Para-canoë",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Para-triathlon",
+        "sport_id": 28,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Tennis de table handisport",
+        "sport_id": 6,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "handisport"
+    ],
+    "disciplines_count_verified": 20,
+    "disciplines_verified": true,
+    "verified_source": "https://www.handisport.org/"
+  },
+  {
+    "source": "ffbridge",
+    "slug": "ffbridge",
+    "acronyme": "FFBridge",
+    "nom": "Fédération Française de Bridge",
+    "url": "https://www.ffbridge.fr",
+    "description": "La Fédération Française de Bridge anime ce jeu de cartes en compétition.",
+    "clubs_base": 1051,
+    "clubs_officiel": 1050,
+    "sports_base": [
+      {
+        "id": 147,
+        "nom": "Bridge"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Bridge",
+        "officiel": 1056,
+        "sport_id": 147,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "bridge"
+    ]
+  },
+  {
+    "source": "ffjd",
+    "slug": "ffjd",
+    "acronyme": "FFJD",
+    "nom": "Fédération Française de Dames",
+    "url": "https://www.ffjd.fr",
+    "description": "La Fédération Française de Dames organise les compétitions de jeu de dames.",
+    "clubs_base": 64,
+    "clubs_officiel": 150,
+    "sports_base": [
+      {
+        "id": 149,
+        "nom": "Dames"
+      },
+      {
+        "id": 351,
+        "nom": "Jeu de dames (international)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Dames",
+        "officiel": 64,
+        "sport_id": 149,
+        "in_data": true
+      },
+      {
+        "label": "Jeu de dames (international)",
+        "officiel": null,
+        "sport_id": 351,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "dames"
+    ]
+  },
+  {
+    "source": "ffgo",
+    "slug": "ffgo",
+    "acronyme": "FFGo",
+    "nom": "Fédération Française de Go",
+    "url": "https://www.ffg.jeudego.org",
+    "description": "La Fédération Française de Go anime ce jeu de stratégie millénaire.",
+    "clubs_base": 96,
+    "clubs_officiel": 96,
+    "sports_base": [
+      {
+        "id": 150,
+        "nom": "Go"
+      },
+      {
+        "id": 350,
+        "nom": "Jeu de go"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Go",
+        "officiel": 96,
+        "sport_id": 150,
+        "in_data": true
+      },
+      {
+        "label": "Jeu de go",
+        "officiel": null,
+        "sport_id": 350,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "go"
+    ]
+  },
+  {
+    "source": "afst",
+    "slug": "afst",
+    "acronyme": "AFST",
+    "nom": "Association Française de Sepak Takraw",
+    "url": "https://www.sepaktakrawfrance.fr",
+    "description": "L'Association Française de Sepak Takraw organise ce sport asiatique.",
+    "clubs_base": 12,
+    "clubs_officiel": 15,
+    "sports_base": [
+      {
+        "id": 171,
+        "nom": "Sepak Takraw"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Sepak Takraw",
+        "officiel": 12,
+        "sport_id": 171,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "sepak-takraw"
+    ]
+  },
+  {
+    "source": "fffg",
+    "slug": "fffg",
+    "acronyme": "FFFG",
+    "nom": "Fédération Française des Sports Gaéliques",
+    "url": "https://www.sportsgaeliques.fr",
+    "description": "La FFFG (Sports Gaéliques) encadre le gaelic football et hurling.",
+    "clubs_base": 33,
+    "clubs_officiel": 30,
+    "sports_base": [
+      {
+        "id": 172,
+        "nom": "Gaelic Football"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Gaelic Football",
+        "officiel": 33,
+        "sport_id": 172,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "gaelic-football"
+    ]
+  },
+  {
+    "source": "fca",
+    "slug": "fca",
+    "acronyme": "FCA",
+    "nom": "France Cornhole Association",
+    "url": "https://www.francecornhole.fr",
+    "description": "France Cornhole Association anime cette discipline américaine.",
+    "clubs_base": 35,
+    "clubs_officiel": 25,
+    "sports_base": [
+      {
+        "id": 174,
+        "nom": "Cornhole"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Cornhole",
+        "officiel": 35,
+        "sport_id": 174,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "cornhole"
+    ]
+  },
+  {
+    "source": "fffforce",
+    "slug": "fffforce",
+    "acronyme": "FFF Force",
+    "nom": "Fédération Française de Force",
+    "url": "https://www.ffforce.fr",
+    "description": "La FFF Force encadre le bras de fer (armwrestling).",
+    "clubs_base": 298,
+    "clubs_officiel": 274,
+    "sports_base": [
+      {
+        "id": 180,
+        "nom": "Bras de fer (Armwrestling)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Bras de fer (Armwrestling)",
+        "officiel": 298,
+        "sport_id": 180,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "force-athletique"
+    ]
+  },
+  {
+    "source": "fffe",
+    "slug": "fffe",
+    "acronyme": "FFFE",
+    "nom": "Fédération Française de Fléchettes Electroniques",
+    "url": "https://www.fffe.fr",
+    "description": "La FFFE encadre les fléchettes électroniques.",
+    "clubs_base": 237,
+    "clubs_officiel": 80,
+    "sports_base": [
+      {
+        "id": 191,
+        "nom": "Fléchettes électroniques"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Fléchettes électroniques",
+        "officiel": 237,
+        "sport_id": 191,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "flechettes-electroniques"
+    ]
+  },
+  {
+    "source": "ffct",
+    "slug": "ffct",
+    "acronyme": "FFCT",
+    "nom": "Fédération Française de Cyclotourisme",
+    "url": "https://ffvelo.fr",
+    "description": "La FFCT (Fédération Française de Cyclotourisme) organise la pratique cycliste de loisir et la randonnée à vélo.",
+    "clubs_base": 772,
+    "clubs_officiel": 2800,
+    "sports_base": [
+      {
+        "id": 262,
+        "nom": "Cyclotourisme"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Cyclotourisme route",
+        "sport_id": 262,
+        "in_data": true,
+        "officiel": 772
+      },
+      {
+        "label": "VTT randonnée",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Vélo électrique (VAE)",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Voyage à vélo",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Audax cyclotouriste",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Pique-niques cyclo",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Cyclo-découverte",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Brevets de randonneurs",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "cyclotourisme"
+    ],
+    "disciplines_count_verified": 8,
+    "disciplines_verified": true,
+    "verified_source": "https://ffvelo.fr/"
+  },
+  {
+    "source": "ffcam",
+    "slug": "ffcam",
+    "acronyme": "FFCAM",
+    "nom": "Fédération Française de la Montagne et de l'Escalade / AFS",
+    "url": "https://www.ffcam.fr",
+    "description": "Le Club Alpin Français regroupe les pratiquants d'alpinisme, escalade, ski-alpinisme, randonnée et canyoning.",
+    "clubs_base": 458,
+    "clubs_officiel": 450,
+    "sports_base": [
+      {
+        "id": 27,
+        "nom": "Randonnée / Alpinisme"
+      },
+      {
+        "id": 26,
+        "nom": "Escalade"
+      },
+      {
+        "id": 91,
+        "nom": "Ski alpinisme (SKIMO)"
+      },
+      {
+        "id": 261,
+        "nom": "Randonnée pédestre"
+      },
+      {
+        "id": 94,
+        "nom": "Raquettes à neige"
+      },
+      {
+        "id": 95,
+        "nom": "Canyon / Canyoning"
+      },
+      {
+        "id": 280,
+        "nom": "Highline"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Alpinisme",
+        "sport_id": 27,
+        "in_data": true,
+        "officiel": 460
+      },
+      {
+        "label": "Escalade",
+        "sport_id": 26,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Ski-alpinisme (SKIMO)",
+        "sport_id": 91,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Cascade de glace",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Randonnée pédestre",
+        "sport_id": 261,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Raquettes à neige",
+        "sport_id": 94,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Canyoning",
+        "sport_id": 95,
+        "in_data": true,
+        "officiel": null
+      },
+      {
+        "label": "Ski hors-piste",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Trail montagne",
+        "sport_id": null,
+        "in_data": false,
+        "officiel": null
+      },
+      {
+        "label": "Highline",
+        "sport_id": 280,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "alpinisme"
+    ],
+    "disciplines_count_verified": 10,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffcam.fr/"
+  },
+  {
+    "source": "qbf",
+    "slug": "qbf",
+    "acronyme": "QBF",
+    "nom": "Quadball France",
+    "url": "https://www.quadballfrance.fr",
+    "description": "La QBF est la fédération française dédiée à ses disciplines administrées.",
+    "clubs_base": 25,
+    "clubs_officiel": 14,
+    "sports_base": [
+      {
+        "id": 289,
+        "nom": "Quadball (ex-Quidditch)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Quadball (ex-Quidditch)",
+        "officiel": 25,
+        "sport_id": 289,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "quadball"
+    ]
+  },
+  {
+    "source": "scc",
+    "slug": "scc",
+    "acronyme": "SCC",
+    "nom": "Société Centrale Canine",
+    "url": "https://www.scc.asso.fr",
+    "description": "La Société Centrale Canine organise l'agility canin et les sports canins en compétition.",
+    "clubs_base": 126,
+    "clubs_officiel": 800,
+    "sports_base": [
+      {
+        "id": 296,
+        "nom": "Agility canin"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Agility canin",
+        "officiel": 126,
+        "sport_id": 296,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "canin"
+    ]
+  },
+  {
+    "source": "ffcb",
+    "slug": "ffcb",
+    "acronyme": "FFCB",
+    "nom": "Fédération Française de Chess Boxing",
+    "url": "https://www.chessboxingfrance.fr",
+    "description": "La Fédération Française de Chess Boxing organise ce sport hybride échecs/boxe.",
+    "clubs_base": 19,
+    "clubs_officiel": 5,
+    "sports_base": [
+      {
+        "id": 298,
+        "nom": "Chess boxing"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Chess boxing",
+        "officiel": 19,
+        "sport_id": 298,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "chess-boxing"
+    ]
+  },
+  {
+    "source": "ffappma",
+    "slug": "ffappma",
+    "acronyme": "FFAPPMA",
+    "nom": "Fédération Française des Associations de Pêche",
+    "url": "https://www.federationpeche.fr",
+    "description": "La FFAPPMA organise le fly fishing en compétition.",
+    "clubs_base": 3146,
+    "clubs_officiel": 4000,
+    "sports_base": [
+      {
+        "id": 319,
+        "nom": "Fly fishing (pêche mouche compét.)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Fly fishing (pêche mouche compét.)",
+        "officiel": 3147,
+        "sport_id": 319,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "peche"
+    ]
+  },
+  {
+    "source": "ffvvvd",
+    "slug": "ffvvvd",
+    "acronyme": "FFVVVD",
+    "nom": "Fédération Française de Vovinam Viet Vo Dao",
+    "url": "https://unionvovinam.fr",
+    "description": "La FFVVVD anime le vovinam viet vo dao.",
+    "clubs_base": 5,
+    "clubs_officiel": 45,
+    "sports_base": [
+      {
+        "id": 340,
+        "nom": "Vovinam Viet Vo Dao"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Vovinam Viet Vo Dao",
+        "officiel": 5,
+        "sport_id": 340,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "vovinam"
+    ]
+  },
+  {
+    "source": "ffnanbudo",
+    "slug": "ffnanbudo",
+    "acronyme": "FFNanbudo",
+    "nom": "Fédération Française de Nanbudo",
+    "url": "https://www.nanbudo.fr",
+    "description": "La FFNanbudo encadre le nanbudo, art martial japonais.",
+    "clubs_base": 10,
+    "clubs_officiel": 100,
+    "sports_base": [
+      {
+        "id": 343,
+        "nom": "Nanbudo"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Nanbudo",
+        "officiel": 10,
+        "sport_id": 343,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "nanbudo"
+    ]
+  },
+  {
+    "source": "fmmaf",
+    "slug": "fmmaf",
+    "acronyme": "FMMAF",
+    "nom": "Fédération Française de MMA",
+    "url": "https://www.fmmaf.fr",
+    "description": "La FMMAF organise le combat libre.",
+    "clubs_base": 370,
+    "clubs_officiel": 250,
+    "sports_base": [
+      {
+        "id": 348,
+        "nom": "Combat libre"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Combat libre",
+        "officiel": 371,
+        "sport_id": 348,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "mma"
+    ]
+  },
+  {
+    "source": "ffsc",
+    "slug": "ffsc",
+    "acronyme": "FFSc",
+    "nom": "Fédération Française de Scrabble",
+    "url": "https://www.ffsc.fr",
+    "description": "La Fédération Française de Scrabble organise les compétitions de scrabble.",
+    "clubs_base": 622,
+    "clubs_officiel": 934,
+    "sports_base": [
+      {
+        "id": 349,
+        "nom": "Jeu de scrabble (compét.)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Jeu de scrabble (compét.)",
+        "officiel": 623,
+        "sport_id": 349,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "scrabble"
+    ]
+  },
+  {
+    "source": "ffbg",
+    "slug": "ffbg",
+    "acronyme": "FFBG",
+    "nom": "Fédération Française de Backgammon",
+    "url": "https://www.ffbackgammon.fr",
+    "description": "La Fédération Française de Backgammon anime ce jeu en compétition.",
+    "clubs_base": 29,
+    "clubs_officiel": 40,
+    "sports_base": [
+      {
+        "id": 352,
+        "nom": "Backgammon"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Backgammon",
+        "officiel": 29,
+        "sport_id": 352,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "backgammon"
+    ]
+  },
+  {
+    "source": "cneac",
+    "slug": "cneac",
+    "acronyme": "CNEAC",
+    "nom": "Comité National d'Épreuves Agility Canine",
+    "url": "https://www.cneac.fr",
+    "description": "La CNEAC est la fédération française dédiée à ses disciplines administrées.",
+    "clubs_base": 18,
+    "clubs_officiel": 800,
+    "sports_base": [
+      {
+        "id": 356,
+        "nom": "Disc dog / Frisbee canin"
+      },
+      {
+        "id": 357,
+        "nom": "Flyball"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Disc dog / Frisbee canin",
+        "officiel": null,
+        "sport_id": 356,
+        "in_data": true
+      },
+      {
+        "label": "Flyball",
+        "officiel": null,
+        "sport_id": 357,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "frisbee-canin"
+    ]
+  },
+  {
+    "source": "ffamhe",
+    "slug": "ffamhe",
+    "acronyme": "FFAMHE",
+    "nom": "Fédération Française des Arts Martiaux Historiques Européens",
+    "url": "https://www.ffamhe.fr",
+    "description": "La FFAMHE organise les arts martiaux historiques européens (HEMA).",
+    "clubs_base": 140,
+    "clubs_officiel": 117,
+    "sports_base": [
+      {
+        "id": 373,
+        "nom": "Hema (arts martiaux historiques)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Hema (arts martiaux historiques)",
+        "officiel": 141,
+        "sport_id": 373,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "hema"
+    ]
+  },
+  {
+    "source": "fnsmr",
+    "slug": "fnsmr",
+    "acronyme": "FNSMR",
+    "nom": "Fédération Nationale du Sport en Milieu Rural",
+    "url": "https://www.fnsmr.org",
+    "description": "La FNSMR anime le sport en milieu rural et le tug of war.",
+    "clubs_base": 1205,
+    "clubs_officiel": 1030,
+    "sports_base": [
+      {
+        "id": 379,
+        "nom": "Tug of war (tir à la corde)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Tug of war (tir à la corde)",
+        "officiel": 1205,
+        "sport_id": 379,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "sport-rural"
+    ]
+  },
+  {
+    "source": "affa",
+    "slug": "affa",
+    "acronyme": "AFFA",
+    "nom": "Association Française de Football Australien",
+    "url": "https://www.affafl.com",
+    "description": "L'Association Française de Football Australien organise l'AFL.",
+    "clubs_base": 9,
+    "clubs_officiel": 8,
+    "sports_base": [
+      {
+        "id": 387,
+        "nom": "Australian football (AFL)"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Australian football (AFL)",
+        "officiel": 9,
+        "sport_id": 387,
+        "in_data": true
+      }
+    ],
+    "discs": [
+      "football-australien"
+    ]
+  },
+  {
+    "source": "ffjudo",
+    "acronyme": "FFJDA",
+    "nom": "Fédération Française de Judo, Jujitsu, Kendo et Disciplines Associées",
+    "url": "https://www.ffjudo.com",
+    "clubs_base": 7723,
+    "clubs_officiel": null,
+    "sports_base": [
+      {
+        "id": 12,
+        "nom": "Judo"
+      },
+      {
+        "id": 112,
+        "nom": "Kendo"
+      },
+      {
+        "id": 113,
+        "nom": "Naginata"
+      },
+      {
+        "id": 116,
+        "nom": "Sumo"
+      },
+      {
+        "id": 117,
+        "nom": "Ju-jitsu"
+      },
+      {
+        "id": 342,
+        "nom": "Iaïdo"
+      }
+    ],
+    "sports_officiel": [],
+    "discs": [
+      "judo",
+      "kendo"
+    ],
+    "description": "La FFJDA dirige le judo, le ju-jitsu, le kendo et les disciplines associées en France. Plus de 600 000 licenciés.",
+    "slug": "ffjudo",
+    "disciplines_count_verified": 6,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffjudo.com/",
+    "aliases": [
+      "ffkendo"
+    ]
+  },
+  {
+    "source": "ffgouren",
+    "acronyme": "FFGouren",
+    "nom": "Fédération de Gouren - Lutte Bretonne",
+    "url": "https://www.ffgouren.com",
+    "clubs_base": 22,
+    "clubs_officiel": 22,
+    "sports_base": [
+      {
+        "id": 999,
+        "nom": "Lutte Bretonne"
+      }
+    ],
+    "sports_officiel": [
+      {
+        "label": "Gouren (Lutte Bretonne)",
+        "sport_id": 999,
+        "in_data": true,
+        "officiel": null
+      }
+    ],
+    "discs": [
+      "lutte-bretonne"
+    ],
+    "description": "La FFGouren organise la pratique du gouren, lutte bretonne traditionnelle. Sport ancestral mêlant force, technique et tradition.",
+    "slug": "ffgouren",
+    "disciplines_count_verified": 1,
+    "disciplines_verified": true,
+    "verified_source": "https://www.ffgouren.com"
+  }
+]

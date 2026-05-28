@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport sur ordonnance — Conditions et démarches | Kinetic</title>
+<meta name="description" content="Si tu as une ALD, ton médecin peut te prescrire 90 séances de sport adapté par an, prises en charge à 100%. Voici comment en bénéficier.">
+<link rel="canonical" href="https://kinetic.app/aide-sport-ordonnance.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .aide-wrap { max-width: 820px; margin: 0 auto; padding: 40px clamp(20px,5vw,56px) 100px; }
+
+  /* Hero — thème clair, accent violet */
+  .aide-hero {
+    background: linear-gradient(135deg, rgba(108,71,255,.08) 0%, rgba(108,71,255,.03) 100%);
+    border: 1px solid rgba(108,71,255,.2);
+    color: var(--ink);
+    border-radius: 32px;
+    padding: 56px 48px; margin-bottom: 48px; position: relative; overflow: hidden;
+  }
+  .aide-hero::before {
+    content: ''; position: absolute; right: -5%; top: -40%;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, var(--violet) 0%, transparent 65%); opacity: .08;
+  }
+  .aide-source {
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 12px; letter-spacing: .25em;
+    color: var(--violet); margin-bottom: 14px; position: relative; z-index: 2;
+  }
+  .aide-hero h1 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700; font-size: clamp(36px, 6vw, 72px);
+    line-height: .92; letter-spacing: -.02em; text-transform: uppercase;
+    position: relative; z-index: 2; margin-bottom: 20px; color: var(--ink);
+  }
+  .aide-hero h1 em { font-style: italic; color: var(--orange); font-weight: 500; }
+  .aide-hero p { font-size: 16px; color: var(--gray); max-width: 500px; line-height: 1.6; position: relative; z-index: 2; }
+
+  /* Encadré principe */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(108,71,255,.07) 0%, rgba(108,71,255,.02) 100%);
+    border: 1px solid rgba(108,71,255,.18); border-radius: 24px; padding: 32px; margin-bottom: 32px;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .highlight-icon { font-size: 40px; flex-shrink: 0; }
+  .highlight-box h2 {
+    font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: 20px;
+    text-transform: uppercase; color: var(--violet); margin-bottom: 10px;
+  }
+  .highlight-box p { font-size: 14px; line-height: 1.65; color: var(--gray); }
+
+  /* Grille ALD */
+  .ald-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-bottom: 40px; }
+  .ald-item {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: 14px; padding: 16px; font-size: 13px; color: var(--ink);
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 1px 4px rgba(46,26,122,.05);
+  }
+  .ald-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); flex-shrink: 0; }
+
+  .section-title {
+    font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: 28px;
+    text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 24px; color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--orange); font-weight: 500; }
+
+  /* Étapes */
+  .aide-steps { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+  .step {
+    background: white; backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid var(--border); border-radius: 20px;
+    padding: 28px; display: grid; grid-template-columns: 48px 1fr; gap: 20px; align-items: start;
+  }
+  .step-num {
+    width: 48px; height: 48px; border-radius: 50%; background: var(--violet); color: white;
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 22px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .step h3 { font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: 18px; text-transform: uppercase; margin-bottom: 8px; color: var(--ink); }
+  .step p { font-size: 14px; line-height: 1.65; color: var(--gray); }
+
+  /* Cartes chiffres */
+  .info-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .info-card {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: 18px; padding: 24px;
+  }
+  .info-card .num {
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 48px; line-height: 1; color: var(--orange); margin-bottom: 6px;
+  }
+  .info-card .label { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+  /* FAQ */
+  .aide-faq { margin-bottom: 40px; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  .faq-item summary {
+    font-size: 15px; font-weight: 600; cursor: pointer; color: var(--ink);
+    list-style: none; display: flex; justify-content: space-between; align-items: center;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; font-size: 20px; color: var(--violet); font-family: 'Bebas Neue', Impact, sans-serif; }
+  details[open] summary::after { content: '-'; }
+  .faq-item p { font-size: 14px; line-height: 1.7; color: var(--gray); margin-top: 14px; }
+
+  /* CTA bloc — dark intentionnel */
+  .aide-cta { background: var(--ink); border-radius: 24px; padding: 40px; text-align: center; color: white; }
+  .aide-cta h2 { font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: 28px; text-transform: uppercase; margin-bottom: 12px; color: white; }
+  .aide-cta p { font-size: 15px; opacity: .7; margin-bottom: 24px; color: white; }
+
+  .crumb { margin-bottom: 32px; }
+
+  @media (max-width: 700px) {
+    .aide-wrap { padding: 16px 14px 60px; }
+    .aide-hero { padding: 26px 20px; border-radius: 22px; margin-bottom: 24px; }
+    .aide-hero h1 { font-size: clamp(28px, 9vw, 44px); margin-bottom: 12px; }
+    .aide-hero p { font-size: 14px; }
+    .highlight-box { padding: 22px 18px; border-radius: 18px; flex-direction: column; gap: 14px; }
+    .highlight-icon { font-size: 32px; }
+    .ald-grid { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 28px; }
+    .ald-item { padding: 12px; font-size: 12px; min-height: 44px; }
+    .section-title { font-size: 22px; margin-bottom: 16px; }
+    .aide-steps { gap: 10px; margin-bottom: 28px; }
+    .step { padding: 18px 14px; grid-template-columns: 40px 1fr; gap: 12px; border-radius: 16px; }
+    .step-num { width: 40px; height: 40px; font-size: 18px; }
+    .info-cards { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+    .info-card { padding: 16px 14px; border-radius: 14px; }
+    .info-card .num { font-size: 32px; }
+    .aide-cta { padding: 24px 20px; border-radius: 20px; }
+    .aide-cta h2 { font-size: 22px; }
+    .aide-cta .btn { width: 100%; }
+  }
+  @media (max-width: 390px) {
+    .ald-grid, .info-cards { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- Open Graph + Twitter (audit 2026-05-28) -->
+<meta property="og:title" content="Sport sur ordonnance — Conditions et démarches | Kinetic">
+<meta property="og:description" content="Si tu as une ALD, ton médecin peut te prescrire 90 séances de sport adapté par an, prises en charge à 100%. Voici comment en bénéficier.">
+<meta property="og:url" content="https://kinetic.app/aide-sport-ordonnance.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sport sur ordonnance — Conditions et démarches | Kinetic">
+<meta name="twitter:description" content="Si tu as une ALD, ton médecin peut te prescrire 90 séances de sport adapté par an, prises en charge à 100%. Voici comment en bénéficier.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<main id="main-content" class="aide-wrap">
+  <nav class="crumb" aria-label="Fil d'Ariane">
+    <a href="index.html">Accueil</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <a href="aide-passsport.html">Aides financières</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <span aria-current="page">Sport sur ordonnance</span>
+  </nav>
+
+  <div class="aide-hero">
+    <div class="aide-source">SOURCE · ASSURANCE MALADIE · 2025</div>
+    <h1>Sport sur<br><em>ordonnance</em></h1>
+    <p>Si tu as une maladie de longue durée, ton médecin peut te prescrire du sport thérapeutique. Jusqu'à 90 séances par an, remboursées.</p>
+  </div>
+
+  <div class="highlight-box">
+    <div class="highlight-icon">⚕️</div>
+    <div>
+      <h2>Le principe</h2>
+      <p>Depuis 2017, les médecins peuvent prescrire une "Activité Physique Adaptée" (APA) à leurs patients atteints d'une Affection Longue Durée (ALD). Le sport devient un outil médical, prescrit et encadré par des professionnels diplômés.</p>
+    </div>
+  </div>
+
+  <div class="info-cards">
+    <div class="info-card"><div class="num">90</div><div class="label">séances maximales par an prescrites par ton médecin</div></div>
+    <div class="info-card"><div class="num">100<span style="font-size:28px">%</span></div><div class="label">prise en charge sous conditions par l'Assurance Maladie</div></div>
+    <div class="info-card"><div class="num">30+</div><div class="label">ALD éligibles, dont diabète, cancer, dépression, obésité…</div></div>
+  </div>
+
+  <h2 class="section-title">ALD éligibles — <em>exemples</em></h2>
+  <div class="ald-grid">
+    <div class="ald-item"><span class="dot"></span>Diabète (type 1 et 2)</div>
+    <div class="ald-item"><span class="dot"></span>Cancer (suivi post-traitement)</div>
+    <div class="ald-item"><span class="dot"></span>Dépression sévère</div>
+    <div class="ald-item"><span class="dot"></span>Obésité sévère</div>
+    <div class="ald-item"><span class="dot"></span>Maladies cardiovasculaires</div>
+    <div class="ald-item"><span class="dot"></span>Insuffisance respiratoire</div>
+    <div class="ald-item"><span class="dot"></span>Arthrose évoluée</div>
+    <div class="ald-item"><span class="dot"></span>Maladies rhumatismales</div>
+    <div class="ald-item"><span class="dot"></span>Parkinson</div>
+    <div class="ald-item"><span class="dot"></span>Sclérose en plaques</div>
+  </div>
+
+  <h2 class="section-title">Comment ça fonctionne — <em>étape par étape</em></h2>
+  <div class="aide-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <h3>Parles-en à ton médecin</h3>
+        <p>Lors de ta prochaine consultation, mentionne ton intérêt pour l'APA. Si tu as une ALD reconnue, ton médecin peut te rédiger une prescription d'activité physique adaptée.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <h3>Trouver un professionnel APA</h3>
+        <p>La prescription précise le type d'activité recommandée. Tu dois ensuite trouver un professionnel "Enseignant en APA" (EAPA), diplômé d'État. Ta maison de santé ou ta mairie peut t'orienter.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <h3>Débuter les séances</h3>
+        <p>Les séances sont encadrées et adaptées à ta pathologie et ton niveau. L'EAPA fait un bilan initial, construit un programme personnalisé, et suit ta progression. C'est un sport réellement thérapeutique.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <h3>Remboursement</h3>
+        <p>Selon les régions et ta situation, la prise en charge est partielle ou totale. Renseigne-toi auprès de ta CPAM locale — certains départements couvrent 100% des séances via des conventions locales.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="aide-faq">
+    <h2 class="section-title">Questions fréquentes</h2>
+    <details class="faq-item">
+      <summary>Quels sports sont concernés par l'APA ?</summary>
+      <p>Tout dépend de ta pathologie et de ce que ton médecin recommande. En général : marche nordique, natation, cyclisme, renforcement musculaire doux, yoga thérapeutique, tai-chi. Les sports de contact ou à forte intensité sont rarement prescrits en première intention.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Est-ce cumulable avec d'autres dispositifs ?</summary>
+      <p>Oui. Tu peux cumuler l'APA avec le remboursement de ta mutuelle pour des séances supplémentaires, ou avec des aides locales de ta mairie. En revanche, le Pass'Sport ne s'applique pas aux séances APA (qui ne nécessitent pas de licence sportive).</p>
+    </details>
+    <details class="faq-item">
+      <summary>Y a-t-il des délais pour obtenir une prescription ?</summary>
+      <p>Non — si tu as une ALD reconnue, ton médecin peut te prescrire l'APA à n'importe quelle consultation. C'est simplement une ordonnance comme une autre. La difficulté est parfois de trouver un professionnel EAPA dans ta zone géographique.</p>
+    </details>
+  </div>
+
+  <div class="aide-cta">
+    <h2>Trouve ton sport<br><span style="color:var(--orange);font-style:italic">adapté à ta situation</span></h2>
+    <p>Notre quiz prend en compte ton niveau, ta condition physique et tes contraintes pour te recommander les sports les mieux adaptés.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="trouver-club.html" class="btn btn-primary btn-lg">Trouver mon sport</a>
+      <a href="map.html" class="btn btn-ghost btn-lg">Trouver un club</a>
+    </div>
+  </div>
+</main>
+
+<script src="components/footer.js" defer></script>
+<script src="components/cookie-banner.js" defer></script>
+</body>
+</html>

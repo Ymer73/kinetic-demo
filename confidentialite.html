@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de confidentialité | Kinetic</title>
+<meta name="description" content="Politique de confidentialité de Kinetic — comment nous traitons (ou plutôt ne traitons pas) vos données personnelles.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://kinetic.app/confidentialite.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .legal-wrap { max-width: 780px; margin: 0 auto; padding: 40px 24px 100px; }
+  .legal-hero { background: var(--violet); color: white; border-radius: 32px; padding: 48px; margin-bottom: 40px; position: relative; overflow: hidden; }
+  .legal-hero::before { content: ''; position: absolute; right: -10%; top: -40%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,.3) 0%, transparent 70%); }
+  .legal-eyebrow { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 13px; letter-spacing: .25em; opacity: .7; margin-bottom: 12px; position: relative; z-index: 2; }
+  .legal-hero h1 { font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: clamp(36px, 6vw, 72px); line-height: .92; letter-spacing: -.02em; text-transform: uppercase; position: relative; z-index: 2; }
+  .legal-date { font-size: 13px; opacity: .6; margin-top: 12px; position: relative; z-index: 2; }
+  .legal-body { display: flex; flex-direction: column; gap: 32px; }
+  .legal-section { background: white; border: 1.5px solid var(--border); box-shadow: 0 2px 12px rgba(46,26,122,.06); border-radius: 24px; padding: 32px; }
+  .legal-section h2 { font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 16px; color: var(--ink); }
+  .legal-section h2 .accent { color: var(--violet); font-style: italic; font-weight: 500; }
+  .legal-section p, .legal-section li { font-size: 14px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 10px; }
+  .legal-section ul { padding-left: 20px; }
+  .legal-section strong { color: var(--ink); font-weight: 700; }
+  .legal-section a { color: var(--violet); text-decoration: underline; }
+  .highlight-card {
+    background: linear-gradient(135deg, var(--violet-ultralight), var(--paper));
+    border: 1.5px solid var(--violet-light); border-radius: 16px; padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .highlight-card strong { color: var(--violet); }
+
+  @media (max-width: 700px) {
+    .legal-wrap { padding: 16px 14px 60px; }
+    .legal-hero { padding: 24px 20px; border-radius: 22px; margin-bottom: 24px; }
+    .legal-hero h1 { font-size: clamp(28px, 9vw, 44px); }
+    .legal-body { gap: 16px; }
+    .legal-section { padding: 22px 18px; border-radius: 18px; }
+    .legal-section h2 { font-size: 18px; margin-bottom: 12px; }
+    .legal-section p, .legal-section li { font-size: 13px; }
+    .highlight-card { padding: 16px 18px; border-radius: 14px; }
+  }
+</style>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<main id="main-content" class="legal-wrap">
+  <nav aria-label="Fil d'Ariane" class="crumb">
+    <a href="index.html">Kinetic</a>
+    <span class="sep" aria-hidden="true">/</span>
+    <span class="crumb-current" aria-current="page">Confidentialité</span>
+  </nav>
+
+  <div class="legal-hero">
+    <div class="legal-eyebrow">KINETIC · RGPD</div>
+    <h1>Politique de<br>confidentialité</h1>
+    <div class="legal-date">Dernière mise à jour : 22 avril 2026</div>
+  </div>
+
+  <div class="legal-body">
+    <section class="legal-section" aria-labelledby="s-principe">
+      <h2 id="s-principe">Notre <span class="accent">principe</span></h2>
+      <div class="highlight-card">
+        <strong>Privacy by design.</strong> Kinetic a été conçu pour fonctionner sans collecter de données personnelles. Vous n'avez pas de compte. Vos réponses ne nous sont pas envoyées. Nous ne vous trackons pas.
+      </div>
+      <p>Ce document décrit précisément ce qui se passe avec vos données quand vous utilisez Kinetic.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="s-quiz">
+      <h2 id="s-quiz">Le quiz <span class="accent">&amp; vos réponses</span></h2>
+      <p>Vos réponses au quiz sont stockées <strong>uniquement dans votre navigateur</strong>, dans deux zones de stockage local :</p>
+      <ul>
+        <li><strong>sessionStorage</strong> : les résultats du quiz. Effacé automatiquement à la fermeture de l'onglet.</li>
+        <li><strong>localStorage</strong> : la progression du quiz (si vous partez et revenez). Vous pouvez l'effacer via les paramètres de votre navigateur.</li>
+      </ul>
+      <p>Ces données <strong>ne quittent jamais votre appareil</strong> et ne sont jamais transmises à nos serveurs.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="s-logs">
+      <h2 id="s-logs">Logs <span class="accent">serveur</span></h2>
+      <p>Comme tout site web, notre hébergeur (Vercel) enregistre automatiquement des données techniques à chaque requête HTTP :</p>
+      <ul>
+        <li>Adresse IP (anonymisée après 24h)</li>
+        <li>Date et heure de la requête</li>
+        <li>Page visitée</li>
+        <li>Navigateur et système d'exploitation (User-Agent)</li>
+      </ul>
+      <p>Ces logs sont utilisés uniquement à des fins de sécurité et de diagnostic technique. Ils ne sont pas croisés avec d'autres données et ne permettent pas d'identifier un individu.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="s-cookies">
+      <h2 id="s-cookies">Cookies</h2>
+      <p>Kinetic n'utilise <strong>aucun cookie de tracking, publicité ou analyse comportementale</strong>. Le seul cookie fonctionnel stocké est votre choix de consentement à la bannière cookie (<code>kinetic_cookie_consent</code>).</p>
+      <p>Pour plus de détails, consultez notre <a href="cookies.html">politique de cookies</a>.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="s-tiers">
+      <h2 id="s-tiers">Services <span class="accent">tiers</span></h2>
+      <p>Kinetic charge les ressources suivantes depuis des services tiers :</p>
+      <ul>
+        <li><strong>Google Fonts</strong> : chargement des polices de caractères (Inter, Archivo Narrow, Bebas Neue). Google peut enregistrer votre IP lors de ce chargement.</li>
+        <li><strong>Leaflet + OpenStreetMap</strong> : affichage des cartes de clubs. OSM peut enregistrer votre IP lors du chargement des tuiles.</li>
+        <li><strong>Vercel</strong> : hébergement du site (voir section Logs).</li>
+      </ul>
+    </section>
+
+    <section class="legal-section" aria-labelledby="s-droits">
+      <h2 id="s-droits">Vos <span class="accent">droits</span></h2>
+      <p>Conformément au RGPD (Règlement Général sur la Protection des Données), vous disposez des droits suivants :</p>
+      <ul>
+        <li><strong>Droit d'accès</strong> : savoir quelles données nous détenons sur vous (en l'occurrence, aucune).</li>
+        <li><strong>Droit à l'effacement</strong> : les données locales peuvent être effacées depuis les paramètres de votre navigateur.</li>
+        <li><strong>Droit de contact</strong> : pour toute question, écrivez à <a href="mailto:privacy@kinetic.app">privacy@kinetic.app</a>.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<script src="components/footer.js" defer></script>
+<script src="components/cookie-banner.js" defer></script>
+</body>
+</html>

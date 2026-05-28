@@ -1,0 +1,53 @@
+{
+  "name": "Kinetic — Trouve ton sport idéal",
+  "short_name": "Kinetic",
+  "description": "Réponds à 10 questions et découvre les 5 sports qui te correspondent parmi 477 disciplines.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF8FF",
+  "theme_color": "#0E0B1F",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "label": "Kinetic — Page d'accueil"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Faire le quiz",
+      "short_name": "Quiz",
+      "url": "/quiz.html",
+      "description": "Démarrer le quiz sportif"
+    },
+    {
+      "name": "Explorer les sports",
+      "short_name": "Explorer",
+      "url": "/explorer.html",
+      "description": "Découvrir des sports insolites"
+    }
+  ],
+  "orientation": "portrait"
+}

@@ -1,0 +1,284 @@
+[
+  {
+    "id": 35,
+    "nom": "Pétanque",
+    "cat": "Individuel",
+    "fedSlug": "ffpjp"
+  },
+  {
+    "id": 38,
+    "nom": "Football américain",
+    "cat": "Collectif",
+    "fedSlug": "fffa"
+  },
+  {
+    "id": 47,
+    "nom": "Parachutisme",
+    "cat": "Glisse",
+    "fedSlug": "ffp"
+  },
+  {
+    "id": 56,
+    "nom": "Ultimate Frisbee",
+    "cat": "Collectif",
+    "fedSlug": "fffd"
+  },
+  {
+    "id": 78,
+    "nom": "Pêche sportive",
+    "cat": "Montagne & Nature",
+    "fedSlug": "ffappma"
+  },
+  {
+    "id": 79,
+    "nom": "Floorball",
+    "cat": "Collectif",
+    "fedSlug": "fffloorball"
+  },
+  {
+    "id": 108,
+    "nom": "Disc Golf",
+    "cat": "Individuel",
+    "fedSlug": "fffd"
+  },
+  {
+    "id": 111,
+    "nom": "Korfball",
+    "cat": "Collectif",
+    "fedSlug": "fkf"
+  },
+  {
+    "id": 137,
+    "nom": "Flag Football",
+    "cat": "Collectif",
+    "fedSlug": "fffa"
+  },
+  {
+    "id": 140,
+    "nom": "E-sport / Sport électronique",
+    "cat": "Mental",
+    "fedSlug": "france-esports"
+  },
+  {
+    "id": 141,
+    "nom": "Padel Beach",
+    "cat": "Individuel",
+    "fedSlug": "fft"
+  },
+  {
+    "id": 143,
+    "nom": "Bubble football",
+    "cat": "Collectif",
+    "fedSlug": "fff"
+  },
+  {
+    "id": 148,
+    "nom": "Poker sportif",
+    "cat": "Mental",
+    "fedSlug": "ffpa"
+  },
+  {
+    "id": 167,
+    "nom": "Fléchettes sportives",
+    "cat": "Individuel",
+    "fedSlug": "ffflechettes"
+  },
+  {
+    "id": 181,
+    "nom": "Hapkido",
+    "cat": "Combat",
+    "fedSlug": "fftk"
+  },
+  {
+    "id": 193,
+    "nom": "Parachutisme artistique",
+    "cat": "Glisse",
+    "fedSlug": "ffp"
+  },
+  {
+    "id": 194,
+    "nom": "Base jump",
+    "cat": "Glisse",
+    "fedSlug": "ffp"
+  },
+  {
+    "id": 216,
+    "nom": "Soft tennis",
+    "cat": "Individuel",
+    "fedSlug": "fft"
+  },
+  {
+    "id": 217,
+    "nom": "Pentanque enfants / School sport",
+    "cat": "Individuel",
+    "fedSlug": "ffpjp"
+  },
+  {
+    "id": 242,
+    "nom": "Paume (jeu de)",
+    "cat": "Individuel",
+    "fedSlug": "fft"
+  },
+  {
+    "id": 244,
+    "nom": "Jeu provençal",
+    "cat": "Individuel",
+    "fedSlug": "ffpjp"
+  },
+  {
+    "id": 270,
+    "nom": "Rock'n'roll acrobatique",
+    "cat": "Danse & Arts",
+    "fedSlug": "ffds"
+  },
+  {
+    "id": 272,
+    "nom": "Fitness sportif",
+    "cat": "Individuel",
+    "fedSlug": "fff"
+  },
+  {
+    "id": 273,
+    "nom": "Beach tennis",
+    "cat": "Individuel",
+    "fedSlug": "fft"
+  },
+  {
+    "id": 286,
+    "nom": "Calisthenics",
+    "cat": "Individuel",
+    "fedSlug": "ffcalisthenics"
+  },
+  {
+    "id": 292,
+    "nom": "Footvolley",
+    "cat": "Collectif",
+    "fedSlug": "fffv"
+  },
+  {
+    "id": 294,
+    "nom": "Canicross",
+    "cat": "Montagne & Nature",
+    "fedSlug": "ffslc"
+  },
+  {
+    "id": 295,
+    "nom": "Cani-VTT",
+    "cat": "Montagne & Nature",
+    "fedSlug": "ffslc"
+  },
+  {
+    "id": 301,
+    "nom": "Jeux basques (force athlétique)",
+    "cat": "Individuel",
+    "fedSlug": "ffpb"
+  },
+  {
+    "id": 306,
+    "nom": "Fléchettes",
+    "cat": "Individuel",
+    "fedSlug": "fff"
+  },
+  {
+    "id": 315,
+    "nom": "Courses de lévriers",
+    "cat": "Individuel",
+    "fedSlug": "ffcl"
+  },
+  {
+    "id": 318,
+    "nom": "Ski-joëring",
+    "cat": "Glisse",
+    "fedSlug": "ffslc"
+  },
+  {
+    "id": 332,
+    "nom": "Wingsuit (parachutisme)",
+    "cat": "Aérien",
+    "fedSlug": "ffp"
+  },
+  {
+    "id": 333,
+    "nom": "Freefly (parachutisme)",
+    "cat": "Aérien",
+    "fedSlug": "ffp"
+  },
+  {
+    "id": 334,
+    "nom": "Canopy piloting / Voile de contact",
+    "cat": "Aérien",
+    "fedSlug": "ffp"
+  },
+  {
+    "id": 342,
+    "nom": "Iaïdo",
+    "cat": "Combat",
+    "fedSlug": "ffjudo"
+  },
+  {
+    "id": 344,
+    "nom": "Bujinkan / Ninjutsu",
+    "cat": "Combat",
+    "fedSlug": "ffbujinkan"
+  },
+  {
+    "id": 346,
+    "nom": "Tang soo do",
+    "cat": "Combat",
+    "fedSlug": "fftk"
+  },
+  {
+    "id": 369,
+    "nom": "Lévrier (course)",
+    "cat": "Individuel",
+    "fedSlug": "ffcl"
+  },
+  {
+    "id": 370,
+    "nom": "Fauconnerie (sport)",
+    "cat": "Individuel",
+    "fedSlug": "fff"
+  },
+  {
+    "id": 374,
+    "nom": "Pétanque de précision",
+    "cat": "Individuel",
+    "fedSlug": "ffpjp"
+  },
+  {
+    "id": 381,
+    "nom": "Strongman",
+    "cat": "Individuel",
+    "fedSlug": "ffhf"
+  },
+  {
+    "id": 413,
+    "nom": "Parafreefly",
+    "cat": "Aérien",
+    "fedSlug": "ffp"
+  },
+  {
+    "id": 422,
+    "nom": "Poomsae (taekwondo formes)",
+    "cat": "Combat",
+    "fedSlug": "fftk"
+  },
+  {
+    "id": 425,
+    "nom": "E-football (FIFA/EA FC)",
+    "cat": "Mental",
+    "fedSlug": "fff"
+  },
+  {
+    "id": 430,
+    "nom": "Sim racing (simulateur auto)",
+    "cat": "Mental",
+    "fedSlug": "ffsr"
+  },
+  {
+    "id": 432,
+    "nom": "Paintball",
+    "cat": "Individuel",
+    "fedSlug": "ffpb"
+  }
+]

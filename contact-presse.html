@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact presse | Kinetic Studio</title>
+<meta name="description" content="Kit presse Kinetic : statistiques, visuels, contact presse. 4,5M de vues TikTok, 290 sports, 125 982 clubs. Studio indépendant basé en France.">
+<link rel="canonical" href="https://kinetic.app/contact-presse.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+<link rel="stylesheet" href="shared.css">
+
+<style>
+  .presse-wrap { max-width: 900px; margin: 0 auto; padding: 40px clamp(20px,5vw,56px) 100px; }
+
+  .presse-hero {
+    background: var(--ink); border-radius: 32px; padding: 56px 48px; margin-bottom: 48px;
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
+  }
+  .presse-hero::before {
+    content: ''; position: absolute; right: -5%; top: -40%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--orange) 0%, transparent 65%); opacity: .3;
+  }
+  .presse-eyebrow {
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 12px; letter-spacing: .3em;
+    color: var(--orange); margin-bottom: 16px; position: relative; z-index: 2;
+  }
+  .presse-hero h1 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700; font-size: clamp(40px, 7vw, 80px);
+    line-height: .92; letter-spacing: -.02em; text-transform: uppercase;
+    position: relative; z-index: 2; margin-bottom: 16px;
+  }
+  .presse-hero h1 em { font-style: italic; color: var(--orange); font-weight: 500; }
+  .presse-hero p { font-size: 15px; opacity: .7; line-height: 1.6; max-width: 420px; position: relative; z-index: 2; }
+  .presse-contact-direct {
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px; padding: 28px; text-align: center; flex-shrink: 0;
+    position: relative; z-index: 2;
+  }
+  .presse-contact-direct .label { font-size: 12px; letter-spacing: .15em; color: var(--gray); margin-bottom: 10px; }
+  .presse-contact-direct a { font-size: 16px; font-weight: 700; color: white; text-decoration: none; word-break: break-all; }
+  .presse-contact-direct a:hover { color: var(--orange); }
+  .presse-contact-direct .delay { font-size: 12px; color: var(--gray); margin-top: 8px; }
+
+  .section-title {
+    font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: 28px;
+    text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 24px;
+  }
+  .section-title em { font-style: italic; color: var(--orange); font-weight: 500; }
+  .section-eyebrow {
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 12px; letter-spacing: .3em;
+    color: var(--gray); margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .chiffres-presse { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-bottom: 48px; }
+  .chiffre-card {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: 18px; padding: 24px;
+  }
+  .chiffre-card .num {
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 44px; line-height: 1; color: var(--orange); margin-bottom: 6px;
+  }
+  .chiffre-card .label { font-size: 12px; color: var(--gray); line-height: 1.5; text-transform: uppercase; letter-spacing: .05em; }
+
+  .kit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 48px; }
+  .kit-item {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 12px;
+  }
+  .kit-item .icon { font-size: 32px; }
+  .kit-item strong { font-size: 14px; color: white; }
+  .kit-item span { font-size: 12px; color: var(--gray); line-height: 1.5; flex: 1; }
+  .kit-item a {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 12px; letter-spacing: .15em; color: var(--violet);
+    text-decoration: none; transition: color .2s;
+  }
+  .kit-item a:hover { color: var(--orange); }
+
+  .contact-form {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: 28px; padding: 40px; margin-bottom: 40px;
+  }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-field { display: flex; flex-direction: column; gap: 8px; }
+  .form-field.full { grid-column: 1/-1; }
+  .form-field label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
+  .form-input, .form-select, .form-textarea {
+    padding: 14px 16px;
+    background: rgba(255,255,255,.05); border: 1px solid var(--border);
+    border-radius: 12px; font-size: 14px; color: white; outline: none;
+    font-family: 'Inter', sans-serif; transition: border-color .2s;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--gray); }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--orange); }
+  .form-select { cursor: pointer; }
+  .form-select option { background: var(--bg); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    width: 100%; padding: 18px; background: var(--orange); color: white; border: none;
+    border-radius: 14px; font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 18px; letter-spacing: .1em; cursor: pointer; transition: opacity .2s, transform .2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { opacity: .9; transform: translateY(-1px); }
+
+  .crumb { margin-bottom: 32px; }
+
+  @media (max-width: 700px) {
+    .presse-hero { grid-template-columns: 1fr; gap: 20px; padding: 0 14px; }
+    .presse-contact-direct { text-align: left; padding: 22px 18px; border-radius: 20px; }
+    .form-grid { grid-template-columns: 1fr; gap: 12px; }
+    .form-input, .form-textarea, .form-select { min-height: 48px; font-size: 16px; }
+    .form-textarea { min-height: 140px; }
+    .form-submit { padding: 16px; font-size: 16px; }
+    .presse-wrap { padding: 0 14px 60px; }
+  }
+</style>
+
+<!-- Open Graph + Twitter (audit 2026-05-28) -->
+<meta property="og:title" content="Contact presse | Kinetic Studio">
+<meta property="og:description" content="Kit presse Kinetic : statistiques, visuels, contact presse. 4,5M de vues TikTok, 290 sports, 125 982 clubs. Studio indépendant basé en France.">
+<meta property="og:url" content="https://kinetic.app/contact-presse.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact presse | Kinetic Studio">
+<meta name="twitter:description" content="Kit presse Kinetic : statistiques, visuels, contact presse. 4,5M de vues TikTok, 290 sports, 125 982 clubs. Studio indépendant basé en France.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<main id="main-content" class="presse-wrap">
+  <nav class="crumb" aria-label="Fil d'Ariane">
+    <a href="index.html">Accueil</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <span aria-current="page">Contact presse</span>
+  </nav>
+
+  <div class="presse-hero">
+    <div>
+      <div class="presse-eyebrow">KINETIC STUDIO · ESPACE PRESSE</div>
+      <h1>Contact<br><em>presse</em></h1>
+      <p>Tu travailles pour un média, une chaîne, un podcast ou une publication ? On est disponibles pour des interviews, reportages, partenariats éditoriaux et prises de parole.</p>
+    </div>
+    <div class="presse-contact-direct">
+      <div class="label">CONTACT DIRECT</div>
+      <a href="mailto:presse@kinetic.app">presse@kinetic.app</a>
+      <div class="delay">Réponse sous 48h ouvrées</div>
+    </div>
+  </div>
+
+  <div class="section-eyebrow">KINETIC EN CHIFFRES</div>
+  <h2 class="section-title">Le studio <em>en data</em></h2>
+  <div class="chiffres-presse">
+    <div class="chiffre-card"><div class="num">4,5M</div><div class="label">Vues/mois sur TikTok</div></div>
+    <div class="chiffre-card"><div class="num">290</div><div class="label">Sports référencés</div></div>
+    <div class="chiffre-card"><div class="num">126k+</div><div class="label">Clubs géolocalisés</div></div>
+    <div class="chiffre-card"><div class="num">12k</div><div class="label">Abonnés newsletter</div></div>
+    <div class="chiffre-card"><div class="num">28</div><div class="label">Dimensions d'analyse</div></div>
+    <div class="chiffre-card"><div class="num">2min</div><div class="label">Pour matcher un profil</div></div>
+  </div>
+
+  <div class="section-eyebrow">KIT PRESSE</div>
+  <h2 class="section-title">Ressources <em>disponibles</em></h2>
+  <div class="kit-grid">
+    <div class="kit-item">
+      <span class="icon">🖼️</span>
+      <strong>Logos & visuels</strong>
+      <span>Logo vectoriel, palette de couleurs, typos, captures d'écran HD.</span>
+      <a href="mailto:presse@kinetic.app?subject=Kit%20presse%20Kinetic">Demander →</a>
+    </div>
+    <div class="kit-item">
+      <span class="icon">📄</span>
+      <strong>Dossier de presse</strong>
+      <span>Présentation complète du projet, équipe, données clés, vision.</span>
+      <a href="mailto:presse@kinetic.app?subject=Dossier%20de%20presse">Demander →</a>
+    </div>
+    <div class="kit-item">
+      <span class="icon">📊</span>
+      <strong>Data & statistiques</strong>
+      <span>Données exclusives sur la pratique sportive en France issues de notre index.</span>
+      <a href="mailto:presse@kinetic.app?subject=Data%20Kinetic">Demander →</a>
+    </div>
+    <div class="kit-item">
+      <span class="icon">🎙️</span>
+      <strong>Interview / Prise de parole</strong>
+      <span>L'équipe est disponible pour des interviews presse, radio, podcast ou TV.</span>
+      <a href="mailto:presse@kinetic.app?subject=Interview">Demander →</a>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h2 class="section-title">Formulaire de <em>contact</em></h2>
+    <form onsubmit="handlePresseSubmit(event)">
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="nom">Nom / Prénom</label>
+          <input type="text" id="nom" class="form-input" placeholder="Marie Dupont" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email professionnel</label>
+          <input type="email" id="email" class="form-input" placeholder="marie@lemonde.fr" required>
+        </div>
+        <div class="form-field">
+          <label for="media">Média / Publication</label>
+          <input type="text" id="media" class="form-input" placeholder="Le Monde, Brut, L'Équipe…">
+        </div>
+        <div class="form-field">
+          <label for="type">Type de demande</label>
+          <select id="type" class="form-select">
+            <option value="">Sélectionner…</option>
+            <option>Interview (presse écrite)</option>
+            <option>Interview (radio / podcast)</option>
+            <option>Interview (TV / vidéo)</option>
+            <option>Partenariat éditorial</option>
+            <option>Données / statistiques</option>
+            <option>Kit presse</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-field full">
+          <label for="message">Message</label>
+          <textarea id="message" class="form-textarea" placeholder="Décris ton projet, la date souhaitée, le format…" required></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">Envoyer la demande →</button>
+    </form>
+  </div>
+</main>
+
+<script>
+function handlePresseSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  form.innerHTML = `
+    <div style="text-align:center;padding:40px 0">
+      <div style="font-size:48px;margin-bottom:16px">✅</div>
+      <h3 style="font-family:'Archivo Narrow',Impact,sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;margin-bottom:12px">Demande reçue !</h3>
+      <p style="font-size:14px;color:var(--gray);line-height:1.6">On revient vers toi sous 48h ouvrées. Si tu as un délai urgent, écris directement à <a href="mailto:presse@kinetic.app" style="color:var(--orange)">presse@kinetic.app</a>.</p>
+    </div>
+  `;
+}
+</script>
+<script src="components/footer.js" defer></script>
+<script src="components/cookie-banner.js" defer></script>
+</body>
+</html>

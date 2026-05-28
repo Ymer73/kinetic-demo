@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter Kinetic — Le sport, mais fun dans ta boîte mail</title>
+<meta name="description" content="Reçois chaque mois les sports en vogue, les aides à ne pas rater, les chiffres qui comptent et les bons plans de Kinetic. Gratuit, sans spam.">
+<link rel="canonical" href="https://kinetic.app/newsletter.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+<link rel="stylesheet" href="shared.css">
+
+<style>
+  .nl-wrap { max-width: 680px; margin: 0 auto; padding: 40px clamp(20px,5vw,56px) 100px; }
+
+  .nl-hero {
+    text-align: center; margin-bottom: 48px;
+  }
+  .nl-issue {
+    display: inline-block;
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 12px; letter-spacing: .3em;
+    color: var(--orange); margin-bottom: 24px;
+  }
+  .nl-hero h1 {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700; font-size: clamp(48px, 9vw, 96px);
+    line-height: .88; letter-spacing: -.03em; text-transform: uppercase; margin-bottom: 20px;
+  }
+  .nl-hero h1 em { font-style: italic; color: var(--orange); font-weight: 500; }
+  .nl-hero p { font-size: 17px; line-height: 1.7; color: var(--gray); }
+
+  .nl-form {
+    background: var(--ink); border-radius: 28px; padding: 40px; margin-bottom: 40px;
+    position: relative; overflow: hidden;
+  }
+  .nl-form::before {
+    content: ''; position: absolute; right: -10%; bottom: -20%;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, var(--violet) 0%, transparent 65%); opacity: .4;
+  }
+  .nl-form-inner { position: relative; z-index: 2; }
+  .nl-form h2 {
+    font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: 28px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .nl-form p { font-size: 14px; color: var(--gray); margin-bottom: 24px; }
+
+  .input-group { display: flex; gap: 12px; margin-bottom: 16px; }
+  .nl-input {
+    flex: 1; padding: 16px 20px;
+    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15);
+    border-radius: 14px; font-size: 15px; color: white; outline: none;
+    font-family: 'Inter', sans-serif; transition: border-color .2s;
+  }
+  .nl-input::placeholder { color: var(--gray); }
+  .nl-input:focus { border-color: var(--orange); }
+  .nl-submit {
+    padding: 16px 28px; background: var(--orange); color: white; border: none;
+    border-radius: 14px; font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 16px; letter-spacing: .1em; cursor: pointer;
+    transition: opacity .2s, transform .2s; white-space: nowrap;
+  }
+  .nl-submit:hover { opacity: .9; transform: translateY(-1px); }
+  .nl-legal { font-size: 12px; color: var(--gray); line-height: 1.5; }
+  .nl-legal a { color: var(--gray); text-decoration: underline; }
+
+  .nl-preview h2 {
+    font-family: 'Archivo Narrow', Impact, sans-serif; font-weight: 700; font-size: 24px;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+  .nl-preview h2 em { font-style: italic; color: var(--orange); font-weight: 500; }
+
+  .preview-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+  .preview-item {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: 16px; padding: 20px 24px; display: flex; gap: 16px; align-items: center;
+  }
+  .preview-item .icon { font-size: 28px; flex-shrink: 0; }
+  .preview-item strong { font-size: 14px; color: white; display: block; margin-bottom: 4px; }
+  .preview-item span { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+  .social-strip { text-align: center; }
+  .social-strip p { font-size: 15px; color: var(--gray); margin-bottom: 20px; }
+  .social-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .social-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px; border-radius: 100px; border: 1px solid var(--border);
+    font-size: 14px; text-decoration: none; color: var(--ink); transition: border-color .2s, color .2s;
+  }
+  .social-link:hover { border-color: var(--orange); color: var(--orange); }
+
+  .success-msg {
+    display: none; background: linear-gradient(135deg, rgba(76,175,80,.15) 0%, rgba(76,175,80,.05) 100%);
+    border: 1px solid rgba(76,175,80,.3); border-radius: 16px; padding: 24px;
+    text-align: center; margin-top: 16px; color: #81c784;
+    font-size: 15px; line-height: 1.6;
+  }
+
+  .crumb { margin-bottom: 32px; }
+
+  @media (max-width: 700px) {
+    .nl-wrap { padding: 0 14px 60px; }
+    .nl-hero { margin-bottom: 28px; }
+    .nl-hero h1 { font-size: clamp(40px, 12vw, 64px); }
+    .nl-hero p { font-size: 15px; }
+    .nl-form { padding: 24px 20px; border-radius: 24px; margin-bottom: 28px; }
+    .nl-form h2 { font-size: 22px; }
+    .input-group { flex-direction: column; gap: 10px; }
+    .nl-input { width: 100%; min-height: 48px; font-size: 16px; }
+    .nl-submit { width: 100%; min-height: 48px; text-align: center; }
+    .preview-item { padding: 16px 18px; border-radius: 14px; gap: 12px; }
+    .social-link { padding: 10px 16px; font-size: 13px; min-height: 44px; }
+  }
+
+  @media (max-width: 480px) {
+    .nl-hero h1 { font-size: clamp(36px, 12vw, 56px); }
+    .nl-form { padding: 20px 16px; }
+  }
+</style>
+
+<!-- Open Graph + Twitter (audit 2026-05-28) -->
+<meta property="og:title" content="Newsletter Kinetic — Le sport, mais fun dans ta boîte mail">
+<meta property="og:description" content="Reçois chaque mois les sports en vogue, les aides à ne pas rater, les chiffres qui comptent et les bons plans de Kinetic. Gratuit, sans spam.">
+<meta property="og:url" content="https://kinetic.app/newsletter.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Newsletter Kinetic — Le sport, mais fun dans ta boîte mail">
+<meta name="twitter:description" content="Reçois chaque mois les sports en vogue, les aides à ne pas rater, les chiffres qui comptent et les bons plans de Kinetic. Gratuit, sans spam.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<main id="main-content" class="nl-wrap">
+  <nav class="crumb" aria-label="Fil d'Ariane">
+    <a href="index.html">Accueil</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <span aria-current="page">Newsletter</span>
+  </nav>
+
+  <div class="nl-hero">
+    <span class="nl-issue">KINETIC NEWSLETTER · MENSUELLE</span>
+    <h1>Le sport,<br>dans ta<br><em>boîte mail.</em></h1>
+    <p>Un email par mois. Le sport du moment, les aides à ne pas rater, les chiffres qui comptent — sans le bruit.</p>
+  </div>
+
+  <div class="nl-form">
+    <div class="nl-form-inner">
+      <h2>S'inscrire gratuitement</h2>
+      <p>Rejoint les 12 000 abonnés qui reçoivent le mag chaque mois.</p>
+      <form id="nl-form" onsubmit="handleSubmit(event)">
+        <div class="input-group">
+          <input type="email" class="nl-input" placeholder="ton@email.fr" required aria-label="Adresse email" id="nl-email">
+          <button type="submit" class="nl-submit">S'inscrire →</button>
+        </div>
+        <p class="nl-legal">Pas de spam. Un email par mois. Désabonnement en un clic. Tes données ne sont jamais revendues. <a href="confidentialite.html">Politique de confidentialité</a>.</p>
+      </form>
+      <div class="success-msg" id="success-msg" role="alert">
+        ✅ <strong>C'est bon !</strong> Tu recevras le prochain numéro de Kinetic dans ta boîte mail. On est ravis de t'avoir parmi nous. 🧡
+      </div>
+    </div>
+  </div>
+
+  <div class="nl-preview">
+    <h2>Au programme de <em>chaque numéro</em></h2>
+    <div class="preview-list">
+      <div class="preview-item">
+        <span class="icon">🥏</span>
+        <div>
+          <strong>Le sport du mois</strong>
+          <span>Un focus complet sur une discipline en plein essor — stats, communauté, comment se lancer.</span>
+        </div>
+      </div>
+      <div class="preview-item">
+        <span class="icon">💰</span>
+        <div>
+          <strong>Les aides du moment</strong>
+          <span>Pass'Sport, sport sur ordonnance, mutuelles, aides locales — les dispositifs à utiliser avant qu'ils expirent.</span>
+        </div>
+      </div>
+      <div class="preview-item">
+        <span class="icon">📊</span>
+        <div>
+          <strong>Le chiffre qui claque</strong>
+          <span>Un stat surprenante sur le sport en France — pour briller en soirée ou comprendre le monde dans lequel on vit.</span>
+        </div>
+      </div>
+      <div class="preview-item">
+        <span class="icon">🆕</span>
+        <div>
+          <strong>Les nouveautés Kinetic</strong>
+          <span>Nouvelles disciplines ajoutées, mises à jour de l'algo, nouvelles fonctionnalités — en avant-première.</span>
+        </div>
+      </div>
+      <div class="preview-item">
+        <span class="icon">♿</span>
+        <div>
+          <strong>Handisport</strong>
+          <span>Une rubrique dédiée aux sports adaptés, aux événements, aux clubs accessibles — chaque mois.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="social-strip">
+    <p>On est aussi sur les réseaux si tu préfères le format vidéo :</p>
+    <div class="social-links">
+      <a href="https://tiktok.com/@kineticapp" target="_blank" rel="noopener noreferrer" class="social-link">🎵 TikTok @kineticapp</a>
+      <a href="https://youtube.com/@kineticapp" target="_blank" rel="noopener noreferrer" class="social-link">▶️ YouTube @kineticapp</a>
+    </div>
+  </div>
+</main>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('nl-email').value;
+  if (!email) return;
+  document.getElementById('nl-form').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+}
+</script>
+<script src="components/footer.js" defer></script>
+<script src="components/cookie-banner.js" defer></script>
+</body>
+</html>

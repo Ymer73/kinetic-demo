@@ -1,0 +1,327 @@
+/* Kinetic mockup styles — basé sur la version hi-fi WTTJ-style.
+   Chargé EN PLUS de shared.css sur les pages refondues.
+   Override les anciennes nav/footer pour matcher le mockup. */
+
+/* Palette alignée sur shared.css (style home) */
+:root{
+  --km-violet:#6C47FF;
+  --km-violet-soft:#EDE9FE;
+  --km-violet-deep:#2E1A7A;
+  --km-orange:#FF5A1F;
+  --km-orange-soft:#FFB38A;
+  --km-lime:#D4FF3A;         /* lime de shared.css, plus saturé */
+  --km-lime-soft:#F0FAD0;
+  --km-lime-deep:#B8E61E;
+  --km-ink:#0E0B1F;
+  --km-ink-2:#1F1B3B;
+  --km-paper:#F6F3FF;        /* paper violet de shared.css */
+  --km-paper-warm:#FFF5EC;
+  --km-bg:transparent;       /* pas de bg solide, on hérite du gradient home */
+  --km-line:rgba(14,11,31,0.16);
+  --km-line-soft:rgba(14,11,31,0.08);
+  --km-muted:rgba(14,11,31,0.65); /* audit 2026-05-28 : etait .55 (4.21:1), now 5.1:1+ sur paper */
+  --km-shadow-sm:0 1px 0 rgba(14,11,31,.04);
+  --km-shadow-md:0 6px 20px rgba(46,26,122,.10);
+  --km-shadow-lg:0 14px 36px rgba(46,26,122,.14);
+  --km-shadow-violet:0 12px 30px rgba(108,71,255,.18);
+  --km-shadow-orange:0 10px 26px rgba(255,90,31,.24);
+  --km-shadow-lime:0 8px 22px rgba(184,230,30,.30);
+  --km-radius-sm:10px;
+  --km-radius:14px;
+  --km-radius-lg:18px;
+  --km-radius-pill:100px;
+  /* Glass surfaces (shared.css) */
+  --km-glass:rgba(255,255,255,.62);
+  --km-glass-strong:rgba(255,255,255,.78);
+  --km-glass-border:rgba(255,255,255,.85);
+}
+
+/* Body override sur les pages mockup (avec class .km-page) — palette home */
+body.km-page{
+  margin:0;padding:0;
+  background:
+    radial-gradient(1200px 800px at 10% -10%, #FFE3D0 0%, transparent 55%),
+    radial-gradient(1000px 700px at 95% 10%, #E7DEFF 0%, transparent 55%),
+    radial-gradient(900px 900px at 50% 110%, #FFD5F0 0%, transparent 60%),
+    linear-gradient(180deg, #FBF8FF 0%, #FFF4EC 100%);
+  background-attachment:fixed;
+  color:var(--km-ink);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+body.km-page a{color:inherit;text-decoration:none;}
+body.km-page button{font-family:inherit;cursor:pointer;}
+
+.km-page .narrow{font-family:'Archivo Narrow',sans-serif;letter-spacing:.01em;}
+.km-page .bebas{font-family:'Bebas Neue',sans-serif;letter-spacing:.02em;}
+.km-page .eyebrow{font-family:'Archivo Narrow';font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--km-muted);}
+
+/* ─── HEADER WTTJ-style ─── */
+.k-topbar-wrap{padding:10px 28px 0;background:rgba(251,248,255,.65);position:sticky;top:0;z-index:100;backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);}
+.k-lang{display:none;}
+.k-lang{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--km-muted);margin-bottom:8px;}
+.k-topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:6px 0 14px;
+  border-bottom:1px solid var(--km-line-soft);
+}
+.k-topbar-left{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;}
+.k-logo{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Bebas Neue';font-size:26px;letter-spacing:.06em;
+  padding:10px 14px;
+  background:white;border:1px solid var(--km-line-soft);border-radius:var(--km-radius-pill);
+  box-shadow:var(--km-shadow-sm);
+  margin-right:6px;
+  color:var(--km-ink);
+}
+.k-logo .dot{width:11px;height:11px;border-radius:50%;background:var(--km-orange);box-shadow:0 0 0 4px rgba(255,90,31,.14);}
+.k-nav{display:flex;gap:8px;flex-wrap:wrap;}
+.k-nav a{
+  padding:11px 18px;border-radius:var(--km-radius-pill);
+  font-family:'Inter',sans-serif;font-weight:700;font-size:14px;
+  color:var(--km-ink);transition:background .15s, transform .12s, box-shadow .15s;
+  background:white;border:1px solid var(--km-line-soft);
+  box-shadow:var(--km-shadow-sm);
+  display:inline-flex;align-items:center;gap:6px;
+  white-space:nowrap;
+  cursor:pointer;
+}
+.k-nav a:hover{transform:translateY(-1px);box-shadow:var(--km-shadow-md);}
+.k-nav a.on{background:var(--km-ink);color:white;border-color:var(--km-ink);box-shadow:0 6px 18px rgba(14,11,31,.22);}
+.k-topbar-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.k-topbar-right a, .k-topbar-right button{
+  padding:11px 18px;border-radius:var(--km-radius-pill);
+  font-family:'Inter',sans-serif;font-weight:700;font-size:14px;
+  color:var(--km-ink);transition:background .15s, transform .12s, box-shadow .15s;
+  background:white;border:1px solid var(--km-line-soft);
+  box-shadow:var(--km-shadow-sm);
+  display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+  white-space:nowrap;
+}
+.k-topbar-right a:hover, .k-topbar-right button:hover{transform:translateY(-1px);box-shadow:var(--km-shadow-md);}
+.k-topbar-right .fav-count{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:18px;height:18px;padding:0 5px;
+  background:var(--km-orange);color:white;border-radius:100px;
+  font-size:10px;font-weight:700;margin-left:2px;
+}
+
+/* ─── BUTTONS ─── */
+.km-page .btn{
+  border:none;border-radius:var(--km-radius-pill);
+  padding:10px 18px;
+  font-family:'Archivo Narrow';font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:transform .12s, box-shadow .15s, background .15s;
+  display:inline-flex;align-items:center;gap:8px;
+  text-decoration:none;
+}
+.km-page .btn-ink{background:var(--km-ink);color:white;box-shadow:0 4px 12px rgba(14,11,31,.2);}
+.km-page .btn-ink:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(14,11,31,.28);}
+.km-page .btn-orange{background:var(--km-orange);color:white;box-shadow:var(--km-shadow-orange);}
+.km-page .btn-orange:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(255,90,31,.36);}
+.km-page .btn-violet{background:var(--km-violet);color:white;box-shadow:var(--km-shadow-violet);}
+.km-page .btn-lime{background:var(--km-orange);color:white;box-shadow:var(--km-shadow-orange);}
+.km-page .btn-ghost{background:transparent;color:var(--km-ink);border:1.5px solid var(--km-ink);}
+.km-page .btn-ghost:hover{background:var(--km-ink);color:white;}
+.km-page .btn-white{background:white;color:var(--km-ink);border:1px solid var(--km-line);box-shadow:var(--km-shadow-sm);}
+.km-page .btn-white:hover{border-color:var(--km-ink);}
+.km-page .btn-sm{padding:7px 14px;font-size:11.5px;}
+.km-page .btn-lg{padding:13px 24px;font-size:14px;}
+
+/* ─── CHIPS ─── */
+.km-page .chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:white;border:1px solid var(--km-line);border-radius:var(--km-radius-pill);
+  padding:5px 12px;font-size:12.5px;white-space:nowrap;
+  transition:all .12s;cursor:pointer;
+  text-decoration:none;color:var(--km-ink);
+}
+.km-page .chip:hover{border-color:var(--km-ink);}
+.km-page .chip.on{background:var(--km-ink);color:white;border-color:var(--km-ink);}
+.km-page .chip.lime{background:var(--km-orange);color:white;border-color:#E34A10;font-weight:600;}
+.km-page .chip.violet{background:var(--km-violet);color:white;border-color:var(--km-violet);}
+.km-page .chip.orange{background:var(--km-orange);color:white;border-color:var(--km-orange);}
+.km-page .chip.ghost{border:1.5px dashed var(--km-line);background:transparent;color:var(--km-muted);}
+.km-page .chip.lg{padding:7px 14px;font-size:13px;}
+.km-page .chip .x{opacity:.7;font-weight:700;margin-left:2px;}
+.km-page .chip .x:hover{opacity:1;}
+
+/* ─── FOOTER WTTJ-style ─── */
+.k-footer{background:var(--km-ink);color:white;padding:48px 28px 24px;margin-top:48px;}
+.k-footer-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;}
+.k-footer .col h4{font-family:'Archivo Narrow';font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 12px;}
+.k-footer .col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:12.5px;color:rgba(255,255,255,.78);}
+.k-footer .col a{color:inherit;text-decoration:none;}
+.k-footer .col a:hover{color:white;}
+.k-footer .brand-blurb{font-style:italic;color:rgba(255,255,255,.55);margin-top:10px;font-size:12.5px;line-height:1.5;}
+.k-footer-bottom{
+  max-width:1400px;margin:32px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);
+  display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.45);
+}
+.k-socials{display:flex;gap:10px;margin-top:14px;}
+.k-socials a{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;}
+.k-socials a:hover{background:rgba(255,255,255,.16);}
+
+/* ─── SPORT IMAGE PLACEHOLDERS ─── */
+.sport-img{
+  position:relative;overflow:hidden;border-radius:var(--km-radius-sm);
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,90,31,.30), transparent 55%),
+    radial-gradient(circle at 75% 65%, rgba(108,71,255,.32), transparent 55%),
+    radial-gradient(circle at 65% 25%, rgba(255,179,138,.30), transparent 50%),
+    #efe9f7;
+}
+.sport-img.dark{
+  background:
+    radial-gradient(circle at 70% 20%, rgba(108,71,255,.40), transparent 50%),
+    radial-gradient(circle at 25% 75%, rgba(255,90,31,.35), transparent 55%),
+    #1b1530;
+}
+.sport-img.lime{
+  background:
+    radial-gradient(circle at 30% 70%, rgba(255,90,31,.40), transparent 55%),
+    radial-gradient(circle at 75% 30%, rgba(108,71,255,.25), transparent 50%),
+    #fff0e8;
+}
+.sport-img.orange{
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,90,31,.45), transparent 65%),
+    #fff0e8;
+}
+.sport-img.violet{
+  background:
+    radial-gradient(circle at 40% 60%, rgba(108,71,255,.50), transparent 60%),
+    radial-gradient(circle at 80% 30%, rgba(255,90,31,.25), transparent 50%),
+    #ebe5ff;
+}
+.sport-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.04) 14px 15px);}
+.sport-img .glyph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:60px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.2));opacity:.85;
+}
+
+/* ─── PHOTO FÉDÉRATION (remplace gradient quand disponible) ─── */
+.sport-img.has-photo {
+  background-color: #1b1530; /* fallback pendant le chargement */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+/* Remplace le motif diagonal par un overlay sombre pour lisibilité */
+.sport-img.has-photo::before {
+  background: linear-gradient(
+    135deg,
+    rgba(14,11,31,0.52) 0%,
+    rgba(14,11,31,0.28) 50%,
+    rgba(14,11,31,0.40) 100%
+  ) !important;
+}
+/* Emoji reste visible et bien contrasté sur photo */
+.sport-img.has-photo .glyph {
+  filter: drop-shadow(0 3px 10px rgba(0,0,0,.55)) drop-shadow(0 1px 4px rgba(0,0,0,.7));
+  opacity: 0.95;
+  z-index: 1;
+}
+/* Pastille fédé optionnelle (coin bas-droit) */
+.sport-img .fed-badge {
+  position: absolute;
+  bottom: 7px;
+  right: 9px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Intensity meter */
+.intensity{display:inline-flex;align-items:center;gap:3px;}
+.intensity .bar{width:5px;height:14px;border-radius:2px;background:rgba(14,11,31,.10);}
+.intensity .bar.on{background:var(--km-orange);}
+.intensity .lbl{margin-left:6px;font-family:'Archivo Narrow';font-weight:600;font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:var(--km-muted);}
+
+/* Utility */
+.km-page .divider-v{height:24px;width:1px;background:var(--km-line-soft);}
+.km-page .scroll-hide{scrollbar-width:none;}
+.km-page .scroll-hide::-webkit-scrollbar{display:none;}
+
+/* ─── SKIP LINK (a11y) ─── */
+.skip-link{
+  position:absolute;left:-9999px;top:-9999px;
+  background:var(--km-ink);color:white;
+  padding:10px 18px;border-radius:8px;
+  font-weight:700;font-size:13px;
+  z-index:9999;text-decoration:none;
+}
+.skip-link:focus{
+  left:14px;top:14px;
+  box-shadow:0 8px 24px rgba(14,11,31,.3);
+  outline:3px solid var(--km-orange);
+}
+
+/* ─── BOTTOM NAV (mobile uniquement) ─── */
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:90;
+  background:rgba(255,255,255,.95);backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border-top:1px solid var(--km-line-soft);
+  display:none; /* caché par défaut, visible uniquement sur mobile */
+  padding-bottom:env(safe-area-inset-bottom, 0);
+}
+.bottom-nav-inner{
+  display:flex;justify-content:space-around;align-items:stretch;
+  max-width:600px;margin:0 auto;
+}
+.bottom-tab{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  padding:8px 4px 6px;text-decoration:none;color:var(--km-muted);
+  position:relative;
+  transition:color .15s;
+}
+.bottom-tab:hover{color:var(--km-ink);}
+.bottom-tab.active{color:var(--km-ink);}
+.bottom-tab.active::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:24px;height:3px;border-radius:0 0 6px 6px;background:var(--km-orange);
+}
+.bottom-tab-icon{font-size:20px;line-height:1;}
+.bottom-tab-label{font-size:10.5px;font-weight:600;letter-spacing:.02em;}
+.bottom-tab-soon{opacity:.55;}
+.bottom-nav-spacer{display:none;}
+
+@media (max-width:880px){
+  .bottom-nav{display:block;}
+  .bottom-nav-spacer{display:block;height:64px;}
+}
+
+/* HIDE l'ancienne nav.bottom + spacer si km-page sur desktop (la nav v3 prend tout) */
+body.km-page > .bottom-nav,
+body.km-page > .bottom-nav-spacer,
+body.km-page > .nav-spacer{}
+@media (min-width:881px){
+  body.km-page > .bottom-nav,
+  body.km-page > .bottom-nav-spacer{display:none !important;}
+}
+
+@media (max-width:880px){
+  .k-topbar-wrap{padding:8px 12px 0;}
+  .k-topbar{padding:4px 0 10px;flex-wrap:wrap;}
+  .k-nav{order:3;flex-basis:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;}
+  .k-nav::-webkit-scrollbar{display:none;}
+  .k-nav a{padding:8px 14px;font-size:13px;}
+  .k-logo{font-size:22px;padding:7px 12px;}
+  .k-topbar-right a, .k-topbar-right button{padding:8px 14px;font-size:13px;}
+  .label-hide{display:none;}
+  .k-footer{padding:32px 16px 16px;}
+  .k-footer-grid{grid-template-columns:1fr;gap:24px;}
+}

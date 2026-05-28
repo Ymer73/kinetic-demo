@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FFTir — Fédération Française de Tir | Kinetic</title>
+<meta id="meta-desc" name="description" content="La FFTir encadre le tir sportif (carabine, pistolet), le tir aux armes anciennes et le tir longue distance.">
+<link id="meta-canonical" rel="canonical" href="https://kinetic.app/federation/fftir">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kinetic">
+<meta property="og:locale" content="fr_FR">
+<meta id="og-title" property="og:title" content="FFTir — Fédération Française de Tir">
+<meta id="og-desc" property="og:description" content="La FFTir encadre le tir sportif (carabine, pistolet), le tir aux armes anciennes et le tir longue distance.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="enhance-2026.css">
+<style>
+  .fed-wrap { max-width: 1120px; margin: 0 auto; padding: 40px 24px 80px; position: relative; }
+
+  .crumb { display: flex; gap: 8px; font-size: 12px; font-weight: 600; color: var(--gray); margin-bottom: 24px; letter-spacing: .05em; text-transform: uppercase; flex-wrap: wrap; }
+  .crumb a { color: var(--gray); text-decoration: none; }
+  .crumb a:hover { color: var(--ink); }
+  .crumb .sep { color: var(--gray-light); }
+
+  /* HERO */
+  .fed-hero {
+    background: var(--ink);
+    color: white;
+    border-radius: 40px;
+    padding: 56px 48px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .fed-hero::before {
+    content: ''; position: absolute;
+    right: -10%; top: -30%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--violet) 0%, transparent 70%);
+    opacity: .5;
+  }
+  .fed-hero::after {
+    content: ''; position: absolute;
+    left: -5%; bottom: -40%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--orange) 0%, transparent 70%);
+    opacity: .35;
+  }
+  .fed-hero-inner { position: relative; z-index: 2; }
+  .fed-acro {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 88px; line-height: .9;
+    letter-spacing: -.02em; color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .fed-name {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: 28px; line-height: 1.2;
+    margin-bottom: 24px;
+    max-width: 700px;
+  }
+  .fed-desc { font-size: 17px; line-height: 1.6; opacity: .85; max-width: 700px; margin-bottom: 32px; }
+  .fed-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .fed-actions .btn { padding: 14px 24px; }
+  .fed-actions .btn-secondary { background: rgba(255,255,255,.1); color: white; border: 1px solid rgba(255,255,255,.2); }
+  .fed-actions .btn-secondary:hover { background: rgba(255,255,255,.2); }
+
+  /* Stats grid */
+  .fed-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .fed-stat-card {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 24px;
+    padding: 24px;
+  }
+  .fed-stat-eye { font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+  .fed-stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 48px; line-height: 1; color: var(--ink); }
+  .fed-stat-sub { font-size: 13px; color: var(--gray); margin-top: 4px; }
+
+  /* Section */
+  .fed-section { margin-bottom: 48px; }
+  .fed-section-head {
+    display: flex; justify-content: space-between;
+    align-items: baseline; margin-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 12px;
+  }
+  .fed-section-h {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 36px; line-height: 1;
+    letter-spacing: -.01em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .fed-section-count {
+    font-size: 14px; color: var(--gray); font-weight: 600;
+  }
+
+  /* Sports grid */
+  .sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .sport-tile {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    transition: all .2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sport-tile:hover {
+    border-color: var(--violet);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(108, 71, 255, .12);
+  }
+  .sport-tile-name {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .sport-tile-meta {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--gray);
+  }
+  .sport-tile-count {
+    background: var(--paper);
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .sport-tile.empty {
+    border-style: dashed;
+    opacity: .55;
+    cursor: default;
+  }
+  .sport-tile.empty:hover { transform: none; box-shadow: none; border-color: var(--border); }
+
+  /* Error */
+  .fed-error {
+    background: white; border: 2px solid var(--border);
+    border-radius: 24px; padding: 60px 40px;
+    text-align: center;
+  }
+
+  /* Verified badge */
+  .verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+    padding: 3px 10px;
+    background: rgba(34, 197, 94, .15);
+    color: #16a34a;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    text-decoration: none;
+    transition: all .2s;
+  }
+  .verified-badge:hover { background: rgba(34, 197, 94, .25); }
+
+  /* Présence territoriale */
+  .fed-territory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .dept-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all .15s;
+  }
+  .dept-row:hover { border-color: var(--violet); }
+  .dept-row-label { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .dept-row-code {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .dept-row-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dept-row-count {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--violet);
+    line-height: 1;
+  }
+
+  /* Preview clubs */
+  .clubs-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .club-prev-card {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .club-prev-card:hover { border-color: var(--violet); }
+  .club-prev-name {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.25;
+    color: var(--ink);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .club-prev-loc {
+    font-size: 12px;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .club-prev-disc {
+    margin-top: 4px;
+    align-self: flex-start;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  .clubs-preview-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .fed-wrap { padding: 16px 14px 80px; }
+    .fed-hero { padding: 24px 20px; border-radius: 24px; margin-bottom: 16px; }
+    .fed-acro { font-size: 48px; }
+    .fed-name { font-size: 20px; }
+    .fed-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .fed-stat { padding: 14px 12px; }
+    .sports-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .fed-territory-grid { grid-template-columns: 1fr; gap: 10px; }
+    .clubs-preview-cta .btn { width: 100%; min-height: 48px; }
+  }
+
+  @media (max-width: 390px) {
+    .fed-acro { font-size: 40px; }
+    .fed-name { font-size: 18px; }
+    .sports-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<!-- Apple PWA -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kinetic">
+<meta name="mobile-web-app-capable" content="yes">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsOrganization","name":"Fédération Française de Tir","alternateName":"FFTir","url":"https://kinetic.app/federation/fftir","description":"La FFTir encadre le tir sportif (carabine, pistolet), le tir aux armes anciennes et le tir longue distance.","areaServed":{"@type":"Country","name":"France"},"sameAs":["https://www.fftir.org"]}</script>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="../demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<main id="main-content" class="fed-wrap">
+  <div id="bc-mount" aria-hidden="true"></div>
+  <div id="fed-content"></div>
+</main>
+
+<script src="components/footer.js"></script>
+<script src="icons.js"></script>
+<script src="data.js"></script>
+<script src="components/breadcrumb.js" data-page="federation" data-mount="#bc-mount"></script>
+<script>
+(async function() {
+  // Charge les 109 fédérations depuis le JSON (source unique de vérité)
+  const FEDERATIONS = await fetch('federations-data.json').then(r => r.json()).catch(() => []);
+
+  const params = new URLSearchParams(location.search);
+  // Friendly URL (audit 2026-05-28) : /federation/{slug} (rewrite Vercel transparent)
+  if (!params.get('f') && !params.get('slug') && !params.get('fed')) {
+    const m = location.pathname.match(/^\/federation\/([^\/?#]+)/);
+    if (m) params.set('f', decodeURIComponent(m[1]));
+  }
+  // Accept ?f=, ?slug=, ?fed= for flexibility
+  const slug = params.get('f') || params.get('slug') || params.get('fed');
+  const nameParam = params.get('name'); // compatibilité sport.html
+  const fed = FEDERATIONS.find(f =>
+    f.slug === slug ||
+    f.acronyme?.toLowerCase() === (slug || '').toLowerCase() ||
+    (nameParam && (
+      (f.nom || '').toLowerCase() === nameParam.toLowerCase() ||
+      (f.acronyme || '').toLowerCase() === nameParam.toLowerCase() ||
+      (f.nom || '').toLowerCase().includes(nameParam.toLowerCase())
+    ))
+  );
+  const content = document.getElementById('fed-content');
+  const crumb = document.getElementById('crumb-current');
+
+  if (!fed) {
+    content.innerHTML = `
+      <div class="fed-error">
+        <h1 style="font-family:'Bebas Neue',sans-serif;font-size:48px;margin-bottom:12px;">Fédération introuvable</h1>
+        <p style="color:var(--gray);margin-bottom:24px;">Cette fédération n'existe pas dans notre base.</p>
+        <a href="federations.html" class="btn btn-primary">Voir toutes les fédérations</a>
+      </div>`;
+    return;
+  }
+
+  // Update meta
+  const _fedSlug = fed.slug || fed.acronyme.toLowerCase();
+  const _fedUrl = `https://kinetic.app/federation/${encodeURIComponent(_fedSlug)}`;
+  document.title = `${fed.acronyme} — ${fed.nom} | Kinetic`;
+  document.getElementById('page-title').textContent = `${fed.acronyme} — ${fed.nom} | Kinetic`;
+  document.getElementById('meta-desc').setAttribute('content',
+    `${fed.acronyme} — ${fed.nom}. ${fed.clubs_base.toLocaleString('fr')} clubs et ${(fed.sports_base||[]).length} disciplines référencées sur Kinetic.`);
+  // Friendly URL canonical (audit 2026-05-28)
+  document.getElementById('meta-canonical')?.setAttribute('href', _fedUrl);
+  document.getElementById('og-title').setAttribute('content', `${fed.acronyme} — ${fed.nom}`);
+  document.getElementById('og-desc').setAttribute('content', fed.description || '');
+  document.getElementById('og-url')?.setAttribute('content', _fedUrl);
+  document.getElementById('tw-title')?.setAttribute('content', `${fed.acronyme} — ${fed.nom}`);
+  document.getElementById('tw-desc')?.setAttribute('content', fed.description || '');
+  if (crumb) crumb.textContent = fed.acronyme;
+
+  // JSON-LD SportsOrganization (audit 2026-05-28)
+  try {
+    const ldData = {
+      "@context": "https://schema.org",
+      "@type": "SportsOrganization",
+      "name": fed.nom,
+      "alternateName": fed.acronyme,
+      "url": _fedUrl,
+      "description": fed.description || `${fed.acronyme} – ${fed.nom}`,
+      "areaServed": { "@type": "Country", "name": "France" }
+    };
+    if (fed.site_officiel) ldData.sameAs = [fed.site_officiel];
+    if (fed.logo) ldData.logo = fed.logo;
+    const ldScript = document.createElement('script');
+    ldScript.type = 'application/ld+json';
+    ldScript.textContent = JSON.stringify(ldData);
+    document.head.appendChild(ldScript);
+  } catch (_) {}
+
+  // Fusion sports : prioritaire = sports_officiel vérifiés sur site fédé
+  const baseSportIds = new Set((fed.sports_base || []).map(s => s.id));
+  const allSportsList = [];
+  const seenLabels = new Set();
+
+  // 1) Si on a des disciplines vérifiées, on les utilise toutes en priorité
+  if (fed.disciplines_verified) {
+    (fed.sports_officiel || []).forEach(s => {
+      const label = s.label || s.nom;
+      if (!label || seenLabels.has(label.toLowerCase())) return;
+      seenLabels.add(label.toLowerCase());
+      const hasClubs = s.sport_id && baseSportIds.has(s.sport_id);
+      allSportsList.push({
+        id: s.sport_id || null,
+        nom: label,
+        hasClubs: hasClubs || (s.officiel > 0),
+        verified: true,
+        count: s.officiel !== undefined ? s.officiel : undefined,
+      });
+    });
+  } else {
+    // 2) Sinon : sports en base avec clubs
+    (fed.sports_base || []).forEach(s => {
+      allSportsList.push({ id: s.id, nom: s.nom, hasClubs: true, verified: false });
+      seenLabels.add(s.nom.toLowerCase());
+    });
+    // 3) Sports Excel sans clubs en base
+    (fed.sports_officiel || []).forEach(s => {
+      const sportName = s.label;
+      if (!sportName || seenLabels.has(sportName.toLowerCase())) return;
+      let foundId = s.sport_id || null;
+      if (!foundId && typeof SPORTS !== 'undefined') {
+        const found = SPORTS.find(sp =>
+          sp.nom.toLowerCase().replace(/[^a-z0-9]/g, '') ===
+          sportName.toLowerCase().replace(/[^a-z0-9]/g, '')
+        );
+        if (found) foundId = found.id;
+      }
+      seenLabels.add(sportName.toLowerCase());
+      allSportsList.push({
+        id: foundId,
+        nom: sportName,
+        hasClubs: foundId && baseSportIds.has(foundId),
+        verified: false,
+      });
+    });
+  }
+
+  function sportTile(s, count) {
+    const slug = s.nom.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (!s.hasClubs && (count == null || count === 0)) {
+      return `<div class="sport-tile empty">
+        <div class="sport-tile-name">${s.nom}</div>
+        <div class="sport-tile-meta">Aucun club référencé</div>
+      </div>`;
+    }
+    return `<a href="sport.html?s=${encodeURIComponent(slug)}" class="sport-tile">
+      <div class="sport-tile-name">${s.nom}</div>
+      <div class="sport-tile-meta">
+        ${count != null
+          ? `<span class="sport-tile-count">${count.toLocaleString('fr')}</span> clubs`
+          : `<span class="sport-tile-count">—</span>`}
+      </div>
+    </a>`;
+  }
+
+  function verifiedBadge() {
+    if (fed.disciplines_verified) {
+      const src = fed.verified_source || fed.url;
+      return `<a href="${src}" target="_blank" rel="noopener" class="verified-badge" title="Disciplines vérifiées sur le site officiel">
+        <span data-icon="check" data-size="12" aria-hidden="true"></span> Vérifié officiel
+      </a>`;
+    }
+    return '';
+  }
+
+  function render(idx, byFed) {
+    const bySid = (idx && idx.bySportId) || {};
+    // Détecter les sport_id partagés entre plusieurs disciplines (ex. équitation)
+    const idUsage = {};
+    allSportsList.forEach(s => { if (s.id) idUsage[s.id] = (idUsage[s.id] || 0) + 1; });
+    const sportsHTML = allSportsList.map(s => {
+      let count;
+      if (s.count !== undefined) {
+        count = s.count;
+      } else if (s.id && idUsage[s.id] === 1) {
+        count = bySid[s.id];
+      }
+      return sportTile(s, count);
+    }).join('');
+
+    // Sections territoriale + preview clubs (uniquement si byFed disponible)
+    let territoryHTML = '';
+    let previewHTML = '';
+    let clubsCount = fed.clubs_base;
+
+    if (byFed) {
+      clubsCount = byFed.total;
+      const topDepts = (byFed.byDept || []).slice(0, 10);
+      if (topDepts.length) {
+        territoryHTML = `
+          <section class="fed-section">
+            <div class="fed-section-head">
+              <h2 class="fed-section-h">Présence territoriale</h2>
+              <div class="fed-section-count">${topDepts.length} département${topDepts.length > 1 ? 's' : ''} principaux</div>
+            </div>
+            <div class="fed-territory-grid">
+              ${topDepts.map(d => `
+                <a href="map.html?source=${encodeURIComponent(fed.slug)}&dept=${encodeURIComponent(d.code)}" class="dept-row">
+                  <div class="dept-row-label">
+                    <span class="dept-row-code">${d.code}</span>
+                    <span class="dept-row-name">${d.nom}</span>
+                  </div>
+                  <span class="dept-row-count">${d.count.toLocaleString('fr')}</span>
+                </a>
+              `).join('')}
+            </div>
+          </section>
+        `;
+      }
+
+      const preview = byFed.preview || [];
+      if (preview.length) {
+        previewHTML = `
+          <section class="fed-section">
+            <div class="fed-section-head">
+              <h2 class="fed-section-h">Aperçu des clubs</h2>
+              <div class="fed-section-count">${preview.length} clubs sur ${clubsCount.toLocaleString('fr')}</div>
+            </div>
+            <div class="clubs-preview-grid">
+              ${preview.map(c => `
+                <div class="club-prev-card">
+                  <div class="club-prev-name">${(c.nom || '').toUpperCase()}</div>
+                  <div class="club-prev-loc">
+                    <span data-icon="pin" data-size="12" aria-hidden="true"></span>
+                    ${c.ville || ''}${c.dep ? ` (${c.dep})` : ''}
+                  </div>
+                  ${c.disc ? `<span class="club-prev-disc">${c.disc}</span>` : ''}
+                </div>
+              `).join('')}
+            </div>
+            <div class="clubs-preview-cta">
+              <a href="map.html?source=${encodeURIComponent(fed.slug)}" class="btn btn-primary">
+                Explorer les ${clubsCount.toLocaleString('fr')} clubs sur la carte
+                <span data-icon="arrow" data-size="14" aria-hidden="true"></span>
+              </a>
+            </div>
+          </section>
+        `;
+      }
+    }
+
+    content.innerHTML = `
+      <section class="fed-hero">
+        <div class="fed-hero-inner">
+          <div class="fed-acro">${fed.acronyme}</div>
+          <h1 class="fed-name">${fed.nom}</h1>
+          <p class="fed-desc">${fed.description || ''}</p>
+          <div class="fed-actions">
+            ${fed.url ? `<a href="${fed.url}" target="_blank" rel="noopener" class="btn btn-secondary">Site officiel <span data-icon="external" data-size="14" aria-hidden="true"></span></a>` : ''}
+            <a href="map.html?source=${encodeURIComponent(fed.slug)}" class="btn btn-primary">Voir tous les clubs <span data-icon="arrow" data-size="14" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </section>
+
+      <div class="fed-stats">
+        <div class="fed-stat-card">
+          <div class="fed-stat-eye">— Clubs Kinetic</div>
+          <div class="fed-stat-val">${clubsCount.toLocaleString('fr')}</div>
+          <div class="fed-stat-sub">référencés en base</div>
+        </div>
+        <div class="fed-stat-card">
+          <div class="fed-stat-eye">— Disciplines</div>
+          <div class="fed-stat-val">${allSportsList.length}</div>
+          <div class="fed-stat-sub">administrées</div>
+        </div>
+      </div>
+
+      <section class="fed-section">
+        <div class="fed-section-head">
+          <h2 class="fed-section-h">Disciplines administrées</h2>
+          <div class="fed-section-count">${allSportsList.length} sport${allSportsList.length > 1 ? 's' : ''} ${verifiedBadge()}</div>
+        </div>
+        <div class="sports-grid">${sportsHTML}</div>
+      </section>
+
+      ${territoryHTML}
+      ${previewHTML}
+    `;
+    if (window.hydrateIcons) window.hydrateIcons();
+  }
+
+  // Charger en parallèle l'index global et le détail par fédé
+  Promise.all([
+    fetch('clubs/index.json?v=2').then(r => r.json()).catch(() => null),
+    fetch(`clubs/by-fed/${encodeURIComponent(fed.slug)}.json`).then(r => r.ok ? r.json() : null).catch(() => null),
+  ]).then(([idx, byFed]) => render(idx, byFed));
+})();
+</script>
+<script src="components/cookie-banner.js"></script>
+<script src="enhance-2026.js" defer></script>
+</body>
+</html>

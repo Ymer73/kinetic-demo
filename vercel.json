@@ -1,0 +1,58 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/quiz.html", "destination": "/trouver-club.html", "permanent": true },
+    { "source": "/results.html", "destination": "/trouver-club.html", "permanent": true },
+    { "source": "/categories.html", "destination": "/explorer-sports.html", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/sport/:slug([^.]+)", "destination": "/sport.html?s=:slug" },
+    { "source": "/federation/:slug([^.]+)", "destination": "/federation.html?f=:slug" },
+    { "source": "/club/:dep([0-9A-Za-z]+)/:id([a-zA-Z0-9_-]+)", "destination": "/club?id=:id&dep=:dep" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), payment=(), usb=(), geolocation=(self)" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' https://unpkg.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' data: blob: https://images.unsplash.com https://images.pexels.com https://*.staticflickr.com https://upload.wikimedia.org https://*.googleusercontent.com; connect-src 'self' https://api-adresse.data.gouv.fr https://kinetic-claim.workers.dev https://*.workers.dev https://challenges.cloudflare.com; font-src 'self' https://fonts.gstatic.com data:; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://kinetic-claim.workers.dev" }
+      ]
+    },
+    {
+      "source": "/clubs/(.*)\\.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(js|css|svg|woff2|woff|ttf)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|webp|gif|ico)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=604800, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/data\\.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400" }
+      ]
+    }
+  ]
+}

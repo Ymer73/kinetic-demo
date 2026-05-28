@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Kinetic Feed — Trouve ton sport en scrollant</title>
+<meta name="description" content="Scrolle, like, trouve ton sport. Kinetic Feed prototype." />
+<style>
+:root {
+  --violet: #6C47FF;
+  --violet-dark: #4A28D9;
+  --orange: #FF5A1F;
+  --orange-soft: #FFB38A;
+  --lime: #C5F02E;
+  --ink: #0E0B1F;
+  --paper: #F6F3FF;
+  --white: #FFFFFF;
+  --gray: #6B6680;
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html, body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--ink);
+  color: var(--white);
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+.display {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 900;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  line-height: .92;
+}
+
+/* ─── ONBOARDING ─── */
+.onboard {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: radial-gradient(circle at 30% 20%, rgba(108,71,255,.5) 0%, transparent 60%),
+              radial-gradient(circle at 70% 80%, rgba(255,90,31,.4) 0%, transparent 60%),
+              var(--ink);
+  text-align: center;
+  animation: fadeIn .6s ease;
+}
+.onboard h1 {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 900;
+  font-size: clamp(40px, 11vw, 80px);
+  line-height: .9;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  margin-bottom: 20px;
+}
+.onboard h1 span { color: var(--lime); }
+.onboard p {
+  font-size: 16px;
+  color: rgba(255,255,255,.7);
+  max-width: 320px;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+.onboard input {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.2);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 18px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 16px;
+  outline: none;
+  text-align: center;
+}
+.onboard input:focus { border-color: var(--lime); }
+.onboard input::placeholder { color: rgba(255,255,255,.4); }
+.btn-go {
+  background: var(--lime);
+  color: var(--ink);
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 18px 40px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: .02em;
+  transition: transform .15s ease;
+}
+.btn-go:active { transform: scale(.96); }
+.skip-link {
+  margin-top: 20px;
+  color: rgba(255,255,255,.5);
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ─── FEED ─── */
+.feed {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.feed::-webkit-scrollbar { display: none; }
+
+.card {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(.7);
+}
+.card-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(0,0,0,.85) 100%);
+}
+.card-emoji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-size: 160px;
+  opacity: .85;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,.4));
+  animation: floatEmoji 4s ease-in-out infinite;
+}
+@keyframes floatEmoji {
+  0%, 100% { transform: translate(-50%, -55%); }
+  50% { transform: translate(-50%, -58%); }
+}
+
+.card-info {
+  position: relative;
+  z-index: 2;
+  padding: 24px 24px 160px;
+  color: var(--white);
+}
+.card-tag {
+  display: inline-block;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.card-title {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 900;
+  font-size: clamp(38px, 10vw, 56px);
+  text-transform: uppercase;
+  line-height: .92;
+  letter-spacing: -.01em;
+  margin-bottom: 8px;
+}
+.card-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,.85);
+  margin-bottom: 16px;
+  line-height: 1.4;
+  max-width: 90%;
+}
+.card-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,.8);
+}
+.card-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Actions bar */
+.actions {
+  position: absolute;
+  bottom: 32px;
+  left: 24px;
+  right: 24px;
+  z-index: 3;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.btn-skip, .btn-like {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--white);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .2s ease;
+  flex-shrink: 0;
+}
+.btn-skip:active { transform: scale(.92); background: rgba(255,255,255,.15); }
+.btn-like {
+  background: rgba(255,90,31,.95);
+  border-color: var(--orange);
+}
+.btn-like:active { transform: scale(.92); background: var(--orange); }
+.btn-cta {
+  flex: 1;
+  background: var(--lime);
+  color: var(--ink);
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 18px 20px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: .03em;
+  height: 56px;
+}
+.btn-cta:active { transform: scale(.96); }
+
+/* Progress */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255,255,255,.1);
+  z-index: 30;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--lime);
+  transition: width .4s ease;
+  width: 0%;
+}
+.progress-count {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 30;
+  color: var(--white);
+}
+
+/* Pulse animations */
+.pulse-like {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 100;
+  font-size: 140px;
+  pointer-events: none;
+}
+.pulse-like.active {
+  animation: pulseLike .8s ease-out forwards;
+}
+@keyframes pulseLike {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  30% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ─── RESULT PAGE ─── */
+.result {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: linear-gradient(180deg, var(--ink) 0%, #1F1B3B 100%);
+  overflow-y: auto;
+  display: none;
+  padding: 24px;
+  padding-bottom: 80px;
+}
+.result.active { display: block; animation: fadeIn .5s ease; }
+.result-header {
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+.result-tag {
+  display: inline-block;
+  background: var(--lime);
+  color: var(--ink);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.result-profile {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 900;
+  font-size: clamp(36px, 9vw, 56px);
+  text-transform: uppercase;
+  line-height: .9;
+  margin-bottom: 12px;
+}
+.result-desc {
+  color: rgba(255,255,255,.7);
+  max-width: 320px;
+  margin: 0 auto;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.sport-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.sport-card-rank {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--lime);
+  margin-bottom: 8px;
+  letter-spacing: .1em;
+}
+.sport-card-rank.gold { color: var(--orange); }
+.sport-card-title {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.sport-card-match {
+  display: inline-block;
+  background: rgba(197,240,46,.15);
+  color: var(--lime);
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.sport-card-why {
+  font-size: 14px;
+  color: rgba(255,255,255,.8);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.sport-card-cta {
+  display: block;
+  width: 100%;
+  background: var(--lime);
+  color: var(--ink);
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 16px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: .04em;
+  text-align: center;
+}
+.sport-card-cta.secondary {
+  background: rgba(255,255,255,.1);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,.2);
+}
+.sport-card-emoji {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 56px;
+  opacity: .85;
+}
+
+.result-footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.result-footer button {
+  background: none;
+  border: 1px solid rgba(255,255,255,.2);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+/* Hint swipe */
+.hint {
+  position: fixed;
+  bottom: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(20px);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  animation: hintPulse 2s ease-in-out infinite;
+}
+@keyframes hintPulse {
+  0%, 100% { opacity: .6; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+}
+
+@media (min-width: 768px) {
+  .feed, .onboard, .result {
+    max-width: 420px;
+    margin: 0 auto;
+    box-shadow: 0 0 60px rgba(0,0,0,.5);
+  }
+  body {
+    background: #0a0815;
+    display: flex;
+    justify-content: center;
+  }
+}
+</style>
+
+<!-- Open Graph + Twitter (audit 2026-05-28) -->
+<meta property="og:title" content="Kinetic Feed — Trouve ton sport en scrollant">
+<meta property="og:description" content="Scrolle, like, trouve ton sport. Kinetic Feed prototype.">
+<meta property="og:url" content="https://kinetic.app/feed.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kinetic Feed — Trouve ton sport en scrollant">
+<meta name="twitter:description" content="Scrolle, like, trouve ton sport. Kinetic Feed prototype.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+
+<!-- ONBOARDING -->
+<div class="onboard" id="onboard">
+  <h1>Trouve <span>ton</span><br/>sport en<br/>scrollant.</h1>
+  <p>Pas de quiz. Tu scrolles, tu likes ce qui te parle. On te match avec 3 sports parfaits près de chez toi.</p>
+  <input type="text" id="cp" placeholder="Ton code postal" inputmode="numeric" maxlength="5" />
+  <button class="btn-go" onclick="startFeed()">Let's go</button>
+  <span class="skip-link" onclick="startFeed(true)">Passer cette étape</span>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="progress-count" id="progressCount" style="display:none;">0 / 10</div>
+
+<!-- FEED -->
+<div class="feed" id="feed" style="display:none;"></div>
+
+<!-- Pulse heart on like -->
+<div class="pulse-like" id="pulseLike">❤️</div>
+
+<!-- Swipe hint -->
+<div class="hint" id="hint" style="display:none;">↑ Swipe pour passer</div>
+
+<!-- RESULT -->
+<div class="result" id="result">
+  <div class="result-header">
+    <div class="result-tag">Ton profil Kinetic</div>
+    <h2 class="result-profile" id="profileName">Le Loup Tactique</h2>
+    <p class="result-desc" id="profileDesc">Tu avances seul, tu réfléchis avant d'agir, et tu kiffes la maîtrise.</p>
+  </div>
+  <div id="topSports"></div>
+  <div class="result-footer">
+    <button onclick="restart()">Refaire</button>
+    <button onclick="shareProfile()">Partager</button>
+  </div>
+</div>
+
+<script>
+// ─── DATA SPORTS (12 placeholders, basés sur data.js réel) ───
+const SPORTS = [
+  {
+    id: 'escalade',
+    nom: 'Escalade',
+    emoji: '🧗',
+    tag: 'Indoor / Outdoor',
+    desc: 'La gravité, la peau, le mur. Toi contre toi.',
+    meta: '🏔️ Salle ou falaise · 💪 Tout le corps · 🧠 Mental',
+    bg: 'linear-gradient(135deg, #FF5A1F 0%, #6C47FF 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1522163182402-834f871fd851?w=800&q=80',
+    dims: { intensity:3, outdoor:3, collectif:0, contact:0, technique:5, force:4, adrenaline:4, zen:2, urbain:0, eau:0, hauteur:5, social:2 }
+  },
+  {
+    id: 'boxe',
+    nom: 'Boxe anglaise',
+    emoji: '🥊',
+    tag: 'Combat',
+    desc: 'Le ring, les gants, le souffle. Pour les durs au coeur tendre.',
+    meta: '🔥 Intensité max · 💢 Contact · ⚡ Explosif',
+    bg: 'linear-gradient(135deg, #1a0000 0%, #FF5A1F 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1549824506-9e80e89ee1bd?w=800&q=80',
+    dims: { intensity:5, outdoor:0, collectif:0, contact:5, technique:4, force:4, adrenaline:5, zen:1, urbain:2, eau:0, hauteur:0, social:3 }
+  },
+  {
+    id: 'yoga',
+    nom: 'Yoga',
+    emoji: '🧘',
+    tag: 'Bien-être',
+    desc: 'Souffle, tenue, présence. Le sport qui te ralentit.',
+    meta: '☮️ Calme · 🧠 Mental · 🌿 Bien-être',
+    bg: 'linear-gradient(135deg, #6C47FF 0%, #C5F02E 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&q=80',
+    dims: { intensity:1, outdoor:1, collectif:0, contact:0, technique:3, force:1, adrenaline:0, zen:5, urbain:0, eau:0, hauteur:0, social:2, souplesse:5 }
+  },
+  {
+    id: 'padel',
+    nom: 'Padel',
+    emoji: '🎾',
+    tag: 'Raquette',
+    desc: 'Tennis en cage, en double, en mode soirée. Le sport le plus fun de France.',
+    meta: '👥 Toujours en groupe · 🎉 Très social · 🏟️ Indoor',
+    bg: 'linear-gradient(135deg, #00b4a8 0%, #FF5A1F 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=800&q=80',
+    dims: { intensity:3, outdoor:1, collectif:2, contact:0, technique:4, force:2, adrenaline:2, zen:1, urbain:1, eau:0, hauteur:0, social:5 }
+  },
+  {
+    id: 'trail',
+    nom: 'Trail',
+    emoji: '🏃',
+    tag: 'Endurance / Nature',
+    desc: 'La forêt, la montagne, le souffle long. Tu pars, tu disparais.',
+    meta: '🌲 100% nature · 🫁 Endurance · 🧘 Mental',
+    bg: 'linear-gradient(135deg, #2d5a3d 0%, #FF8C42 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80',
+    dims: { intensity:4, outdoor:5, collectif:0, contact:0, technique:2, force:3, adrenaline:2, zen:3, urbain:0, eau:0, hauteur:1, social:1, endurance:5 }
+  },
+  {
+    id: 'surf',
+    nom: 'Surf',
+    emoji: '🏄',
+    tag: 'Glisse',
+    desc: 'L\'océan choisit pas. Tu attends, tu rames, tu te lèves. La vraie liberté.',
+    meta: '🌊 Eau · ☀️ Outdoor · 🤙 Lifestyle',
+    bg: 'linear-gradient(135deg, #006494 0%, #00b4a8 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800&q=80',
+    dims: { intensity:3, outdoor:5, collectif:0, contact:0, technique:5, force:3, adrenaline:5, zen:3, urbain:0, eau:5, hauteur:0, social:3 }
+  },
+  {
+    id: 'football',
+    nom: 'Football',
+    emoji: '⚽',
+    tag: 'Collectif',
+    desc: 'Le sport roi. Le foot du dimanche, les copains, le terrain synthé.',
+    meta: '👥 Équipe · ⚡ Cardio · 🏟️ Partout',
+    bg: 'linear-gradient(135deg, #2d5a3d 0%, #6C47FF 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&q=80',
+    dims: { intensity:4, outdoor:4, collectif:5, contact:2, technique:3, force:2, adrenaline:3, zen:0, urbain:2, eau:0, hauteur:0, social:5 }
+  },
+  {
+    id: 'basket',
+    nom: 'Basketball',
+    emoji: '🏀',
+    tag: 'Urbain',
+    desc: 'Le playground, le swag, la sneaker culture. Le sport le plus stylé.',
+    meta: '🏙️ Urbain · 🦘 Saut · 👥 Équipe',
+    bg: 'linear-gradient(135deg, #FF5A1F 0%, #1a0000 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80',
+    dims: { intensity:4, outdoor:2, collectif:5, contact:2, technique:3, force:2, adrenaline:3, zen:0, urbain:5, eau:0, hauteur:1, social:5 }
+  },
+  {
+    id: 'crossfit',
+    nom: 'Crossfit',
+    emoji: '🏋️',
+    tag: 'Hybride',
+    desc: 'Tout, tout le temps. Force, cardio, technique. Tu sors lessivé.',
+    meta: '🔥 Intensité max · 💪 Force · 👥 Box community',
+    bg: 'linear-gradient(135deg, #6B6680 0%, #C5F02E 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&q=80',
+    dims: { intensity:5, outdoor:0, collectif:2, contact:0, technique:3, force:5, adrenaline:3, zen:0, urbain:1, eau:0, hauteur:0, social:4 }
+  },
+  {
+    id: 'vtt',
+    nom: 'VTT',
+    emoji: '🚵',
+    tag: 'Outdoor',
+    desc: 'Forêt, sentier, descente. La vitesse de la nature, sans moteur.',
+    meta: '🌲 Outdoor · ⬇️ Descente · 🦴 Adrénaline',
+    bg: 'linear-gradient(135deg, #5d4037 0%, #2d5a3d 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?w=800&q=80',
+    dims: { intensity:4, outdoor:5, collectif:0, contact:0, technique:4, force:3, adrenaline:5, zen:2, urbain:0, eau:0, hauteur:1, social:2, endurance:4 }
+  },
+  {
+    id: 'pingpong',
+    nom: 'Tennis de table',
+    emoji: '🏓',
+    tag: 'Précision',
+    desc: 'Vingt mètres carrés, deux réflexes. Le sport le plus rapide du monde.',
+    meta: '⚡ Vitesse · 🧠 Précision · 🏠 Tout âge',
+    bg: 'linear-gradient(135deg, #4A28D9 0%, #FF8C42 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1611251135345-18c56206b863?w=800&q=80',
+    dims: { intensity:2, outdoor:0, collectif:1, contact:0, technique:5, force:1, adrenaline:2, zen:1, urbain:0, eau:0, hauteur:0, social:4 }
+  },
+  {
+    id: 'mma',
+    nom: 'MMA',
+    emoji: '🤼',
+    tag: 'Combat libre',
+    desc: 'Toutes les techniques, toutes les distances. Le sport ultime de combat.',
+    meta: '💥 Contact max · 🔥 Intensité · 🥋 Discipline',
+    bg: 'linear-gradient(135deg, #000 0%, #FF5A1F 100%)',
+    bgImg: 'https://images.unsplash.com/photo-1605296867424-35fc25c9212a?w=800&q=80',
+    dims: { intensity:5, outdoor:0, collectif:0, contact:5, technique:5, force:5, adrenaline:5, zen:1, urbain:1, eau:0, hauteur:0, social:3 }
+  }
+];
+
+// ─── PROFILS-IDENTITÉS ───
+const PROFILES = [
+  { id:'loup', nom:'Le Loup Tactique', desc:'Tu avances seul, tu réfléchis avant d\'agir, et tu kiffes la maîtrise.', tags:{ technique:5, zen:3, social:1, contact:2 } },
+  { id:'bete', nom:'La Bête Sociale', desc:'Tu carbures à l\'énergie du groupe. Plus on est, mieux ça passe.', tags:{ collectif:5, social:5, intensity:3, urbain:3 } },
+  { id:'explorateur', nom:'L\'Explorateur Libre', desc:'Quatre murs, ça t\'étouffe. Ton terrain, c\'est la nature, le grand large.', tags:{ outdoor:5, adrenaline:3, social:1, intensity:3 } },
+  { id:'combattant', nom:'Le Combattant', desc:'Tu kiffes le face-à-face. La sueur, le contact, le défi direct.', tags:{ contact:5, intensity:5, technique:3, adrenaline:3 } },
+  { id:'artiste', nom:'L\'Artiste du Geste', desc:'Pour toi le sport, c\'est de l\'art. La fluidité, la précision, le détail.', tags:{ technique:5, zen:3, intensity:1, contact:0 } },
+  { id:'performer', nom:'Le Performer', desc:'Les chiffres, les progrès, le dépassement. Tu mesures, donc tu existes.', tags:{ intensity:5, adrenaline:3, technique:3, contact:1 } },
+  { id:'joueur', nom:'Le Joueur', desc:'Tu viens pour t\'éclater. Le sport, c\'est avant tout un jeu.', tags:{ social:5, collectif:4, urbain:2, intensity:2 } },
+  { id:'zen', nom:'Le Centré', desc:'Tu cherches l\'équilibre. Le sport pour respirer, pas pour gagner.', tags:{ zen:5, social:1, intensity:1, contact:0 } }
+];
+
+// ─── STATE ───
+let state = {
+  cp: '',
+  index: 0,
+  cardsViewed: 0,
+  likes: [],
+  skips: [],
+  profile: {}, // accumulator des dimensions
+};
+
+const FEED_SIZE = 10;
+const MIN_TO_FINISH = 8;
+
+// ─── INIT ───
+function startFeed(skipped = false) {
+  const cp = document.getElementById('cp').value.trim();
+  state.cp = cp || '75001';
+
+  document.getElementById('onboard').style.display = 'none';
+  document.getElementById('feed').style.display = 'block';
+  document.getElementById('progressCount').style.display = 'block';
+  document.getElementById('hint').style.display = 'flex';
+
+  setTimeout(() => {
+    document.getElementById('hint').style.display = 'none';
+  }, 4000);
+
+  renderFeed();
+}
+
+function renderFeed() {
+  const feed = document.getElementById('feed');
+  // Mélanger les sports
+  const shuffled = [...SPORTS].sort(() => Math.random() - 0.5);
+  state.cards = shuffled.slice(0, FEED_SIZE);
+
+  feed.innerHTML = state.cards.map((s, i) => `
+    <div class="card" data-index="${i}" data-sport-id="${s.id}">
+      <div class="card-bg" style="background-image: url('${s.bgImg}'), ${s.bg};"></div>
+      <div class="card-emoji">${s.emoji}</div>
+      <div class="card-info">
+        <span class="card-tag">${s.tag}</span>
+        <h2 class="card-title">${s.nom}</h2>
+        <p class="card-desc">${s.desc}</p>
+        <div class="card-meta">${s.meta}</div>
+      </div>
+      <div class="actions">
+        <button class="btn-skip" onclick="skipCard(${i})" aria-label="Passer">✕</button>
+        <button class="btn-cta" onclick="showClubsInfo('${s.id}')">${state.cp ? `5 clubs à ${state.cp}` : 'Voir clubs'} →</button>
+        <button class="btn-like" onclick="likeCard(${i})" aria-label="J'aime">❤</button>
+      </div>
+    </div>
+  `).join('');
+
+  updateProgress();
+}
+
+// ─── ACTIONS ───
+function likeCard(index) {
+  const sport = state.cards[index];
+  state.likes.push(sport.id);
+  accumulateProfile(sport, 1.0);
+  showPulse('❤️');
+  state.cardsViewed++;
+  advanceOrFinish(index);
+}
+
+function skipCard(index) {
+  const sport = state.cards[index];
+  state.skips.push(sport.id);
+  accumulateProfile(sport, -0.3);
+  state.cardsViewed++;
+  advanceOrFinish(index);
+}
+
+function accumulateProfile(sport, weight) {
+  for (const [k, v] of Object.entries(sport.dims)) {
+    state.profile[k] = (state.profile[k] || 0) + v * weight;
+  }
+}
+
+function advanceOrFinish(index) {
+  updateProgress();
+  if (state.cardsViewed >= MIN_TO_FINISH && (state.likes.length >= 3 || state.cardsViewed >= FEED_SIZE)) {
+    setTimeout(showResult, 500);
+    return;
+  }
+  // Scroll vers la prochaine card
+  const next = document.querySelector(`.card[data-index="${index + 1}"]`);
+  if (next) next.scrollIntoView({ behavior: 'smooth' });
+}
+
+function updateProgress() {
+  const pct = Math.min(100, (state.cardsViewed / MIN_TO_FINISH) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressCount').textContent = `${state.cardsViewed} / ${MIN_TO_FINISH}`;
+}
+
+function showPulse(emoji) {
+  const el = document.getElementById('pulseLike');
+  el.textContent = emoji;
+  el.classList.remove('active');
+  void el.offsetWidth;
+  el.classList.add('active');
+}
+
+function showClubsInfo(sportId) {
+  alert(`(Proto) Dans la vraie version, ici tu vois les clubs de ${sportId} à ${state.cp} avec créneaux d'essai.`);
+}
+
+// ─── DÉTECTION DU PROFIL ───
+function detectProfile() {
+  const p = state.profile;
+  let bestProfile = PROFILES[0];
+  let bestScore = -Infinity;
+
+  for (const profile of PROFILES) {
+    let score = 0;
+    for (const [k, v] of Object.entries(profile.tags)) {
+      score += (p[k] || 0) * v;
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      bestProfile = profile;
+    }
+  }
+  return bestProfile;
+}
+
+// ─── TOP 3 SPORTS ───
+function getTop3() {
+  // Cosine similarity entre profil et chaque sport
+  const userVec = state.profile;
+  const scored = SPORTS.map(s => {
+    let dot = 0, magU = 0, magS = 0;
+    const keys = new Set([...Object.keys(userVec), ...Object.keys(s.dims)]);
+    keys.forEach(k => {
+      const u = userVec[k] || 0;
+      const sv = s.dims[k] || 0;
+      dot += u * sv;
+      magU += u * u;
+      magS += sv * sv;
+    });
+    const sim = (magU && magS) ? dot / (Math.sqrt(magU) * Math.sqrt(magS)) : 0;
+    return { sport: s, score: sim };
+  });
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, 3);
+}
+
+// ─── RÉSULTAT ───
+function showResult() {
+  const profile = detectProfile();
+  const top3 = getTop3();
+
+  document.getElementById('profileName').textContent = profile.nom;
+  document.getElementById('profileDesc').textContent = profile.desc;
+
+  const matchPct = (score) => Math.round(70 + score * 25); // map cosine 0-1 → 70-95%
+
+  const html = top3.map((item, i) => {
+    const s = item.sport;
+    const isFirst = i === 0;
+    const why = isFirst
+      ? `Avec ton profil ${profile.nom}, ${s.nom.toLowerCase()} matche ton besoin de ${getDominantTrait(profile)}.`
+      : `Aussi très aligné avec ton profil.`;
+    return `
+      <div class="sport-card">
+        <div class="sport-card-emoji">${s.emoji}</div>
+        <div class="sport-card-rank ${isFirst ? 'gold' : ''}">${isFirst ? '⭐ Top match' : `Match #${i + 1}`}</div>
+        <h3 class="sport-card-title">${s.nom}</h3>
+        <span class="sport-card-match">${matchPct(item.score)}% match</span>
+        <p class="sport-card-why">${why}</p>
+        <button class="sport-card-cta ${isFirst ? '' : 'secondary'}" onclick="showClubsInfo('${s.id}')">
+          ${isFirst ? `Essaie cette semaine près de ${state.cp}` : `Voir les clubs →`}
+        </button>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('topSports').innerHTML = html;
+  document.getElementById('feed').style.display = 'none';
+  document.getElementById('progressCount').style.display = 'none';
+  document.getElementById('result').classList.add('active');
+}
+
+function getDominantTrait(profile) {
+  const sorted = Object.entries(profile.tags).sort((a, b) => b[1] - a[1]);
+  const trait = sorted[0][0];
+  const map = {
+    technique: 'maîtrise', zen: 'apaisement', social: 'connexion', contact: 'défoulement',
+    collectif: 'esprit d\'équipe', intensity: 'intensité', urbain: 'culture urbaine',
+    outdoor: 'grand air', adrenaline: 'adrénaline'
+  };
+  return map[trait] || 'expression';
+}
+
+function restart() {
+  state = { cp: state.cp, index: 0, cardsViewed: 0, likes: [], skips: [], profile: {} };
+  document.getElementById('result').classList.remove('active');
+  document.getElementById('feed').style.display = 'block';
+  document.getElementById('progressCount').style.display = 'block';
+  document.getElementById('feed').scrollTop = 0;
+  renderFeed();
+}
+
+function shareProfile() {
+  const profile = detectProfile();
+  const text = `Mon profil Kinetic : ${profile.nom}. Trouve le tien sur kinetic.fr/feed`;
+  if (navigator.share) {
+    navigator.share({ title: 'Kinetic Feed', text });
+  } else {
+    navigator.clipboard.writeText(text);
+    alert('Lien copié !');
+  }
+}
+
+// Track time on card (bonus signal)
+let cardStartTime = Date.now();
+document.getElementById('feed').addEventListener('scroll', () => {
+  cardStartTime = Date.now();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explorer les sports — Swipe pour découvrir | Kinetic</title>
+<meta name="description" content="Swipe à travers les sports les plus insolites de France. Kabaddi, kin-ball, floorball, sepak takraw… un sport différent à chaque carte.">
+<link rel="canonical" href="https://kinetic.app/explorer.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kinetic">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Explorer les sports — Swipe pour découvrir | Kinetic">
+<meta property="og:description" content="Swipe à travers les sports les plus insolites de France. Un sport différent à chaque carte.">
+<meta property="og:url" content="https://kinetic.app/explorer.html">
+<meta property="og:image" content="https://kinetic.app/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Explorer les sports — Swipe pour découvrir | Kinetic">
+<meta name="twitter:description" content="Kabaddi, kin-ball, floorball… swipe à travers les sports les plus insolites de France.">
+<meta name="twitter:image" content="https://kinetic.app/og-image.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6C47FF">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="enhance-2026.css">
+<script src="icons.js" defer></script>
+<style>
+  /* Page fills the viewport — one card per scroll-snap section */
+  html, body { overflow: hidden; height: 100%; }
+  body { color: var(--ink); }
+
+  /* Nav overlays the feed */
+  .nav {
+    position: fixed !important;
+    top: 16px; left: 0; right: 0;
+    z-index: 1000;
+  }
+
+  /* ─── FEED ─── */
+  .feed {
+    position: fixed;
+    inset: 0;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .feed::-webkit-scrollbar { display: none; }
+
+  .card {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Gradient backdrops by card — light theme */
+  .card.c-kabaddi {
+    background:
+      radial-gradient(1200px 900px at 30% 30%, rgba(255,90,31,.22) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 80% 90%, rgba(108,71,255,.18) 0%, transparent 55%),
+      linear-gradient(180deg, #FBF8FF 0%, #FFF4EC 100%);
+  }
+  .card.c-climb {
+    background:
+      radial-gradient(1200px 900px at 20% 20%, rgba(46,143,214,.2) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 90% 80%, rgba(22,160,133,.18) 0%, transparent 55%),
+      linear-gradient(180deg, #F0F8FF 0%, #EEF9F8 100%);
+  }
+  .card.c-petanque {
+    background:
+      radial-gradient(1200px 900px at 60% 30%, rgba(230,126,34,.22) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 30% 80%, rgba(214,51,132,.16) 0%, transparent 55%),
+      linear-gradient(180deg, #FFF8F0 0%, #FFF0F8 100%);
+  }
+  .card.c-padel {
+    background:
+      radial-gradient(1200px 900px at 25% 25%, rgba(255,107,157,.2) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 85% 85%, rgba(0,180,216,.18) 0%, transparent 55%),
+      linear-gradient(180deg, #FFF5FA 0%, #F0FBFF 100%);
+  }
+  .card.c-kinball {
+    background:
+      radial-gradient(1200px 900px at 70% 20%, rgba(255,28,174,.2) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 20% 90%, rgba(123,47,190,.18) 0%, transparent 55%),
+      linear-gradient(180deg, #FFF5FC 0%, #F8F0FF 100%);
+  }
+  .card.c-tchouk {
+    background:
+      radial-gradient(1200px 900px at 30% 30%, rgba(132,232,46,.22) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 80% 80%, rgba(15,76,117,.15) 0%, transparent 55%),
+      linear-gradient(180deg, #F5FFF0 0%, #F0F8FF 100%);
+  }
+  .card.c-discgolf {
+    background:
+      radial-gradient(1200px 900px at 60% 25%, rgba(39,174,96,.22) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 25% 80%, rgba(41,128,185,.18) 0%, transparent 55%),
+      linear-gradient(180deg, #F0FFF5 0%, #F0F8FF 100%);
+  }
+  .card.c-wushu {
+    background:
+      radial-gradient(1200px 900px at 30% 30%, rgba(229,62,62,.22) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 80% 80%, rgba(246,173,85,.2) 0%, transparent 55%),
+      linear-gradient(180deg, #FFF5F0 0%, #FFFBF0 100%);
+  }
+  .card.c-parkour {
+    background:
+      radial-gradient(1200px 900px at 50% 20%, rgba(113,128,150,.2) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 20% 90%, rgba(255,90,31,.22) 0%, transparent 55%),
+      linear-gradient(180deg, #F8F8F8 0%, #FFF4EC 100%);
+  }
+  .card.c-sepak {
+    background:
+      radial-gradient(1200px 900px at 70% 30%, rgba(255,184,0,.25) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 20% 80%, rgba(229,62,62,.18) 0%, transparent 55%),
+      linear-gradient(180deg, #FFFCF0 0%, #FFF5F0 100%);
+  }
+  .card.c-floorball {
+    background:
+      radial-gradient(1200px 900px at 25% 30%, rgba(49,130,206,.2) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 80% 80%, rgba(144,205,244,.3) 0%, transparent 55%),
+      linear-gradient(180deg, #F0F8FF 0%, #EEF6FF 100%);
+  }
+  .card.c-ultimate {
+    background:
+      radial-gradient(1200px 900px at 40% 25%, rgba(56,161,105,.22) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 85% 80%, rgba(66,153,225,.18) 0%, transparent 55%),
+      linear-gradient(180deg, #F0FFF8 0%, #EEF6FF 100%);
+  }
+  .card.c-cheer {
+    background:
+      radial-gradient(1200px 900px at 60% 25%, rgba(159,122,234,.22) 0%, transparent 55%),
+      radial-gradient(1000px 800px at 25% 80%, rgba(236,201,75,.25) 0%, transparent 55%),
+      linear-gradient(180deg, #F8F0FF 0%, #FFFCF0 100%);
+  }
+  .tag.t-insolite {
+    background: linear-gradient(135deg, #FF1CAE 0%, #C8007A 100%);
+    box-shadow: 0 10px 30px rgba(255,28,174,.4);
+  }
+  .tag.t-tendance {
+    background: linear-gradient(135deg, #00B4D8 0%, #0077B6 100%);
+    box-shadow: 0 10px 30px rgba(0,180,216,.4);
+  }
+  .tag.t-social {
+    background: linear-gradient(135deg, #84E82E 0%, #56A800 100%);
+    color: #0B1F0B;
+    box-shadow: 0 10px 30px rgba(132,232,46,.3);
+  }
+  .tag.t-gratuit {
+    background: linear-gradient(135deg, #ECC94B 0%, #D4A017 100%);
+    color: #1A0B2E;
+    box-shadow: 0 10px 30px rgba(236,201,75,.35);
+  }
+
+  /* Grain overlay */
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(14,11,31,.012) 0, rgba(14,11,31,.012) 1px, transparent 1px, transparent 3px);
+    pointer-events: none;
+    opacity: .6;
+  }
+
+  /* Feed counter (remplace les dots) */
+  #feedCounter {
+    position: fixed;
+    top: 72px;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 999;
+    pointer-events: none;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: .2em;
+    color: rgba(14,11,31,.5);
+    background: rgba(255,255,255,.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 5px 14px 4px;
+    border-radius: 100px;
+    border: 1px solid rgba(14,11,31,.1);
+  }
+  @media (max-width: 900px) { #feedCounter { top: 90px; } }
+
+  /* ─── CARD LAYOUT — editorial 2-col at desktop ─── */
+  .card-inner {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1320px;
+    padding: 0 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .card-inner {
+      grid-template-columns: 1fr;
+      padding: 100px 20px 90px;
+      gap: 24px;
+    }
+  }
+  @media (max-width: 640px) {
+    .card-inner { padding: 90px 16px 80px; gap: 18px; }
+    .title { font-size: clamp(56px, 16vw, 96px) !important; margin-bottom: 16px; }
+    .title.long { font-size: clamp(48px, 14vw, 84px) !important; }
+    .tag { margin-bottom: 20px; padding: 8px 14px 6px; font-size: 13px; }
+    .data { font-size: 12px; margin-bottom: 16px; }
+    .chips { margin-bottom: 12px; gap: 6px; }
+    .chip { padding: 6px 12px; font-size: 12px; min-height: 32px; }
+    .pitch { font-size: 15px; margin-bottom: 24px; line-height: 1.5; }
+    .actions { flex-wrap: wrap; gap: 8px; }
+    .actions .btn, .actions .cta { width: 100%; min-height: 48px; justify-content: center; }
+    .watermark { font-size: clamp(120px, 36vw, 220px) !important; }
+  }
+
+  /* LEFT column — text */
+  .col-text {
+    max-width: 560px;
+  }
+  @media (max-width: 900px) {
+    .col-text { order: 2; }
+  }
+
+  /* Tag pill */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px 8px;
+    border-radius: 100px;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 16px;
+    letter-spacing: .18em;
+    color: white;
+    margin-bottom: 36px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .tag .em { font-size: 18px; font-family: 'Inter', sans-serif; }
+  .tag.t-niche {
+    background: linear-gradient(135deg, #FF5A1F 0%, #E34A10 100%);
+    box-shadow: 0 10px 30px rgba(255,90,31,.4);
+  }
+  .tag.t-jo {
+    background: linear-gradient(135deg, #6C47FF 0%, #4A28D9 100%);
+    box-shadow: 0 10px 30px rgba(108,71,255,.4);
+  }
+  .tag.t-cheap {
+    background: linear-gradient(135deg, #D4FF3A 0%, #A8E60F 100%);
+    color: #1A0B2E;
+    box-shadow: 0 10px 30px rgba(212,255,58,.3);
+  }
+
+  /* Huge title */
+  .title {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: clamp(80px, 14vw, 220px);
+    line-height: .82;
+    color: var(--ink);
+    letter-spacing: -.005em;
+    margin-bottom: 24px;
+    text-shadow: 0 4px 20px rgba(14,11,31,.08);
+  }
+  .title.long { font-size: clamp(72px, 11vw, 180px); }
+
+  /* Chips row */
+  .chips {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    padding: 7px 14px;
+    border-radius: 100px;
+    background: rgba(14,11,31,.07);
+    border: 1px solid rgba(14,11,31,.12);
+    backdrop-filter: blur(12px);
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .chip em { font-style: normal; font-size: 16px; }
+
+  /* Data line */
+  .data {
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-size: 15px;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  .data b { color: var(--ink); font-weight: 700; }
+
+  /* Pitch copy */
+  .pitch {
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--gray);
+    max-width: 520px;
+    text-wrap: pretty;
+    margin-bottom: 36px;
+  }
+  @media (max-width: 900px) { .pitch { font-size: 17px; } }
+
+  /* Actions row */
+  .actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .icon-btn {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: rgba(14,11,31,.07);
+    border: 1px solid rgba(14,11,31,.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all .2s;
+    flex-shrink: 0;
+  }
+  .icon-btn:hover { background: rgba(14,11,31,.12); transform: translateY(-2px); }
+  .icon-btn.on { background: rgba(14,11,31,.1); }
+  .icon-btn.liked {
+    background: #FF5A1F;
+    border-color: #FF5A1F;
+    color: white;
+    box-shadow: 0 10px 28px rgba(255,90,31,.45);
+  }
+  .icon-btn.liked svg { animation: pop .3s ease; fill: white; stroke: white; }
+  @keyframes pop {
+    0% { transform: scale(.7); }
+    60% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+  }
+  .icon-btn svg {
+    width: 22px; height: 22px;
+    fill: none; stroke: currentColor;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .icon-btn.save.on svg { fill: currentColor; }
+
+  .loc-pill {
+    height: 54px;
+    padding: 0 20px;
+    border-radius: 100px;
+    background: rgba(14,11,31,.07);
+    border: 1px solid rgba(14,11,31,.12);
+    backdrop-filter: blur(20px);
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .loc-pill svg { width: 18px; height: 18px; stroke: #FF5A1F; flex-shrink: 0; fill: none; stroke-width: 2; }
+  .loc-pill b { color: #FF5A1F; font-weight: 700; }
+
+  .cta {
+    height: 54px;
+    padding: 0 28px;
+    border-radius: 100px;
+    background: #FF5A1F;
+    color: white;
+    font-family: 'Archivo Narrow', Impact, sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 14px 34px rgba(255,90,31,.45);
+    transition: all .2s;
+    text-decoration: none;
+  }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 20px 44px rgba(255,90,31,.6); }
+  .cta svg { width: 16px; height: 16px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; }
+
+  /* RIGHT column — hero visual */
+  .col-visual {
+    position: relative;
+    height: min(70vh, 640px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 900px) {
+    .col-visual { height: 280px; order: 1; }
+  }
+  .glyph {
+    width: clamp(180px, 32vw, 440px);
+    height: clamp(180px, 32vw, 440px);
+    filter: drop-shadow(0 20px 60px rgba(14,11,31,.15));
+    animation: float 5s ease-in-out infinite;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .glyph svg { width: 100%; height: 100%; }
+  /* Override inline SVG white strokes/fills for light theme */
+  .glyph svg path, .glyph svg line, .glyph svg polyline, .glyph svg polygon { stroke: var(--ink); }
+  .glyph svg path[fill="white"] { fill: var(--ink) !important; stroke: none !important; }
+  .glyph svg circle[fill="white"] { fill: var(--ink) !important; stroke: none !important; }
+  .glyph svg path[stroke="none"] { stroke: none !important; }
+  .glyph svg circle:not([fill]) { stroke: var(--ink); }
+
+  /* Emoji glyph pour cartes générées */
+  .glyph-emoji {
+    font-size: clamp(120px, 20vw, 200px);
+    line-height: 1;
+    position: relative;
+    z-index: 3;
+    animation: float 5s ease-in-out infinite;
+    user-select: none;
+    text-align: center;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-18px) rotate(3deg); }
+  }
+  .aura {
+    position: absolute;
+    width: 70%; aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(14,11,31,.15);
+    animation: spin 40s linear infinite;
+  }
+  .aura.a2 {
+    width: 88%;
+    border-style: dotted;
+    opacity: .4;
+    animation-duration: 60s;
+    animation-direction: reverse;
+  }
+  .aura.a3 {
+    width: 55%;
+    border-style: solid;
+    border-color: rgba(14,11,31,.06);
+    animation-duration: 30s;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Big number watermark */
+  .watermark {
+    position: absolute;
+    top: 0; left: -20px;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: clamp(180px, 28vw, 420px);
+    line-height: 1;
+    color: rgba(14,11,31,.04);
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Swipe hint (first card only) */
+  .swipe-hint {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    color: var(--gray);
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: .25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    pointer-events: none;
+    animation: bob 2.2s ease-in-out infinite;
+    transition: opacity .3s;
+  }
+  .swipe-hint.hidden { opacity: 0; }
+  @keyframes bob {
+    0%, 100% { transform: translate(-50%, 0); opacity: .7; }
+    50% { transform: translate(-50%, -8px); opacity: 1; }
+  }
+  .swipe-hint svg { width: 20px; height: 20px; stroke: var(--gray); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* Floating side controls (desktop) */
+  .side-rail {
+    position: fixed;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  @media (max-width: 900px) { .side-rail { display: none; } }
+  .rail-btn {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(14,11,31,.07);
+    border: 1px solid rgba(14,11,31,.12);
+    backdrop-filter: blur(20px);
+    color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .rail-btn:hover { background: rgba(14,11,31,.14); }
+  .rail-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* Sticky quiz CTA */
+  .explorer-sticky-cta {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border: 1px solid rgba(14,11,31,.12);
+    border-radius: 100px;
+    padding: 10px 10px 10px 20px;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 8px 32px rgba(14,11,31,.12);
+    animation: floatIn .5s .8s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+  @keyframes floatIn { from { opacity:0; transform: translateX(-50%) translateY(20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+  .explorer-sticky-cta .btn { padding: 10px 18px; font-size: 13px; white-space: nowrap; }
+
+  /* Pool caché — jamais rendu directement */
+  #premium-pool { display: none; }
+</style>
+<!-- Apple PWA -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kinetic">
+<meta name="mobile-web-app-capable" content="yes">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="demo-mode.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Aller au contenu</a>
+<script src="components/nav.js"></script>
+
+<!-- Sticky quiz CTA -->
+<div class="explorer-sticky-cta" role="complementary" aria-label="Invitation à faire le quiz">
+  Pas sûr de ton sport ?
+  <a href="trouver-club.html" class="btn btn-primary">Trouver mon sport <span data-icon="arrow" data-size="14" aria-hidden="true"></span></a>
+</div>
+
+<!-- Compteur de position dans le feed -->
+<div id="feedCounter" aria-hidden="true">SPORT #1</div>
+
+<!-- Side rail (desktop shortcuts) -->
+<div class="side-rail" aria-label="Navigation entre les cartes" role="navigation">
+  <button class="rail-btn" aria-label="Carte précédente" onclick="prevCard()">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+  <button class="rail-btn" aria-label="Carte suivante" onclick="nextCard()">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+</div>
+
+<!-- Feed — injecté dynamiquement par explorer-feed.js -->
+<span id="main-content"></span>
+<main class="feed" id="feed" aria-label="Explorer les sports"></main>
+
+<!-- Pool des cartes premium (non rendu, extrait par JS) -->
+<div id="premium-pool" aria-hidden="true">
+
+  <!-- CARD KABADDI ─────────────────────────── -->
+  <section class="card c-kabaddi" data-premium="true" data-sport-id="170">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-niche"><span class="em">🔥</span> SPORT DE NICHE</div>
+        <h2 class="title">KABADDI</h2>
+        <div class="chips">
+          <span class="chip"><em>⚡</em> Intense</span>
+          <span class="chip"><em>👯</em> Équipe</span>
+          <span class="chip"><em>🏠</em> Indoor</span>
+        </div>
+        <div class="data">47 000 LICENCIÉS · <b>320 CLUBS</b> EN FRANCE</div>
+        <p class="pitch">Rugby + loup glacé indien. Tu retiens ta respiration en mode « kabaddi kabaddi » pendant que tu attaques l'équipe adverse. Contact, apnée, stratégie.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>3 clubs</b> à 18 km</span>
+          </div>
+          <a href="sport.html?id=170" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">01</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 140 120" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="30" cy="14" r="9" fill="white" stroke="none"/>
+          <path d="M30 23 Q35 40 42 52" stroke-width="12"/>
+          <path d="M33 32 Q50 38 65 40" stroke-width="8"/>
+          <path d="M28 32 Q18 25 10 28" stroke-width="7"/>
+          <path d="M42 52 Q38 72 35 92" stroke-width="9"/>
+          <path d="M42 52 Q50 68 48 90" stroke-width="8"/>
+          <circle cx="105" cy="22" r="9" fill="white" stroke="none"/>
+          <path d="M105 31 Q100 48 98 60" stroke-width="12"/>
+          <path d="M100 42 Q82 42 68 40" stroke-width="8"/>
+          <path d="M102 42 Q115 35 125 28" stroke-width="7"/>
+          <path d="M98 60 Q90 78 85 98" stroke-width="9"/>
+          <path d="M98 60 Q105 76 108 98" stroke-width="8"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD ESCALADE ─────────────────────────── -->
+  <section class="card c-climb" data-premium="true" data-sport-id="26">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-jo"><span class="em">🏅</span> MÉDAILLÉ JO 2024</div>
+        <h2 class="title">ESCALADE</h2>
+        <div class="chips">
+          <span class="chip"><em>💪</em> Force</span>
+          <span class="chip"><em>🧘</em> Focus</span>
+          <span class="chip"><em>🌲</em> Outdoor</span>
+        </div>
+        <div class="data">117 000 LICENCIÉS · <b>1 240 CLUBS</b> EN FRANCE</div>
+        <p class="pitch">Grimpe, résous des énigmes de mouvement, regarde le monde d'en haut. Olympique depuis Tokyo 2020, médaillé à Paris 2024 — et l'un des sports qui pousse le plus vite chez les jeunes.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>12 clubs</b> à 8 km</span>
+          </div>
+          <a href="sport.html?id=26" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">02</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 100 150" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="55" cy="22" r="9" fill="white" stroke="none"/>
+          <path d="M55 31 Q58 50 55 68" stroke-width="12"/>
+          <path d="M57 40 Q70 28 78 18" stroke-width="8"/>
+          <path d="M53 44 Q38 40 28 38" stroke-width="8"/>
+          <path d="M55 68 Q65 82 72 90" stroke-width="9"/>
+          <path d="M54 70 Q45 85 40 105" stroke-width="9"/>
+          <circle cx="80" cy="15" r="4" fill="white" stroke="none" opacity="0.6"/>
+          <circle cx="30" cy="38" r="3" fill="white" stroke="none" opacity="0.5"/>
+          <circle cx="75" cy="88" r="3.5" fill="white" stroke="none" opacity="0.5"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD PÉTANQUE ─────────────────────────── -->
+  <section class="card c-petanque" data-premium="true" data-sport-id="35">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-cheap"><span class="em">💰</span> MOINS DE 100€/AN</div>
+        <h2 class="title">PÉTANQUE</h2>
+        <div class="chips">
+          <span class="chip"><em>🌿</em> Chill</span>
+          <span class="chip"><em>👥</em> Social</span>
+          <span class="chip"><em>☀️</em> Outdoor</span>
+        </div>
+        <div class="data">303 000 LICENCIÉS · <b>5 800 CLUBS</b> PARTOUT EN FRANCE</div>
+        <p class="pitch">Patrimoine vivant. Licence à 38 €/an, 3 boules et un cochonnet suffisent. Aucun club n'est à plus de 10 km de chez toi — et on joue dehors, en vrai, avec des humains.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>34 clubs</b> à 5 km</span>
+          </div>
+          <a href="sport.html?id=35" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">03</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 100 150" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="55" cy="18" r="9" fill="white" stroke="none"/>
+          <path d="M55 27 Q52 48 50 62" stroke-width="12"/>
+          <path d="M52 36 Q40 48 28 54" stroke-width="8"/>
+          <circle cx="22" cy="57" r="7" fill="none" stroke="white" stroke-width="3"/>
+          <path d="M55 36 Q65 32 72 28" stroke-width="7"/>
+          <path d="M50 62 Q44 80 40 100" stroke-width="9"/>
+          <path d="M50 62 Q56 80 60 100" stroke-width="9"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD PADEL ─────────────────────────── -->
+  <section class="card c-padel" data-premium="true" data-sport-id="42">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-tendance"><span class="em">📈</span> SPORT TENDANCE</div>
+        <h2 class="title">PADEL</h2>
+        <div class="chips">
+          <span class="chip"><em>🎾</em> Raquette</span>
+          <span class="chip"><em>👥</em> Duo</span>
+          <span class="chip"><em>🏠</em> Indoor</span>
+        </div>
+        <div class="data">230 000 LICENCIÉS · <b>1 700 TERRAINS</b> EN FRANCE</div>
+        <p class="pitch">Tennis + squash dans une cage vitrée. On joue les murs, on lobe, on smash. La croissance la plus rapide du sport français — +340 % de terrains en 3 ans. Accessible dès la première session.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>8 clubs</b> à 12 km</span>
+          </div>
+          <a href="sport.html?id=42" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">04</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 100 150" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="45" cy="18" r="9" fill="white" stroke="none"/>
+          <path d="M45 27 Q42 46 40 60" stroke-width="12"/>
+          <path d="M43 34 Q58 26 68 20" stroke-width="8"/>
+          <path d="M74 9 Q85 9 85 21 Q85 33 74 35 Q63 35 61 25 Q59 13 68 9 Z" fill="white" stroke="none"/>
+          <path d="M42 38 Q28 40 20 44" stroke-width="7"/>
+          <path d="M40 60 Q32 78 28 100" stroke-width="9"/>
+          <path d="M41 62 Q48 80 54 100" stroke-width="9"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD KIN-BALL ─────────────────────────── -->
+  <section class="card c-kinball" data-premium="true" data-sport-id="0">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-insolite"><span class="em">🫧</span> INSOLITE</div>
+        <h2 class="title long">KIN-BALL</h2>
+        <div class="chips">
+          <span class="chip"><em>🟣</em> Ballon géant</span>
+          <span class="chip"><em>👯</em> 3 équipes</span>
+          <span class="chip"><em>🏠</em> Indoor</span>
+        </div>
+        <div class="data">2 500 PRATIQUANTS · <b>150 CLUBS</b> EN FRANCE</div>
+        <p class="pitch">Un ballon rose de 1,22 m, trois équipes de 4 joueurs sur le même terrain, simultanément. Inventé au Québec en 1986 — on crie « Omnikin ! » avant chaque frappe. Inclusif, ultra-dynamique, zéro contact.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>1 club</b> à 35 km</span>
+          </div>
+          <a href="#" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">05</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 100 160" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="50" cy="32" r="26" fill="none" stroke="white" stroke-width="2.5" opacity="0.65"/>
+          <circle cx="50" cy="85" r="9" fill="white" stroke="none"/>
+          <path d="M50 94 Q50 110 50 122" stroke-width="12"/>
+          <path d="M52 96 Q62 75 60 55" stroke-width="8"/>
+          <path d="M48 96 Q38 75 40 55" stroke-width="8"/>
+          <path d="M50 122 Q44 136 40 152" stroke-width="9"/>
+          <path d="M50 122 Q56 136 60 152" stroke-width="9"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD TCHOUKBALL ─────────────────────────── -->
+  <section class="card c-tchouk" data-premium="true" data-sport-id="109">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-social"><span class="em">🤝</span> FAIR-PLAY TOTAL</div>
+        <h2 class="title long">TCHOUKBALL</h2>
+        <div class="chips">
+          <span class="chip"><em>🟢</em> Non-contact</span>
+          <span class="chip"><em>🏀</em> Rebond</span>
+          <span class="chip"><em>🏠</em> Indoor</span>
+        </div>
+        <div class="data">3 000 PRATIQUANTS · <b>200 CLUBS</b> EN FRANCE</div>
+        <p class="pitch">Conçu par un biologiste suisse pour être le sport le plus sain du monde : zéro marquage défensif, zéro contact. On catapulte le ballon sur un filet incliné et on essaie d'empêcher le rebond. Mixte et inclusif par conception.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>2 clubs</b> à 28 km</span>
+          </div>
+          <a href="sport.html?id=109" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">06</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 110 150" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M72 8 L98 34 L86 50 L60 24 Z" fill="none" stroke="white" stroke-width="2.5" opacity="0.65"/>
+          <line x1="68" y1="13" x2="82" y2="47" stroke-width="1.5" opacity="0.45"/>
+          <line x1="80" y1="13" x2="90" y2="42" stroke-width="1.5" opacity="0.45"/>
+          <circle cx="30" cy="28" r="9" fill="white" stroke="none"/>
+          <path d="M30 37 Q30 56 28 68" stroke-width="12"/>
+          <path d="M32 46 Q50 42 66 36" stroke-width="8"/>
+          <circle cx="70" cy="34" r="5" fill="white" stroke="none" opacity="0.85"/>
+          <path d="M28 46 Q15 42 8 40" stroke-width="7"/>
+          <path d="M28 68 Q20 86 16 108" stroke-width="9"/>
+          <path d="M28 68 Q34 86 36 108" stroke-width="9"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD DISC GOLF ─────────────────────────── -->
+  <section class="card c-discgolf" data-premium="true" data-sport-id="108">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-gratuit"><span class="em">🌲</span> SOUVENT GRATUIT</div>
+        <h2 class="title long">DISC GOLF</h2>
+        <div class="chips">
+          <span class="chip"><em>🥏</em> Frisbee</span>
+          <span class="chip"><em>🌲</em> Nature</span>
+          <span class="chip"><em>🧘</em> Zen</span>
+        </div>
+        <div class="data">15 000 PRATIQUANTS · <b>200+ PARCOURS</b> EN FRANCE</div>
+        <p class="pitch">Golf avec un frisbee dans un parc ou en forêt. Les parcours publics sont gratuits, l'équipement de base coûte 10 €. Communauté bienveillante, air frais garanti, et on peut jouer seul ou à 10.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>1 parcours</b> à 22 km</span>
+          </div>
+          <a href="sport.html?id=108" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">07</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 100 150" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="42" cy="18" r="9" fill="white" stroke="none"/>
+          <path d="M42 27 Q44 46 46 58" stroke-width="12"/>
+          <path d="M44 35 Q62 28 76 34" stroke-width="8"/>
+          <ellipse cx="80" cy="36" rx="11" ry="5" transform="rotate(-10 80 36)" fill="white" stroke="none" opacity="0.9"/>
+          <path d="M42 38 Q28 32 18 36" stroke-width="7"/>
+          <path d="M46 58 Q50 76 54 96" stroke-width="9"/>
+          <path d="M44 60 Q36 78 30 98" stroke-width="9"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD WUSHU ─────────────────────────── -->
+  <section class="card c-wushu" data-premium="true" data-sport-id="75">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-insolite"><span class="em">🐉</span> INSOLITE</div>
+        <h2 class="title">WUSHU</h2>
+        <div class="chips">
+          <span class="chip"><em>🔴</em> Arts martiaux</span>
+          <span class="chip"><em>✨</em> Acrobatique</span>
+          <span class="chip"><em>🏠</em> Indoor</span>
+        </div>
+        <div class="data">8 000 PRATIQUANTS · <b>400 CLUBS</b> EN FRANCE</div>
+        <p class="pitch">Kung-Fu de compétition. Formes spectaculaires à l'arme (épée, bâton) ou à mains nues, combats San Shou. La discipline qui mêle l'élégance d'une danse à la précision d'un art martial. Reconnue par le CIO.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>2 clubs</b> à 19 km</span>
+          </div>
+          <a href="sport.html?id=75" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">08</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 100 150" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="55" cy="14" r="9" fill="white" stroke="none"/>
+          <path d="M55 23 Q50 42 45 55" stroke-width="12"/>
+          <path d="M45 55 Q58 45 75 36 Q83 32 86 39" stroke-width="10"/>
+          <path d="M44 58 Q38 80 36 105" stroke-width="9"/>
+          <path d="M52 32 Q66 38 76 48" stroke-width="8"/>
+          <path d="M50 35 Q36 28 24 30" stroke-width="7"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD PARKOUR ─────────────────────────── -->
+  <section class="card c-parkour" data-premium="true" data-sport-id="127">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-gratuit"><span class="em">🏙️</span> LA VILLE EST TON TERRAIN</div>
+        <h2 class="title">PARKOUR</h2>
+        <div class="chips">
+          <span class="chip"><em>🏃</em> Urban</span>
+          <span class="chip"><em>💥</em> Adrénaline</span>
+          <span class="chip"><em>🌍</em> Outdoor</span>
+        </div>
+        <div class="data">50 000 PRATIQUANTS · <b>300 CLUBS</b> EN FRANCE</div>
+        <p class="pitch">Né dans les banlieues françaises dans les années 80. Escalader, sauter, rouler — utiliser l'architecture comme obstacle. Discipline officielle à la Fédération Française de Gym depuis 2017. Pratique libre zéro coût.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>5 clubs</b> à 14 km</span>
+          </div>
+          <a href="sport.html?id=127" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">09</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 100 150" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="65" y="88" width="25" height="55" rx="3" fill="white" opacity="0.18" stroke="white" stroke-width="2"/>
+          <circle cx="42" cy="18" r="9" fill="white" stroke="none"/>
+          <path d="M42 27 Q38 46 34 56" stroke-width="12"/>
+          <path d="M38 36 Q54 40 66 46" stroke-width="8"/>
+          <path d="M40 38 Q26 32 16 28" stroke-width="7"/>
+          <path d="M34 56 Q28 70 24 82" stroke-width="9"/>
+          <path d="M36 58 Q46 66 58 70" stroke-width="9"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD SEPAK TAKRAW ─────────────────────────── -->
+  <section class="card c-sepak" data-premium="true" data-sport-id="171">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-insolite"><span class="em">🦶</span> INSOLITE</div>
+        <h2 class="title long">SEPAK TAKRAW</h2>
+        <div class="chips">
+          <span class="chip"><em>⚽</em> Volley-foot</span>
+          <span class="chip"><em>🤸</em> Acro</span>
+          <span class="chip"><em>🌏</em> Asie</span>
+        </div>
+        <div class="data">1 200 PRATIQUANTS · <b>60 CLUBS</b> EN FRANCE</div>
+        <p class="pitch">Volleyball où on frappe le ballon rotin avec les pieds, les genoux et la tête — pas les mains. Les smashes se font en ciseau-retourné façon kung-fu. Sport national de la Thaïlande, rarissime en Europe.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>1 club</b> à 48 km</span>
+          </div>
+          <a href="sport.html?id=171" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">10</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 120 140" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="35" cy="125" r="9" fill="white" stroke="none"/>
+          <path d="M35 116 Q42 95 48 78" stroke-width="12"/>
+          <path d="M48 78 Q58 54 68 28 Q71 18 75 14" stroke-width="10"/>
+          <circle cx="78" cy="10" r="8" fill="none" stroke="white" stroke-width="3"/>
+          <path d="M44 85 Q34 72 22 68" stroke-width="9"/>
+          <path d="M42 100 Q54 98 64 92" stroke-width="8"/>
+          <path d="M34 108 Q22 110 12 120" stroke-width="7"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD FLOORBALL ─────────────────────────── -->
+  <section class="card c-floorball" data-premium="true" data-sport-id="79">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-tendance"><span class="em">🏒</span> TENDANCE NORDIQUE</div>
+        <h2 class="title">FLOORBALL</h2>
+        <div class="chips">
+          <span class="chip"><em>🏒</em> Crosse légère</span>
+          <span class="chip"><em>⚡</em> Rapide</span>
+          <span class="chip"><em>🏠</em> Indoor</span>
+        </div>
+        <div class="data">4 000 PRATIQUANTS · <b>180 CLUBS</b> EN FRANCE</div>
+        <p class="pitch">Hockey en salle ultraléger : crosse plastique 350 g, balle trouée qui vole à 200 km/h, terrain parqueté. N°1 des sports scolaires en Finlande et Suède. Zéro contact physique, 100 % vitesse et skills.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>3 clubs</b> à 25 km</span>
+          </div>
+          <a href="sport.html?id=79" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">11</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 100 150" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="52" cy="20" r="9" fill="white" stroke="none"/>
+          <path d="M52 29 Q46 48 40 60" stroke-width="12"/>
+          <path d="M48 38 Q58 46 66 56" stroke-width="8"/>
+          <path d="M40 58 Q52 58 63 60" stroke-width="7"/>
+          <path d="M66 56 Q70 74 72 92 Q74 104 68 110" stroke-width="5"/>
+          <path d="M68 110 Q57 116 48 112" stroke-width="6"/>
+          <circle cx="46" cy="120" r="5" fill="none" stroke="white" stroke-width="3"/>
+          <path d="M40 60 Q32 78 28 104" stroke-width="9"/>
+          <path d="M42 62 Q50 80 54 102" stroke-width="9"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD ULTIMATE FRISBEE ─────────────────────────── -->
+  <section class="card c-ultimate" data-premium="true" data-sport-id="56">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-social"><span class="em">🥏</span> AUTO-ARBITRÉ</div>
+        <h2 class="title long">ULTIMATE</h2>
+        <div class="chips">
+          <span class="chip"><em>🥏</em> Frisbee</span>
+          <span class="chip"><em>👯</em> Mixte</span>
+          <span class="chip"><em>🌿</em> Outdoor</span>
+        </div>
+        <div class="data">18 000 PRATIQUANTS · <b>350 CLUBS</b> EN FRANCE</div>
+        <p class="pitch">Football américain avec un frisbee, sans arbitre ni contact. Le « Spirit of the Game » remplace les cartons — les joueurs se régulent eux-mêmes. Mixte par défaut en compétition officielle. Ambiance festive et bienveillante.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>4 clubs</b> à 16 km</span>
+          </div>
+          <a href="sport.html?id=56" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">12</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 150 100" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="22" cy="40" r="9" fill="white" stroke="none"/>
+          <path d="M22 49 Q44 53 70 50" stroke-width="12"/>
+          <path d="M25 44 Q40 30 56 22" stroke-width="8"/>
+          <path d="M28 47 Q42 36 58 30" stroke-width="7"/>
+          <ellipse cx="63" cy="19" rx="13" ry="6" transform="rotate(-15 63 19)" fill="none" stroke="white" stroke-width="3"/>
+          <path d="M70 50 Q92 46 115 36" stroke-width="9"/>
+          <path d="M68 53 Q90 64 112 72" stroke-width="9"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD CHEERLEADING ─────────────────────────── -->
+  <section class="card c-cheer" data-premium="true" data-sport-id="99">
+    <div class="card-inner">
+      <div class="col-text">
+        <div class="tag t-insolite"><span class="em">📣</span> PAS QUE DE LA POMMETTE</div>
+        <h2 class="title long">CHEER­LEADING</h2>
+        <div class="chips">
+          <span class="chip"><em>🤸</em> Acro</span>
+          <span class="chip"><em>💪</em> Force</span>
+          <span class="chip"><em>🎶</em> Musique</span>
+        </div>
+        <div class="data">12 000 LICENCIÉS · <b>400 CLUBS</b> EN FRANCE</div>
+        <p class="pitch">Pyramides humaines de 6 mètres, tumbling, voltige et chorégraphie — le tout en 2m30. Sport reconnu par le CIO en 2021. Requiert la coordination d'un gymnaste, la puissance d'un haltérophile et le timing d'un danseur.</p>
+        <div class="actions">
+          <button class="icon-btn like" aria-label="Like" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>
+          </button>
+          <button class="icon-btn save" aria-label="Sauvegarder" aria-pressed="false">
+            <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+          </button>
+          <div class="loc-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-7 3-7 7 0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span><b>6 clubs</b> à 20 km</span>
+          </div>
+          <a href="sport.html?id=99" class="cta">Voir ce sport <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="col-visual">
+        <div class="watermark" aria-hidden="true">13</div>
+        <div class="aura a3"></div>
+        <div class="aura"></div>
+        <div class="aura a2"></div>
+        <div class="glyph"><svg viewBox="0 0 100 160" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="50" cy="12" r="9" fill="white" stroke="none"/>
+          <path d="M50 21 Q50 38 50 52" stroke-width="12"/>
+          <path d="M52 28 Q66 18 76 10" stroke-width="8"/>
+          <path d="M48 28 Q34 18 24 10" stroke-width="8"/>
+          <path d="M50 52 Q50 68 50 80" stroke-width="9"/>
+          <path d="M50 60 Q62 72 72 80" stroke-width="8"/>
+          <circle cx="50" cy="104" r="8" fill="white" stroke="none"/>
+          <path d="M50 112 Q50 128 50 140" stroke-width="11"/>
+          <path d="M52 115 Q53 98 52 82" stroke-width="8"/>
+          <path d="M48 115 Q47 98 48 82" stroke-width="8"/>
+          <path d="M50 140 Q44 150 40 158" stroke-width="8"/>
+          <path d="M50 140 Q56 150 60 158" stroke-width="8"/>
+        </svg></div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- #premium-pool -->
+
+<!-- Swipe hint -->
+<div class="swipe-hint" id="swipeHint" aria-hidden="true">
+  <svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+  SCROLL · SWIPE · ↓
+</div>
+
+<!-- Région live pour les lecteurs d'écran -->
+<div id="feedLive" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+<script src="data.js"></script>
+<script src="explorer-feed.js"></script>
+<script src="components/cookie-banner.js" defer></script>
+<script src="enhance-2026.js" defer></script>
+</body>
+</html>
