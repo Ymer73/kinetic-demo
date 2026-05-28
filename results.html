@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tes résultats · Kinetic Studio</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="demo-banner">
+  MAQUETTE DÉMO · <span>Toutes les données et clubs présents sont fictifs</span>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-dot"></span>
+      KINETIC
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Sports</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="index.html#brief">À propos</a>
+    </div>
+  </div>
+</nav>
+
+<div class="results-wrap">
+  <div class="blob blob-1" style="opacity: 0.15;"></div>
+  <div class="blob blob-2" style="opacity: 0.15;"></div>
+
+  <div class="results-header fade-up">
+    <h1>Tes sports <span style="background: linear-gradient(90deg, var(--violet), var(--orange)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">matchés.</span></h1>
+    <p>D'après tes réponses, voici les 3 sports qui te correspondent le mieux.</p>
+  </div>
+
+  <div id="results-list"></div>
+
+  <div style="text-align: center; margin-top: 48px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+    <a href="quiz.html" class="btn btn-ghost">Refaire le quiz</a>
+    <a href="index.html" class="btn">Explorer tous les sports</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <p><strong>Kinetic Studio</strong> · Maquette pour partenaires école · 2026</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  renderResults();
+</script>
+</body>
+</html>

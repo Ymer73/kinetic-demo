@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinetic Studio · Maquette démo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="demo-banner">
+  MAQUETTE DÉMO · <span>Toutes les données et clubs présents sont fictifs</span>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-dot"></span>
+      KINETIC
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Sports</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="#brief">À propos</a>
+      <a href="quiz.html" class="btn btn-orange btn-sm">Faire le quiz</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="hero-inner fade-up">
+    <h1>Le sport,<br><span class="accent">mais fun.</span></h1>
+    <p>Trouve ton sport, trouve ton club, sors de chez toi. Kinetic te guide vers la discipline qui te correspond vraiment.</p>
+    <div class="hero-ctas">
+      <a href="quiz.html" class="btn btn-orange">Trouver mon sport en 2 min</a>
+      <a href="#sports" class="btn btn-ghost">Explorer les sports</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-inner">
+    <div class="fade-up delay-1">
+      <div class="stat-value">12</div>
+      <div class="stat-label">Sports recensés</div>
+    </div>
+    <div class="fade-up delay-2">
+      <div class="stat-value">36</div>
+      <div class="stat-label">Clubs partenaires</div>
+    </div>
+    <div class="fade-up delay-3">
+      <div class="stat-value">4,5M</div>
+      <div class="stat-label">Vues par mois</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sports">
+  <div class="section-inner">
+    <h2 class="section-title">Tous les sports.</h2>
+    <p class="section-subtitle">Du yoga à la boxe, du foot à l'escalade. Trouve ce qui te fait vibrer.</p>
+    <div class="sports-grid" id="sports-grid"></div>
+  </div>
+</section>
+
+<section class="section" id="brief" style="border-top: 1px solid var(--border);">
+  <div class="section-inner">
+    <h2 class="section-title">À propos de Kinetic.</h2>
+    <p class="section-subtitle">Notre mission, notre ADN, ce qu'on construit.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px;">
+        <div style="font-size: 32px; margin-bottom: 16px;">🎯</div>
+        <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">Notre mission</h3>
+        <p style="color: var(--text-muted); line-height: 1.6;">Casser l'image du sport élitiste. Le rendre fun, accessible et inspirant pour tout le monde.</p>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px;">
+        <div style="font-size: 32px; margin-bottom: 16px;">🎬</div>
+        <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">Notre ADN</h3>
+        <p style="color: var(--text-muted); line-height: 1.6;">Un duo de vidéastes sport. Du contenu kinetic, dynamique, pensé pour TikTok, Reels et Shorts.</p>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px;">
+        <div style="font-size: 32px; margin-bottom: 16px;">🚀</div>
+        <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">Ce qu'on construit</h3>
+        <p style="color: var(--text-muted); line-height: 1.6;">La plateforme qui aide chacun à trouver SON sport. Quiz personnalisé, fiches détaillées, annuaire de clubs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p><strong>Kinetic Studio</strong> · Maquette pour partenaires école · 2026</p>
+  <p style="margin-top: 8px; font-size: 13px; opacity: 0.7;">Données et clubs présents 100% fictifs. Reproduction interdite.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  renderSportsGrid('sports-grid');
+</script>
+</body>
+</html>
