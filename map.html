@@ -384,7 +384,7 @@
 
   // ── STATE ─────────────────────────────────────────────────────────
   const state = {
-    dept: initDept || (centerLat != null ? findDeptForPoint(centerLat, centerLon) : null) || '73',
+    dept: initDept || (centerLat != null ? findDeptForPoint(centerLat, centerLon) : null) || 'FR',
     sportSlugs: initSport ? [initSport] : [],
     query: '',
     allClubs: [],
@@ -1271,7 +1271,7 @@
       drawRadiusCircle();
     } else {
       // Mode classique : un seul dept
-      await loadDept(state.dept || '73');
+      await loadDept(state.dept || 'FR');
     }
     buildSportDropdown();
     applyFilters();
