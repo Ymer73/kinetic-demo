@@ -43,6 +43,19 @@
       meta.content = 'noindex, nofollow';
       document.head.appendChild(meta);
     }
+
+    // Force Leaflet (et autres maps) à recalculer leur taille après le décalage
+    // du bandeau démo. Sans ça, les tiles restent partielles.
+    const triggerResize = () => {
+      window.dispatchEvent(new Event('resize'));
+      // Leaflet : si une map existe, on appelle invalidateSize directement
+      if (window.L && window._kineticMap && window._kineticMap.invalidateSize) {
+        window._kineticMap.invalidateSize();
+      }
+    };
+    setTimeout(triggerResize, 100);
+    setTimeout(triggerResize, 500);
+    setTimeout(triggerResize, 1500);
   }
 
   if (document.body) {
