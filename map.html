@@ -448,13 +448,18 @@
     zoomSnap: 0.5,
   });
   L.control.zoom({ position: 'topright' }).addTo(map);
-  // OpenStreetMap standard avec sous-domaines pour load balancing
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  // OpenStreetMap URL officielle (sans sous-domaine, subdomains a/b/c dépréciés)
+  const tileLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors',
-    subdomains: 'abc',
     maxZoom: 19,
-    crossOrigin: true,
-  }).addTo(map);
+    crossOrigin: 'anonymous',
+    keepBuffer: 4,
+  });
+  tileLayer.addTo(map);
+
+  // Force a re-render des tiles après que la carte soit vraiment visible
+  setTimeout(() => { map.invalidateSize(); tileLayer.redraw(); }, 800);
+  setTimeout(() => { map.invalidateSize(); tileLayer.redraw(); }, 2500);
   document.getElementById('mv2-map').classList.add('tint-pastel');
 
   // Cluster group
