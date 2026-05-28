@@ -61,7 +61,57 @@
       "infrastructure": "Vélodrome + local club + parc de vélos d'essai",
       "niveau": "Loisir à compétition régionale",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 195,
+      "nb_femmes": 42,
+      "nb_hommes": 153,
+      "nb_jeunes": 99,
+      "age_moyen": 22,
+      "annee_fondation": 2015,
+      "disciplines_proposees": [
+        "Cyclisme Route",
+        "VTT enduro",
+        "Gravel"
+      ],
+      "federation": "Fédération Française de Cyclisme",
+      "acronyme": "FFC",
+      "handisport_accueil": false,
+      "mineurs_acceptes": true,
+      "paritie_h": 78.5,
+      "paritie_f": 21.5,
+      "moyens_paiement": [
+        "Chèque",
+        "Virement",
+        "Espèces",
+        "Pass'Sport"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 6,
+      "nb_entraineurs_diplomes": 3,
+      "tiktok": "https:/@/@tiktok.com/@loire.cycling.team",
+      "facebook": "https://facebook.com/loire.cycling.team.nantes.demo",
+      "presentation": "Vélo route, piste et VTT. Sorties club tous les week-ends. École de vélo le mercredi.\n\nFondé en 2015, Loire Cycling Team Nantes est implanté à Nantes depuis bientôt 11 ans. Notre engagement : offrir une pratique de qualité à tous les niveaux, dans un esprit de respect et de progression. Le club organise plusieurs événements par an : portes ouvertes en septembre, gala / tournoi en juin, stage d'été.",
+      "seances_essai": {
+        "jours": [
+          "mercredi",
+          "samedi",
+          "dimanche"
+        ],
+        "sections": [
+          {
+            "label": "Cyclisme Route",
+            "emoji": "🚴",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Avoir son vélo + casque obligatoire"
+          }
+        ]
+      }
     }
   ]
 }

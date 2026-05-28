@@ -61,7 +61,58 @@
       "infrastructure": "Stade municipal, 2 terrains gazon + 1 synthétique",
       "niveau": "Loisir à compétition régionale",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 168,
+      "nb_femmes": 23,
+      "nb_hommes": 145,
+      "nb_jeunes": 61,
+      "age_moyen": 36,
+      "annee_fondation": 1976,
+      "disciplines_proposees": [
+        "Football",
+        "Futsal (loisir)",
+        "Football féminin"
+      ],
+      "federation": "Fédération Française de Football",
+      "acronyme": "FFF",
+      "handisport_accueil": false,
+      "mineurs_acceptes": true,
+      "paritie_h": 86.3,
+      "paritie_f": 13.7,
+      "moyens_paiement": [
+        "Chèque",
+        "Pass'Sport",
+        "Coupon Sport ANCV",
+        "CB en ligne"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 7,
+      "nb_entraineurs_diplomes": 3,
+      "tiktok": "https:/@/@tiktok.com/@phoenix.fc.paris",
+      "facebook": "https://facebook.com/phoenix.football.club.paris.demo",
+      "presentation": "Club de football amateur fondé en 2008. Equipe seniors évoluant en R2 IDF. Esprit de groupe avant tout.\n\nPhoenix Football Club Paris accueille aujourd'hui plus de 168 licenciés sur son site de Paris 12e. Notre engagement : offrir une pratique de qualité à tous les niveaux, dans un esprit de respect et de progression. L'encadrement est assuré par des entraîneurs diplômés d'État, certains anciens compétiteurs au niveau national.",
+      "seances_essai": {
+        "jours": [
+          "mardi",
+          "jeudi",
+          "samedi",
+          "dimanche"
+        ],
+        "sections": [
+          {
+            "label": "Football",
+            "emoji": "⚽",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Contacter par DM Instagram pour s'inscrire"
+          }
+        ]
+      }
     },
     {
       "id": "demo_ffboxe_75_001",
@@ -122,7 +173,68 @@
       "infrastructure": "2 rings + 8 sacs lourds + zone cardio + vestiaires douches",
       "niveau": "Loisir à compétition amateur",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 195,
+      "nb_femmes": 54,
+      "nb_hommes": 141,
+      "nb_jeunes": 60,
+      "age_moyen": 36,
+      "annee_fondation": 2014,
+      "disciplines_proposees": [
+        "Boxe Anglaise",
+        "Boxing fitness",
+        "Sparring contrôlé"
+      ],
+      "federation": "Fédération Française de Boxe",
+      "acronyme": "FFBOXE",
+      "handisport_accueil": false,
+      "mineurs_acceptes": true,
+      "paritie_h": 72.3,
+      "paritie_f": 27.7,
+      "moyens_paiement": [
+        "Espèces",
+        "Coupon Sport ANCV",
+        "Virement",
+        "Pass'Sport"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 5,
+      "nb_entraineurs_diplomes": 3,
+      "tiktok": "https:/@/@tiktok.com/@urban.boxing.paris",
+      "facebook": "https://facebook.com/urban.boxing.spirit.paris.demo",
+      "presentation": "Boxe anglaise et boxing fitness. Du débutant au pré-compétition. Coachs anciens pros. Vibe urbaine.\n\nUrban Boxing Spirit Paris accueille aujourd'hui plus de 195 licenciés sur son site de Paris 18e. Nos valeurs : exigence, plaisir, collectif. Pas de niveau imposé, juste l'envie de progresser ensemble. L'encadrement est assuré par des entraîneurs diplômés d'État, certains anciens compétiteurs au niveau national.",
+      "seances_essai": {
+        "jours": [
+          "lundi",
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "vendredi",
+          "samedi"
+        ],
+        "sections": [
+          {
+            "label": "Boxe Anglaise",
+            "emoji": "🥊",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Vidéo de présentation à voir avant la séance (lien sur le site)"
+          },
+          {
+            "label": "Cours d'essai intermédiaire",
+            "emoji": "🥊",
+            "creneau": "Cours adultes plus avancé",
+            "duree": "60 min",
+            "prix": "Gratuit",
+            "modalites": "Mentionner ton niveau actuel à la réservation"
+          }
+        ]
+      }
     }
   ]
 }

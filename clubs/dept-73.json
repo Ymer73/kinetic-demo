@@ -61,7 +61,58 @@
       "infrastructure": "Local club + accès gratuit piste municipale",
       "niveau": "Loisir à compétition régionale",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 165,
+      "nb_femmes": 80,
+      "nb_hommes": 85,
+      "nb_jeunes": 73,
+      "age_moyen": 31,
+      "annee_fondation": 1971,
+      "disciplines_proposees": [
+        "Athletisme",
+        "Trail",
+        "Running"
+      ],
+      "federation": "Fédération Française d'Athlétisme",
+      "acronyme": "FFA",
+      "handisport_accueil": false,
+      "mineurs_acceptes": true,
+      "paritie_h": 51.5,
+      "paritie_f": 48.5,
+      "moyens_paiement": [
+        "Virement",
+        "Pass'Sport",
+        "Chèque",
+        "CB en ligne"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 7,
+      "nb_entraineurs_diplomes": 4,
+      "tiktok": "https:/@/@tiktok.com/@trail.bandits.chambery",
+      "facebook": "https://facebook.com/trail.bandits.chambéry.demo",
+      "presentation": "Club de trail running au pied des Bauges. Sorties club tous les samedis. Du débutant au coureur expert.\n\nTrail Bandits Chambéry accueille aujourd'hui plus de 165 licenciés sur son site de Chambéry. Chez nous : l'humain avant la performance, mais sans renoncer à l'ambition de chacun. Le club organise plusieurs événements par an : portes ouvertes en septembre, gala / tournoi en juin, stage d'été.",
+      "seances_essai": {
+        "jours": [
+          "mardi",
+          "jeudi",
+          "samedi",
+          "dimanche"
+        ],
+        "sections": [
+          {
+            "label": "Athletisme",
+            "emoji": "🏃",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "2 séances offertes, certificat médical à apporter"
+          }
+        ]
+      }
     },
     {
       "id": "demo_ffyoga_73_001",
@@ -123,7 +174,69 @@
       "infrastructure": "Studio 60m² vue lac + terrasse extérieure pour cours d'été",
       "niveau": "Tous niveaux loisir",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 95,
+      "nb_femmes": 77,
+      "nb_hommes": 18,
+      "nb_jeunes": 48,
+      "age_moyen": 22,
+      "annee_fondation": 2016,
+      "disciplines_proposees": [
+        "Yoga Pilates",
+        "Hatha",
+        "Vinyasa",
+        "Yin yoga"
+      ],
+      "federation": "Fédération Française des Yogas Traditionnels",
+      "acronyme": "FFYOGA",
+      "handisport_accueil": true,
+      "mineurs_acceptes": true,
+      "paritie_h": 18.9,
+      "paritie_f": 81.1,
+      "moyens_paiement": [
+        "Pass'Sport",
+        "CB en ligne",
+        "Coupon Sport ANCV",
+        "Espèces"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 2,
+      "nb_entraineurs_diplomes": 1,
+      "tiktok": "https:/@/@tiktok.com/@mountain.flow.aix",
+      "facebook": "https://facebook.com/mountain.flow.yoga.aix-les-bains.demo",
+      "presentation": "Yoga au bord du lac du Bourget. Hatha, vinyasa et yoga restoratif. Stages week-end face au lac en été.\n\nMountain Flow Yoga Aix-les-Bains accueille aujourd'hui plus de 95 licenciés sur son site de Aix-les-Bains. L'esprit du club : transmettre la passion du sport, dans un cadre bienveillant et exigeant à la fois. Pour la saison 2025-2026, le club a lancé un programme d'accueil renforcé pour les débutants et reprises de sport.",
+      "seances_essai": {
+        "jours": [
+          "lundi",
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "vendredi",
+          "dimanche"
+        ],
+        "sections": [
+          {
+            "label": "Yoga Pilates",
+            "emoji": "🧘",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Tapis fourni"
+          },
+          {
+            "label": "Cours d'essai intermédiaire",
+            "emoji": "🧘",
+            "creneau": "Cours adultes plus avancé",
+            "duree": "60 min",
+            "prix": "Gratuit",
+            "modalites": "Mentionner ton niveau actuel à la réservation"
+          }
+        ]
+      }
     },
     {
       "id": "demo_ffr_73_001",
@@ -186,7 +299,58 @@
       "infrastructure": "Stade homologué + 2 terrains entraînement + club-house",
       "niveau": "Loisir à compétition régionale",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 195,
+      "nb_femmes": 23,
+      "nb_hommes": 172,
+      "nb_jeunes": 96,
+      "age_moyen": 25,
+      "annee_fondation": 2013,
+      "disciplines_proposees": [
+        "Rugby A Xv",
+        "Rugby flag (loisir)",
+        "Rugby à 7"
+      ],
+      "federation": "Fédération Française de Rugby",
+      "acronyme": "FFR",
+      "handisport_accueil": true,
+      "mineurs_acceptes": true,
+      "paritie_h": 88.2,
+      "paritie_f": 11.8,
+      "moyens_paiement": [
+        "Coupon Sport ANCV",
+        "Chèque",
+        "Pass'Sport",
+        "CB en ligne"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 6,
+      "nb_entraineurs_diplomes": 3,
+      "tiktok": "https:/@/@tiktok.com/@etoile.rugby.alb",
+      "facebook": "https://facebook.com/as.étoile.rugby.albertville.demo",
+      "presentation": "Rugby club historique en pays de Savoie. École de rugby + équipe seniors Fédérale. Esprit valeurs rugby.\n\nAS Étoile Rugby Albertville accueille aujourd'hui plus de 195 licenciés sur son site de Albertville. Chez nous : l'humain avant la performance, mais sans renoncer à l'ambition de chacun. Le club organise plusieurs événements par an : portes ouvertes en septembre, gala / tournoi en juin, stage d'été.",
+      "seances_essai": {
+        "jours": [
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "samedi"
+        ],
+        "sections": [
+          {
+            "label": "Rugby A Xv",
+            "emoji": "🏉",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Crampons + protège-dents conseillés"
+          }
+        ]
+      }
     }
   ]
 }

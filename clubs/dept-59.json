@@ -62,7 +62,58 @@
       "infrastructure": "Piste 400m homologuée + parcours nature à proximité",
       "niveau": "Loisir à compétition régionale (championnats interclubs)",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 220,
+      "nb_femmes": 107,
+      "nb_hommes": 113,
+      "nb_jeunes": 113,
+      "age_moyen": 19,
+      "annee_fondation": 2006,
+      "disciplines_proposees": [
+        "Athletisme",
+        "Trail",
+        "Running"
+      ],
+      "federation": "Fédération Française d'Athlétisme",
+      "acronyme": "FFA",
+      "handisport_accueil": false,
+      "mineurs_acceptes": true,
+      "paritie_h": 51.4,
+      "paritie_f": 48.6,
+      "moyens_paiement": [
+        "Virement",
+        "Espèces",
+        "Pass'Sport",
+        "Coupon Sport ANCV"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 8,
+      "nb_entraineurs_diplomes": 4,
+      "tiktok": "https:/@/@tiktok.com/@northern.runners.lille",
+      "facebook": "https://facebook.com/northern.runners.lille.demo",
+      "presentation": "Club de running, athlétisme et trail. Du 5km au marathon, du sprint au demi-fond. Coach diplômé FFA.\n\nFondé en 2006, Northern Runners Lille est implanté à Lille depuis bientôt 20 ans. Chez nous : l'humain avant la performance, mais sans renoncer à l'ambition de chacun. L'encadrement est assuré par des entraîneurs diplômés d'État, certains anciens compétiteurs au niveau national.",
+      "seances_essai": {
+        "jours": [
+          "mardi",
+          "jeudi",
+          "samedi",
+          "dimanche"
+        ],
+        "sections": [
+          {
+            "label": "Athletisme",
+            "emoji": "🏃",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "2 séances offertes, certificat médical à apporter"
+          }
+        ]
+      }
     }
   ]
 }

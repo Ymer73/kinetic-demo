@@ -58,7 +58,61 @@
       "infrastructure": "5 courts couverts + 4 terre battue + club-house + restaurant",
       "niveau": "Loisir à compétition nationale",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 380,
+      "nb_femmes": 167,
+      "nb_hommes": 213,
+      "nb_jeunes": 200,
+      "age_moyen": 31,
+      "annee_fondation": 1995,
+      "disciplines_proposees": [
+        "Tennis",
+        "Padel découverte",
+        "Mini-tennis"
+      ],
+      "federation": "Fédération Française de Tennis",
+      "acronyme": "FFT",
+      "handisport_accueil": true,
+      "mineurs_acceptes": true,
+      "paritie_h": 56.1,
+      "paritie_f": 43.9,
+      "moyens_paiement": [
+        "Pass'Sport",
+        "Coupon Sport ANCV",
+        "Espèces",
+        "Chèque"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 2,
+      "nb_entraineurs_diplomes": 1,
+      "tiktok": "https:/@/@tiktok.com/@smash.tennis.toulouse",
+      "facebook": "https://facebook.com/smash.tennis.academy.toulouse.demo",
+      "presentation": "5 courts couverts, 4 extérieurs terre battue. Du loisir au tournoi national. École de tennis labellisée.\n\nImplanté à Toulouse, Smash Tennis Academy Toulouse a fêté ses 31 ans en 2025. L'esprit du club : transmettre la passion du sport, dans un cadre bienveillant et exigeant à la fois. Pour la saison 2025-2026, le club a lancé un programme d'accueil renforcé pour les débutants et reprises de sport.",
+      "seances_essai": {
+        "jours": [
+          "lundi",
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "vendredi",
+          "samedi",
+          "dimanche"
+        ],
+        "sections": [
+          {
+            "label": "Tennis",
+            "emoji": "🎾",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Cours collectif découverte le samedi"
+          }
+        ]
+      }
     }
   ]
 }

@@ -67,7 +67,67 @@
       "infrastructure": "2 studios miroirs + sono pro + vestiaires + bar à smoothies",
       "niveau": "Tous niveaux + crew compétition",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 280,
+      "nb_femmes": 218,
+      "nb_hommes": 62,
+      "nb_jeunes": 96,
+      "age_moyen": 22,
+      "annee_fondation": 1976,
+      "disciplines_proposees": [
+        "Danse Sportive",
+        "Hip-hop",
+        "Contemporain",
+        "Modern jazz"
+      ],
+      "federation": "Fédération Française de Danse",
+      "acronyme": "FFDANSE",
+      "handisport_accueil": false,
+      "mineurs_acceptes": true,
+      "paritie_h": 22.1,
+      "paritie_f": 77.9,
+      "moyens_paiement": [
+        "Coupon Sport ANCV",
+        "Chèque",
+        "Espèces",
+        "Pass'Sport"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 4,
+      "nb_entraineurs_diplomes": 2,
+      "tiktok": "https:/@/@tiktok.com/@mediterraneo.dance.lab",
+      "facebook": "https://facebook.com/mediterraneo.dance.lab.montpellier.demo",
+      "presentation": "Hip-hop, contemporain, modern jazz, breakdance. Ouvert à tous, de l'enfant à l'adulte. Galas annuels.\n\nFondé en 1976, Mediterraneo Dance Lab Montpellier est implanté à Montpellier depuis bientôt 50 ans. Nos valeurs : exigence, plaisir, collectif. Pas de niveau imposé, juste l'envie de progresser ensemble. Le club organise plusieurs événements par an : portes ouvertes en septembre, gala / tournoi en juin, stage d'été.",
+      "seances_essai": {
+        "jours": [
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "samedi"
+        ],
+        "sections": [
+          {
+            "label": "Danse Sportive",
+            "emoji": "💃",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Vêtements souples + baskets propres"
+          },
+          {
+            "label": "Cours d'essai intermédiaire",
+            "emoji": "💃",
+            "creneau": "Cours adultes plus avancé",
+            "duree": "60 min",
+            "prix": "Gratuit",
+            "modalites": "Mentionner ton niveau actuel à la réservation"
+          }
+        ]
+      }
     }
   ]
 }

@@ -65,7 +65,67 @@
       "infrastructure": "Ring + 4 sacs lourds + zone cardio",
       "niveau": "Loisir à compétition régionale",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 145,
+      "nb_femmes": 40,
+      "nb_hommes": 105,
+      "nb_jeunes": 70,
+      "age_moyen": 28,
+      "annee_fondation": 2005,
+      "disciplines_proposees": [
+        "Boxe Anglaise",
+        "Boxing fitness",
+        "Sparring contrôlé"
+      ],
+      "federation": "Fédération Française de Boxe",
+      "acronyme": "FFBOXE",
+      "handisport_accueil": false,
+      "mineurs_acceptes": true,
+      "paritie_h": 72.4,
+      "paritie_f": 27.6,
+      "moyens_paiement": [
+        "Virement",
+        "Coupon Sport ANCV",
+        "CB en ligne",
+        "Espèces"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 6,
+      "nb_entraineurs_diplomes": 4,
+      "tiktok": "https:/@/@tiktok.com/@iron.republic.marseille",
+      "facebook": "https://facebook.com/iron.republic.marseille.demo",
+      "presentation": "Boxe anglaise, anglais et fitness. Coachs anciens compétiteurs. Pas besoin d'expérience pour commencer.\n\nFondé en 2005, Iron Republic Marseille est implanté à Marseille 3e depuis bientôt 21 ans. Notre engagement : offrir une pratique de qualité à tous les niveaux, dans un esprit de respect et de progression. Le club organise plusieurs événements par an : portes ouvertes en septembre, gala / tournoi en juin, stage d'été.",
+      "seances_essai": {
+        "jours": [
+          "lundi",
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "samedi"
+        ],
+        "sections": [
+          {
+            "label": "Boxe Anglaise",
+            "emoji": "🥊",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Réserver en ligne, pas besoin de matériel"
+          },
+          {
+            "label": "Cours d'essai intermédiaire",
+            "emoji": "🥊",
+            "creneau": "Cours adultes plus avancé",
+            "duree": "60 min",
+            "prix": "Gratuit",
+            "modalites": "Mentionner ton niveau actuel à la réservation"
+          }
+        ]
+      }
     },
     {
       "id": "demo_fff_13_001",
@@ -130,7 +190,58 @@
       "infrastructure": "Stade synthétique homologué + 1 terrain herbe",
       "niveau": "Loisir à compétition district",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 245,
+      "nb_femmes": 34,
+      "nb_hommes": 211,
+      "nb_jeunes": 133,
+      "age_moyen": 22,
+      "annee_fondation": 1997,
+      "disciplines_proposees": [
+        "Football",
+        "Futsal (loisir)",
+        "Football féminin"
+      ],
+      "federation": "Fédération Française de Football",
+      "acronyme": "FFF",
+      "handisport_accueil": true,
+      "mineurs_acceptes": true,
+      "paritie_h": 86.1,
+      "paritie_f": 13.9,
+      "moyens_paiement": [
+        "Espèces",
+        "CB en ligne",
+        "Chèque",
+        "Virement"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 4,
+      "nb_entraineurs_diplomes": 2,
+      "tiktok": "https:/@/@tiktok.com/@tigers.fc.marseille",
+      "facebook": "https://facebook.com/tigers.football.club.marseille.demo",
+      "presentation": "Club familial face à la Méditerranée. École de foot mixte, équipe seniors D1 District. Esprit fair-play avant tout.\n\nTigers Football Club Marseille accueille aujourd'hui plus de 245 licenciés sur son site de Marseille 7e. Chez nous : l'humain avant la performance, mais sans renoncer à l'ambition de chacun. L'encadrement est assuré par des entraîneurs diplômés d'État, certains anciens compétiteurs au niveau national.",
+      "seances_essai": {
+        "jours": [
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "samedi"
+        ],
+        "sections": [
+          {
+            "label": "Football",
+            "emoji": "⚽",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "2 séances découverte avant inscription"
+          }
+        ]
+      }
     }
   ]
 }

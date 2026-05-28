@@ -69,7 +69,60 @@
       "infrastructure": "Dojo 200m² tatamis + vestiaires",
       "niveau": "Loisir à compétition régionale",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 180,
+      "nb_femmes": 63,
+      "nb_hommes": 117,
+      "nb_jeunes": 59,
+      "age_moyen": 22,
+      "annee_fondation": 1976,
+      "disciplines_proposees": [
+        "Judo",
+        "Jujitsu",
+        "Taïso"
+      ],
+      "federation": "Fédération Française de Judo",
+      "acronyme": "FFJUDO",
+      "handisport_accueil": false,
+      "mineurs_acceptes": true,
+      "paritie_h": 65.0,
+      "paritie_f": 35.0,
+      "moyens_paiement": [
+        "Virement",
+        "Coupon Sport ANCV",
+        "Espèces",
+        "CB en ligne"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 2,
+      "nb_entraineurs_diplomes": 1,
+      "tiktok": "https:/@/@tiktok.com/@alsace.judo.kai",
+      "facebook": "https://facebook.com/alsace.judo.kai.strasbourg.demo",
+      "presentation": "Judo, jujitsu et taïso. Méthode traditionnelle. Préparation ceintures + compétition pour ceux qui le souhaitent.\n\nImplanté à Strasbourg, Alsace Judo Kai Strasbourg a fêté ses 50 ans en 2025. Nos valeurs : exigence, plaisir, collectif. Pas de niveau imposé, juste l'envie de progresser ensemble. Pour la saison 2025-2026, le club a lancé un programme d'accueil renforcé pour les débutants et reprises de sport.",
+      "seances_essai": {
+        "jours": [
+          "lundi",
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "vendredi",
+          "samedi"
+        ],
+        "sections": [
+          {
+            "label": "Judo",
+            "emoji": "🥋",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Prévoir tenue sport ample, kimono fourni"
+          }
+        ]
+      }
     }
   ]
 }

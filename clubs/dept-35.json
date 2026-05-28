@@ -67,7 +67,69 @@
       "infrastructure": "Studio 80m² lumineux + vestiaires + zone détente",
       "niveau": "Tous niveaux loisir",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 130,
+      "nb_femmes": 106,
+      "nb_hommes": 24,
+      "nb_jeunes": 39,
+      "age_moyen": 31,
+      "annee_fondation": 1973,
+      "disciplines_proposees": [
+        "Yoga Pilates",
+        "Hatha",
+        "Vinyasa",
+        "Yin yoga"
+      ],
+      "federation": "Fédération Française des Yogas Traditionnels",
+      "acronyme": "FFYOGA",
+      "handisport_accueil": true,
+      "mineurs_acceptes": true,
+      "paritie_h": 18.5,
+      "paritie_f": 81.5,
+      "moyens_paiement": [
+        "Coupon Sport ANCV",
+        "CB en ligne",
+        "Pass'Sport",
+        "Chèque"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 8,
+      "nb_entraineurs_diplomes": 4,
+      "tiktok": "https:/@/@tiktok.com/@broceliande.yoga.rennes",
+      "facebook": "https://facebook.com/brocéliande.yoga.studio.rennes.demo",
+      "presentation": "Hatha, vinyasa, yin et yoga prénatal. Petits groupes (max 12). Profs certifiés. Approche bienveillante.\n\nFondé en 1973, Brocéliande Yoga Studio Rennes est implanté à Rennes depuis bientôt 53 ans. Chez nous : l'humain avant la performance, mais sans renoncer à l'ambition de chacun. Pour la saison 2025-2026, le club a lancé un programme d'accueil renforcé pour les débutants et reprises de sport.",
+      "seances_essai": {
+        "jours": [
+          "lundi",
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "samedi",
+          "dimanche"
+        ],
+        "sections": [
+          {
+            "label": "Yoga Pilates",
+            "emoji": "🧘",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Tapis fourni si besoin"
+          },
+          {
+            "label": "Cours d'essai intermédiaire",
+            "emoji": "🧘",
+            "creneau": "Cours adultes plus avancé",
+            "duree": "60 min",
+            "prix": "Gratuit",
+            "modalites": "Mentionner ton niveau actuel à la réservation"
+          }
+        ]
+      }
     }
   ]
 }

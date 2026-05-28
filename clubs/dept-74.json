@@ -67,7 +67,61 @@
       "infrastructure": "1200m² escalade + bloc + pan Gullich + zone training",
       "niveau": "Loisir à compétition nationale",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 310,
+      "nb_femmes": 148,
+      "nb_hommes": 162,
+      "nb_jeunes": 98,
+      "age_moyen": 34,
+      "annee_fondation": 1986,
+      "disciplines_proposees": [
+        "Escalade",
+        "Bloc",
+        "Voie",
+        "Falaise"
+      ],
+      "federation": "Fédération Française de Montagne et d'Escalade",
+      "acronyme": "FFME",
+      "handisport_accueil": false,
+      "mineurs_acceptes": true,
+      "paritie_h": 52.3,
+      "paritie_f": 47.7,
+      "moyens_paiement": [
+        "Pass'Sport",
+        "Coupon Sport ANCV",
+        "Espèces",
+        "CB en ligne"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 4,
+      "nb_entraineurs_diplomes": 2,
+      "tiktok": "https:/@/@tiktok.com/@alpine.climbing.annecy",
+      "facebook": "https://facebook.com/alpine.climbing.crew.annecy.demo",
+      "presentation": "Escalade en salle (bloc + voie) et sorties falaise. Encadrants brevetés. Cadre exceptionnel au cœur des Alpes.\n\nImplanté à Annecy, Alpine Climbing Crew Annecy a fêté ses 40 ans en 2025. Nos valeurs : exigence, plaisir, collectif. Pas de niveau imposé, juste l'envie de progresser ensemble. L'encadrement est assuré par des entraîneurs diplômés d'État, certains anciens compétiteurs au niveau national.",
+      "seances_essai": {
+        "jours": [
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "vendredi",
+          "samedi",
+          "dimanche"
+        ],
+        "sections": [
+          {
+            "label": "Escalade",
+            "emoji": "🧗",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Matos fourni (chaussons + baudrier)"
+          }
+        ]
+      }
     }
   ]
 }

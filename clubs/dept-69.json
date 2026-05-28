@@ -63,7 +63,57 @@
       "infrastructure": "Gymnase municipal + city park outdoor à proximité",
       "niveau": "Compétition régionale (NM3)",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 210,
+      "nb_femmes": 79,
+      "nb_hommes": 131,
+      "nb_jeunes": 83,
+      "age_moyen": 22,
+      "annee_fondation": 2003,
+      "disciplines_proposees": [
+        "Basketball",
+        "Basket 3x3",
+        "Mini-basket"
+      ],
+      "federation": "Fédération Française de Basket-Ball",
+      "acronyme": "FFBB",
+      "handisport_accueil": true,
+      "mineurs_acceptes": true,
+      "paritie_h": 62.4,
+      "paritie_f": 37.6,
+      "moyens_paiement": [
+        "Espèces",
+        "CB en ligne",
+        "Virement",
+        "Pass'Sport"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 6,
+      "nb_entraineurs_diplomes": 3,
+      "tiktok": "https:/@/@tiktok.com/@mountain.hoops.lyon",
+      "facebook": "https://facebook.com/mountain.hoops.lyon.demo",
+      "presentation": "Club de basket urbain. Du Babyball aux Seniors NM3. Ambiance fun, exigence sportive.\n\nImplanté à Lyon 9e, Mountain Hoops Lyon a fêté ses 23 ans en 2025. Nos valeurs : exigence, plaisir, collectif. Pas de niveau imposé, juste l'envie de progresser ensemble. Le club organise plusieurs événements par an : portes ouvertes en septembre, gala / tournoi en juin, stage d'été.",
+      "seances_essai": {
+        "jours": [
+          "lundi",
+          "mercredi",
+          "vendredi"
+        ],
+        "sections": [
+          {
+            "label": "Basketball",
+            "emoji": "🏀",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "2 séances offertes avant inscription"
+          }
+        ]
+      }
     }
   ]
 }

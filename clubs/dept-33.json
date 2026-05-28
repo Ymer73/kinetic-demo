@@ -63,7 +63,58 @@
       "infrastructure": "Stade homologué + 2 terrains entraînement + club-house",
       "niveau": "Compétition régionale (Fédérale 3)",
       "geo": "manuel",
-      "enrichi_par": "demo_fake"
+      "enrichi_par": "demo_fake",
+      "nb_licencies": 340,
+      "nb_femmes": 40,
+      "nb_hommes": 300,
+      "nb_jeunes": 185,
+      "age_moyen": 28,
+      "annee_fondation": 1978,
+      "disciplines_proposees": [
+        "Rugby A Xv",
+        "Rugby flag (loisir)",
+        "Rugby à 7"
+      ],
+      "federation": "Fédération Française de Rugby",
+      "acronyme": "FFR",
+      "handisport_accueil": false,
+      "mineurs_acceptes": true,
+      "paritie_h": 88.2,
+      "paritie_f": 11.8,
+      "moyens_paiement": [
+        "Virement",
+        "Coupon Sport ANCV",
+        "CB en ligne",
+        "Espèces"
+      ],
+      "horaires_accueil": {
+        "Lundi à Vendredi": "9h-12h / 14h-18h",
+        "Samedi": "9h-13h",
+        "Dimanche": "Fermé"
+      },
+      "nb_entraineurs": 5,
+      "nb_entraineurs_diplomes": 2,
+      "tiktok": "https:/@/@tiktok.com/@atlantic.rugby.bdx",
+      "facebook": "https://facebook.com/atlantic.rugby.club.bordeaux.demo",
+      "presentation": "Rugby club historique de l'agglo bordelaise. École de rugby labellisée FFR. Ambiance familiale.\n\nImplanté à Le Bouscat, Atlantic Rugby Club Bordeaux a fêté ses 48 ans en 2025. Chez nous : l'humain avant la performance, mais sans renoncer à l'ambition de chacun. Pour la saison 2025-2026, le club a lancé un programme d'accueil renforcé pour les débutants et reprises de sport.",
+      "seances_essai": {
+        "jours": [
+          "mardi",
+          "mercredi",
+          "jeudi",
+          "samedi"
+        ],
+        "sections": [
+          {
+            "label": "Rugby A Xv",
+            "emoji": "🏉",
+            "creneau": "Cours collectif découverte",
+            "duree": "60 à 90 min",
+            "prix": "Gratuit",
+            "modalites": "Apporter crampons + protège-dents"
+          }
+        ]
+      }
     }
   ]
 }
