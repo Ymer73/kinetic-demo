@@ -991,11 +991,10 @@
   ALL_CATS = buildCatList();
   renderCatStrip();
 
-  // MAQUETTE DÉMO : on affiche toujours les résultats par défaut pour que les étudiants
-  // comprennent l'objectif final. Le quiz reste accessible via "Refaire le quiz".
-  const demoSkipQuiz = !window.location.search.includes('quiz=1');
-  if (state.step === 'results' || demoSkipQuiz) {
-    state.step = 'results';
+  // MAQUETTE DÉMO : on garde le quiz visible (parcours utilisateur réaliste).
+  // Peu importe le scénario, scoreAndRender() retourne toujours les 12 sports
+  // à la fin (juste avec des scores de matching variables).
+  if (state.step === 'results') {
     $('#quiz-step').classList.add('t2-hidden');
     $('#results-intro').classList.remove('t2-hidden');
     $('#results-view').classList.remove('t2-hidden');
