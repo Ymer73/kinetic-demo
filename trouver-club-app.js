@@ -993,8 +993,8 @@
 
   // MAQUETTE DÉMO : on affiche toujours les résultats par défaut pour que les étudiants
   // comprennent l'objectif final. Le quiz reste accessible via "Refaire le quiz".
-  const skipQuiz = !window.location.search.includes('quiz=1');
-  if (state.step === 'results' || skipQuiz) {
+  const demoSkipQuiz = !window.location.search.includes('quiz=1');
+  if (state.step === 'results' || demoSkipQuiz) {
     state.step = 'results';
     $('#quiz-step').classList.add('t2-hidden');
     $('#results-intro').classList.remove('t2-hidden');
