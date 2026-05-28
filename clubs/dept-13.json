@@ -1,5 +1,136 @@
 {
   "dep_code": "13",
-  "dep_nom": "",
-  "clubs": []
+  "dep_nom": "Bouches-du-Rhône",
+  "clubs": [
+    {
+      "id": "demo_ffboxe_13_001",
+      "nom": "Iron Republic Marseille",
+      "disc": "boxe-anglaise",
+      "source": "ffboxe",
+      "sport_ids": [
+        15
+      ],
+      "adresse": "Salle Belle de Mai, 41 rue Guibal",
+      "cp": "13003",
+      "ville": "Marseille 3e",
+      "dep": "13",
+      "lat": 43.3128,
+      "lon": 5.385,
+      "tel": "+33491478965",
+      "email": "salle@ironrepublic.demo",
+      "web": "https://ironrepublic.demo",
+      "instagram": "https://instagram.com/iron.republic.marseille",
+      "description": "Boxe anglaise, anglais et fitness. Coachs anciens compétiteurs. Pas besoin d'expérience pour commencer.",
+      "planning": [
+        {
+          "jour": "Lundi",
+          "horaire": "18h30 - 20h00",
+          "public": "Débutants"
+        },
+        {
+          "jour": "Mardi",
+          "horaire": "19h00 - 21h00",
+          "public": "Compétiteurs"
+        },
+        {
+          "jour": "Mercredi",
+          "horaire": "12h15 - 13h15",
+          "public": "Boxing fitness pause déj"
+        },
+        {
+          "jour": "Jeudi",
+          "horaire": "19h00 - 21h00",
+          "public": "Tous niveaux"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "10h00 - 12h00",
+          "public": "Open gym + sparring"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "1h30",
+        "modalites": "Réserver en ligne, pas besoin de matériel"
+      },
+      "equipes": [
+        "Débutants adultes",
+        "Compétition amateur",
+        "Loisir",
+        "Cours femmes uniquement (mardi 18h)"
+      ],
+      "tarif_licence": "480€/an ou 55€/mois",
+      "effectif": 145,
+      "infrastructure": "Ring + 4 sacs lourds + zone cardio",
+      "niveau": "Loisir à compétition régionale",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    },
+    {
+      "id": "demo_fff_13_001",
+      "nom": "Tigers Football Club Marseille",
+      "disc": "football",
+      "source": "fff",
+      "sport_ids": [
+        1
+      ],
+      "adresse": "Complexe sportif Vallon de l'Oriol, 56 boulevard de l'Oriol",
+      "cp": "13007",
+      "ville": "Marseille 7e",
+      "dep": "13",
+      "lat": 43.2823,
+      "lon": 5.3489,
+      "tel": "+33491345672",
+      "email": "secretariat@tigers-marseille.demo",
+      "web": "https://tigers-marseille.demo",
+      "instagram": "https://instagram.com/tigers.fc.marseille",
+      "description": "Club familial face à la Méditerranée. École de foot mixte, équipe seniors D1 District. Esprit fair-play avant tout.",
+      "planning": [
+        {
+          "jour": "Mercredi",
+          "horaire": "14h00 - 16h00",
+          "public": "École de foot U7-U11"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "17h30 - 19h00",
+          "public": "U13/U15"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "19h30 - 21h30",
+          "public": "Seniors D1 District"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "Match",
+          "public": "Toutes catégories"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "1h30",
+        "modalites": "2 séances découverte avant inscription"
+      },
+      "equipes": [
+        "U7",
+        "U9",
+        "U11",
+        "U13",
+        "U15",
+        "U17",
+        "Seniors A",
+        "Seniors B",
+        "Vétérans"
+      ],
+      "tarif_licence": "200€/an",
+      "effectif": 245,
+      "infrastructure": "Stade synthétique homologué + 1 terrain herbe",
+      "niveau": "Loisir à compétition district",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    }
+  ]
 }

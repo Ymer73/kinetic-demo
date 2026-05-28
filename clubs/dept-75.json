@@ -3,243 +3,125 @@
   "dep_nom": "Paris",
   "clubs": [
     {
-      "id": "demo_fff_75_000",
-      "nom": "Phoenix Football",
+      "id": "demo_fff_75_001",
+      "nom": "Phoenix Football Club Paris",
       "disc": "football",
-      "adresse": "10 rue de la Démo",
-      "cp": "75011",
-      "ville": "Paris 11e",
-      "dep": "75",
-      "lat": 48.8589,
-      "lon": 2.3791,
-      "geo": "manuel",
       "source": "fff",
       "sport_ids": [
         1
       ],
-      "tel": "+330000000000",
-      "email": "contact@phoenix-football.demo",
-      "web": "https://phoenix-football.demo",
-      "enrichi_par": "demo_fake"
-    },
-    {
-      "id": "demo_ffr_75_001",
-      "nom": "AS Étoile Rugby",
-      "disc": "rugby-a-xv",
-      "adresse": "17 rue de la Démo",
-      "cp": "75015",
-      "ville": "Paris 15e",
+      "adresse": "Stade Léo Lagrange, 68 boulevard Poniatowski",
+      "cp": "75012",
+      "ville": "Paris 12e",
       "dep": "75",
-      "lat": 48.8447,
-      "lon": 2.3016,
-      "geo": "manuel",
-      "source": "ffr",
-      "sport_ids": [
-        2
+      "lat": 48.8378,
+      "lon": 2.4099,
+      "tel": "+33148875612",
+      "email": "contact@phoenix-fc-paris.demo",
+      "web": "https://phoenix-fc-paris.demo",
+      "instagram": "https://instagram.com/phoenix.fc.paris",
+      "description": "Club de football amateur fondé en 2008. Equipe seniors évoluant en R2 IDF. Esprit de groupe avant tout.",
+      "planning": [
+        {
+          "jour": "Mardi",
+          "horaire": "19h00 - 21h00",
+          "public": "Seniors"
+        },
+        {
+          "jour": "Jeudi",
+          "horaire": "19h30 - 21h30",
+          "public": "Seniors"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "14h00 - 16h00",
+          "public": "U15/U18"
+        },
+        {
+          "jour": "Dimanche",
+          "horaire": "10h00 - 12h00",
+          "public": "Match seniors"
+        }
       ],
-      "tel": "+330000000001",
-      "email": "contact@as-étoile-rugby.demo",
-      "web": "https://as-étoile-rugby.demo",
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "1h30",
+        "modalites": "Contacter par DM Instagram pour s'inscrire"
+      },
+      "equipes": [
+        "U13",
+        "U15",
+        "U18",
+        "Seniors R2",
+        "Vétérans"
+      ],
+      "tarif_licence": "220€/an",
+      "effectif": 168,
+      "infrastructure": "Stade municipal, 2 terrains gazon + 1 synthétique",
+      "niveau": "Loisir à compétition régionale",
+      "geo": "manuel",
       "enrichi_par": "demo_fake"
     },
     {
-      "id": "demo_ffbb_75_002",
-      "nom": "Olympic Basketball Club",
-      "disc": "basketball",
-      "adresse": "24 rue de la Démo",
-      "cp": "75018",
-      "ville": "Paris 18e",
-      "dep": "75",
-      "lat": 48.8985,
-      "lon": 2.3504,
-      "geo": "manuel",
-      "source": "ffbb",
-      "sport_ids": [
-        3
-      ],
-      "tel": "+330000000002",
-      "email": "contact@olympic-basketball-club.demo",
-      "web": "https://olympic-basketball-club.demo",
-      "enrichi_par": "demo_fake"
-    },
-    {
-      "id": "demo_fft_75_003",
-      "nom": "Tennis Spirit",
-      "disc": "tennis",
-      "adresse": "31 rue de la Démo",
-      "cp": "75020",
-      "ville": "Paris 20e",
-      "dep": "75",
-      "lat": 48.8721,
-      "lon": 2.4079,
-      "geo": "manuel",
-      "source": "fft",
-      "sport_ids": [
-        6
-      ],
-      "tel": "+330000000003",
-      "email": "contact@tennis-spirit.demo",
-      "web": "https://tennis-spirit.demo",
-      "enrichi_par": "demo_fake"
-    },
-    {
-      "id": "demo_ffn_75_004",
-      "nom": "Rebel Natation",
-      "disc": "natation",
-      "adresse": "38 rue de la Démo",
-      "cp": "75011",
-      "ville": "Paris 11e",
-      "dep": "75",
-      "lat": 48.8709,
-      "lon": 2.3911,
-      "geo": "manuel",
-      "source": "ffn",
-      "sport_ids": [
-        9
-      ],
-      "tel": "+330000000004",
-      "email": "contact@rebel-natation.demo",
-      "web": "https://rebel-natation.demo",
-      "enrichi_par": "demo_fake"
-    },
-    {
-      "id": "demo_ffc_75_005",
-      "nom": "Aurora Cyclisme",
-      "disc": "cyclisme-route",
-      "adresse": "45 rue de la Démo",
-      "cp": "75015",
-      "ville": "Paris 15e",
-      "dep": "75",
-      "lat": 48.8567,
-      "lon": 2.3136,
-      "geo": "manuel",
-      "source": "ffc",
-      "sport_ids": [
-        11
-      ],
-      "tel": "+330000000005",
-      "email": "contact@aurora-cyclisme.demo",
-      "web": "https://aurora-cyclisme.demo",
-      "enrichi_par": "demo_fake"
-    },
-    {
-      "id": "demo_ffjudo_75_006",
-      "nom": "Judo Crew",
-      "disc": "judo",
-      "adresse": "52 rue de la Démo",
-      "cp": "75018",
-      "ville": "Paris 18e",
-      "dep": "75",
-      "lat": 48.9105,
-      "lon": 2.3624,
-      "geo": "manuel",
-      "source": "ffjudo",
-      "sport_ids": [
-        12
-      ],
-      "tel": "+330000000006",
-      "email": "contact@judo-crew.demo",
-      "web": "https://judo-crew.demo",
-      "enrichi_par": "demo_fake"
-    },
-    {
-      "id": "demo_ffboxe_75_007",
-      "nom": "Vertical Boxe",
+      "id": "demo_ffboxe_75_001",
+      "nom": "Urban Boxing Spirit Paris",
       "disc": "boxe-anglaise",
-      "adresse": "59 rue de la Démo",
-      "cp": "75020",
-      "ville": "Paris 20e",
-      "dep": "75",
-      "lat": 48.8841,
-      "lon": 2.4199,
-      "geo": "manuel",
       "source": "ffboxe",
       "sport_ids": [
         15
       ],
-      "tel": "+330000000007",
-      "email": "contact@vertical-boxe.demo",
-      "web": "https://vertical-boxe.demo",
-      "enrichi_par": "demo_fake"
-    },
-    {
-      "id": "demo_ffme_75_008",
-      "nom": "Iron Escalade",
-      "disc": "escalade",
-      "adresse": "66 rue de la Démo",
-      "cp": "75011",
-      "ville": "Paris 11e",
-      "dep": "75",
-      "lat": 48.8829,
-      "lon": 2.4031,
-      "geo": "manuel",
-      "source": "ffme",
-      "sport_ids": [
-        26
-      ],
-      "tel": "+330000000008",
-      "email": "contact@iron-escalade.demo",
-      "web": "https://iron-escalade.demo",
-      "enrichi_par": "demo_fake"
-    },
-    {
-      "id": "demo_ffdanse_75_009",
-      "nom": "Forge Danse",
-      "disc": "danse-sportive",
-      "adresse": "73 rue de la Démo",
-      "cp": "75015",
-      "ville": "Paris 15e",
-      "dep": "75",
-      "lat": 48.8687,
-      "lon": 2.3256,
-      "geo": "manuel",
-      "source": "ffdanse",
-      "sport_ids": [
-        46
-      ],
-      "tel": "+330000000009",
-      "email": "contact@forge-danse.demo",
-      "web": "https://forge-danse.demo",
-      "enrichi_par": "demo_fake"
-    },
-    {
-      "id": "demo_ffyoga_75_010",
-      "nom": "Pulse Yoga",
-      "disc": "yoga-pilates",
-      "adresse": "80 rue de la Démo",
+      "adresse": "Salle Boxing Beat, 28 rue Custine",
       "cp": "75018",
       "ville": "Paris 18e",
       "dep": "75",
-      "lat": 48.9225,
-      "lon": 2.3744,
-      "geo": "manuel",
-      "source": "ffyoga",
-      "sport_ids": [
-        73
+      "lat": 48.8896,
+      "lon": 2.3457,
+      "tel": "+33142546312",
+      "email": "ring@urbanboxing.demo",
+      "web": "https://urbanboxing.demo",
+      "instagram": "https://instagram.com/urban.boxing.paris",
+      "description": "Boxe anglaise et boxing fitness. Du débutant au pré-compétition. Coachs anciens pros. Vibe urbaine.",
+      "planning": [
+        {
+          "jour": "Lundi/Mercredi/Vendredi",
+          "horaire": "7h00 - 8h00",
+          "public": "Morning boxing avant boulot"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "12h30 - 13h30",
+          "public": "Lunch session"
+        },
+        {
+          "jour": "Lundi à vendredi",
+          "horaire": "18h00 - 22h00",
+          "public": "Cours classiques tous niveaux"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "10h00 - 13h00",
+          "public": "Open gym + sparring contrôlé"
+        }
       ],
-      "tel": "+330000000010",
-      "email": "contact@pulse-yoga.demo",
-      "web": "https://pulse-yoga.demo",
-      "enrichi_par": "demo_fake"
-    },
-    {
-      "id": "demo_ffa_75_011",
-      "nom": "Atlas Running",
-      "disc": "athletisme",
-      "adresse": "87 rue de la Démo",
-      "cp": "75020",
-      "ville": "Paris 20e",
-      "dep": "75",
-      "lat": 48.8961,
-      "lon": 2.4319,
-      "geo": "manuel",
-      "source": "ffa",
-      "sport_ids": [
-        129
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "1h",
+        "modalites": "Vidéo de présentation à voir avant la séance (lien sur le site)"
+      },
+      "equipes": [
+        "Boxing débutants",
+        "Boxing intermédiaire",
+        "Boxing fitness",
+        "Pré-compétition",
+        "Compétition amateur"
       ],
-      "tel": "+330000000011",
-      "email": "contact@atlas-running.demo",
-      "web": "https://atlas-running.demo",
+      "tarif_licence": "98€/mois (illimité) ou 19€/séance",
+      "effectif": 195,
+      "infrastructure": "2 rings + 8 sacs lourds + zone cardio + vestiaires douches",
+      "niveau": "Loisir à compétition amateur",
+      "geo": "manuel",
       "enrichi_par": "demo_fake"
     }
   ]

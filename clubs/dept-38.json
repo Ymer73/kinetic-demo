@@ -1,5 +1,72 @@
 {
   "dep_code": "38",
-  "dep_nom": "",
-  "clubs": []
+  "dep_nom": "Isère",
+  "clubs": [
+    {
+      "id": "demo_ffme_38_001",
+      "nom": "Vertical Pulse Escalade Grenoble",
+      "disc": "escalade",
+      "source": "ffme",
+      "sport_ids": [
+        26
+      ],
+      "adresse": "Block Out Grenoble, 23 rue Léon Sestier",
+      "cp": "38000",
+      "ville": "Grenoble",
+      "dep": "38",
+      "lat": 45.1885,
+      "lon": 5.7245,
+      "tel": "+33476345612",
+      "email": "team@verticalpulse.demo",
+      "web": "https://verticalpulse.demo",
+      "instagram": "https://instagram.com/vertical.pulse.grenoble",
+      "description": "Bloc et difficulté. Salle moderne avec ouvertures hebdo. Sorties club week-end dans le Vercors et la Chartreuse.",
+      "planning": [
+        {
+          "jour": "Lundi",
+          "horaire": "18h00 - 22h00",
+          "public": "Open + créneau perf"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "17h00 - 19h00",
+          "public": "Cours enfants"
+        },
+        {
+          "jour": "Mercredi",
+          "horaire": "19h00 - 21h00",
+          "public": "Cours adultes débutants"
+        },
+        {
+          "jour": "Vendredi",
+          "horaire": "20h00 - 22h00",
+          "public": "Ladies night"
+        },
+        {
+          "jour": "Dimanche",
+          "horaire": "9h00 - 17h00",
+          "public": "Sortie falaise mensuelle"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "2h",
+        "modalites": "Réserver en ligne. Bloc uniquement (chaussons fournis)."
+      },
+      "equipes": [
+        "Kids 7-10",
+        "Ados 11-15",
+        "Adultes débutants",
+        "Adultes confirmés",
+        "Compétition équipe"
+      ],
+      "tarif_licence": "Accès libre 65€/mois ou licence club 280€/an",
+      "effectif": 425,
+      "infrastructure": "Salle 1800m² blocs + 12m difficulté + entraînement spécifique",
+      "niveau": "Loisir à compétition régionale",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    }
+  ]
 }

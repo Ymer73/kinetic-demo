@@ -1,5 +1,67 @@
 {
   "dep_code": "44",
-  "dep_nom": "",
-  "clubs": []
+  "dep_nom": "Loire-Atlantique",
+  "clubs": [
+    {
+      "id": "demo_ffc_44_001",
+      "nom": "Loire Cycling Team Nantes",
+      "disc": "cyclisme-route",
+      "source": "ffc",
+      "sport_ids": [
+        11
+      ],
+      "adresse": "Vélodrome de la Cibale, 35 boulevard du Petit Port",
+      "cp": "44300",
+      "ville": "Nantes",
+      "dep": "44",
+      "lat": 47.2548,
+      "lon": -1.5491,
+      "tel": "+33240873456",
+      "email": "info@loirecycling.demo",
+      "web": "https://loirecycling.demo",
+      "instagram": "https://instagram.com/loire.cycling.team",
+      "description": "Vélo route, piste et VTT. Sorties club tous les week-ends. École de vélo le mercredi.",
+      "planning": [
+        {
+          "jour": "Mercredi",
+          "horaire": "14h00 - 17h00",
+          "public": "École de vélo 8-14 ans"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "8h30 - 12h30",
+          "public": "Sortie groupe 1 (90km+)"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "9h00 - 12h00",
+          "public": "Sortie groupe 2 (60km)"
+        },
+        {
+          "jour": "Dimanche",
+          "horaire": "9h00 - 11h00",
+          "public": "Sortie loisir famille (30km)"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "2-3h",
+        "modalites": "Avoir son vélo + casque obligatoire"
+      },
+      "equipes": [
+        "École cyclisme",
+        "Cadets/juniors compétition",
+        "Seniors compétition FSGT",
+        "Cyclo loisir",
+        "VTT"
+      ],
+      "tarif_licence": "180€/an",
+      "effectif": 195,
+      "infrastructure": "Vélodrome + local club + parc de vélos d'essai",
+      "niveau": "Loisir à compétition régionale",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    }
+  ]
 }

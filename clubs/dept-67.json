@@ -1,5 +1,75 @@
 {
   "dep_code": "67",
-  "dep_nom": "",
-  "clubs": []
+  "dep_nom": "Bas-Rhin",
+  "clubs": [
+    {
+      "id": "demo_ffjudo_67_001",
+      "nom": "Alsace Judo Kai Strasbourg",
+      "disc": "judo",
+      "source": "ffjudo",
+      "sport_ids": [
+        12
+      ],
+      "adresse": "Dojo Robertsau, 220 route de la Wantzenau",
+      "cp": "67000",
+      "ville": "Strasbourg",
+      "dep": "67",
+      "lat": 48.6011,
+      "lon": 7.7867,
+      "tel": "+33388654312",
+      "email": "dojo@alsace-judo.demo",
+      "web": "https://alsace-judo.demo",
+      "instagram": "https://instagram.com/alsace.judo.kai",
+      "description": "Judo, jujitsu et taïso. Méthode traditionnelle. Préparation ceintures + compétition pour ceux qui le souhaitent.",
+      "planning": [
+        {
+          "jour": "Lundi/Mercredi/Vendredi",
+          "horaire": "17h00 - 18h00",
+          "public": "Baby judo (4-6 ans)"
+        },
+        {
+          "jour": "Lundi/Mercredi/Vendredi",
+          "horaire": "18h00 - 19h00",
+          "public": "Enfants 7-10 ans"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "18h30 - 20h00",
+          "public": "11-14 ans"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "20h00 - 22h00",
+          "public": "Adultes + compétition"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "10h00 - 11h30",
+          "public": "Taïso (préparation physique)"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "1h",
+        "modalites": "Prévoir tenue sport ample, kimono fourni"
+      },
+      "equipes": [
+        "Baby judo",
+        "Mini-poussins",
+        "Poussins",
+        "Benjamins",
+        "Minimes",
+        "Cadets",
+        "Seniors",
+        "Vétérans"
+      ],
+      "tarif_licence": "210€/an (licence FFJDA incluse)",
+      "effectif": 180,
+      "infrastructure": "Dojo 200m² tatamis + vestiaires",
+      "niveau": "Loisir à compétition régionale",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    }
+  ]
 }

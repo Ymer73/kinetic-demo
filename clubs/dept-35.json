@@ -1,5 +1,73 @@
 {
   "dep_code": "35",
-  "dep_nom": "",
-  "clubs": []
+  "dep_nom": "Ille-et-Vilaine",
+  "clubs": [
+    {
+      "id": "demo_ffyoga_35_001",
+      "nom": "Brocéliande Yoga Studio Rennes",
+      "disc": "yoga-pilates",
+      "source": "ffyoga",
+      "sport_ids": [
+        73
+      ],
+      "adresse": "Studio Wellness, 14 rue de la Monnaie",
+      "cp": "35000",
+      "ville": "Rennes",
+      "dep": "35",
+      "lat": 48.1106,
+      "lon": -1.6798,
+      "tel": "+33299568743",
+      "email": "om@broceliande-yoga.demo",
+      "web": "https://broceliande-yoga.demo",
+      "instagram": "https://instagram.com/broceliande.yoga.rennes",
+      "description": "Hatha, vinyasa, yin et yoga prénatal. Petits groupes (max 12). Profs certifiés. Approche bienveillante.",
+      "planning": [
+        {
+          "jour": "Lundi",
+          "horaire": "12h30 - 13h30",
+          "public": "Yoga pause déj tous niveaux"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "18h30 - 20h00",
+          "public": "Vinyasa intermédiaire"
+        },
+        {
+          "jour": "Mercredi",
+          "horaire": "10h00 - 11h30",
+          "public": "Hatha doux & seniors"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "9h00 - 10h30",
+          "public": "Vinyasa dynamique"
+        },
+        {
+          "jour": "Dimanche",
+          "horaire": "10h00 - 11h30",
+          "public": "Yin restorative"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": false,
+        "prix": "10€",
+        "duree": "1h-1h30",
+        "modalites": "Tapis fourni si besoin"
+      },
+      "equipes": [
+        "Tous niveaux",
+        "Débutants",
+        "Intermédiaire",
+        "Prénatal",
+        "Yoga enfants samedi 10h"
+      ],
+      "tarif_licence": "85€/mois (cours illimités) ou 18€/cours unitaire",
+      "effectif": 130,
+      "infrastructure": "Studio 80m² lumineux + vestiaires + zone détente",
+      "niveau": "Tous niveaux loisir",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    }
+  ]
 }

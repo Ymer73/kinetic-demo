@@ -1,5 +1,68 @@
 {
   "dep_code": "59",
-  "dep_nom": "",
-  "clubs": []
+  "dep_nom": "Nord",
+  "clubs": [
+    {
+      "id": "demo_ffa_59_001",
+      "nom": "Northern Runners Lille",
+      "disc": "athletisme",
+      "source": "ffa",
+      "sport_ids": [
+        129
+      ],
+      "adresse": "Stade Grimonprez Jooris, Boulevard Robert Schuman",
+      "cp": "59000",
+      "ville": "Lille",
+      "dep": "59",
+      "lat": 50.6411,
+      "lon": 3.0789,
+      "tel": "+33320673421",
+      "email": "team@northernrunners.demo",
+      "web": "https://northernrunners.demo",
+      "instagram": "https://instagram.com/northern.runners.lille",
+      "description": "Club de running, athlétisme et trail. Du 5km au marathon, du sprint au demi-fond. Coach diplômé FFA.",
+      "planning": [
+        {
+          "jour": "Mardi",
+          "horaire": "19h00 - 20h30",
+          "public": "Séance fractionné piste"
+        },
+        {
+          "jour": "Jeudi",
+          "horaire": "19h00 - 20h30",
+          "public": "Endurance + foncier"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "9h30 - 11h30",
+          "public": "Sortie longue route ou trail"
+        },
+        {
+          "jour": "Dimanche",
+          "horaire": "9h00",
+          "public": "Compétitions (variable)"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "1h30",
+        "modalites": "2 séances offertes, certificat médical à apporter"
+      },
+      "equipes": [
+        "Débutants 0 à 5km",
+        "5-10km",
+        "Semi-marathon",
+        "Marathon",
+        "Trail",
+        "Maîtres"
+      ],
+      "tarif_licence": "150€/an",
+      "effectif": 220,
+      "infrastructure": "Piste 400m homologuée + parcours nature à proximité",
+      "niveau": "Loisir à compétition régionale (championnats interclubs)",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    }
+  ]
 }

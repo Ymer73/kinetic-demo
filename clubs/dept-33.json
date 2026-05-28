@@ -1,5 +1,69 @@
 {
   "dep_code": "33",
-  "dep_nom": "",
-  "clubs": []
+  "dep_nom": "Gironde",
+  "clubs": [
+    {
+      "id": "demo_ffr_33_001",
+      "nom": "Atlantic Rugby Club Bordeaux",
+      "disc": "rugby-a-xv",
+      "source": "ffr",
+      "sport_ids": [
+        2
+      ],
+      "adresse": "Stade Sainte-Germaine, 80 avenue de la Libération",
+      "cp": "33110",
+      "ville": "Le Bouscat",
+      "dep": "33",
+      "lat": 44.8678,
+      "lon": -0.5993,
+      "tel": "+33557345698",
+      "email": "secretariat@atlantic-rugby.demo",
+      "web": "https://atlantic-rugby.demo",
+      "instagram": "https://instagram.com/atlantic.rugby.bdx",
+      "description": "Rugby club historique de l'agglo bordelaise. École de rugby labellisée FFR. Ambiance familiale.",
+      "planning": [
+        {
+          "jour": "Mercredi",
+          "horaire": "14h00 - 16h00",
+          "public": "École de rugby U6-U10"
+        },
+        {
+          "jour": "Mercredi",
+          "horaire": "17h00 - 19h00",
+          "public": "U12/U14"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "19h00 - 21h00",
+          "public": "Seniors Fédérale 3"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "Match",
+          "public": "Toutes catégories à domicile"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "2h",
+        "modalites": "Apporter crampons + protège-dents"
+      },
+      "equipes": [
+        "École de rugby (5-10 ans)",
+        "U12",
+        "U14",
+        "U16",
+        "U19",
+        "Seniors Fédérale 3",
+        "Rugby loisir XV"
+      ],
+      "tarif_licence": "280€/an",
+      "effectif": 340,
+      "infrastructure": "Stade homologué + 2 terrains entraînement + club-house",
+      "niveau": "Compétition régionale (Fédérale 3)",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    }
+  ]
 }

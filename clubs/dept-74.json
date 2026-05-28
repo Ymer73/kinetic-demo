@@ -1,5 +1,73 @@
 {
   "dep_code": "74",
-  "dep_nom": "",
-  "clubs": []
+  "dep_nom": "Haute-Savoie",
+  "clubs": [
+    {
+      "id": "demo_ffme_74_001",
+      "nom": "Alpine Climbing Crew Annecy",
+      "disc": "escalade",
+      "source": "ffme",
+      "sport_ids": [
+        26
+      ],
+      "adresse": "Salle Vertical Art, 5 avenue d'Aix-les-Bains",
+      "cp": "74000",
+      "ville": "Annecy",
+      "dep": "74",
+      "lat": 45.8992,
+      "lon": 6.1294,
+      "tel": "+33450456789",
+      "email": "grimpe@alpine-climbing.demo",
+      "web": "https://alpine-climbing.demo",
+      "instagram": "https://instagram.com/alpine.climbing.annecy",
+      "description": "Escalade en salle (bloc + voie) et sorties falaise. Encadrants brevetés. Cadre exceptionnel au cœur des Alpes.",
+      "planning": [
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "17h30 - 19h00",
+          "public": "Enfants 8-12 ans"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "19h00 - 21h00",
+          "public": "Ados 13-17"
+        },
+        {
+          "jour": "Mercredi/Vendredi",
+          "horaire": "19h00 - 22h00",
+          "public": "Adultes tous niveaux"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "9h00 - 18h00",
+          "public": "Sortie falaise (avril-octobre)"
+        },
+        {
+          "jour": "Dimanche",
+          "horaire": "10h00 - 12h00",
+          "public": "Famille (parent + enfant)"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": false,
+        "prix": "12€",
+        "duree": "2h",
+        "modalites": "Matos fourni (chaussons + baudrier)"
+      },
+      "equipes": [
+        "Mini-grimpeurs 6-8",
+        "Enfants 8-12",
+        "Ados",
+        "Adultes tous niveaux",
+        "Compétition équipe FFME"
+      ],
+      "tarif_licence": "260€/an (licence FFME + accès salle illimité)",
+      "effectif": 310,
+      "infrastructure": "1200m² escalade + bloc + pan Gullich + zone training",
+      "niveau": "Loisir à compétition nationale",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    }
+  ]
 }

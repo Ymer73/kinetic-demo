@@ -1,5 +1,64 @@
 {
   "dep_code": "31",
-  "dep_nom": "",
-  "clubs": []
+  "dep_nom": "Haute-Garonne",
+  "clubs": [
+    {
+      "id": "demo_fft_31_001",
+      "nom": "Smash Tennis Academy Toulouse",
+      "disc": "tennis",
+      "source": "fft",
+      "sport_ids": [
+        6
+      ],
+      "adresse": "Tennis Club du Mirail, 12 chemin du Mirail",
+      "cp": "31100",
+      "ville": "Toulouse",
+      "dep": "31",
+      "lat": 43.5689,
+      "lon": 1.3964,
+      "tel": "+33561873456",
+      "email": "accueil@smashtoulouse.demo",
+      "web": "https://smashtoulouse.demo",
+      "instagram": "https://instagram.com/smash.tennis.toulouse",
+      "description": "5 courts couverts, 4 extérieurs terre battue. Du loisir au tournoi national. École de tennis labellisée.",
+      "planning": [
+        {
+          "jour": "Lundi à vendredi",
+          "horaire": "17h00 - 20h00",
+          "public": "Cours école de tennis"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "9h00 - 18h00",
+          "public": "Tournoi interne + perfectionnement"
+        },
+        {
+          "jour": "Dimanche",
+          "horaire": "10h00 - 12h00",
+          "public": "Double libre membres"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": false,
+        "prix": "15€",
+        "duree": "1h",
+        "modalites": "Cours collectif découverte le samedi"
+      },
+      "equipes": [
+        "Mini-tennis (4-6 ans)",
+        "École 7-10 ans",
+        "11-14 ans",
+        "15-18 ans",
+        "Adultes loisir",
+        "Compétition équipes 1 à 4"
+      ],
+      "tarif_licence": "420€/an (cotisation + licence FFT)",
+      "effectif": 380,
+      "infrastructure": "5 courts couverts + 4 terre battue + club-house + restaurant",
+      "niveau": "Loisir à compétition nationale",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    }
+  ]
 }
