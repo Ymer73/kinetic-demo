@@ -1,5 +1,192 @@
 {
   "dep_code": "73",
-  "dep_nom": "",
-  "clubs": []
+  "dep_nom": "Savoie",
+  "clubs": [
+    {
+      "id": "demo_ffa_73_001",
+      "nom": "Trail Bandits Chambéry",
+      "disc": "athletisme",
+      "source": "ffa",
+      "sport_ids": [
+        129
+      ],
+      "adresse": "Maison des sports, 90 rue Henry Bordeaux",
+      "cp": "73000",
+      "ville": "Chambéry",
+      "dep": "73",
+      "lat": 45.5646,
+      "lon": 5.9178,
+      "tel": "+33479876543",
+      "email": "team@trailbandits.demo",
+      "web": "https://trailbandits.demo",
+      "instagram": "https://instagram.com/trail.bandits.chambery",
+      "description": "Club de trail running au pied des Bauges. Sorties club tous les samedis. Du débutant au coureur expert.",
+      "planning": [
+        {
+          "jour": "Mardi",
+          "horaire": "19h00 - 20h30",
+          "public": "Séance fractionné sur piste"
+        },
+        {
+          "jour": "Jeudi",
+          "horaire": "19h00 - 20h30",
+          "public": "Foncier collectif"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "9h00 - 12h00",
+          "public": "Sortie longue en montagne"
+        },
+        {
+          "jour": "Dimanche",
+          "horaire": "Variable",
+          "public": "Compétitions / courses"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "1h30",
+        "modalites": "2 séances offertes, certificat médical à apporter"
+      },
+      "equipes": [
+        "Initiation trail",
+        "5-10km",
+        "Trail court",
+        "Trail long",
+        "Ultra"
+      ],
+      "tarif_licence": "180€/an",
+      "effectif": 165,
+      "infrastructure": "Local club + accès gratuit piste municipale",
+      "niveau": "Loisir à compétition régionale",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    },
+    {
+      "id": "demo_ffyoga_73_001",
+      "nom": "Mountain Flow Yoga Aix-les-Bains",
+      "disc": "yoga-pilates",
+      "source": "ffyoga",
+      "sport_ids": [
+        73
+      ],
+      "adresse": "Studio Lac, 18 boulevard du Lac",
+      "cp": "73100",
+      "ville": "Aix-les-Bains",
+      "dep": "73",
+      "lat": 45.6886,
+      "lon": 5.9156,
+      "tel": "+33479563412",
+      "email": "om@mountainflow.demo",
+      "web": "https://mountainflow.demo",
+      "instagram": "https://instagram.com/mountain.flow.aix",
+      "description": "Yoga au bord du lac du Bourget. Hatha, vinyasa et yoga restoratif. Stages week-end face au lac en été.",
+      "planning": [
+        {
+          "jour": "Lundi/Mercredi/Vendredi",
+          "horaire": "7h30 - 8h30",
+          "public": "Sunrise yoga"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "12h30 - 13h30",
+          "public": "Lunch flow"
+        },
+        {
+          "jour": "Lundi à samedi",
+          "horaire": "18h30 - 20h00",
+          "public": "Cours du soir"
+        },
+        {
+          "jour": "Dimanche",
+          "horaire": "10h00 - 11h30",
+          "public": "Yin & meditation"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": false,
+        "prix": "12€",
+        "duree": "1h-1h30",
+        "modalites": "Tapis fourni"
+      },
+      "equipes": [
+        "Débutants",
+        "Tous niveaux",
+        "Intermédiaire",
+        "Prénatal",
+        "Seniors"
+      ],
+      "tarif_licence": "85€/mois illimité",
+      "effectif": 95,
+      "infrastructure": "Studio 60m² vue lac + terrasse extérieure pour cours d'été",
+      "niveau": "Tous niveaux loisir",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    },
+    {
+      "id": "demo_ffr_73_001",
+      "nom": "AS Étoile Rugby Albertville",
+      "disc": "rugby-a-xv",
+      "source": "ffr",
+      "sport_ids": [
+        2
+      ],
+      "adresse": "Stade Olympique, 12 avenue Joseph Fontanet",
+      "cp": "73200",
+      "ville": "Albertville",
+      "dep": "73",
+      "lat": 45.675,
+      "lon": 6.3925,
+      "tel": "+33479563728",
+      "email": "contact@etoile-rugby.demo",
+      "web": "https://etoile-rugby.demo",
+      "instagram": "https://instagram.com/etoile.rugby.alb",
+      "description": "Rugby club historique en pays de Savoie. École de rugby + équipe seniors Fédérale. Esprit valeurs rugby.",
+      "planning": [
+        {
+          "jour": "Mercredi",
+          "horaire": "14h30 - 16h00",
+          "public": "École de rugby U6-U10"
+        },
+        {
+          "jour": "Mercredi",
+          "horaire": "17h00 - 19h00",
+          "public": "U12/U14"
+        },
+        {
+          "jour": "Mardi/Jeudi",
+          "horaire": "19h00 - 21h00",
+          "public": "Seniors Fédérale"
+        },
+        {
+          "jour": "Samedi",
+          "horaire": "Match",
+          "public": "Toutes catégories"
+        }
+      ],
+      "seance_essai": {
+        "dispo": true,
+        "gratuit": true,
+        "duree": "1h30",
+        "modalites": "Crampons + protège-dents conseillés"
+      },
+      "equipes": [
+        "École de rugby",
+        "U12",
+        "U14",
+        "U16",
+        "Cadets",
+        "Seniors Fédérale 3",
+        "Vétérans"
+      ],
+      "tarif_licence": "240€/an",
+      "effectif": 195,
+      "infrastructure": "Stade homologué + 2 terrains entraînement + club-house",
+      "niveau": "Loisir à compétition régionale",
+      "geo": "manuel",
+      "enrichi_par": "demo_fake"
+    }
+  ]
 }
