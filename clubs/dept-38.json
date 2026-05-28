@@ -24,28 +24,28 @@
       "planning": [
         {
           "jour": "Lundi",
-          "horaire": "18h00 - 22h00",
-          "public": "Open + créneau perf"
+          "categorie": "Open + créneau perf",
+          "heure": "18h00 - 22h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "17h00 - 19h00",
-          "public": "Cours enfants"
+          "categorie": "Cours enfants",
+          "heure": "17h00 - 19h00"
         },
         {
           "jour": "Mercredi",
-          "horaire": "19h00 - 21h00",
-          "public": "Cours adultes débutants"
+          "categorie": "Cours adultes débutants",
+          "heure": "19h00 - 21h00"
         },
         {
           "jour": "Vendredi",
-          "horaire": "20h00 - 22h00",
-          "public": "Ladies night"
+          "categorie": "Ladies night",
+          "heure": "20h00 - 22h00"
         },
         {
           "jour": "Dimanche",
-          "horaire": "9h00 - 17h00",
-          "public": "Sortie falaise mensuelle"
+          "categorie": "Sortie falaise mensuelle",
+          "heure": "9h00 - 17h00"
         }
       ],
       "seance_essai": {
@@ -120,7 +120,10 @@
             "modalites": "Réserver en ligne. Bloc uniquement (chaussons fournis)."
           }
         ]
-      }
+      },
+      "public_cible": "♿ Para sur demande, 🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 65,
+      "essai_gratuit": true
     }
   ]
 }

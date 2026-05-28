@@ -24,23 +24,23 @@
       "planning": [
         {
           "jour": "Lundi/Mercredi/Vendredi",
-          "horaire": "17h30 - 19h00",
-          "public": "École de natation"
+          "categorie": "École de natation",
+          "heure": "17h30 - 19h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "18h30 - 20h30",
-          "public": "Compétition jeunes"
+          "categorie": "Compétition jeunes",
+          "heure": "18h30 - 20h30"
         },
         {
           "jour": "Lundi/Mercredi/Vendredi",
-          "horaire": "20h00 - 22h00",
-          "public": "Maître & masters"
+          "categorie": "Maître & masters",
+          "heure": "20h00 - 22h00"
         },
         {
           "jour": "Dimanche matin",
-          "horaire": "9h00 - 11h00",
-          "public": "Eau libre (avril-octobre)"
+          "categorie": "Eau libre (avril-octobre)",
+          "heure": "9h00 - 11h00"
         }
       ],
       "seance_essai": {
@@ -114,7 +114,10 @@
             "modalites": "Test de niveau requis, prévoir maillot + bonnet + lunettes"
           }
         ]
-      }
+      },
+      "public_cible": "♿ Para sur demande, 👴 Vétérans, 🧒 Enfants",
+      "prix_licence": 320,
+      "essai_gratuit": true
     }
   ]
 }

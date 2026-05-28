@@ -24,23 +24,23 @@
       "planning": [
         {
           "jour": "Lundi",
-          "horaire": "18h30 - 20h00",
-          "public": "U13/U15"
+          "categorie": "U13/U15",
+          "heure": "18h30 - 20h00"
         },
         {
           "jour": "Mercredi",
-          "horaire": "17h00 - 19h00",
-          "public": "Mini-basket"
+          "categorie": "Mini-basket",
+          "heure": "17h00 - 19h00"
         },
         {
           "jour": "Mercredi",
-          "horaire": "19h30 - 21h30",
-          "public": "Seniors M"
+          "categorie": "Seniors M",
+          "heure": "19h30 - 21h30"
         },
         {
           "jour": "Vendredi",
-          "horaire": "20h00 - 22h00",
-          "public": "Seniors NM3"
+          "categorie": "Seniors NM3",
+          "heure": "20h00 - 22h00"
         }
       ],
       "seance_essai": {
@@ -113,7 +113,10 @@
             "modalites": "2 séances offertes avant inscription"
           }
         ]
-      }
+      },
+      "public_cible": "♿ Para sur demande, 🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 240,
+      "essai_gratuit": true
     }
   ]
 }

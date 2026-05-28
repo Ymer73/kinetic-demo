@@ -24,28 +24,28 @@
       "planning": [
         {
           "jour": "Lundi",
-          "horaire": "12h30 - 13h30",
-          "public": "Yoga pause déj tous niveaux"
+          "categorie": "Yoga pause déj tous niveaux",
+          "heure": "12h30 - 13h30"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "18h30 - 20h00",
-          "public": "Vinyasa intermédiaire"
+          "categorie": "Vinyasa intermédiaire",
+          "heure": "18h30 - 20h00"
         },
         {
           "jour": "Mercredi",
-          "horaire": "10h00 - 11h30",
-          "public": "Hatha doux & seniors"
+          "categorie": "Hatha doux & seniors",
+          "heure": "10h00 - 11h30"
         },
         {
           "jour": "Samedi",
-          "horaire": "9h00 - 10h30",
-          "public": "Vinyasa dynamique"
+          "categorie": "Vinyasa dynamique",
+          "heure": "9h00 - 10h30"
         },
         {
           "jour": "Dimanche",
-          "horaire": "10h00 - 11h30",
-          "public": "Yin restorative"
+          "categorie": "Yin restorative",
+          "heure": "10h00 - 11h30"
         }
       ],
       "seance_essai": {
@@ -129,7 +129,9 @@
             "modalites": "Mentionner ton niveau actuel à la réservation"
           }
         ]
-      }
+      },
+      "public_cible": "♿ Para sur demande, 🧑 Adultes",
+      "prix_licence": 85
     }
   ]
 }

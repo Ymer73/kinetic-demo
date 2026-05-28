@@ -24,28 +24,28 @@
       "planning": [
         {
           "jour": "Lundi/Mercredi/Vendredi",
-          "horaire": "17h00 - 18h00",
-          "public": "Baby judo (4-6 ans)"
+          "categorie": "Baby judo (4-6 ans)",
+          "heure": "17h00 - 18h00"
         },
         {
           "jour": "Lundi/Mercredi/Vendredi",
-          "horaire": "18h00 - 19h00",
-          "public": "Enfants 7-10 ans"
+          "categorie": "Enfants 7-10 ans",
+          "heure": "18h00 - 19h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "18h30 - 20h00",
-          "public": "11-14 ans"
+          "categorie": "11-14 ans",
+          "heure": "18h30 - 20h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "20h00 - 22h00",
-          "public": "Adultes + compétition"
+          "categorie": "Adultes + compétition",
+          "heure": "20h00 - 22h00"
         },
         {
           "jour": "Samedi",
-          "horaire": "10h00 - 11h30",
-          "public": "Taïso (préparation physique)"
+          "categorie": "Taïso (préparation physique)",
+          "heure": "10h00 - 11h30"
         }
       ],
       "seance_essai": {
@@ -122,7 +122,10 @@
             "modalites": "Prévoir tenue sport ample, kimono fourni"
           }
         ]
-      }
+      },
+      "public_cible": "🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 210,
+      "essai_gratuit": true
     }
   ]
 }

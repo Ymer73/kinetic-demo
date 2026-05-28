@@ -24,28 +24,28 @@
       "planning": [
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "17h30 - 19h00",
-          "public": "Enfants 8-12 ans"
+          "categorie": "Enfants 8-12 ans",
+          "heure": "17h30 - 19h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "19h00 - 21h00",
-          "public": "Ados 13-17"
+          "categorie": "Ados 13-17",
+          "heure": "19h00 - 21h00"
         },
         {
           "jour": "Mercredi/Vendredi",
-          "horaire": "19h00 - 22h00",
-          "public": "Adultes tous niveaux"
+          "categorie": "Adultes tous niveaux",
+          "heure": "19h00 - 22h00"
         },
         {
           "jour": "Samedi",
-          "horaire": "9h00 - 18h00",
-          "public": "Sortie falaise (avril-octobre)"
+          "categorie": "Sortie falaise (avril-octobre)",
+          "heure": "9h00 - 18h00"
         },
         {
           "jour": "Dimanche",
-          "horaire": "10h00 - 12h00",
-          "public": "Famille (parent + enfant)"
+          "categorie": "Famille (parent + enfant)",
+          "heure": "10h00 - 12h00"
         }
       ],
       "seance_essai": {
@@ -121,7 +121,9 @@
             "modalites": "Matos fourni (chaussons + baudrier)"
           }
         ]
-      }
+      },
+      "public_cible": "🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 260
     }
   ]
 }

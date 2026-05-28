@@ -24,23 +24,23 @@
       "planning": [
         {
           "jour": "Mercredi",
-          "horaire": "14h00 - 17h00",
-          "public": "École de vélo 8-14 ans"
+          "categorie": "École de vélo 8-14 ans",
+          "heure": "14h00 - 17h00"
         },
         {
           "jour": "Samedi",
-          "horaire": "8h30 - 12h30",
-          "public": "Sortie groupe 1 (90km+)"
+          "categorie": "Sortie groupe 1 (90km+)",
+          "heure": "8h30 - 12h30"
         },
         {
           "jour": "Samedi",
-          "horaire": "9h00 - 12h00",
-          "public": "Sortie groupe 2 (60km)"
+          "categorie": "Sortie groupe 2 (60km)",
+          "heure": "9h00 - 12h00"
         },
         {
           "jour": "Dimanche",
-          "horaire": "9h00 - 11h00",
-          "public": "Sortie loisir famille (30km)"
+          "categorie": "Sortie loisir famille (30km)",
+          "heure": "9h00 - 11h00"
         }
       ],
       "seance_essai": {
@@ -111,7 +111,10 @@
             "modalites": "Avoir son vélo + casque obligatoire"
           }
         ]
-      }
+      },
+      "public_cible": "🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 180,
+      "essai_gratuit": true
     }
   ]
 }

@@ -24,18 +24,18 @@
       "planning": [
         {
           "jour": "Lundi à vendredi",
-          "horaire": "17h00 - 20h00",
-          "public": "Cours école de tennis"
+          "categorie": "Cours école de tennis",
+          "heure": "17h00 - 20h00"
         },
         {
           "jour": "Samedi",
-          "horaire": "9h00 - 18h00",
-          "public": "Tournoi interne + perfectionnement"
+          "categorie": "Tournoi interne + perfectionnement",
+          "heure": "9h00 - 18h00"
         },
         {
           "jour": "Dimanche",
-          "horaire": "10h00 - 12h00",
-          "public": "Double libre membres"
+          "categorie": "Double libre membres",
+          "heure": "10h00 - 12h00"
         }
       ],
       "seance_essai": {
@@ -112,7 +112,9 @@
             "modalites": "Cours collectif découverte le samedi"
           }
         ]
-      }
+      },
+      "public_cible": "♿ Para sur demande, 🧒 Enfants",
+      "prix_licence": 420
     }
   ]
 }

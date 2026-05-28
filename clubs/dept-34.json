@@ -24,28 +24,28 @@
       "planning": [
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "17h00 - 18h30",
-          "public": "Kids 6-12 ans"
+          "categorie": "Kids 6-12 ans",
+          "heure": "17h00 - 18h30"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "18h30 - 20h00",
-          "public": "Teens 13-17"
+          "categorie": "Teens 13-17",
+          "heure": "18h30 - 20h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "20h00 - 21h30",
-          "public": "Adultes débutants"
+          "categorie": "Adultes débutants",
+          "heure": "20h00 - 21h30"
         },
         {
           "jour": "Mercredi",
-          "horaire": "14h00 - 18h00",
-          "public": "Stages thématiques"
+          "categorie": "Stages thématiques",
+          "heure": "14h00 - 18h00"
         },
         {
           "jour": "Samedi",
-          "horaire": "10h00 - 18h00",
-          "public": "Cours libres + battles"
+          "categorie": "Cours libres + battles",
+          "heure": "10h00 - 18h00"
         }
       ],
       "seance_essai": {
@@ -127,7 +127,10 @@
             "modalites": "Mentionner ton niveau actuel à la réservation"
           }
         ]
-      }
+      },
+      "public_cible": "🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 320,
+      "essai_gratuit": true
     }
   ]
 }

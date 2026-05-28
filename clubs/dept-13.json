@@ -24,28 +24,28 @@
       "planning": [
         {
           "jour": "Lundi",
-          "horaire": "18h30 - 20h00",
-          "public": "Débutants"
+          "categorie": "Débutants",
+          "heure": "18h30 - 20h00"
         },
         {
           "jour": "Mardi",
-          "horaire": "19h00 - 21h00",
-          "public": "Compétiteurs"
+          "categorie": "Compétiteurs",
+          "heure": "19h00 - 21h00"
         },
         {
           "jour": "Mercredi",
-          "horaire": "12h15 - 13h15",
-          "public": "Boxing fitness pause déj"
+          "categorie": "Boxing fitness pause déj",
+          "heure": "12h15 - 13h15"
         },
         {
           "jour": "Jeudi",
-          "horaire": "19h00 - 21h00",
-          "public": "Tous niveaux"
+          "categorie": "Tous niveaux",
+          "heure": "19h00 - 21h00"
         },
         {
           "jour": "Samedi",
-          "horaire": "10h00 - 12h00",
-          "public": "Open gym + sparring"
+          "categorie": "Open gym + sparring",
+          "heure": "10h00 - 12h00"
         }
       ],
       "seance_essai": {
@@ -125,7 +125,10 @@
             "modalites": "Mentionner ton niveau actuel à la réservation"
           }
         ]
-      }
+      },
+      "public_cible": "🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 480,
+      "essai_gratuit": true
     },
     {
       "id": "demo_fff_13_001",
@@ -149,23 +152,23 @@
       "planning": [
         {
           "jour": "Mercredi",
-          "horaire": "14h00 - 16h00",
-          "public": "École de foot U7-U11"
+          "categorie": "École de foot U7-U11",
+          "heure": "14h00 - 16h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "17h30 - 19h00",
-          "public": "U13/U15"
+          "categorie": "U13/U15",
+          "heure": "17h30 - 19h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "19h30 - 21h30",
-          "public": "Seniors D1 District"
+          "categorie": "Seniors D1 District",
+          "heure": "19h30 - 21h30"
         },
         {
           "jour": "Samedi",
-          "horaire": "Match",
-          "public": "Toutes catégories"
+          "categorie": "Toutes catégories",
+          "heure": "Match"
         }
       ],
       "seance_essai": {
@@ -241,7 +244,10 @@
             "modalites": "2 séances découverte avant inscription"
           }
         ]
-      }
+      },
+      "public_cible": "♿ Para sur demande, 🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 200,
+      "essai_gratuit": true
     }
   ]
 }

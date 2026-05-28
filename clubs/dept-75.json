@@ -24,23 +24,23 @@
       "planning": [
         {
           "jour": "Mardi",
-          "horaire": "19h00 - 21h00",
-          "public": "Seniors"
+          "categorie": "Seniors",
+          "heure": "19h00 - 21h00"
         },
         {
           "jour": "Jeudi",
-          "horaire": "19h30 - 21h30",
-          "public": "Seniors"
+          "categorie": "Seniors",
+          "heure": "19h30 - 21h30"
         },
         {
           "jour": "Samedi",
-          "horaire": "14h00 - 16h00",
-          "public": "U15/U18"
+          "categorie": "U15/U18",
+          "heure": "14h00 - 16h00"
         },
         {
           "jour": "Dimanche",
-          "horaire": "10h00 - 12h00",
-          "public": "Match seniors"
+          "categorie": "Match seniors",
+          "heure": "10h00 - 12h00"
         }
       ],
       "seance_essai": {
@@ -112,7 +112,10 @@
             "modalites": "Contacter par DM Instagram pour s'inscrire"
           }
         ]
-      }
+      },
+      "public_cible": "🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 220,
+      "essai_gratuit": true
     },
     {
       "id": "demo_ffboxe_75_001",
@@ -136,23 +139,23 @@
       "planning": [
         {
           "jour": "Lundi/Mercredi/Vendredi",
-          "horaire": "7h00 - 8h00",
-          "public": "Morning boxing avant boulot"
+          "categorie": "Morning boxing avant boulot",
+          "heure": "7h00 - 8h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "12h30 - 13h30",
-          "public": "Lunch session"
+          "categorie": "Lunch session",
+          "heure": "12h30 - 13h30"
         },
         {
           "jour": "Lundi à vendredi",
-          "horaire": "18h00 - 22h00",
-          "public": "Cours classiques tous niveaux"
+          "categorie": "Cours classiques tous niveaux",
+          "heure": "18h00 - 22h00"
         },
         {
           "jour": "Samedi",
-          "horaire": "10h00 - 13h00",
-          "public": "Open gym + sparring contrôlé"
+          "categorie": "Open gym + sparring contrôlé",
+          "heure": "10h00 - 13h00"
         }
       ],
       "seance_essai": {
@@ -234,7 +237,10 @@
             "modalites": "Mentionner ton niveau actuel à la réservation"
           }
         ]
-      }
+      },
+      "public_cible": "🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 98,
+      "essai_gratuit": true
     }
   ]
 }

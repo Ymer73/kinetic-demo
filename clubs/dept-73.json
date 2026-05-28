@@ -24,23 +24,23 @@
       "planning": [
         {
           "jour": "Mardi",
-          "horaire": "19h00 - 20h30",
-          "public": "Séance fractionné sur piste"
+          "categorie": "Séance fractionné sur piste",
+          "heure": "19h00 - 20h30"
         },
         {
           "jour": "Jeudi",
-          "horaire": "19h00 - 20h30",
-          "public": "Foncier collectif"
+          "categorie": "Foncier collectif",
+          "heure": "19h00 - 20h30"
         },
         {
           "jour": "Samedi",
-          "horaire": "9h00 - 12h00",
-          "public": "Sortie longue en montagne"
+          "categorie": "Sortie longue en montagne",
+          "heure": "9h00 - 12h00"
         },
         {
           "jour": "Dimanche",
-          "horaire": "Variable",
-          "public": "Compétitions / courses"
+          "categorie": "Compétitions / courses",
+          "heure": "Variable"
         }
       ],
       "seance_essai": {
@@ -112,7 +112,10 @@
             "modalites": "2 séances offertes, certificat médical à apporter"
           }
         ]
-      }
+      },
+      "public_cible": "🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 180,
+      "essai_gratuit": true
     },
     {
       "id": "demo_ffyoga_73_001",
@@ -136,23 +139,23 @@
       "planning": [
         {
           "jour": "Lundi/Mercredi/Vendredi",
-          "horaire": "7h30 - 8h30",
-          "public": "Sunrise yoga"
+          "categorie": "Sunrise yoga",
+          "heure": "7h30 - 8h30"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "12h30 - 13h30",
-          "public": "Lunch flow"
+          "categorie": "Lunch flow",
+          "heure": "12h30 - 13h30"
         },
         {
           "jour": "Lundi à samedi",
-          "horaire": "18h30 - 20h00",
-          "public": "Cours du soir"
+          "categorie": "Cours du soir",
+          "heure": "18h30 - 20h00"
         },
         {
           "jour": "Dimanche",
-          "horaire": "10h00 - 11h30",
-          "public": "Yin & meditation"
+          "categorie": "Yin & meditation",
+          "heure": "10h00 - 11h30"
         }
       ],
       "seance_essai": {
@@ -236,7 +239,9 @@
             "modalites": "Mentionner ton niveau actuel à la réservation"
           }
         ]
-      }
+      },
+      "public_cible": "♿ Para sur demande, 🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 85
     },
     {
       "id": "demo_ffr_73_001",
@@ -260,23 +265,23 @@
       "planning": [
         {
           "jour": "Mercredi",
-          "horaire": "14h30 - 16h00",
-          "public": "École de rugby U6-U10"
+          "categorie": "École de rugby U6-U10",
+          "heure": "14h30 - 16h00"
         },
         {
           "jour": "Mercredi",
-          "horaire": "17h00 - 19h00",
-          "public": "U12/U14"
+          "categorie": "U12/U14",
+          "heure": "17h00 - 19h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "19h00 - 21h00",
-          "public": "Seniors Fédérale"
+          "categorie": "Seniors Fédérale",
+          "heure": "19h00 - 21h00"
         },
         {
           "jour": "Samedi",
-          "horaire": "Match",
-          "public": "Toutes catégories"
+          "categorie": "Toutes catégories",
+          "heure": "Match"
         }
       ],
       "seance_essai": {
@@ -350,7 +355,10 @@
             "modalites": "Crampons + protège-dents conseillés"
           }
         ]
-      }
+      },
+      "public_cible": "♿ Para sur demande, 🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 240,
+      "essai_gratuit": true
     }
   ]
 }

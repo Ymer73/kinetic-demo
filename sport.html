@@ -93,7 +93,12 @@ if (rawId) {
   }
 }
 
-// Si l'ID est invalide ou absent, rediriger vers une page d'erreur lisible plutôt que tomber silencieusement sur Football
+// MAQUETTE DÉMO : fallback gracieux. Si le sport demandé n'est pas dans nos 12 sports,
+// on prend le premier sport similaire ou Football par défaut, plutôt que d'afficher "Sport introuvable".
+if (!foundSport && typeof SPORTS !== 'undefined' && SPORTS.length > 0) {
+  // Choisir le premier sport disponible (Football) comme fallback maquette
+  foundSport = SPORTS[0];
+}
 if (!foundSport) {
   document.documentElement.innerHTML = `<head><meta charset="UTF-8"><title>Sport introuvable | Kinetic</title><link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="enhance-2026.css"><!-- Apple PWA -->

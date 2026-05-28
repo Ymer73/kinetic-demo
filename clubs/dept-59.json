@@ -24,23 +24,23 @@
       "planning": [
         {
           "jour": "Mardi",
-          "horaire": "19h00 - 20h30",
-          "public": "Séance fractionné piste"
+          "categorie": "Séance fractionné piste",
+          "heure": "19h00 - 20h30"
         },
         {
           "jour": "Jeudi",
-          "horaire": "19h00 - 20h30",
-          "public": "Endurance + foncier"
+          "categorie": "Endurance + foncier",
+          "heure": "19h00 - 20h30"
         },
         {
           "jour": "Samedi",
-          "horaire": "9h30 - 11h30",
-          "public": "Sortie longue route ou trail"
+          "categorie": "Sortie longue route ou trail",
+          "heure": "9h30 - 11h30"
         },
         {
           "jour": "Dimanche",
-          "horaire": "9h00",
-          "public": "Compétitions (variable)"
+          "categorie": "Compétitions (variable)",
+          "heure": "9h00"
         }
       ],
       "seance_essai": {
@@ -113,7 +113,10 @@
             "modalites": "2 séances offertes, certificat médical à apporter"
           }
         ]
-      }
+      },
+      "public_cible": "🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 150,
+      "essai_gratuit": true
     }
   ]
 }

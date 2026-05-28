@@ -24,23 +24,23 @@
       "planning": [
         {
           "jour": "Mercredi",
-          "horaire": "14h00 - 16h00",
-          "public": "École de rugby U6-U10"
+          "categorie": "École de rugby U6-U10",
+          "heure": "14h00 - 16h00"
         },
         {
           "jour": "Mercredi",
-          "horaire": "17h00 - 19h00",
-          "public": "U12/U14"
+          "categorie": "U12/U14",
+          "heure": "17h00 - 19h00"
         },
         {
           "jour": "Mardi/Jeudi",
-          "horaire": "19h00 - 21h00",
-          "public": "Seniors Fédérale 3"
+          "categorie": "Seniors Fédérale 3",
+          "heure": "19h00 - 21h00"
         },
         {
           "jour": "Samedi",
-          "horaire": "Match",
-          "public": "Toutes catégories à domicile"
+          "categorie": "Toutes catégories à domicile",
+          "heure": "Match"
         }
       ],
       "seance_essai": {
@@ -114,7 +114,10 @@
             "modalites": "Apporter crampons + protège-dents"
           }
         ]
-      }
+      },
+      "public_cible": "🧑 Adultes, 🧒 Enfants",
+      "prix_licence": 280,
+      "essai_gratuit": true
     }
   ]
 }
