@@ -448,10 +448,10 @@
     zoomSnap: 0.5,
   });
   L.control.zoom({ position: 'topright' }).addTo(map);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '© OpenStreetMap · Carto',
-    subdomains: 'abcd',
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
     maxZoom: 19,
+    crossOrigin: true,
   }).addTo(map);
   document.getElementById('mv2-map').classList.add('tint-pastel');
 
