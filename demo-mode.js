@@ -22,9 +22,18 @@
     ].join(';');
     document.documentElement.appendChild(banner);
 
-    // Décale le contenu pour ne pas être caché
+    // Décale le contenu pour ne pas être caché par le bandeau
+    // On utilise margin-top sur body au lieu de padding-top sur html
+    // (le padding-top sur html cassait le centrage des modals position:fixed inset:0)
     const style = document.createElement('style');
-    style.textContent = 'html{padding-top:36px!important}body{position:relative}';
+    style.textContent = [
+      'body{margin-top:36px!important}',
+      '#kinetic-demo-banner{height:36px;display:flex;align-items:center;justify-content:center}',
+      // Compensation pour les éléments en position:fixed top:0 (nav fixed, modals)
+      '.nav-fixed,.nav.is-fixed{top:36px!important}',
+      // S\'assure que les modals plein écran couvrent bien le viewport
+      '.vid-modal.is-open{display:flex!important;align-items:center!important;justify-content:center!important;top:36px!important;height:calc(100vh - 36px)!important}'
+    ].join('');
     document.head.appendChild(style);
 
     // Meta noindex si pas déjà présent
