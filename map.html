@@ -448,17 +448,17 @@
     zoomSnap: 0.5,
   });
   L.control.zoom({ position: 'topright' }).addTo(map);
-  // Proxy Vercel pour OSM (contourne le rate-limit et tout adblocker)
-  const tileLayer = L.tileLayer('/tiles/{z}/{x}/{y}', {
-    attribution: '© OpenStreetMap contributors',
+  // CartoDB Basemaps light (identique au vrai site Kinetic, fiable et autorisé par CSP)
+  const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap · Carto',
+    subdomains: 'abcd',
     maxZoom: 19,
-    keepBuffer: 4,
   });
   tileLayer.addTo(map);
 
-  // Force a re-render des tiles après que la carte soit vraiment visible
-  setTimeout(() => { map.invalidateSize(); tileLayer.redraw(); }, 800);
-  setTimeout(() => { map.invalidateSize(); tileLayer.redraw(); }, 2500);
+  // Force un re-render des tiles après que la carte soit vraiment visible
+  setTimeout(() => { map.invalidateSize(); tileLayer.redraw(); }, 600);
+  setTimeout(() => { map.invalidateSize(); tileLayer.redraw(); }, 1800);
   document.getElementById('mv2-map').classList.add('tint-pastel');
 
   // Cluster group
