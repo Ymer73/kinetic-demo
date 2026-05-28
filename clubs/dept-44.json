@@ -23,22 +23,38 @@
       "description": "Vélo route, piste et VTT. Sorties club tous les week-ends. École de vélo le mercredi.",
       "planning": [
         {
-          "jour": "Mercredi",
+          "jour": "mercredi",
+          "debut": "14:00",
+          "fin": "17:00",
+          "discipline": "École de vélo 8-14 ans",
+          "equipe": "École de vélo 8-14 ans",
           "categorie": "École de vélo 8-14 ans",
           "heure": "14h00 - 17h00"
         },
         {
-          "jour": "Samedi",
+          "jour": "samedi",
+          "debut": "08:30",
+          "fin": "12:30",
+          "discipline": "Sortie groupe 1 (90km+)",
+          "equipe": "Sortie groupe 1 (90km+)",
           "categorie": "Sortie groupe 1 (90km+)",
           "heure": "8h30 - 12h30"
         },
         {
-          "jour": "Samedi",
+          "jour": "samedi",
+          "debut": "09:00",
+          "fin": "12:00",
+          "discipline": "Sortie groupe 2 (60km)",
+          "equipe": "Sortie groupe 2 (60km)",
           "categorie": "Sortie groupe 2 (60km)",
           "heure": "9h00 - 12h00"
         },
         {
-          "jour": "Dimanche",
+          "jour": "dimanche",
+          "debut": "09:00",
+          "fin": "11:00",
+          "discipline": "Sortie loisir famille (30km)",
+          "equipe": "Sortie loisir famille (30km)",
           "categorie": "Sortie loisir famille (30km)",
           "heure": "9h00 - 11h00"
         }

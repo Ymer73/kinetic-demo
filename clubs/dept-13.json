@@ -23,27 +23,47 @@
       "description": "Boxe anglaise, anglais et fitness. Coachs anciens compétiteurs. Pas besoin d'expérience pour commencer.",
       "planning": [
         {
-          "jour": "Lundi",
+          "jour": "lundi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Débutants",
+          "equipe": "Débutants",
           "categorie": "Débutants",
           "heure": "18h30 - 20h00"
         },
         {
-          "jour": "Mardi",
+          "jour": "mardi",
+          "debut": "19:00",
+          "fin": "21:00",
+          "discipline": "Compétiteurs",
+          "equipe": "Compétiteurs",
           "categorie": "Compétiteurs",
           "heure": "19h00 - 21h00"
         },
         {
-          "jour": "Mercredi",
+          "jour": "mercredi",
+          "debut": "12:15",
+          "fin": "13:15",
+          "discipline": "Boxing fitness pause déj",
+          "equipe": "Boxing fitness pause déj",
           "categorie": "Boxing fitness pause déj",
           "heure": "12h15 - 13h15"
         },
         {
-          "jour": "Jeudi",
+          "jour": "jeudi",
+          "debut": "19:00",
+          "fin": "21:00",
+          "discipline": "Tous niveaux",
+          "equipe": "Tous niveaux",
           "categorie": "Tous niveaux",
           "heure": "19h00 - 21h00"
         },
         {
-          "jour": "Samedi",
+          "jour": "samedi",
+          "debut": "10:00",
+          "fin": "12:00",
+          "discipline": "Open gym + sparring",
+          "equipe": "Open gym + sparring",
           "categorie": "Open gym + sparring",
           "heure": "10h00 - 12h00"
         }
@@ -151,24 +171,49 @@
       "description": "Club familial face à la Méditerranée. École de foot mixte, équipe seniors D1 District. Esprit fair-play avant tout.",
       "planning": [
         {
-          "jour": "Mercredi",
+          "jour": "mercredi",
+          "debut": "14:00",
+          "fin": "16:00",
+          "discipline": "École de foot U7-U11",
+          "equipe": "École de foot U7-U11",
           "categorie": "École de foot U7-U11",
           "heure": "14h00 - 16h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mardi",
+          "debut": "17:30",
+          "fin": "19:00",
+          "discipline": "U13/U15",
+          "equipe": "U13/U15",
           "categorie": "U13/U15",
           "heure": "17h30 - 19h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "jeudi",
+          "debut": "17:30",
+          "fin": "19:00",
+          "discipline": "U13/U15",
+          "equipe": "U13/U15",
+          "categorie": "U13/U15",
+          "heure": "17h30 - 19h00"
+        },
+        {
+          "jour": "mardi",
+          "debut": "19:30",
+          "fin": "21:30",
+          "discipline": "Seniors D1 District",
+          "equipe": "Seniors D1 District",
           "categorie": "Seniors D1 District",
           "heure": "19h30 - 21h30"
         },
         {
-          "jour": "Samedi",
-          "categorie": "Toutes catégories",
-          "heure": "Match"
+          "jour": "jeudi",
+          "debut": "19:30",
+          "fin": "21:30",
+          "discipline": "Seniors D1 District",
+          "equipe": "Seniors D1 District",
+          "categorie": "Seniors D1 District",
+          "heure": "19h30 - 21h30"
         }
       ],
       "seance_essai": {

@@ -23,27 +23,56 @@
       "description": "Bloc et difficulté. Salle moderne avec ouvertures hebdo. Sorties club week-end dans le Vercors et la Chartreuse.",
       "planning": [
         {
-          "jour": "Lundi",
+          "jour": "lundi",
+          "debut": "18:00",
+          "fin": "22:00",
+          "discipline": "Open + créneau perf",
+          "equipe": "Open + créneau perf",
           "categorie": "Open + créneau perf",
           "heure": "18h00 - 22h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mardi",
+          "debut": "17:00",
+          "fin": "19:00",
+          "discipline": "Cours enfants",
+          "equipe": "Cours enfants",
           "categorie": "Cours enfants",
           "heure": "17h00 - 19h00"
         },
         {
-          "jour": "Mercredi",
+          "jour": "jeudi",
+          "debut": "17:00",
+          "fin": "19:00",
+          "discipline": "Cours enfants",
+          "equipe": "Cours enfants",
+          "categorie": "Cours enfants",
+          "heure": "17h00 - 19h00"
+        },
+        {
+          "jour": "mercredi",
+          "debut": "19:00",
+          "fin": "21:00",
+          "discipline": "Cours adultes débutants",
+          "equipe": "Cours adultes débutants",
           "categorie": "Cours adultes débutants",
           "heure": "19h00 - 21h00"
         },
         {
-          "jour": "Vendredi",
+          "jour": "vendredi",
+          "debut": "20:00",
+          "fin": "22:00",
+          "discipline": "Ladies night",
+          "equipe": "Ladies night",
           "categorie": "Ladies night",
           "heure": "20h00 - 22h00"
         },
         {
-          "jour": "Dimanche",
+          "jour": "dimanche",
+          "debut": "09:00",
+          "fin": "17:00",
+          "discipline": "Sortie falaise mensuelle",
+          "equipe": "Sortie falaise mensuelle",
           "categorie": "Sortie falaise mensuelle",
           "heure": "9h00 - 17h00"
         }

@@ -32,7 +32,10 @@
       // Compensation pour les éléments en position:fixed top:0 (nav fixed, modals)
       '.nav-fixed,.nav.is-fixed{top:36px!important}',
       // S\'assure que les modals plein écran couvrent bien le viewport
-      '.vid-modal.is-open{display:flex!important;align-items:center!important;justify-content:center!important;top:36px!important;height:calc(100vh - 36px)!important}'
+      '.vid-modal.is-open{display:flex!important;align-items:center!important;justify-content:center!important;top:36px!important;height:calc(100vh - 36px)!important}',
+      // Skip-link a11y : caché par défaut, visible seulement au focus clavier
+      '.skip-link{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}',
+      '.skip-link:focus{position:fixed!important;left:8px!important;top:44px!important;width:auto!important;height:auto!important;padding:10px 16px!important;background:#0E0B1F!important;color:#fff!important;border-radius:8px!important;z-index:99998!important;font-weight:600!important}'
     ].join('');
     document.head.appendChild(style);
 

@@ -23,27 +23,74 @@
       "description": "Hip-hop, contemporain, modern jazz, breakdance. Ouvert à tous, de l'enfant à l'adulte. Galas annuels.",
       "planning": [
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mardi",
+          "debut": "17:00",
+          "fin": "18:30",
+          "discipline": "Kids 6-12 ans",
+          "equipe": "Kids 6-12 ans",
           "categorie": "Kids 6-12 ans",
           "heure": "17h00 - 18h30"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "jeudi",
+          "debut": "17:00",
+          "fin": "18:30",
+          "discipline": "Kids 6-12 ans",
+          "equipe": "Kids 6-12 ans",
+          "categorie": "Kids 6-12 ans",
+          "heure": "17h00 - 18h30"
+        },
+        {
+          "jour": "mardi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Teens 13-17",
+          "equipe": "Teens 13-17",
           "categorie": "Teens 13-17",
           "heure": "18h30 - 20h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "jeudi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Teens 13-17",
+          "equipe": "Teens 13-17",
+          "categorie": "Teens 13-17",
+          "heure": "18h30 - 20h00"
+        },
+        {
+          "jour": "mardi",
+          "debut": "20:00",
+          "fin": "21:30",
+          "discipline": "Adultes débutants",
+          "equipe": "Adultes débutants",
           "categorie": "Adultes débutants",
           "heure": "20h00 - 21h30"
         },
         {
-          "jour": "Mercredi",
+          "jour": "jeudi",
+          "debut": "20:00",
+          "fin": "21:30",
+          "discipline": "Adultes débutants",
+          "equipe": "Adultes débutants",
+          "categorie": "Adultes débutants",
+          "heure": "20h00 - 21h30"
+        },
+        {
+          "jour": "mercredi",
+          "debut": "14:00",
+          "fin": "18:00",
+          "discipline": "Stages thématiques",
+          "equipe": "Stages thématiques",
           "categorie": "Stages thématiques",
           "heure": "14h00 - 18h00"
         },
         {
-          "jour": "Samedi",
+          "jour": "samedi",
+          "debut": "10:00",
+          "fin": "18:00",
+          "discipline": "Cours libres + battles",
+          "equipe": "Cours libres + battles",
           "categorie": "Cours libres + battles",
           "heure": "10h00 - 18h00"
         }

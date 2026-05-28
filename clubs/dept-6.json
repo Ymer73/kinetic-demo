@@ -23,24 +23,76 @@
       "description": "Club de natation sportive et eau libre. De l'apprentissage au haut niveau. Sortie mer 1x/mois en été.",
       "planning": [
         {
-          "jour": "Lundi/Mercredi/Vendredi",
+          "jour": "lundi",
+          "debut": "17:30",
+          "fin": "19:00",
+          "discipline": "École de natation",
+          "equipe": "École de natation",
           "categorie": "École de natation",
           "heure": "17h30 - 19h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mercredi",
+          "debut": "17:30",
+          "fin": "19:00",
+          "discipline": "École de natation",
+          "equipe": "École de natation",
+          "categorie": "École de natation",
+          "heure": "17h30 - 19h00"
+        },
+        {
+          "jour": "vendredi",
+          "debut": "17:30",
+          "fin": "19:00",
+          "discipline": "École de natation",
+          "equipe": "École de natation",
+          "categorie": "École de natation",
+          "heure": "17h30 - 19h00"
+        },
+        {
+          "jour": "mardi",
+          "debut": "18:30",
+          "fin": "20:30",
+          "discipline": "Compétition jeunes",
+          "equipe": "Compétition jeunes",
           "categorie": "Compétition jeunes",
           "heure": "18h30 - 20h30"
         },
         {
-          "jour": "Lundi/Mercredi/Vendredi",
+          "jour": "jeudi",
+          "debut": "18:30",
+          "fin": "20:30",
+          "discipline": "Compétition jeunes",
+          "equipe": "Compétition jeunes",
+          "categorie": "Compétition jeunes",
+          "heure": "18h30 - 20h30"
+        },
+        {
+          "jour": "lundi",
+          "debut": "20:00",
+          "fin": "22:00",
+          "discipline": "Maître & masters",
+          "equipe": "Maître & masters",
           "categorie": "Maître & masters",
           "heure": "20h00 - 22h00"
         },
         {
-          "jour": "Dimanche matin",
-          "categorie": "Eau libre (avril-octobre)",
-          "heure": "9h00 - 11h00"
+          "jour": "mercredi",
+          "debut": "20:00",
+          "fin": "22:00",
+          "discipline": "Maître & masters",
+          "equipe": "Maître & masters",
+          "categorie": "Maître & masters",
+          "heure": "20h00 - 22h00"
+        },
+        {
+          "jour": "vendredi",
+          "debut": "20:00",
+          "fin": "22:00",
+          "discipline": "Maître & masters",
+          "equipe": "Maître & masters",
+          "categorie": "Maître & masters",
+          "heure": "20h00 - 22h00"
         }
       ],
       "seance_essai": {

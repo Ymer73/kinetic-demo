@@ -23,22 +23,38 @@
       "description": "Club de basket urbain. Du Babyball aux Seniors NM3. Ambiance fun, exigence sportive.",
       "planning": [
         {
-          "jour": "Lundi",
+          "jour": "lundi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "U13/U15",
+          "equipe": "U13/U15",
           "categorie": "U13/U15",
           "heure": "18h30 - 20h00"
         },
         {
-          "jour": "Mercredi",
+          "jour": "mercredi",
+          "debut": "17:00",
+          "fin": "19:00",
+          "discipline": "Mini-basket",
+          "equipe": "Mini-basket",
           "categorie": "Mini-basket",
           "heure": "17h00 - 19h00"
         },
         {
-          "jour": "Mercredi",
+          "jour": "mercredi",
+          "debut": "19:30",
+          "fin": "21:30",
+          "discipline": "Seniors M",
+          "equipe": "Seniors M",
           "categorie": "Seniors M",
           "heure": "19h30 - 21h30"
         },
         {
-          "jour": "Vendredi",
+          "jour": "vendredi",
+          "debut": "20:00",
+          "fin": "22:00",
+          "discipline": "Seniors NM3",
+          "equipe": "Seniors NM3",
           "categorie": "Seniors NM3",
           "heure": "20h00 - 22h00"
         }

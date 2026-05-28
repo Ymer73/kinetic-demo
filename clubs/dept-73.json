@@ -23,24 +23,31 @@
       "description": "Club de trail running au pied des Bauges. Sorties club tous les samedis. Du débutant au coureur expert.",
       "planning": [
         {
-          "jour": "Mardi",
+          "jour": "mardi",
+          "debut": "19:00",
+          "fin": "20:30",
+          "discipline": "Séance fractionné sur piste",
+          "equipe": "Séance fractionné sur piste",
           "categorie": "Séance fractionné sur piste",
           "heure": "19h00 - 20h30"
         },
         {
-          "jour": "Jeudi",
+          "jour": "jeudi",
+          "debut": "19:00",
+          "fin": "20:30",
+          "discipline": "Foncier collectif",
+          "equipe": "Foncier collectif",
           "categorie": "Foncier collectif",
           "heure": "19h00 - 20h30"
         },
         {
-          "jour": "Samedi",
+          "jour": "samedi",
+          "debut": "09:00",
+          "fin": "12:00",
+          "discipline": "Sortie longue en montagne",
+          "equipe": "Sortie longue en montagne",
           "categorie": "Sortie longue en montagne",
           "heure": "9h00 - 12h00"
-        },
-        {
-          "jour": "Dimanche",
-          "categorie": "Compétitions / courses",
-          "heure": "Variable"
         }
       ],
       "seance_essai": {
@@ -138,22 +145,110 @@
       "description": "Yoga au bord du lac du Bourget. Hatha, vinyasa et yoga restoratif. Stages week-end face au lac en été.",
       "planning": [
         {
-          "jour": "Lundi/Mercredi/Vendredi",
+          "jour": "lundi",
+          "debut": "07:30",
+          "fin": "08:30",
+          "discipline": "Sunrise yoga",
+          "equipe": "Sunrise yoga",
           "categorie": "Sunrise yoga",
           "heure": "7h30 - 8h30"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mercredi",
+          "debut": "07:30",
+          "fin": "08:30",
+          "discipline": "Sunrise yoga",
+          "equipe": "Sunrise yoga",
+          "categorie": "Sunrise yoga",
+          "heure": "7h30 - 8h30"
+        },
+        {
+          "jour": "vendredi",
+          "debut": "07:30",
+          "fin": "08:30",
+          "discipline": "Sunrise yoga",
+          "equipe": "Sunrise yoga",
+          "categorie": "Sunrise yoga",
+          "heure": "7h30 - 8h30"
+        },
+        {
+          "jour": "mardi",
+          "debut": "12:30",
+          "fin": "13:30",
+          "discipline": "Lunch flow",
+          "equipe": "Lunch flow",
           "categorie": "Lunch flow",
           "heure": "12h30 - 13h30"
         },
         {
-          "jour": "Lundi à samedi",
+          "jour": "jeudi",
+          "debut": "12:30",
+          "fin": "13:30",
+          "discipline": "Lunch flow",
+          "equipe": "Lunch flow",
+          "categorie": "Lunch flow",
+          "heure": "12h30 - 13h30"
+        },
+        {
+          "jour": "lundi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Cours du soir",
+          "equipe": "Cours du soir",
           "categorie": "Cours du soir",
           "heure": "18h30 - 20h00"
         },
         {
-          "jour": "Dimanche",
+          "jour": "mardi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Cours du soir",
+          "equipe": "Cours du soir",
+          "categorie": "Cours du soir",
+          "heure": "18h30 - 20h00"
+        },
+        {
+          "jour": "mercredi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Cours du soir",
+          "equipe": "Cours du soir",
+          "categorie": "Cours du soir",
+          "heure": "18h30 - 20h00"
+        },
+        {
+          "jour": "jeudi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Cours du soir",
+          "equipe": "Cours du soir",
+          "categorie": "Cours du soir",
+          "heure": "18h30 - 20h00"
+        },
+        {
+          "jour": "vendredi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Cours du soir",
+          "equipe": "Cours du soir",
+          "categorie": "Cours du soir",
+          "heure": "18h30 - 20h00"
+        },
+        {
+          "jour": "samedi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Cours du soir",
+          "equipe": "Cours du soir",
+          "categorie": "Cours du soir",
+          "heure": "18h30 - 20h00"
+        },
+        {
+          "jour": "dimanche",
+          "debut": "10:00",
+          "fin": "11:30",
+          "discipline": "Yin & meditation",
+          "equipe": "Yin & meditation",
           "categorie": "Yin & meditation",
           "heure": "10h00 - 11h30"
         }
@@ -264,24 +359,40 @@
       "description": "Rugby club historique en pays de Savoie. École de rugby + équipe seniors Fédérale. Esprit valeurs rugby.",
       "planning": [
         {
-          "jour": "Mercredi",
+          "jour": "mercredi",
+          "debut": "14:30",
+          "fin": "16:00",
+          "discipline": "École de rugby U6-U10",
+          "equipe": "École de rugby U6-U10",
           "categorie": "École de rugby U6-U10",
           "heure": "14h30 - 16h00"
         },
         {
-          "jour": "Mercredi",
+          "jour": "mercredi",
+          "debut": "17:00",
+          "fin": "19:00",
+          "discipline": "U12/U14",
+          "equipe": "U12/U14",
           "categorie": "U12/U14",
           "heure": "17h00 - 19h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mardi",
+          "debut": "19:00",
+          "fin": "21:00",
+          "discipline": "Seniors Fédérale",
+          "equipe": "Seniors Fédérale",
           "categorie": "Seniors Fédérale",
           "heure": "19h00 - 21h00"
         },
         {
-          "jour": "Samedi",
-          "categorie": "Toutes catégories",
-          "heure": "Match"
+          "jour": "jeudi",
+          "debut": "19:00",
+          "fin": "21:00",
+          "discipline": "Seniors Fédérale",
+          "equipe": "Seniors Fédérale",
+          "categorie": "Seniors Fédérale",
+          "heure": "19h00 - 21h00"
         }
       ],
       "seance_essai": {

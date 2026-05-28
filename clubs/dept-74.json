@@ -23,27 +23,74 @@
       "description": "Escalade en salle (bloc + voie) et sorties falaise. Encadrants brevetés. Cadre exceptionnel au cœur des Alpes.",
       "planning": [
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mardi",
+          "debut": "17:30",
+          "fin": "19:00",
+          "discipline": "Enfants 8-12 ans",
+          "equipe": "Enfants 8-12 ans",
           "categorie": "Enfants 8-12 ans",
           "heure": "17h30 - 19h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "jeudi",
+          "debut": "17:30",
+          "fin": "19:00",
+          "discipline": "Enfants 8-12 ans",
+          "equipe": "Enfants 8-12 ans",
+          "categorie": "Enfants 8-12 ans",
+          "heure": "17h30 - 19h00"
+        },
+        {
+          "jour": "mardi",
+          "debut": "19:00",
+          "fin": "21:00",
+          "discipline": "Ados 13-17",
+          "equipe": "Ados 13-17",
           "categorie": "Ados 13-17",
           "heure": "19h00 - 21h00"
         },
         {
-          "jour": "Mercredi/Vendredi",
+          "jour": "jeudi",
+          "debut": "19:00",
+          "fin": "21:00",
+          "discipline": "Ados 13-17",
+          "equipe": "Ados 13-17",
+          "categorie": "Ados 13-17",
+          "heure": "19h00 - 21h00"
+        },
+        {
+          "jour": "mercredi",
+          "debut": "19:00",
+          "fin": "22:00",
+          "discipline": "Adultes tous niveaux",
+          "equipe": "Adultes tous niveaux",
           "categorie": "Adultes tous niveaux",
           "heure": "19h00 - 22h00"
         },
         {
-          "jour": "Samedi",
+          "jour": "vendredi",
+          "debut": "19:00",
+          "fin": "22:00",
+          "discipline": "Adultes tous niveaux",
+          "equipe": "Adultes tous niveaux",
+          "categorie": "Adultes tous niveaux",
+          "heure": "19h00 - 22h00"
+        },
+        {
+          "jour": "samedi",
+          "debut": "09:00",
+          "fin": "18:00",
+          "discipline": "Sortie falaise (avril-octobre)",
+          "equipe": "Sortie falaise (avril-octobre)",
           "categorie": "Sortie falaise (avril-octobre)",
           "heure": "9h00 - 18h00"
         },
         {
-          "jour": "Dimanche",
+          "jour": "dimanche",
+          "debut": "10:00",
+          "fin": "12:00",
+          "discipline": "Famille (parent + enfant)",
+          "equipe": "Famille (parent + enfant)",
           "categorie": "Famille (parent + enfant)",
           "heure": "10h00 - 12h00"
         }

@@ -23,27 +23,56 @@
       "description": "Hatha, vinyasa, yin et yoga prénatal. Petits groupes (max 12). Profs certifiés. Approche bienveillante.",
       "planning": [
         {
-          "jour": "Lundi",
+          "jour": "lundi",
+          "debut": "12:30",
+          "fin": "13:30",
+          "discipline": "Yoga pause déj tous niveaux",
+          "equipe": "Yoga pause déj tous niveaux",
           "categorie": "Yoga pause déj tous niveaux",
           "heure": "12h30 - 13h30"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mardi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Vinyasa intermédiaire",
+          "equipe": "Vinyasa intermédiaire",
           "categorie": "Vinyasa intermédiaire",
           "heure": "18h30 - 20h00"
         },
         {
-          "jour": "Mercredi",
+          "jour": "jeudi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "Vinyasa intermédiaire",
+          "equipe": "Vinyasa intermédiaire",
+          "categorie": "Vinyasa intermédiaire",
+          "heure": "18h30 - 20h00"
+        },
+        {
+          "jour": "mercredi",
+          "debut": "10:00",
+          "fin": "11:30",
+          "discipline": "Hatha doux & seniors",
+          "equipe": "Hatha doux & seniors",
           "categorie": "Hatha doux & seniors",
           "heure": "10h00 - 11h30"
         },
         {
-          "jour": "Samedi",
+          "jour": "samedi",
+          "debut": "09:00",
+          "fin": "10:30",
+          "discipline": "Vinyasa dynamique",
+          "equipe": "Vinyasa dynamique",
           "categorie": "Vinyasa dynamique",
           "heure": "9h00 - 10h30"
         },
         {
-          "jour": "Dimanche",
+          "jour": "dimanche",
+          "debut": "10:00",
+          "fin": "11:30",
+          "discipline": "Yin restorative",
+          "equipe": "Yin restorative",
           "categorie": "Yin restorative",
           "heure": "10h00 - 11h30"
         }

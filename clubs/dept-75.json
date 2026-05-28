@@ -23,22 +23,38 @@
       "description": "Club de football amateur fondé en 2008. Equipe seniors évoluant en R2 IDF. Esprit de groupe avant tout.",
       "planning": [
         {
-          "jour": "Mardi",
+          "jour": "mardi",
+          "debut": "19:00",
+          "fin": "21:00",
+          "discipline": "Seniors",
+          "equipe": "Seniors",
           "categorie": "Seniors",
           "heure": "19h00 - 21h00"
         },
         {
-          "jour": "Jeudi",
+          "jour": "jeudi",
+          "debut": "19:30",
+          "fin": "21:30",
+          "discipline": "Seniors",
+          "equipe": "Seniors",
           "categorie": "Seniors",
           "heure": "19h30 - 21h30"
         },
         {
-          "jour": "Samedi",
+          "jour": "samedi",
+          "debut": "14:00",
+          "fin": "16:00",
+          "discipline": "U15/U18",
+          "equipe": "U15/U18",
           "categorie": "U15/U18",
           "heure": "14h00 - 16h00"
         },
         {
-          "jour": "Dimanche",
+          "jour": "dimanche",
+          "debut": "10:00",
+          "fin": "12:00",
+          "discipline": "Match seniors",
+          "equipe": "Match seniors",
           "categorie": "Match seniors",
           "heure": "10h00 - 12h00"
         }
@@ -138,22 +154,101 @@
       "description": "Boxe anglaise et boxing fitness. Du débutant au pré-compétition. Coachs anciens pros. Vibe urbaine.",
       "planning": [
         {
-          "jour": "Lundi/Mercredi/Vendredi",
+          "jour": "lundi",
+          "debut": "07:00",
+          "fin": "08:00",
+          "discipline": "Morning boxing avant boulot",
+          "equipe": "Morning boxing avant boulot",
           "categorie": "Morning boxing avant boulot",
           "heure": "7h00 - 8h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mercredi",
+          "debut": "07:00",
+          "fin": "08:00",
+          "discipline": "Morning boxing avant boulot",
+          "equipe": "Morning boxing avant boulot",
+          "categorie": "Morning boxing avant boulot",
+          "heure": "7h00 - 8h00"
+        },
+        {
+          "jour": "vendredi",
+          "debut": "07:00",
+          "fin": "08:00",
+          "discipline": "Morning boxing avant boulot",
+          "equipe": "Morning boxing avant boulot",
+          "categorie": "Morning boxing avant boulot",
+          "heure": "7h00 - 8h00"
+        },
+        {
+          "jour": "mardi",
+          "debut": "12:30",
+          "fin": "13:30",
+          "discipline": "Lunch session",
+          "equipe": "Lunch session",
           "categorie": "Lunch session",
           "heure": "12h30 - 13h30"
         },
         {
-          "jour": "Lundi à vendredi",
+          "jour": "jeudi",
+          "debut": "12:30",
+          "fin": "13:30",
+          "discipline": "Lunch session",
+          "equipe": "Lunch session",
+          "categorie": "Lunch session",
+          "heure": "12h30 - 13h30"
+        },
+        {
+          "jour": "lundi",
+          "debut": "18:00",
+          "fin": "22:00",
+          "discipline": "Cours classiques tous niveaux",
+          "equipe": "Cours classiques tous niveaux",
           "categorie": "Cours classiques tous niveaux",
           "heure": "18h00 - 22h00"
         },
         {
-          "jour": "Samedi",
+          "jour": "mardi",
+          "debut": "18:00",
+          "fin": "22:00",
+          "discipline": "Cours classiques tous niveaux",
+          "equipe": "Cours classiques tous niveaux",
+          "categorie": "Cours classiques tous niveaux",
+          "heure": "18h00 - 22h00"
+        },
+        {
+          "jour": "mercredi",
+          "debut": "18:00",
+          "fin": "22:00",
+          "discipline": "Cours classiques tous niveaux",
+          "equipe": "Cours classiques tous niveaux",
+          "categorie": "Cours classiques tous niveaux",
+          "heure": "18h00 - 22h00"
+        },
+        {
+          "jour": "jeudi",
+          "debut": "18:00",
+          "fin": "22:00",
+          "discipline": "Cours classiques tous niveaux",
+          "equipe": "Cours classiques tous niveaux",
+          "categorie": "Cours classiques tous niveaux",
+          "heure": "18h00 - 22h00"
+        },
+        {
+          "jour": "vendredi",
+          "debut": "18:00",
+          "fin": "22:00",
+          "discipline": "Cours classiques tous niveaux",
+          "equipe": "Cours classiques tous niveaux",
+          "categorie": "Cours classiques tous niveaux",
+          "heure": "18h00 - 22h00"
+        },
+        {
+          "jour": "samedi",
+          "debut": "10:00",
+          "fin": "13:00",
+          "discipline": "Open gym + sparring contrôlé",
+          "equipe": "Open gym + sparring contrôlé",
           "categorie": "Open gym + sparring contrôlé",
           "heure": "10h00 - 13h00"
         }

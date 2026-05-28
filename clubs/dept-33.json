@@ -23,24 +23,40 @@
       "description": "Rugby club historique de l'agglo bordelaise. École de rugby labellisée FFR. Ambiance familiale.",
       "planning": [
         {
-          "jour": "Mercredi",
+          "jour": "mercredi",
+          "debut": "14:00",
+          "fin": "16:00",
+          "discipline": "École de rugby U6-U10",
+          "equipe": "École de rugby U6-U10",
           "categorie": "École de rugby U6-U10",
           "heure": "14h00 - 16h00"
         },
         {
-          "jour": "Mercredi",
+          "jour": "mercredi",
+          "debut": "17:00",
+          "fin": "19:00",
+          "discipline": "U12/U14",
+          "equipe": "U12/U14",
           "categorie": "U12/U14",
           "heure": "17h00 - 19h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mardi",
+          "debut": "19:00",
+          "fin": "21:00",
+          "discipline": "Seniors Fédérale 3",
+          "equipe": "Seniors Fédérale 3",
           "categorie": "Seniors Fédérale 3",
           "heure": "19h00 - 21h00"
         },
         {
-          "jour": "Samedi",
-          "categorie": "Toutes catégories à domicile",
-          "heure": "Match"
+          "jour": "jeudi",
+          "debut": "19:00",
+          "fin": "21:00",
+          "discipline": "Seniors Fédérale 3",
+          "equipe": "Seniors Fédérale 3",
+          "categorie": "Seniors Fédérale 3",
+          "heure": "19h00 - 21h00"
         }
       ],
       "seance_essai": {

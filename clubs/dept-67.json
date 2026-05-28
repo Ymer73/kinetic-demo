@@ -23,27 +23,101 @@
       "description": "Judo, jujitsu et taïso. Méthode traditionnelle. Préparation ceintures + compétition pour ceux qui le souhaitent.",
       "planning": [
         {
-          "jour": "Lundi/Mercredi/Vendredi",
+          "jour": "lundi",
+          "debut": "17:00",
+          "fin": "18:00",
+          "discipline": "Baby judo (4-6 ans)",
+          "equipe": "Baby judo (4-6 ans)",
           "categorie": "Baby judo (4-6 ans)",
           "heure": "17h00 - 18h00"
         },
         {
-          "jour": "Lundi/Mercredi/Vendredi",
+          "jour": "mercredi",
+          "debut": "17:00",
+          "fin": "18:00",
+          "discipline": "Baby judo (4-6 ans)",
+          "equipe": "Baby judo (4-6 ans)",
+          "categorie": "Baby judo (4-6 ans)",
+          "heure": "17h00 - 18h00"
+        },
+        {
+          "jour": "vendredi",
+          "debut": "17:00",
+          "fin": "18:00",
+          "discipline": "Baby judo (4-6 ans)",
+          "equipe": "Baby judo (4-6 ans)",
+          "categorie": "Baby judo (4-6 ans)",
+          "heure": "17h00 - 18h00"
+        },
+        {
+          "jour": "lundi",
+          "debut": "18:00",
+          "fin": "19:00",
+          "discipline": "Enfants 7-10 ans",
+          "equipe": "Enfants 7-10 ans",
           "categorie": "Enfants 7-10 ans",
           "heure": "18h00 - 19h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "mercredi",
+          "debut": "18:00",
+          "fin": "19:00",
+          "discipline": "Enfants 7-10 ans",
+          "equipe": "Enfants 7-10 ans",
+          "categorie": "Enfants 7-10 ans",
+          "heure": "18h00 - 19h00"
+        },
+        {
+          "jour": "vendredi",
+          "debut": "18:00",
+          "fin": "19:00",
+          "discipline": "Enfants 7-10 ans",
+          "equipe": "Enfants 7-10 ans",
+          "categorie": "Enfants 7-10 ans",
+          "heure": "18h00 - 19h00"
+        },
+        {
+          "jour": "mardi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "11-14 ans",
+          "equipe": "11-14 ans",
           "categorie": "11-14 ans",
           "heure": "18h30 - 20h00"
         },
         {
-          "jour": "Mardi/Jeudi",
+          "jour": "jeudi",
+          "debut": "18:30",
+          "fin": "20:00",
+          "discipline": "11-14 ans",
+          "equipe": "11-14 ans",
+          "categorie": "11-14 ans",
+          "heure": "18h30 - 20h00"
+        },
+        {
+          "jour": "mardi",
+          "debut": "20:00",
+          "fin": "22:00",
+          "discipline": "Adultes + compétition",
+          "equipe": "Adultes + compétition",
           "categorie": "Adultes + compétition",
           "heure": "20h00 - 22h00"
         },
         {
-          "jour": "Samedi",
+          "jour": "jeudi",
+          "debut": "20:00",
+          "fin": "22:00",
+          "discipline": "Adultes + compétition",
+          "equipe": "Adultes + compétition",
+          "categorie": "Adultes + compétition",
+          "heure": "20h00 - 22h00"
+        },
+        {
+          "jour": "samedi",
+          "debut": "10:00",
+          "fin": "11:30",
+          "discipline": "Taïso (préparation physique)",
+          "equipe": "Taïso (préparation physique)",
           "categorie": "Taïso (préparation physique)",
           "heure": "10h00 - 11h30"
         }

@@ -23,22 +23,38 @@
       "description": "Club de running, athlétisme et trail. Du 5km au marathon, du sprint au demi-fond. Coach diplômé FFA.",
       "planning": [
         {
-          "jour": "Mardi",
+          "jour": "mardi",
+          "debut": "19:00",
+          "fin": "20:30",
+          "discipline": "Séance fractionné piste",
+          "equipe": "Séance fractionné piste",
           "categorie": "Séance fractionné piste",
           "heure": "19h00 - 20h30"
         },
         {
-          "jour": "Jeudi",
+          "jour": "jeudi",
+          "debut": "19:00",
+          "fin": "20:30",
+          "discipline": "Endurance + foncier",
+          "equipe": "Endurance + foncier",
           "categorie": "Endurance + foncier",
           "heure": "19h00 - 20h30"
         },
         {
-          "jour": "Samedi",
+          "jour": "samedi",
+          "debut": "09:30",
+          "fin": "11:30",
+          "discipline": "Sortie longue route ou trail",
+          "equipe": "Sortie longue route ou trail",
           "categorie": "Sortie longue route ou trail",
           "heure": "9h30 - 11h30"
         },
         {
-          "jour": "Dimanche",
+          "jour": "dimanche",
+          "debut": "09:00",
+          "fin": "09:00",
+          "discipline": "Compétitions (variable)",
+          "equipe": "Compétitions (variable)",
           "categorie": "Compétitions (variable)",
           "heure": "9h00"
         }
