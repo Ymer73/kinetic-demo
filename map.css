@@ -476,14 +476,7 @@ body {
 #mv2-map {
   position: absolute;
   inset: 0;
-  /* Fallback fond : carte de France stylisée en SVG (data URL inline)
-     Affichée si les tiles Leaflet sont bloqués par un ad-blocker. */
-  background-color: #f3eee0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'><defs><pattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40' fill='none' stroke='%23e0d8c8' stroke-width='.5'/></pattern></defs><rect width='800' height='800' fill='%23f3eee0'/><rect width='800' height='800' fill='url(%23grid)'/><path d='M390 80 C 360 120 320 140 290 200 C 270 250 230 270 220 320 C 215 360 250 380 240 420 C 230 470 270 510 290 560 C 300 600 280 650 320 680 C 360 700 410 720 440 700 C 480 680 510 700 540 660 C 580 620 560 580 580 540 C 620 500 600 460 620 420 C 640 380 600 360 590 320 C 580 280 600 260 580 220 C 560 180 500 160 470 130 C 440 100 410 80 390 80 Z' fill='%23dfd5be' stroke='%23c7baa3' stroke-width='2' opacity='.65'/><text x='400' y='430' font-family='Bebas Neue,Impact,sans-serif' font-size='42' fill='%23a99d83' text-anchor='middle' letter-spacing='4'>FRANCE</text></svg>");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
+  background: #ecebe5;
 }
 .tint-pastel .leaflet-tile-pane {
   filter: hue-rotate(260deg) saturate(.55) brightness(1.04) contrast(.94);

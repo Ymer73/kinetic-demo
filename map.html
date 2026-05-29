@@ -384,7 +384,7 @@
 
   // ── STATE ─────────────────────────────────────────────────────────
   const state = {
-    dept: initDept || (centerLat != null ? findDeptForPoint(centerLat, centerLon) : null) || 'FR',
+    dept: initDept || (centerLat != null ? findDeptForPoint(centerLat, centerLon) : null) || '73',
     sportSlugs: initSport ? [initSport] : [],
     query: '',
     allClubs: [],
@@ -455,6 +455,9 @@
     maxZoom: 19,
   });
   tileLayer.addTo(map);
+
+  // Expose pour que demo-mode.js puisse appeler invalidateSize après injection du bandeau
+  window._kineticMap = map;
 
   // Force un re-render des tiles après que la carte soit vraiment visible
   setTimeout(() => { map.invalidateSize(); tileLayer.redraw(); }, 600);
@@ -1277,7 +1280,7 @@
       drawRadiusCircle();
     } else {
       // Mode classique : un seul dept
-      await loadDept(state.dept || 'FR');
+      await loadDept(state.dept || '73');
     }
     buildSportDropdown();
     applyFilters();
