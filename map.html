@@ -458,10 +458,21 @@
 
   // Expose pour que demo-mode.js puisse appeler invalidateSize après injection du bandeau
   window._kineticMap = map;
+  window._kineticInitBounds = null; // sera assigné après fitBounds initial
 
   // Force un re-render des tiles après que la carte soit vraiment visible
-  setTimeout(() => { map.invalidateSize(); tileLayer.redraw(); }, 600);
-  setTimeout(() => { map.invalidateSize(); tileLayer.redraw(); }, 1800);
+  // On re-fit les bounds aussi pour recadrer correctement après resize du conteneur
+  function _kineticResync() {
+    map.invalidateSize();
+    if (window._kineticInitBounds) {
+      map.fitBounds(window._kineticInitBounds, { padding: [40, 40] });
+    }
+    tileLayer.redraw();
+  }
+  setTimeout(_kineticResync, 300);
+  setTimeout(_kineticResync, 900);
+  setTimeout(_kineticResync, 1800);
+  window._kineticResync = _kineticResync;
   document.getElementById('mv2-map').classList.add('tint-pastel');
 
   // Cluster group
@@ -487,6 +498,7 @@
   // Le radius circle (s'il existe) override ce cadrage dans initLoad().
   const _initBounds = DEPT_BOUNDS[state.dept] || DEPT_BOUNDS['73'];
   map.fitBounds(_initBounds, { padding: [40, 40] });
+  window._kineticInitBounds = _initBounds;
 
   const markersById = {};
 

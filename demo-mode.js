@@ -48,11 +48,13 @@
     }
 
     // Force Leaflet (et autres maps) à recalculer leur taille après le décalage
-    // du bandeau démo. Sans ça, les tiles restent partielles.
+    // du bandeau démo. Sans ça, les tiles restent partielles ou décalées.
     const triggerResize = () => {
       window.dispatchEvent(new Event('resize'));
-      // Leaflet : si une map existe, on appelle invalidateSize directement
-      if (window.L && window._kineticMap && window._kineticMap.invalidateSize) {
+      // Leaflet : on appelle _kineticResync qui fait invalidateSize + fitBounds + redraw
+      if (window._kineticResync) {
+        window._kineticResync();
+      } else if (window.L && window._kineticMap && window._kineticMap.invalidateSize) {
         window._kineticMap.invalidateSize();
       }
     };
