@@ -166,8 +166,8 @@ const FED_PHOTOS = {
 };
 
 // Base URL Unsplash CDN (libre de droits, aucune attribution requise)
-const UNSPLASH_BASE = 'https://images.unsplash.com/';
-const UNSPLASH_PARAMS = '?auto=format&fit=crop&w=800&h=400&q=80';
+const FED_UNSPLASH_BASE = 'https://images.unsplash.com/';
+const FED_UNSPLASH_PARAMS = '?auto=format&fit=crop&w=800&h=400&q=80';
 
 /**
  * Retourne l'URL de la photo Unsplash pour un sport.
@@ -179,17 +179,17 @@ function getFedPhoto(sport) {
   // Priorité 1 : fedSlug de data.js
   const slug1 = sport.meta?.fedSlug;
   if (slug1 && FED_PHOTOS[slug1]) {
-    return UNSPLASH_BASE + FED_PHOTOS[slug1] + UNSPLASH_PARAMS;
+    return FED_UNSPLASH_BASE + FED_PHOTOS[slug1] + FED_UNSPLASH_PARAMS;
   }
   // Priorité 2 : fed de k-data.js (en minuscules)
   const slug2 = sport.fed?.toLowerCase().replace(/\s+/g, '');
   if (slug2 && FED_PHOTOS[slug2]) {
-    return UNSPLASH_BASE + FED_PHOTOS[slug2] + UNSPLASH_PARAMS;
+    return FED_UNSPLASH_BASE + FED_PHOTOS[slug2] + FED_UNSPLASH_PARAMS;
   }
   // Priorité 3 : acronyme dans meta
   const slug3 = sport.meta?.acronyme?.toLowerCase().replace(/\s+/g, '');
   if (slug3 && FED_PHOTOS[slug3]) {
-    return UNSPLASH_BASE + FED_PHOTOS[slug3] + UNSPLASH_PARAMS;
+    return FED_UNSPLASH_BASE + FED_PHOTOS[slug3] + FED_UNSPLASH_PARAMS;
   }
   return null;
 }

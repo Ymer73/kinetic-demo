@@ -414,7 +414,8 @@ a { color: inherit; text-decoration: none; }
 
 /* ========== A11Y UTILITY : visually-hidden ========== */
 /* Pour les titres / labels destines aux lecteurs d'ecran uniquement (h1 SEO sans casser le design) */
-.sr-only {
+.sr-only,
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
