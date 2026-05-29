@@ -384,7 +384,7 @@
 
   // ── STATE ─────────────────────────────────────────────────────────
   const state = {
-    dept: initDept || (centerLat != null ? findDeptForPoint(centerLat, centerLon) : null) || '73',
+    dept: initDept || (centerLat != null ? findDeptForPoint(centerLat, centerLon) : null) || 'FR',
     sportSlugs: initSport ? [initSport] : [],
     query: '',
     allClubs: [],
@@ -496,7 +496,11 @@
   map.addLayer(cluster);
   // Cadrage initial : si on a un dept dans l'URL on l'utilise, sinon défaut Savoie
   // Le radius circle (s'il existe) override ce cadrage dans initLoad().
-  const _initBounds = DEPT_BOUNDS[state.dept] || DEPT_BOUNDS['73'];
+  // Bounds par défaut pour la France entière (SW [lat,lon], NE [lat,lon])
+  const FRANCE_BOUNDS = [[42.3, -5.0], [51.1, 9.5]];
+  const _initBounds = state.dept === 'FR'
+    ? FRANCE_BOUNDS
+    : (DEPT_BOUNDS[state.dept] || FRANCE_BOUNDS);
   map.fitBounds(_initBounds, { padding: [40, 40] });
   window._kineticInitBounds = _initBounds;
 
@@ -1292,7 +1296,7 @@
       drawRadiusCircle();
     } else {
       // Mode classique : un seul dept
-      await loadDept(state.dept || '73');
+      await loadDept(state.dept || 'FR');
     }
     buildSportDropdown();
     applyFilters();
