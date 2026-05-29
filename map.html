@@ -496,8 +496,7 @@
   map.addLayer(cluster);
   // Cadrage initial : si on a un dept dans l'URL on l'utilise, sinon défaut Savoie
   // Le radius circle (s'il existe) override ce cadrage dans initLoad().
-  // Bounds par défaut pour la France entière (SW [lat,lon], NE [lat,lon])
-  const FRANCE_BOUNDS = [[42.3, -5.0], [51.1, 9.5]];
+  // FRANCE_BOUNDS est défini plus haut dans le scope (vers ligne 299)
   const _initBounds = state.dept === 'FR'
     ? FRANCE_BOUNDS
     : (DEPT_BOUNDS[state.dept] || FRANCE_BOUNDS);
